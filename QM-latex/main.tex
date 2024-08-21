@@ -1,0 +1,90 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\usepackage{xcolor}
+\setcounter{secnumdepth}{0}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{ulem}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand{\hcancel}[1]{%
+    \tikz[baseline=(tocancel.base)]{
+        \node[inner sep=0pt,outer sep=0pt] (tocancel) {#1};
+        \draw[black] (tocancel.south west) -- (tocancel.north east);
+    }%
+}%
+\definecolor{linkcolor}{HTML}{3333ff} % цвет ссылок
+\definecolor{urlcolor}{HTML}{3333ff} % цвет гиперссылок
+\hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
+\definecolor{rosewood}{rgb}{0.4, 0.0, 0.04}
+\definecolor{myolive}{RGB}{101, 136, 100}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[left=2cm,right=2cm,
+top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\graphicspath{}
+\DeclareGraphicsExtensions{.pdf, .png, .jpg}
+\newcommand{\excersize}[2]
+{
+\tcbset{colframe=#2,colback=white,center title}
+\tcbox[arc=0mm]{\textit{\large{#1}}}
+}
+\newcommand{\csquare}[1]
+{
+\begin{flushright}
+$\crule[#1]{0.4cm}{0.4cm}$
+\end{flushright}
+}
+
+\begin{document}
+    \tableofcontents
+    \include{class 1/class 1.tex}
+    \newpage
+    \include{class 2/class 2.tex}
+    \newpage
+    \include{class 3/class 3.tex}
+    \newpage
+    \include{class 4/class 4.tex}
+    \newpage
+    \include{class 5/class 5.tex}
+    \newpage
+    \include{class 6/class 6.tex}
+    \newpage
+    \include{class 7/class 7.tex}
+    \newpage 
+    \include{class 8/class 8.tex}
+    \newpage
+    \include{class 9/class 9.tex}
+    \newpage
+    \include{class 10/class 10.tex}
+    \newpage
+    \include{class 11/class 11.tex}
+    \newpage
+    
+    \appendix
+    \include{appendix/Appendix A.tex}
+    \newpage
+    % \include{appendix/Appendix B.tex}
+    % \newpage
+    \include{appendix/Appendix C.tex}
+    \newpage
+\end{document}
+
+% TODO:
+% 1) написать 10 сем (задачи 2.6.1+, 2.6.7-, 2.6.8+, 4.33+) :*
+% 2) написать предисловие/титульник
+% 3) написать приложение B
+% 4) проверить 1 (+--), 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 семинар. :*
+% 5) Сделать рисунки для семинаров 10(график для функций Бесселя) :*
