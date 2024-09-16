@@ -65,9 +65,110 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
 \end{center}
 Запишем уравнение Шрёдингера для трехмерного изотропного осциллятора:
 \[
-\left[\frac{\hbar^2}{2m}\Delta + \frac{m\omega^2\Vec{r}^2}{2}\right]\psi(\Vec{r}) = E\psi(\Vec{r})
+\left[-\frac{\hbar^2}{2m}\Delta + \frac{m\omega^2 r^2}{2}\right]\psi(\Vec{r}) = E\psi(\Vec{r})
 \]
-В декартовой системе координат данная задача была решена в семинаре 6.
+В декартовой системе данная задача была решена в семинаре 6, поэтому сейчас посмотрим, что происходит при использовании сферических координат. Сначала выпишем явный вид лапласиана:
+\[
+\Delta = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) + \frac{1}{r^2 \sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2}{\partial\phi^2}
+\]
+В 7 семинаре в упражнении 24 было показано, что оператор квадрата момента импульса $\hat{L}^2$ выглядит так:
+\[
+\hat{L}^2 = -\hbar^2\left[\frac{1}{\sin\theta}\frac{\partial}{\partial \theta}\left( \sin\theta\frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]
+\]
+Написанное в квадратных скобках очень похоже на последние два слагаемых лапласиана, поэтому можем его немного преобразовать:
+\[
+\Delta = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) - \frac{\hat{L}^2}{\hbar^2 r^2} = \frac{1}{r^2}\left(2r\frac{\partial}{\partial r} + r^2 \frac{\partial^2}{\partial r^2}\right) - \frac{\hat{L}^2}{\hbar^2 r^2} = \frac{\partial^2}{\partial r^2} + \frac{2}{r}\frac{\partial}{\partial r} - \frac{\hat{L}^2}{\hbar^2 r^2}
+\]
+Поработаем теперь над уравнением Шрёдингера:
+\begin{gather*}
+    \left. -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2}{mr}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2mr^2}\psi + \frac{m\omega^2 r^2}{2}\psi - E\psi = 0 \; \right| \cdot r^2\\
+    -\frac{\hbar^2 r^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2 r}{m}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2m}\psi + \frac{m\omega^2 r^4}{2}\psi - Er^2\psi = 0
+\end{gather*}
+В данной записи становится очевидно, что волновую функцию можно разделить на радиальную и угловую части:
+\[
+\psi(r, \theta, \phi) = R(r) \cdot Y(\theta, \phi)
+\]
+Подставим преобразованную волновую функцию в уравнение Шрёдингера:
+\begin{gather*}
+    \left. -Y\frac{\hbar^2 r^2}{2m}\frac{d^2R}{dr^2} - Y\frac{\hbar^2 r}{m}\frac{dR}{dr} + R\frac{\hat{L}^2Y}{2m} + \frac{m\omega^2r^4}{2}RY - Er^2RY = 0 \right| \cdot \frac{1}{YR} \\
+    -\frac{1}{R}\frac{\hbar^2 r^2}{2m}\frac{d^2R}{dr^2} - \frac{1}{R}\frac{\hbar^2r}{m}\frac{dR}{dr} + \frac{1}{Y}\frac{\hat{L}^2Y}{2m} + \frac{m\omega^2r^4}{2} - Er^2 = 0
+\end{gather*}
+Мы уже знаем, что для собственных функций оператора квадрата углового момента выполняется $\hat{L}^2Y(\theta, \phi) = \hbar^2l(l+1)Y(\theta, \phi)$:
+\[
+-\frac{1}{R}\frac{\hbar^2 r^2}{2m}\frac{d^2R}{dr^2} - \frac{1}{R}\frac{\hbar^2r}{m}\frac{dR}{dr} + \frac{\hbar^2 l(l+1)}{2m} + \frac{m\omega^2r^4}{2} - Er^2 = 0
+\]
+Получается, теперь у нас осталось только уравнение на радиальную часть. Попробуем его преобразовать и решить. Для начала домножим обе части на $-\frac{2m}{\hbar^2r^2}R$:
+\[
+\frac{d^2R}{dr^2} + \frac{2}{r}\frac{dR}{dr} - \frac{m^2\omega^2r^2}{\hbar^2}R + \frac{2mE}{\hbar^2}R - \frac{l(l+1)}{r^2}R = 0
+\]
+Обезразмерим данное уравнение, перейдя от $r$ к $z = \frac{r}{\rho}$, где $\rho = \sqrt{\frac{\hbar}{m\omega}}$ и посмотрим на асимптотическое поведение искомой радиальной функции. Найдем связь между старыми и новыми производными и подставим их:
+\begin{gather*}
+    \frac{d}{dr} = \frac{1}{\rho}\frac{d}{dz}, \; \frac{d^2}{dr^2} = \frac{1}{\rho^2}\frac{d^2}{dz^2} \\
+    \frac{1}{\rho^2}\frac{d^2R}{dz^2} + \frac{1}{\rho^2}\frac{2}{z}\frac{dR}{dz} - \frac{\rho^2 z^2}{\rho^4}R + \frac{2mE}{\hbar^2}R - \frac{l(l+1)}{\rho^2z^2}R = 0 \\
+    \frac{d^2R}{dz^2} + \frac{2}{z}\frac{dR}{dz} - z^2R + \frac{2\rho^2mE}{\hbar^2}R - \frac{l(l+1)}{z^2}R = 0
+\end{gather*}
+При $z \to \infty$:
+\[
+\frac{d^2R}{dz^2} - z^2R = 0 \implies R(z) \sim e^{-\frac{z^2}{2}}
+\]
+При $z \to 0$:
+\begin{gather*}
+    \frac{d^2R}{dz^2} + \frac{2}{z}\frac{dR}{dz} - \frac{l(l+1)}{z^2}R = 0 \implies R(z) \sim z^s \\
+    s(s-1)z^{s-2} + 2sz^{s-2} - l(l+1)z^{s-2} = 0 \implies \\
+    \implies s(s+1) = l(l+1) \implies s = l \implies R(z) \sim z^l
+\end{gather*}
+Понимая предельное поведение функции, представим её в виде ряда и посчитаем её первые производные:
+\begin{gather*}
+    R(z) = z^l e^{-\frac{z^2}{2}}\sum_{k=0}^\infty a_k z^k = \sum_{k=0}^\infty a_k z^{k+l} e^{-\frac{z^2}{2}} \\
+    \frac{dR}{dz} = \sum_{k=0}^\infty a_k\left[(l+k)z^{l+k-1} - z^{l+k+1}\right]e^{-\frac{z^2}{2}} \\
+    \frac{d^2R}{dr^2} = \sum_{k = 0}^\infty a_k \left[(l+k)(l+k-1)z^{l+k-2} - (2l+2k+1)z^{l+k} + z^{l+k+2}\right]e^{-\frac{z^2}{2}}
+\end{gather*}
+Полученные ряды можно подставлять назад в радиальное уравнение:
+\begin{gather*}
+    \sum_{k=0}^\infty a_k \biggl[ (l+k)(l+k-1)z^{l+k-2} - (2l+2k+1)z^{l+k}+z^{l+k+2} + 2(l+k)z^{l+k-2} - \\ 
+    - 2z^{l+k} - z^{l+k+2} - l(l+1)z^{l+k-2} + \frac{2E}{\hbar\omega} z^{l+k} \biggr] e^{-\frac{z^2}{2}} = 0
+\end{gather*}
+Множитель $e^{-\frac{z^2}{2}}$ является общим для всех слагаемых и положителен для всех действительных чисел, поэтому на него можно сократить. Кроме этого, можем привести подобные и получить достаточно компактное уравнение:
+\[
+\sum_{k=0}^\infty a_k \left[\left(\frac{2E}{\hbar\omega} - 2l - 2k - 3\right)z^{l+k} + k(2l+k+1) z^{l+k-2}\right] = 0
+\]
+Под знаком суммы мы видим, что $z$ входит в неё с двумя разными показателями степени. В таком виде анализировать это выражение не очень удобно, поэтому сведём данную сумму к привычному виду степенного ряда
+\begin{gather*}
+    \sum_{k=0}^\infty a_k\left(\frac{2E}{\hbar\omega} - 2l - 2k -3\right)z^{l+k} + \sum_{k=0}^\infty a_k k(2l+k+1)z^{l+k-2} = \\
+    = \sum_{k=0}^\infty a_k\left(\frac{2E}{\hbar\omega} - 2l - 2k -3\right)z^{l+k} + \sum_{k=-2}^\infty a_{k+2}(2+k)(2l+k+3)z^{l+k} = \\
+    = a_0\cdot0 + a_1(2l+2)z^{l-1} + \sum_{k=0}^\infty \left[a_k\left(\frac{2E}{\hbar\omega} - 2l - 2k - 3\right) + a_{k+2}(2+k)(2l+k+3)\right]z^{l+k} = 0
+\end{gather*}
+Так как данное уравнение должно быть верным для любого $z$, занулим все коэффициенты данного ряда. В частности, очевидно, что $a_1 = 0$. Для остальных членов запишем
+\begin{gather*}
+    a_{k+2}(2+k)(2l+2k+3) = -a_k\left(\frac{2E}{\hbar\omega-2l-2k-3}\right) \\
+    a_{k+2} = -a_k\frac{\frac{2E}{\hbar\omega}-2l-2k-3}{(2+k)(2l+k+3)}
+\end{gather*}
+В данной записи становится понятно, что все нечетные коэффициенты $a_k$ тождественно равны нулю. Заметим, что при больших $k$ $a_{k+2} \approx -\frac{a_k}{k}$, что делает наш ряд расходящимся. Получается, мы должны "обрубить" ряд, обнуляя все слагаемые, начиная с некоторого $k = n_k = 0, 2, 4 \dots$:
+\begin{gather*}
+    \frac{2E}{\hbar\omega}-2l-2n_k-3 = 0\\
+    E = \left(l+n_k+\frac{3}{2}\right)\hbar\omega
+\end{gather*}
+Видно, что выражение для энергии получилось точно таким же, как и при решении данной задачи в декартовой системе координат. Теперь, подставим полученное выражение для энергии назад в рекурсивное соотношение для коэффициентов:
+\[
+a_{k+2} = a_k\frac{2(k-n_k)}{(2+k)(2l+k+3)}
+\]
+Наконец, для большего удобства, переобозначим $k\rightarrow2k, n_k\rightarrow2n_k$ и выпишем решение радиального уравнения вместе с выражением для энергии:
+\begin{align*}
+    &a_{k+1} = a_k\frac{k-n}{\left(1+k\right)\left(l+k+\frac{3}{2}\right)} \\
+    &R(z) = \sum_{k=0}^\infty a_k z^{2k+l} e^{-\frac{z^2}{2}}, \text{ где } z = \frac{r}{\rho}, \rho = \sqrt{\frac{\hbar}{m\omega}} \\
+    &E = \left(l+2n_k+\frac{3}{2}\right)\hbar\omega
+\end{align*}
+Для того, чтобы найти кратность вырождения, нужно вспомнить, что в исходном уравнении Шрёдингера была еще и угловая часть, для нахождения которой нужно найти собственные функции оператора $\hat{L}^2$. Процесс поиска подробно описан в \hyperref[appendix:A]{Приложении А}. Здесь же выпишем только результат:
+\[
+Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m}\theta}\,\frac{d^{l-m}}{d(\cos\theta)^{l-m}}\sin^{2l}\theta e^{im\phi},
+\]
+где $\mathcal{N}_l = (-1)^l \sqrt{\frac{2l+1}{4\pi}}\frac{1}{2^l l!}$ - коэффициент нормировки. $l$ и $m$ -- орбитальное и магнитное квантовые числа. Вводя еще и главное квантовое число $n=2k+l=2n_k+l$, мы понимаем, что каждым фиксированным $n$ и $l$ соответствуют $2l+1$ разных состояний (так как $m$ -- целое число, удовлетворящее системе неравенств $-l\leq m\leq l$). Учитывая также, что для четных $n$ $l = 0, 2, \dots, n-2, n$, а для нечетных -- $l = 1, 3, \dots, n-2, n$. Тогда, кратность вырождения:
+\[
+\sum_l (2l+1) = \frac{(n+1)(n+2)}{2}
+\]
+
+
+
 \csquare{darklavender}
 
 \excersize{Упражнение №33}{darklavender}
@@ -142,6 +243,14 @@ E_{nl} = \frac{\pi^2\hbar^2}{2ma^2}\lambda_{nl}^2;\quad R_{nl}(r) =
 1s,\,1p,\,1d,\,2s,\,1f,\,2p,\,1g,\,2d,\,1h,\,3s,\,2f,\, ...,
 \]
 где число перед буквой обозначает номер уровня $n$, а буквы $s,\,p,\,d,\,f,\,g,\,h$ описывают состояния с орбитальным моментом $l=1,\,2,\,3,\,4,\,5,\,6,\,...$, соответственно. На графике \ref{fig 10.1} можно увидеть их расположение.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{class 10/images/bessel.jpg}
+\caption{Первые сферические функции Бесселя}
+\label{fig 10.1}
+\end{figure}
+
 \csquare{darklavender}
 
 
