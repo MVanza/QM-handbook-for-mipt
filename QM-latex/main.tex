@@ -7,8 +7,10 @@
 \usepackage[symbol]{footmisc}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \usepackage{xcolor}
-\setcounter{secnumdepth}{0}
 \usepackage{graphicx}
+\usepackage[sorting=none, style=numeric-comp]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{csquotes}
 \usepackage{array}
 \usepackage{ulem}
 \usepackage{subfig}
@@ -20,6 +22,7 @@
         \draw[black] (tocancel.south west) -- (tocancel.north east);
     }%
 }%
+\setcounter{secnumdepth}{0}
 \definecolor{linkcolor}{HTML}{3333ff} % цвет ссылок
 \definecolor{urlcolor}{HTML}{3333ff} % цвет гиперссылок
 \hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
@@ -50,43 +53,45 @@ $\crule[#1]{0.4cm}{0.4cm}$
 
 \begin{document}
     \tableofcontents
-    \include{other/preface.tex}
+    \include{other/preface.tex} 
     \newpage
-    \include{class 1/class 1.tex}
+    \include{class_1/class_1.tex}
     \newpage
-    \include{class 2/class 2.tex}
+    \include{class_2/class_2.tex}
     \newpage
-    \include{class 3/class 3.tex}
+    \include{class_3/class_3.tex}
     \newpage
-    \include{class 4/class 4.tex}
+    \include{class_4/class_4.tex}
     \newpage
-    \include{class 5/class 5.tex}
+    \include{class_5/class_5.tex}
     \newpage
-    \include{class 6/class 6.tex}
+    \include{class_6/class_6.tex}
     \newpage
-    \include{class 7/class 7.tex}
+    \include{class_7/class_7.tex}
     \newpage 
-    \include{class 8/class 8.tex}
+    \include{class_8/class_8.tex}
     \newpage
-    \include{class 9/class 9.tex}
+    \include{class_9/class_9.tex}
     \newpage
-    \include{class 10/class 10.tex}
+    \include{class_10/class_10.tex}
     \newpage
-    \include{class 11/class 11.tex}
+    \include{class_11/class_11.tex}
     \newpage
     
     \appendix
-    \include{appendix/Appendix A.tex}
+    \include{appendix/Appendix_A.tex}
     \newpage
-    \include{appendix/Appendix B.tex}
+    \include{appendix/Appendix_B.tex}
     \newpage
-    \include{appendix/Appendix C.tex}
+    \include{appendix/Appendix_C.tex}
     \newpage
     \include{other/acknowledgements.tex}
     \newpage
+    \printbibliography
+    \addcontentsline{toc}{section}{Список литературы}
 \end{document}
 
 % TODO:
 % т -- текст, ф -- формулы, р -- редактура.
-% 1) проверить 1 (т[+], ф[+], р[]), 2(т[], ф[], р[]), 3(т[], ф[], р[]), 4(т[], ф[], р[]), 5(т[], ф[], р[]), 6(т[], ф[], р[]), 7(т[], ф[], р[]), 8(т[], ф[], р[]), 9(т[], ф[], р[]), 10(т[], ф[], р[]), 11(т[], ф[], р[]) семинар.
+% 1) проверить 2(т[+], ф[+], р[]), 3(т[+], ф[+], р[]), 4(т[+], ф[], р[]), 5(т[], ф[], р[]), 6(т[], ф[], р[]), 7(т[], ф[], р[]), 8(т[], ф[], р[]), 9(т[], ф[], р[]), 10(т[], ф[], р[]), 11(т[], ф[], р[]) семинар.
 % 2) проверить приложение A (т[], ф[], р[]), Б(т[], ф[], р[]), В(т[], ф[], р[]).
