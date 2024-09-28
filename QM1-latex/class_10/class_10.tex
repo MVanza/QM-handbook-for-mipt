@@ -2,29 +2,28 @@
     \section{Семинар X}
 \end{center}
 \subsection{Решение задач в трёхмерном пространстве.}
-\excersize{Упражнение №31}{darklavender}
+\excersize{Упражнение №30}{darklavender}
 \begin{center}
     \textit{Записать уравнение Шрёдингера для двух частиц с массами $m_1$ и $m_2$, взаимодействующих по закону $U(\Vec{r}_1 - \Vec{r}_2)$ в системе центра масс. Какой вид имеет волновая функция $\psi(\Vec{r}_1, \Vec{r}_2)$?}
 \end{center}
+
 Запишем уравнение Шрёдингера для двух частиц:
 \[
 i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Vec{r}_1, \Vec{r}_2, t),
 \]
 где гамильтониан $\hat{H}$ в координатном представлении имеет следующий вид:
 \[
-\hat{H} = -\frac{\hbar^2}{2m_1}\Delta_{\Vec{r}_1} -\frac{\hbar^2}{2m_2}\Delta_{\Vec{r}_2} + U(\Vec{r}_1 - \Vec{r}_2)
+\hat{H} = -\frac{\hbar^2}{2m_1}\Delta_{r_1} -\frac{\hbar^2}{2m_2}\Delta_{r_2} + U(\Vec{r}_1 - \Vec{r}_2)
 \]
 Так как мы хотим получить уравнение Шрёдингера в системе центра масс, перейдем от радиус-векторов частиц $\Vec{r}_1$ и $\Vec{r}_2$ к радиус-вектору центра масс $\Vec{R}$ и относительному расстоянию $\Vec{r}$:
 \[
 \Vec{R} = \frac{m_1\Vec{r}_1 + m_2\Vec{r}_2}{m_1 + m_2}, \; \Vec{r} = \Vec{r}_1 - \Vec{r}_2
 \]
-Пользуясь правилами дифференцирования сложной функции, выразим лапласианы $\Delta_{\Vec{r}_1}$, $\Delta_{\Vec{r}_2}$ через производные по $\Vec{R}$ и $\Vec{r}$:
-\[
-\frac{\partial}{\partial r_1} = \frac{\partial}{\partial R}\frac{\partial r}{\partial r_1} + \frac{\partial}{\partial r}\frac{\partial r}{r_1} = \frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r}
-\]
-\[
+Пользуясь правилами дифференцирования сложной функции, выразим лапласианы $\Delta_{r_1}$, $\Delta_{r_2}$ через производные по $\Vec{R}$ и $\Vec{r}$:
+\begin{gather*}
+\frac{\partial}{\partial r_1} = \frac{\partial}{\partial R}\frac{\partial r}{\partial r_1} + \frac{\partial}{\partial r}\frac{\partial r}{r_1} = \frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r}\\
 \frac{\partial}{\partial r_2} = \frac{\partial}{\partial R}\frac{m_2}{m_1 + m_2} - \frac{\partial}{\partial r}
-\]
+\end{gather*}
 \begin{align*}
 \frac{\partial^2}{\partial r_1^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_1^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{\partial R\,\partial r}{\partial r_1^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_1^2} = \\
 &= \frac{\partial^2}{\partial R^2} \frac{m_1^2}{(m_1 + m_2)^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{m_1}{m_1 + m_2} +  \frac{\partial^2}{\partial r^2}
@@ -33,29 +32,30 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
     \frac{\partial^2}{\partial r_2^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_2^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{\partial R\,\partial r}{\partial r_2^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_2^2} = \\
     & = \frac{\partial^2}{\partial R^2} \frac{m_2^2}{(m_1 + m_2)^2} - 2\frac{\partial^2} {\partial R\,\partial r} \frac{m_2}{m_1 + m_2} + \frac{\partial^2}{\partial r^2}
 \end{align*}
-Так как $\frac{\partial^2}{\partial r_i^2} = \Delta_{\Vec{r}_i}$, выпишем гамильтониан в новых переменных:
+Так как $\frac{\partial^2}{\partial r_i^2} = \Delta_{r_i}$, выпишем гамильтониан в новых переменных:
 \begin{align*}
-    \hat{H} &= -\frac{\hbar^2}{2m_1}\left(\frac{m_1^2}{(m_1 + m_2)^2}\Delta_{\Vec{R}} + 2\frac{m_1}{m_1 + m_2}\frac{\partial^2}{\partial R \partial r} + \Delta_{\Vec{r}}\right) - \\
+    \hat{H} = &-\frac{\hbar^2}{2m_1}\left(\frac{m_1^2}{(m_1 + m_2)^2}\Delta_{R} + 2\frac{m_1}{m_1 + m_2}\frac{\partial^2}{\partial R \partial r} + \Delta_{r}\right) - \\
     & -\frac{\hbar^2}{2m_2}\left(\frac{m_2^2}{(m_1 + m_2)^2} \Delta_{\Vec{R}} - 2\frac{m_2}{m_1 + m_2} \frac{\partial^2}{\partial R \partial r} + \Delta_{\Vec{r}}\right) + U(\Vec{r}) = \\
-    & = -\frac{\hbar^2}{2}\left(\frac{m_1 + m_2}{(m_1 + m_2)^2}\Delta_{\Vec{R}} + \left(\frac{1}{m_1} + \frac{1}{m_2}\right)\Delta_{\Vec{r}}\right) + U(\Vec{r})
+     = & -\frac{\hbar^2}{2}\left(\frac{m_1 + m_2}{(m_1 + m_2)^2}\Delta_{\Vec{R}} + \left(\frac{1}{m_1} + \frac{1}{m_2}\right)\Delta_{\Vec{r}}\right) + U(\Vec{r})
 \end{align*}
-или, вводя общую массу системы $M = m_1 + m_2$ и приведённую массу $\frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}$:
+Для удобства обозначения введём общую массу системы $M = m_1 + m_2$ и приведённую массу $\frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}$. Тогда, уравнение можно переписать следующим образом:
 \[
-\hat{H} = -\frac{\hbar^2}{2M}\Delta_{\Vec{R}} - \frac{\hbar}{2\mu}\Delta_{\Vec{r}} + U(\Vec{r})
+\hat{H} = -\frac{\hbar^2}{2M}\Delta_{R} - \frac{\hbar}{2\mu}\Delta_{r} + U(\Vec{r})
 \]
+
 Ввиду того, что система является стационарной, а переменные $\Vec{R}$ и $\Vec{r}$ в гамильтониане можно разделить, волновая функция будет иметь вид
 \[
-\psi(\Vec{r}_1, \Vec{r}_2, t) = \exp^{-\frac{i}{\hbar}Et}\Phi(\Vec{R})\phi(\Vec{r}), \; E = E_{\text{цм}} + E_{\text{отн}}
+\psi(\Vec{r}_1, \Vec{r}_2, t) = e^{-\frac{i}{\hbar}Et}\Phi(\Vec{R})\phi(\Vec{r}), \; E = E_{\text{цм}} + E_{\text{отн}},
 \]
 где полная энергия $E$ складывается из энергии движения центра масс $E_{\text{цм}}$ и энергии относительного движения $E_{\text{отн}}$. Функции $\Phi(\Vec{R})$ и $\phi(\Vec{r})$ подчиняются уравнениям
 \begin{align*}
-    -\frac{\hbar^2}{2M}\Delta_{\Vec{R}}\Phi(\Vec{R}) &= E_{\text{цм}}\Phi(\Vec{R}), \\
-    \left[-\frac{\hbar^2}{2\mu}\Delta_{\Vec{r}} + U(\Vec{r})\right]\phi(\Vec{r}) &= E_{\text{отн}}\phi(\Vec{r}),
+      E_{\text{цм}}\Phi(\Vec{R}) &=-\frac{\hbar^2}{2M}\Delta_{\Vec{R}}\Phi(\Vec{R}), \\
+     E_{\text{отн}}\phi(\Vec{r}) &= \left[-\frac{\hbar^2}{2\mu}\Delta_{\Vec{r}} + U(\Vec{r})\right]\phi(\Vec{r})
 \end{align*}
-причём из первого уравнения следует, что функция $\Phi(\Vec{R})$ описывает свободное движение центра масс: $\Phi(\Vec{R}) = C\exp^{\frac{i}{h}\Vec{P}\Vec{R}}$, характеризуемое полным импульсом $P$ и энергией $E_{\text{цм}} = \frac{\Vec{P}^2}{2M}$.
+Из первого уравнения следует, что функция $\Phi(\Vec{R})$ описывает свободное движение центра масс: $\Phi(\Vec{R}) = Ce^{\frac{i}{h}\Vec{P}\Vec{R}}$, характеризуемое полным импульсом $P$ и энергией $E_{\text{цм}} = \frac{\Vec{P}^2}{2M}$.
 \csquare{darklavender}
 
-\excersize{Упражнение №32}{darklavender}
+\excersize{Упражнение №31}{darklavender}
 \begin{center}
     \textit{Частица массы $m$ движется в потенциале трехмерного изотропного осциллятора:}
     \[
@@ -63,14 +63,17 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
     \]
     \textit{Найдите энергии уровней, кратности их вырождения, а также волновые функции стационарных состояний, разделяя переменные в декартовых и сферических координатах.}
 \end{center}
+
 Запишем уравнение Шрёдингера для трехмерного изотропного осциллятора:
 \[
 \left[-\frac{\hbar^2}{2m}\Delta + \frac{m\omega^2 r^2}{2}\right]\psi(\Vec{r}) = E\psi(\Vec{r})
 \]
+
 В декартовой системе данная задача была решена в семинаре 6, поэтому сейчас посмотрим, что происходит при использовании сферических координат. Сначала выпишем явный вид лапласиана:
 \[
 \Delta = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) + \frac{1}{r^2 \sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2}{\partial\phi^2}
 \]
+
 В 7 семинаре в упражнении 24 было показано, что оператор квадрата момента импульса $\hat{L}^2$ выглядит так:
 \[
 \hat{L}^2 = -\hbar^2\left[\frac{1}{\sin\theta}\frac{\partial}{\partial \theta}\left( \sin\theta\frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]
@@ -79,99 +82,109 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
 \[
 \Delta = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) - \frac{\hat{L}^2}{\hbar^2 r^2} = \frac{1}{r^2}\left(2r\frac{\partial}{\partial r} + r^2 \frac{\partial^2}{\partial r^2}\right) - \frac{\hat{L}^2}{\hbar^2 r^2} = \frac{\partial^2}{\partial r^2} + \frac{2}{r}\frac{\partial}{\partial r} - \frac{\hat{L}^2}{\hbar^2 r^2}
 \]
+
 Поработаем теперь над уравнением Шрёдингера:
-\begin{gather*}
-    \left. -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2}{mr}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2mr^2}\psi + \frac{m\omega^2 r^2}{2}\psi - E\psi = 0 \; \right| \cdot r^2\\
-    -\frac{\hbar^2 r^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2 r}{m}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2m}\psi + \frac{m\omega^2 r^4}{2}\psi - Er^2\psi = 0
-\end{gather*}
-В данной записи становится очевидно, что волновую функцию можно разделить на радиальную и угловую части:
+\begin{align*}
+     -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2}{mr}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2mr^2}\psi + \frac{m\omega^2 r^2}{2}\psi - E\psi & = 0 \; \Bigg| \cdot r^2 \implies \\
+    \implies -\frac{\hbar^2 r^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2 r}{m}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2m}\psi + \frac{m\omega^2 r^4}{2}\psi - Er^2\psi & = 0
+\end{align*}
+Посмотрев на уравнение повнимательнее, можно заметить, что волновую функцию можно разделить на радиальную и угловую части:
 \[
 \psi(r, \theta, \phi) = R(r) \cdot Y(\theta, \phi)
 \]
 Подставим преобразованную волновую функцию в уравнение Шрёдингера:
-\begin{gather*}
-    \left. -Y\frac{\hbar^2 r^2}{2m}\frac{d^2R}{dr^2} - Y\frac{\hbar^2 r}{m}\frac{dR}{dr} + R\frac{\hat{L}^2Y}{2m} + \frac{m\omega^2r^4}{2}RY - Er^2RY = 0 \right| \cdot \frac{1}{YR} \\
-    -\frac{1}{R}\frac{\hbar^2 r^2}{2m}\frac{d^2R}{dr^2} - \frac{1}{R}\frac{\hbar^2r}{m}\frac{dR}{dr} + \frac{1}{Y}\frac{\hat{L}^2Y}{2m} + \frac{m\omega^2r^4}{2} - Er^2 = 0
-\end{gather*}
-Мы уже знаем, что для собственных функций оператора квадрата углового момента выполняется $\hat{L}^2Y(\theta, \phi) = \hbar^2l(l+1)Y(\theta, \phi)$:
+\begin{align*}
+    -Y\frac{\hbar^2 r^2}{2m}\frac{d^2R}{dr^2} - Y\frac{\hbar^2 r}{m}\frac{dR}{dr} + R\frac{\hat{L}^2Y}{2m} + \frac{m\omega^2r^4}{2}RY - Er^2RY &= 0 \; \Bigg| \cdot \frac{1}{YR} \implies \\
+    \implies -\frac{1}{R}\frac{\hbar^2 r^2}{2m}\frac{d^2R}{dr^2} - \frac{1}{R}\frac{\hbar^2r}{m}\frac{dR}{dr} + \frac{1}{Y}\frac{\hat{L}^2Y}{2m} + \frac{m\omega^2r^4}{2} - Er^2 &= 0
+\end{align*}
+Для собственных функций оператора квадрата углового момента выполняется $\hat{L}^2Y(\theta, \phi) = \hbar^2l(l+1)Y(\theta, \phi)$. Тогда:
 \[
 -\frac{1}{R}\frac{\hbar^2 r^2}{2m}\frac{d^2R}{dr^2} - \frac{1}{R}\frac{\hbar^2r}{m}\frac{dR}{dr} + \frac{\hbar^2 l(l+1)}{2m} + \frac{m\omega^2r^4}{2} - Er^2 = 0
 \]
-Получается, теперь у нас осталось только уравнение на радиальную часть. Попробуем его преобразовать и решить. Для начала домножим обе части на $-\frac{2m}{\hbar^2r^2}R$:
+
+Осталось только уравнение на радиальную часть. Попробуем его преобразовать и решить. Для начала домножим обе части на $-\frac{2m}{\hbar^2r^2}R$:
 \[
 \frac{d^2R}{dr^2} + \frac{2}{r}\frac{dR}{dr} - \frac{m^2\omega^2r^2}{\hbar^2}R + \frac{2mE}{\hbar^2}R - \frac{l(l+1)}{r^2}R = 0
 \]
-Обезразмерим данное уравнение, перейдя от $r$ к $z = \frac{r}{\rho}$, где $\rho = \sqrt{\frac{\hbar}{m\omega}}$ и посмотрим на асимптотическое поведение искомой радиальной функции. Найдем связь между старыми и новыми производными и подставим их:
+Обезразмерим данное уравнение, перейдя от $r$ к $z = \frac{r}{\rho}$, где $\rho = \sqrt{\frac{\hbar}{m\omega}}$ и посмотрим на асимптотическое поведение искомой радиальной функции. Найдем связь между старыми и новыми производными:
 \begin{gather*}
-    \frac{d}{dr} = \frac{1}{\rho}\frac{d}{dz}, \; \frac{d^2}{dr^2} = \frac{1}{\rho^2}\frac{d^2}{dz^2} \\
-    \frac{1}{\rho^2}\frac{d^2R}{dz^2} + \frac{1}{\rho^2}\frac{2}{z}\frac{dR}{dz} - \frac{\rho^2 z^2}{\rho^4}R + \frac{2mE}{\hbar^2}R - \frac{l(l+1)}{\rho^2z^2}R = 0 \\
-    \frac{d^2R}{dz^2} + \frac{2}{z}\frac{dR}{dz} - z^2R + \frac{2\rho^2mE}{\hbar^2}R - \frac{l(l+1)}{z^2}R = 0
+    \frac{d}{dr} = \frac{1}{\rho}\frac{d}{dz}, \; \frac{d^2}{dr^2} = \frac{1}{\rho^2}\frac{d^2}{dz^2}
 \end{gather*}
+Подставим их в радиальное уравнение:
+\begin{align*}
+    \frac{1}{\rho^2}\frac{d^2R}{dz^2} + \frac{1}{\rho^2}\frac{2}{z}\frac{dR}{dz} - \frac{\rho^2 z^2}{\rho^4}R + \frac{2mE}{\hbar^2}R - \frac{l(l+1)}{\rho^2z^2}R &=0 \; \Bigg| \cdot \rho^2 \implies \\
+    \implies \frac{d^2R}{dz^2} + \frac{2}{z}\frac{dR}{dz} - z^2R + \frac{2\rho^2mE}{\hbar^2}R - \frac{l(l+1)}{z^2}R &= 0
+\end{align*}
 При $z \to \infty$:
 \[
-\frac{d^2R}{dz^2} - z^2R = 0 \implies R(z) \sim e^{-\frac{z^2}{2}}
+\frac{d^2R}{dz^2} - z^2R = 0 \implies R(z) \sim e^{-z^2/2}
 \]
 При $z \to 0$:
-\begin{gather*}
-    \frac{d^2R}{dz^2} + \frac{2}{z}\frac{dR}{dz} - \frac{l(l+1)}{z^2}R = 0 \implies R(z) \sim z^s \\
+\[
+    \frac{d^2R}{dz^2} + \frac{2}{z}\frac{dR}{dz} - \frac{l(l+1)}{z^2}R = 0
+\]
+Подставляя $R(z) \sim z^s$, получим:
+\begin{align*} 
     s(s-1)z^{s-2} + 2sz^{s-2} - l(l+1)z^{s-2} = 0 \implies \\
     \implies s(s+1) = l(l+1) \implies s = l \implies R(z) \sim z^l
-\end{gather*}
+\end{align*}
+
 Понимая предельное поведение функции, представим её в виде ряда и посчитаем её первые производные:
 \begin{gather*}
-    R(z) = z^l e^{-\frac{z^2}{2}}\sum_{k=0}^\infty a_k z^k = \sum_{k=0}^\infty a_k z^{k+l} e^{-\frac{z^2}{2}} \\
-    \frac{dR}{dz} = \sum_{k=0}^\infty a_k\left[(l+k)z^{l+k-1} - z^{l+k+1}\right]e^{-\frac{z^2}{2}} \\
-    \frac{d^2R}{dr^2} = \sum_{k = 0}^\infty a_k \left[(l+k)(l+k-1)z^{l+k-2} - (2l+2k+1)z^{l+k} + z^{l+k+2}\right]e^{-\frac{z^2}{2}}
+    R(z) = z^l e^{-\frac{z^2}{2}}\sum_{k=0}^\infty a_k z^k = \sum_{k=0}^\infty a_k z^{k+l} e^{-z^2/2} \\
+    \frac{dR}{dz} = \sum_{k=0}^\infty a_k\left[(l+k)z^{l+k-1} - z^{l+k+1}\right]e^{-z^2/2} \\
+    \frac{d^2R}{dr^2} = \sum_{k = 0}^\infty a_k \left[(l+k)(l+k-1)z^{l+k-2} - (2l+2k+1)z^{l+k} + z^{l+k+2}\right]e^{-z^2/2}
 \end{gather*}
 Полученные ряды можно подставлять назад в радиальное уравнение:
 \begin{gather*}
-    \sum_{k=0}^\infty a_k \biggl[ (l+k)(l+k-1)z^{l+k-2} - (2l+2k+1)z^{l+k}+z^{l+k+2} + 2(l+k)z^{l+k-2} - \\ 
-    - 2z^{l+k} - z^{l+k+2} - l(l+1)z^{l+k-2} + \frac{2E}{\hbar\omega} z^{l+k} \biggr] e^{-\frac{z^2}{2}} = 0
+    \sum_{k=0}^\infty a_k \biggl[ (l+k)(l+k-1)z^{l+k-2} - (2l+2k+1)z^{l+k}+z^{l+k+2} + \\ 
+    + 2(l+k)z^{l+k-2} - 2z^{l+k} - z^{l+k+2} - l(l+1)z^{l+k-2} + \frac{2E}{\hbar\omega} z^{l+k} \biggr] e^{-z^2/2} = 0
 \end{gather*}
-Множитель $e^{-\frac{z^2}{2}}$ является общим для всех слагаемых и положителен для всех действительных чисел, поэтому на него можно сократить. Кроме этого, можем привести подобные и получить достаточно компактное уравнение:
+
+Множитель $e^{-z^2/2}$ является общим для всех слагаемых и положителен для всех действительных чисел, поэтому на него можно сократить. Кроме этого, можем привести подобные и получить достаточно компактное уравнение:
 \[
 \sum_{k=0}^\infty a_k \left[\left(\frac{2E}{\hbar\omega} - 2l - 2k - 3\right)z^{l+k} + k(2l+k+1) z^{l+k-2}\right] = 0
 \]
-Под знаком суммы мы видим, что $z$ входит в неё с двумя разными показателями степени. В таком виде анализировать это выражение не очень удобно, поэтому сведём данную сумму к привычному виду степенного ряда
+
+Заметим, что $z$ входит в сумму с двумя разными показателями степени. Анализировать выражение в таком виде не очень удобно, поэтому сведём данную сумму к привычному виду степенного ряда:
 \begin{gather*}
     \sum_{k=0}^\infty a_k\left(\frac{2E}{\hbar\omega} - 2l - 2k -3\right)z^{l+k} + \sum_{k=0}^\infty a_k k(2l+k+1)z^{l+k-2} = \\
     = \sum_{k=0}^\infty a_k\left(\frac{2E}{\hbar\omega} - 2l - 2k -3\right)z^{l+k} + \sum_{k=-2}^\infty a_{k+2}(2+k)(2l+k+3)z^{l+k} = \\
     = a_0\cdot0 + a_1(2l+2)z^{l-1} + \sum_{k=0}^\infty \left[a_k\left(\frac{2E}{\hbar\omega} - 2l - 2k - 3\right) + a_{k+2}(2+k)(2l+k+3)\right]z^{l+k} = 0
 \end{gather*}
 Так как данное уравнение должно быть верным для любого $z$, занулим все коэффициенты данного ряда. В частности, очевидно, что $a_1 = 0$. Для остальных членов запишем
-\begin{gather*}
-    a_{k+2}(2+k)(2l+2k+3) = -a_k\left(\frac{2E}{\hbar\omega-2l-2k-3}\right) \\
-    a_{k+2} = -a_k\frac{\frac{2E}{\hbar\omega}-2l-2k-3}{(2+k)(2l+k+3)}
-\end{gather*}
-В данной записи становится понятно, что все нечетные коэффициенты $a_k$ тождественно равны нулю. Заметим, что при больших $k$ $a_{k+2} \approx -\frac{a_k}{k}$, что делает наш ряд расходящимся. Получается, мы должны "обрубить" ряд, обнуляя все слагаемые, начиная с некоторого $k = n_k = 0, 2, 4 \dots$:
+\begin{align*}
+    a_{k+2}&(2+k)(2l+2k+3) = -a_k\left(\frac{2E}{\hbar\omega-2l-2k-3}\right) \implies \\
+    &\implies a_{k+2} = -a_k\frac{\frac{2E}{\hbar\omega}-2l-2k-3}{(2+k)(2l+k+3)}
+\end{align*}
+В такой формулировке становится понятно, что все нечетные коэффициенты $a_k$ тождественно равны нулю. Заметим, что при больших $k$ коэффициенты $a_{k+2} \approx -\frac{a_k}{k}$, что делает наш ряд расходящимся. Получается, мы должны ``обрубить'' ряд, обнуляя все слагаемые, начиная с некоторого $k = n_k = 0, 2, 4 \dots$:
 \begin{gather*}
     \frac{2E}{\hbar\omega}-2l-2n_k-3 = 0\\
     E = \left(l+n_k+\frac{3}{2}\right)\hbar\omega
 \end{gather*}
+
 Видно, что выражение для энергии получилось точно таким же, как и при решении данной задачи в декартовой системе координат. Теперь, подставим полученное выражение для энергии назад в рекурсивное соотношение для коэффициентов:
 \[
 a_{k+2} = a_k\frac{2(k-n_k)}{(2+k)(2l+k+3)}
 \]
 Наконец, для большего удобства, переобозначим $k\rightarrow2k, n_k\rightarrow2n_k$ и выпишем решение радиального уравнения вместе с выражением для энергии:
 \begin{align*}
-    &a_{k+1} = a_k\frac{k-n}{\left(1+k\right)\left(l+k+\frac{3}{2}\right)} \\
-    &R(z) = \sum_{k=0}^\infty a_k z^{2k+l} e^{-\frac{z^2}{2}}, \text{ где } z = \frac{r}{\rho}, \rho = \sqrt{\frac{\hbar}{m\omega}} \\
-    &E = \left(l+2n_k+\frac{3}{2}\right)\hbar\omega
+    a_{k+1} &= a_k\frac{k-n}{\left(1+k\right)\left(l+k+\frac{3}{2}\right)} \\
+    R(z) &= \sum_{k=0}^\infty a_k z^{2k+l} e^{-z^2/2}, \text{ где } z = \frac{r}{\rho}, \rho = \sqrt{\frac{\hbar}{m\omega}} \\
+    E &= \left(l+2n_k+\frac{3}{2}\right)\hbar\omega
 \end{align*}
-Для того, чтобы найти кратность вырождения, нужно вспомнить, что в исходном уравнении Шрёдингера была еще и угловая часть, для нахождения которой нужно найти собственные функции оператора $\hat{L}^2$. Процесс поиска подробно описан в \hyperref[appendix:A]{Приложении А}. Здесь же выпишем только результат:
+
+Для того чтобы найти кратность вырождения, нужно вспомнить, что в исходном уравнении Шрёдингера была еще и угловая часть, для нахождения которой нужно найти собственные функции оператора $\hat{L}^2$. Процесс поиска подробно описан в \nameref{appendix:A}. Здесь же выпишем только результат:
 \[
 Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m}\theta}\,\frac{d^{l-m}}{d(\cos\theta)^{l-m}}\sin^{2l}\theta e^{im\phi},
 \]
-где $\mathcal{N}_l = (-1)^l \sqrt{\frac{2l+1}{4\pi}}\frac{1}{2^l l!}$ - коэффициент нормировки. $l$ и $m$ -- орбитальное и магнитное квантовые числа. Вводя еще и главное квантовое число $n=2k+l=2n_k+l$, мы понимаем, что каждым фиксированным $n$ и $l$ соответствуют $2l+1$ разных состояний (так как $m$ -- целое число, удовлетворяющее системе неравенств $-l\leq m\leq l$). Учитывая также, что для четных $n$ $l = 0, 2, \dots, n-2, n$, а для нечетных -- $l = 1, 3, \dots, n-2, n$. Тогда, кратность вырождения:
+где $\mathcal{N}_l = (-1)^l \sqrt{\frac{2l+1}{4\pi}}\frac{1}{2^l l!}$ - нормировочный коэффициент, $l$ и $m$ -- орбитальное и магнитное квантовые числа. Вводя еще и главное квантовое число $n=2k+l=2n_k+l$, мы понимаем, что каждым фиксированным $n$ и $l$ соответствуют $2l+1$ разных состояний (так как $m$ -- целое число, удовлетворяющее системе неравенств $-l\leq m\leq l$). Заметим, что для четных $n$ орбитальный момент $l = 0, 2, \dots, n-2, n$, а для нечетных $l = 1, 3, \dots, n-2, n$. Тогда, кратность вырождения:
 \[
 \sum_l (2l+1) = \frac{(n+1)(n+2)}{2}
 \]
-
-
-
 \csquare{darklavender}
 
-\excersize{Упражнение №33}{darklavender}
+\excersize{Упражнение №32}{darklavender}
 \begin{center}
     \textit{Частица массы $m$ движется в трехмерной потенциальной яме с ``плоским'' дном и бесконечно высокими стенками:}
     \[
@@ -183,6 +196,7 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
     \]
     \textit{Найдите уровни энергии и волновые функции s-состояний. Чему равна $\psi_{ns}(0)$?}
 \end{center}
+
 Запишем уравнение Шрёдингера для данного потенциала. Оно, как мы знаем из предыдущих семинаров, будет разделяться на угловую и радиальную часть. Таким образом, волновую функцию можно записать в виде $\Psi_{nlm}(r, \theta, \phi) = R_{nl}(r)Y^{m}_l(\theta, \phi) = \frac{1}{r}U_{nl}(r)Y^{m}_l(\theta, \phi)$, где $U_{nl}(r) = rR_{nl}(r)$. Тогда, подставляя её в радиальное уравнение, получим:
 \begin{gather*}
 \left(\frac{d}{dr^2} - \frac{l(l-1)}{r^2} + \kappa^2\right)U_{nl}(r) = 0;\\ 
@@ -199,7 +213,7 @@ U_{n0}(0) = U_{n0}(a) = 0
 \[
 E_{n0} = \frac{\pi^2\hbar^2}{2ma^2}n^2;\quad U_{n0}(r) =
 \begin{cases}
-    \frac{1}{\sqrt{2\pi a}r}\sin\frac{\pi n}{a}r, \; 0 < r < a\\
+    \frac{1}{r\sqrt{2\pi a}}\sin\frac{\pi n}{a}r, \; 0 < r < a\\
     0, \; r > a
 \end{cases}
 \]
@@ -246,7 +260,7 @@ E_{nl} = \frac{\pi^2\hbar^2}{2ma^2}\lambda_{nl}^2;\quad R_{nl}(r) =
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{class_10/images/bessel.jpg}
+\includegraphics[scale=0.28]{class_10/images/bessel.jpg}
 \caption{Первые сферические функции Бесселя}
 \label{fig 10.1}
 \end{figure}
@@ -254,7 +268,7 @@ E_{nl} = \frac{\pi^2\hbar^2}{2ma^2}\lambda_{nl}^2;\quad R_{nl}(r) =
 \csquare{darklavender}
 
 
-\excersize{Упражнение №34}{darklavender}
+\excersize{Упражнение №33}{darklavender}
 \begin{center}
     \textit{Электрон покоится в осциллирующем магнитном поле, направленном вдоль оси z:}
     \[
@@ -289,10 +303,13 @@ i\hbar\frac{d\chi(t)}{dt} = H\chi(t) = -\frac{\gamma B_0\hbar}{2}\cos(\omega t)\
 Решаем эту систему диффуров:
 \begin{align*}
     \dot{\alpha} = i\frac{\gamma B_0}{2}\cos(\omega t)\alpha &\implies \frac{d\alpha}{\alpha} = i\frac{\gamma B_0}{2}\cos(\omega t)dt \implies \ln\alpha = i\frac{\gamma B_0}{2}\frac{\sin(\omega t)}{\omega} + C \implies \\ 
-    & \implies \alpha(t) = Ae^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)};\; \alpha(0) = A = \frac{1}{\sqrt{2}} \implies \\
-    & \implies \alpha(t) = \frac{1}{\sqrt{2}}e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)}
+    & \implies \alpha(t) = Ae^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)};
 \end{align*}
-Аналогично для коэффициента $\beta$:
+Найдём коэффициент A:
+\[
+\alpha(0) = A = \frac{1}{\sqrt{2}} \implies \alpha(t) = \frac{1}{\sqrt{2}}e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)}
+\]
+Аналогично для функции $\beta(t)$:
 \[
 \beta(t) = \frac{1}{\sqrt{2}}e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)}
 \]

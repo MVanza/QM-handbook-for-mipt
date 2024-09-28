@@ -12,7 +12,7 @@
 \hspace{1em} Наверняка подкованный читатель уже много раз слышал про этот эксперимент, однако для полноты картины я не могу обойти его стороной. Поэтому, если вы уверены, что хорошо понимаете суть опыта и вам не нужно напоминать про причину возникновения такого понятия как спин -- можете спокойно пропустить этот параграф и пойти к следующему.
 
 Опыт состоит в пропускании пучка нейтральных частиц (например, атомов серебра) через неоднородное магнитное поле. Схему установки можно посмотреть на рисунке \ref{fig B.1}. Во время проведения эксперимента главенствовала Боровская модель атома, представляющая собой ядро и крутящиеся вокруг него электроны. Исходя из этой модели, в нейтральных атомах магнитное поле, образованное орбитальным моментом, должно распределяться равномерно, образуя на экране прямую линию. На деле же оказалось, что после вылета из магнита частицы летели только в двух направлениях. Это повлекло за собой следующий вывод -- у частиц есть ``внутренний'' магнитный момент, который ещё и квантуется. Его назвали \textit{спин}, так как сначала было предположение, что электрон крутится вокруг своей оси. В итоге оказалось, что это предположение ошибочное и модель Бора в целом неверна, хотя и даёт правильный вектора понимания устройства атома.
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.4]{appendix/images/gc.png}
 \caption{Магнит с неоднородным магнитным полем. Частицы после вылета попадали на экран.}
@@ -86,7 +86,7 @@ E_y = A_y \cos(\omega t - kz + \phi_y)
 E_y = A_y e^{i\phi_y}e^{\omega t - kz}.
 \]
 Замечу, что если во второй формуле взять реальную часть, получим первую. Так как у нас поляризация реально физическое явление, то в эксперименте мы рассматриваем как раз реальную часть, поэтому такой переход более чем законен.
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.23]{appendix/images/polarization.png}
 \caption{Распространение волны вдоль оси Z}
@@ -119,7 +119,7 @@ E_x = A_x e^{i\phi_x}e^{\omega t - kz}.
 \Vec{A} = \frac{1}{\sqrt{2}}\Vec{H} - \frac{1}{\sqrt{2}}\Vec{V}
 \]
 Расположение векторов Джонса можно посмотреть на рисунке \ref{fig B.5}
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.23]{appendix/images/pol phys space.png}
 \caption{Расположение векторов Джонса}
@@ -162,7 +162,7 @@ e^{i\frac{\pi}{4}}\frac{1}{\sqrt{2}}\begin{bmatrix} 1 & i \\ i & 1 \end{bmatrix}
 \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix}\begin{bmatrix} 1  \\ 0 \end{bmatrix} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1  \\ -1 \end{bmatrix}
 \]
 Теперь у нас есть три матрицы, используя которые мы можем переходить к любой из найденных нами 6 поляризаций. Смотря на цепочки преобразований, можно составить сферу Пуанкаре (рисунок \ref{fig B.6}). По ней видно, что, в отличие от физического пространства, ортогональные поляризации (например $\Vec{H}$ и $\Vec{V}$) находятся под углом $180^{\circ}$ друг к другу. То есть ситуация аналогична ситуации со спинами.
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.23]{appendix/images/Poincare sphere.png}
 \caption{Сфера Пуанкаре}
@@ -296,7 +296,7 @@ v = x\vec{e}_x + y\vec{e}_y + z\vec{e}_z\xrightarrow{\text{отражение}} 
 V \rightarrow -\sigma_y\left(-\sigma_xV\sigma_x\right)\sigma_y = \sigma_y\sigma_xV\sigma_x\sigma_y = \sigma_y\sigma_xV(\sigma_y\sigma_x)^{\dagger}
 \]
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.3]{appendix/images/reflections and turn.png}
 \caption{Связь двух отражений и поворота.}
@@ -310,7 +310,7 @@ V \rightarrow -\sigma_y\left(-\sigma_xV\sigma_x\right)\sigma_y = \sigma_y\sigma_
     & = \left(\cos\frac{\theta}{2}E - \sin\frac{\theta}{2}\sigma_x\sigma_y\right)V\left(\cos\frac{\theta}{2}E - \sin\frac{\theta}{2}\sigma_x\sigma_y\right)^{\dagger}
 \end{align*}
 Аналогичная конструкция будет для поворота в плоскости $yz$ и $zx$.
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.27]{appendix/images/arbitrary vector.png}
 \caption{Отражение от произвольного вектора}

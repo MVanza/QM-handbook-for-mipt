@@ -2,36 +2,36 @@
     \section{Семинар VIII}
 \end{center}
 \subsection{Собственные значения момента импульса.}
-Предыдущий семинар мы закончили на радиальном уравнении:
+\hspace{1em} Предыдущий семинар мы закончили на радиальном уравнении:
 \[
 \left[-\frac{\hbar^2}{2Mr^2}\frac{\partial}{\partial r}\left( r^2 \frac{\partial}{\partial r}\right)  + \frac{\lambda}{2Mr^2} + V(r)\right]R(r) = ER(r).
 \]
 
-Напомню, что сейчас мы хотим привести оператор $\hat{L}^2$ к диагональному виду. Однако тут возникает проблема: собственные значения $\lambda$ в $\mathbf{Y}$ вырождены. Соответственно, просто найдя $\lambda$ мы не сможем однозначно идентифицировать для неё собственное состояние $\ket{\lambda}$, так как каждому $\lambda$ будет соответствовать линейное подпространство. Для того, чтобы решить проблему, мы добавим к нашей системе оператор, коммутирующий с оператором $\hat{L}^2$. Тогда в каждом вырожденном подпространстве $\lambda$ мы сможем определить ортонормированный собственный базис, так как у коммутирующих операторов общий набор собственных состояний. Оказывается, что очень удачно для такого решения подходит оператор $\hat{L}_z$, собственные значения которого мы обозначим через $\mu$. Тогда задача сводится к поиску $\ket{\lambda\mu}$, т.е. собственных состояний для операторов $\hat{L}^2$ и $\hat{L}_z$.
-\begin{equation*}
+Напомню, что сейчас мы хотим привести оператор $\hat{L}^2$ к диагональному виду. Однако тут возникает проблема: собственные значения $\lambda$ в $\mathbf{Y}$ вырождены. Соответственно, просто найдя $\lambda$ мы не сможем однозначно идентифицировать для неё собственное состояние $\ket{\lambda}$, так как каждому $\lambda$ будет соответствовать линейное подпространство. Для того чтобы решить проблему, мы добавим к нашей системе оператор, коммутирующий с оператором $\hat{L}^2$. Тогда в каждом вырожденном подпространстве $\lambda$ мы сможем определить ортонормированный собственный базис, так как у коммутирующих операторов общий набор собственных состояний. 
+
+Оказывается, что для такого решения очень удачно подходит оператор $\hat{L}_z$, собственные значения которого мы обозначим через $\mu$. Тогда задача сводится к поиску $\ket{\lambda\mu}$, т.е. собственных состояний для операторов $\hat{L}^2$ и $\hat{L}_z$.
+\[
     \begin{cases}
-        \hat{L^2}\ket{\lambda\mu} = \lambda\ket{\lambda\mu}\\
+        \hat{L}^2\ket{\lambda\mu} = \lambda\ket{\lambda\mu}\\
         \hat{L}_z\ket{\lambda\mu} = \mu\ket{\lambda\mu}
     \end{cases}
-\end{equation*}
+\]
 
-В целом, можно получить волновые функции состояния $\ket{\lambda\mu}$ , честно решив эту систему уравнений. Однако мы пойдём более ``квантовомеханическим'' путём. Подход будет похож на тот, который мы использовали при анализе осциллятора в шестом семинаре. Давайте введём \textit{повышающий и понижающий} операторы следующим образом:
+В целом, можно получить волновые функции состояния $\ket{\lambda\mu}$ , честно решив эту систему уравнений. Однако мы пойдём более квантовомеханическим путём. Подход будет похож на тот, который мы использовали при анализе осциллятора в шестом семинаре. Давайте введём \textit{повышающий и понижающий} операторы следующим образом:
 \begin{equation*}
     \begin{split}
         \hat{L}_+ = \hat{L}_x + i\hat{L}_y  \\
         \hat{L}_- = \hat{L}_x - i\hat{L}_y 
     \end{split}
 \end{equation*}
-
 Некоторые особенности этих операторов:
-\begin{equation*}
-    \begin{aligned}
-        a)& \hat{L}_+ = \hat{L}^{\dagger}_-  \\
-        b)& \left[\hat{L}_z, \, \hat{L}_{\pm}\right] = \pm\hbar \hat{L}_{\pm},\; \left[\hat{L}^2, \, \hat{L}_{\pm}\right] = 0, \; \left[\hat{L}_+, \, \hat{L}_-\right] = 2\hbar \hat{L}_z \\
-        c)& \hat{L}^2 = \hat{L}_+\hat{L}_- + \hat{L}^2_z - \hbar\hat{L}_z
-    \end{aligned}
-\end{equation*}
-Используя полученные коммутационные соотношения, покажем, что состояния $\hat{L}_{\pm}\ket{\lambda\mu}$ являются собственными для операторов $\hat{L}^2$ и $\hat{L}_z$ одновременно, с собственным значениями $\lambda$, $\mu \pm \hbar$. Действительно, подействовав оператором $\hat{L}^2$ на состояние $\hat{L}_{\pm}\ket{\lambda\mu}$, получим:
+\begin{itemize}
+    \item $\hat{L}_+ = \hat{L}^{\dagger}_-$
+    \item $[\hat{L}_z, \, \hat{L}_{\pm}] = \pm\hbar \hat{L}_{\pm},\; [\hat{L}^2, \, \hat{L}_{\pm}] = 0, \; [\hat{L}_+, \, \hat{L}_- ] = 2\hbar \hat{L}_z $
+    \item $\hat{L}^2 = \hat{L}_+\hat{L}_- + \hat{L}^2_z - \hbar\hat{L}_z$
+\end{itemize}
+
+Используя полученные коммутационные соотношения, покажем, что состояния $\hat{L}_{\pm}\ket{\lambda\mu}$ являются собственными для операторов $\hat{L}^2$ и $\hat{L}_z$ одновременно, с собственным значениями $\lambda$ и $\mu \pm \hbar$ соответственно. Действительно, подействовав оператором $\hat{L}^2$ на состояние $\hat{L}_{\pm}\ket{\lambda\mu}$, получим:
 \[
 \hat{L}^2\hat{L}_{\pm}\ket{\lambda\mu} = \hat{L}_{\pm}\hat{L}^2\ket{\lambda\mu} = \lambda\hat{L}_{\pm}\ket{\lambda\mu}
 \]
@@ -40,19 +40,22 @@
 \hat{L}_z\hat{L}_{\pm}\ket{\lambda\mu} = (\hat{L}_{\pm}\hat{L}_z \pm \hbar\hat{L}_{\pm})\ket{\lambda\mu} = (\mu\hat{L}_{\pm} \pm \hbar\hat{L}_{\pm})\ket{\lambda\mu} = (\mu \pm \hbar)\hat{L}_{\pm}\ket{\lambda\mu}
 \]
 
-Таким образом мы получили то, что хотели. Далее, продолжая похожие рассуждения, как и в случае с операторами рождения и уничтожения, найдём, как действует оператор $\hat{L}_{\pm}$ на состояние $\ket{\lambda\mu}$:
+Значит, состояние после действия понижающего или повышающего оператора действительно являются собственными для $\hat{L}^2$ и $\hat{L}_z$.
+
+Продолжим строить рассуждения в том же порядке, как и с операторами рождения и уничтожения. Запишем, как оператор $\hat{L}_{\pm}$ действует  на состояние $\ket{\lambda\mu}$:
 \[
 \hat{L}_{\pm}\ket{\lambda\mu} = \sqrt{\lambda - \mu(\mu \pm \hbar)}\ket{\lambda,\mu\pm\hbar}.
 \]
 
-В очередной раз операторы оправдывают своё название. Как видите, мы либо повышаем значение $\mu$ на константу $\hbar$, либо понижаем её на то же значение. Но что это за константа? Давайте разбираться.
+В очередной раз операторы оправдывают своё название. Как видите, мы либо повышаем значение $\mu$ на константу $\hbar$, либо понижаем её на то же значение. Но что это за значение? Давайте разбираться.
 
 Для начала заметим, что выполняется неравенство $\lambda \geq \mu^2$. В самом деле, для оператора $\hat{L}^2 - \hat{L}^2_z$ состояние $\ket{\lambda\mu}$ является собственным с собственным значением $\lambda - \mu^2$. Но, в то же время, этот оператор можно переписать как $\hat{L}^2_x + \hat{L}^2_y$ (так как $\hat{L}^2 = \hat{L}^2_x + \hat{L}^2_y + \hat{L}^2_z$). Этот оператор неотрицательный и имеет неотрицательные собственные значения. Значит, $\lambda - \mu^2 \geq 0\; => \; \lambda \geq \mu^2$.
 
-Используя оператор повышения, мы можем поднять состояние $\ket{\lambda,\mu + j\hbar}$, где $j$ - целое неотрицательное число. Но теперь мы знаем, что $(\mu + j\hbar)^2$ не должно быть больше $\lambda$. Тогда, как и в случае с понижающим оператором, нам нужно поставить условие, что, дойдя до определенного $j = j_0$ у нас получится уравнение $\hat{L}_+\ket{\lambda, \mu + j_0\hbar} = 0$. Найдём, при каком $\lambda$ это выполняется:
-\begin{multline*}
-\hat{L}_{+}\ket{\lambda,\mu + j_0\hbar} = \sqrt{\lambda - (\mu+j_0\hbar)(\mu + (j_0 + 1)\hbar)}\ket{\lambda,\mu +(j_0 + 1)\hbar)} = 0\; => \\ \lambda = [\mu + j_0\hbar][\mu + \hbar(j_0 + 1)]
-\end{multline*}
+Используя оператор повышения, мы можем поднять состояние $\ket{\lambda,\mu + j\hbar}$, где $j$ - целое неотрицательное число. Но теперь мы знаем, что $(\mu + j\hbar)^2$ должно быть не больше $\lambda$. Тогда, как и в случае с понижающим оператором, нам нужно поставить условие, что, дойдя до определенного $j = j_0$ у нас получится уравнение $\hat{L}_+\ket{\lambda, \mu + j_0\hbar} = 0$. Найдём, при каком $\lambda$ это выполняется:
+\begin{align*}
+\hat{L}_{+}\ket{\lambda,\mu + j_0\hbar} = &\sqrt{\lambda - (\mu+j_0\hbar)(\mu + (j_0 + 1)\hbar)}\ket{\lambda,\mu +(j_0 + 1)\hbar)} = 0 \implies \\ 
+& \implies  \lambda = [\mu + j_0\hbar][\mu + \hbar(j_0 + 1)]
+\end{align*}
 
 Аналогично, для понижающего оператора должно выполняться $\hat{L}_-\ket{\lambda,\mu - k_0\hbar} = 0$. Тогда $\lambda = [\mu - k_0\hbar][\mu-\hbar(k_0 + 1)]$ и должно выполняться уравнение:
 \[
@@ -62,7 +65,7 @@
 \[
 x(x+\hbar) = y(y+\hbar)
 \]
-Если решить это квадратное уравнение относительно y и учесть, что нам подходит только тот корень, который удовлетворяет условию $x > y$, то получим $y = -(x + \hbar)$ или 
+Решаем это квадратное уравнение относительно y и учитываем, что нам подходит только тот корень, который удовлетворяет условию $x > y$. Получим $y = -(x + \hbar)$ или 
 \[
 \mu - (k_0 + 1)\hbar = -\mu - (j_0 + 1)\hbar\; => \; \mu = \frac{k_0 - j_0}{2}\hbar.
 \]
@@ -107,34 +110,32 @@ x(x+\hbar) = y(y+\hbar)
     \hat{L}_y & = \frac{\hat{L}_+ - \hat{L}_-}{2i}
 \end{align*}
 Тогда, подставляя их в такой форме в выражение для матричных элементов, получим:
-\[
-\bra{lm}\hat{L}_{x}\ket{l'm'} = \frac{\hbar}{2}\left[\sqrt{l'(l'+1) - m'(m' + 1)}\delta_{ll'}\delta_{m,m' + 1} + \sqrt{l'(l'+1) - m'(m' - 1)}\delta_{ll'}\delta_{m,m' - 1}\right]
-\]
-\[
-\bra{lm}\hat{L}_{y}\ket{l'm'} = \frac{\hbar}{2i}\left[\sqrt{l'(l'+1) - m'(m' + 1)}\delta_{ll'}\delta_{m,m' + 1} - \sqrt{l'(l'+1) - m'(m' - 1)}\delta_{ll'}\delta_{m,m' - 1}\right]
-\]
+\begin{align*}
+\bra{lm}\hat{L}_{x}\ket{l'm'} &= \frac{\hbar}{2}\left[\sqrt{l'(l'+1) - m'(m' + 1)}\delta_{ll'}\delta_{m,m' + 1} + \sqrt{l'(l'+1) - m'(m' - 1)}\delta_{ll'}\delta_{m,m' - 1}\right]\\
+\bra{lm}\hat{L}_{y}\ket{l'm'} &= \frac{\hbar}{2i}\left[\sqrt{l'(l'+1) - m'(m' + 1)}\delta_{ll'}\delta_{m,m' + 1} - \sqrt{l'(l'+1) - m'(m' - 1)}\delta_{ll'}\delta_{m,m' - 1}\right]
+\end{align*}
 Теперь, зная все матричные элементы, выполним следующее упражнение.
-\excersize{Упражнение №25}{darklavender}
+\excersize{Упражнение №24}{darklavender}
 \begin{center}
     \textit{Постройте матрицы операторов момента импульса $\hat{L}_x$, $\hat{L}_y$, $\hat{L}_z$, а также $\hat{L}^2$, $\hat{L}_+$ и $\hat{L}_-$ для квантовой системы с орбитальным числом $l = 1$. Как выглядят собственные вектора операторов $\hat{L}^2$ и $\hat{L}_z$?}
 \end{center}
+
 Всю ``сложную'' часть мы уже проделали, осталось только подставить значение l = 1 в полученные выше формулы:
 \[
-\hat{L}^2 \simeq  2\hbar^2 \left(\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array} \right); \; \hat{L}_z \simeq  \hbar \left(\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -1 \end{array} \right)
+\hat{L}^2 \simeq  2\hbar^2 \left(\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array} \right); \quad \hat{L}_z \simeq  \hbar \left(\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -1 \end{array} \right)
 \]
+
 В остальных операторах значения уйдут с главной диагонали, т.к. в дельтах индексы m отличаются на единицу.
-\[
-\hat{L}_+ \simeq  \sqrt{2}\hbar \left(\begin{array}{ccc} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{array} \right); \; \hat{L}_- \simeq  \sqrt{2}\hbar \left(\begin{array}{ccc} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{array} \right)
-\]
-\[
-\hat{L}_x \simeq  \frac{\hbar}{\sqrt{2}} \left(\begin{array}{ccc} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{array} \right);\; \hat{L}_y \simeq  \frac{i\hbar}{\sqrt{2}} \left(\begin{array}{ccc} 0 & -1 & 0 \\ 1 & 0 & -1 \\ 0 & 1 & 0 \end{array} \right)
-\]
+\begin{align*}
+&\hat{L}_+  \simeq  \sqrt{2}\hbar \left(\begin{array}{ccc} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{array} \right) & &\hat{L}_-  \simeq  \sqrt{2}\hbar \left(\begin{array}{ccc} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{array} \right)\\
+&\hat{L}_x  \simeq  \frac{\hbar}{\sqrt{2}} \left(\begin{array}{ccc} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{array} \right) & &\hat{L}_y  \simeq  \frac{i\hbar}{\sqrt{2}} \left(\begin{array}{ccc} 0 & -1 & 0 \\ 1 & 0 & -1 \\ 0 & 1 & 0 \end{array} \right)
+\end{align*}
 
 Так как матрицы операторов $\hat{L}^2$ и $\hat{L}_z$ диагональны, найти их собственные вектора несложно -- это просто базисные вектора $ \left(\begin{array}{c} 1 \\ 0  \\ 0  \end{array} \right)$, $ \left(\begin{array}{c} 0 \\ 1 \\ 0  \end{array} \right)$ и $ \left(\begin{array}{c} 0 \\ 0  \\ 1  \end{array} \right)$. 
 \csquare{darklavender}
 
 \subsection{Собственные состояния момента импульса}
-Процесс нахождение собственных функций, к сожалению, не получится свести к определению новых операторов и чисто квантово-механическому подходу. Поэтому рассуждения и поиск волновых функций я вынес в \nameref{appendix:A}. Здесь же я приведу только ответ.
+\hspace{1em} Процесс нахождение собственных функций, к сожалению, не получится свести к определению новых операторов и чисто квантово-механическому подходу. Поэтому рассуждения и поиск волновых функций я вынес в \nameref{appendix:A}. Здесь же я приведу только ответ.
 
 Итак, волновая функция состояния $\ket{lm}$ задаётся сферическими гармониками:
 \[
@@ -143,23 +144,17 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
 где $\mathcal{N}_l = (-1)^l \sqrt{\frac{2l+1}{4\pi}}\frac{1}{2^l l!}$ - коэффициент нормировки.
 
 Вычислим явно сферические гармоники для $l=0$ и $l=1$:
-\[
-Y^0_0(\theta,\phi) = (-1)^0\sqrt{\frac{1}{4\pi}}\sqrt{\frac{0!}{0!}}\sin^0\theta \frac{d^0}{d(\cos\theta)^0} \sin^0 \theta e^{0} = \sqrt{\frac{1}{4\pi}}
-\]
-\[
-Y^1_1(\theta,\phi) = -\sqrt{\frac{3}{8\pi}}\sin\theta e^{i\phi}
-\]
-\[
-Y^0_1(\theta,\phi) = \sqrt{\frac{3}{4\pi}}\cos\theta
-\]
-\[
+\begin{gather*}
+Y^0_0(\theta,\phi) = (-1)^0\sqrt{\frac{1}{4\pi}}\sqrt{\frac{0!}{0!}}\sin^0\theta \frac{d^0}{d(\cos\theta)^0} \sin^0 \theta e^{0} = \sqrt{\frac{1}{4\pi}}\\
+Y^1_1(\theta,\phi) = -\sqrt{\frac{3}{8\pi}}\sin\theta e^{i\phi}\\
+Y^0_1(\theta,\phi) = \sqrt{\frac{3}{4\pi}}\cos\theta\\
 Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
-\]
+\end{gather*}
 
 Обсудим вопрос, почему l может быть только целым. Действительно, если l может принимать полуцелые значения, значит m также может быть полуцелым. Тогда, множитель $e^{im\phi}$ даст нам ситуацию, в которой $\psi(r, \theta, \phi) = -\psi(r, \theta, \phi + 2\pi)$. А это невозможно, так как мы работаем в координатном базисе. Значит, l в радиально-симметричном поле должна принимать только целые значения.
 
-\subsection*{Спин.}
-Чтобы рассказать про спин подробно, нужно уделять этому целую лекцию (а то и две), поэтому здесь мы ограничимся самым необходимым. Если хотите узнать про спин больше, прочитайте \nameref{appendix:B}. Там я постараюсь раскрыть спин с двух сторон: со стороны чистой математики и со стороны физики. Думаю, его должно быть достаточно для более полного понимания, что же такое этот спин и как с ним обращаться.
+\subsection{Спин}
+\hspace{1em} Чтобы рассказать про спин подробно, нужно уделять этому целую лекцию (а то и две), поэтому здесь мы ограничимся самым необходимым. Если хотите узнать про спин больше, прочитайте \nameref{appendix:B}. Там я постараюсь раскрыть спин с двух сторон: со стороны чистой математики и со стороны физики. Думаю, его должно быть достаточно для более полного понимания, что же такое этот спин и как с ним обращаться.
 
 Очень упрощая, можно сказать, что спин -- это собственный момент импульса частицы. Это не значит, что она крутится -- просто это экспериментальный факт, который был подтвержден в огромном количестве работ. Стоит воспринимать спин как естественную характеристику частицы.
 
@@ -171,6 +166,7 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
 \[
 \left[\hat{S}_j, \, \hat{S}_k\right] = i\hbar\varepsilon_{jkl}\hat{S}_l
 \]
+
 Так же, как и у операторов момента импульса, у состояний спина есть повышающие и понижающие операторы.
 \[
 \hat{S}_{\pm}\ket{s, m_s} = \sqrt{s(s+1) + m_s(m_s \pm 1)}\ket{s, m_s \pm 1}
@@ -184,18 +180,20 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
     \hat{S}_x & = \frac{\hat{S}_+ + \hat{S}_-}{2};\\
     \hat{S}_y & = \frac{\hat{S}_+ - \hat{S}_-}{2i}
 \end{align*}
+
 Соответственно, как и в случае момента импульса, у спина будет проекция на ось Z. Обозначаться она будет $m_s$. Ведёт она себя также, как и m - её значения лежат во множестве {-s, -s + 1, ..., s}. Разница в том, что спин может принимать полуцелые значения -- значит, и проекция может быть полуцелая.
 
 Давайте рассмотрим два самых основных примера -- $S = 0$ и $S = 1/2$.
 \begin{itemize}
-    \item $S = 0$. Тогда и проекция спина на ось z тоже равна нулю: $S_z = 0$. Тогда $\hat{S} = 0$ и волновые функции будут такими, какими мы их знали до того, как появилась внутренняя степень свободы. Примеры частиц с нулевым спином: Бозон Хиггса, $\pi$-мезон.
+    \item $S = 0$. Тогда и проекция спина на ось z тоже равна нулю: $S_z = 0$. Значит $\hat{S} = \hat{1}$ и волновые функции будут такими, какими мы их знали до того, как появилась внутренняя степень свободы. Примеры частиц с нулевым спином: Бозон Хиггса, $\pi$-мезон.
     \item $S = 1/2$. Проекция спина на ось теперь имеет две компоненты: $S_z = \{1/2, -1/2\}$. Обозначим состояние спина ``вверх'' (в смысле положительной проекции на z) как $\ket{\uparrow} = \ket{1/2,\, 1/2}$, а состояние ``вниз'' -- $\ket{\downarrow} = \ket{1/2, -1/2}$. Посмотрим, как на эти состояния действуют разные операторы.
     \begin{align*}
-        &S_z\ket{\uparrow} = \hbar/2\ket{\uparrow}, \quad\, S_z\ket{\downarrow} = -\hbar/2 \ket{\downarrow}\\
-        &S_+\ket{\downarrow} = \hbar\ket{\uparrow},\qquad S_+\ket{\uparrow} = 0\\
-        &S_-\ket{\uparrow} = -\hbar\ket{\downarrow},\quad\, S_-\ket{\downarrow} = 0\\
-        &S_x\ket{\uparrow} =\hbar/2\ket{\downarrow}, \quad\, S_y\ket{\uparrow} =-i\hbar/2\ket{\downarrow}
+        S_z&\ket{\uparrow} = \hbar/2\ket{\uparrow} & S_z&\ket{\downarrow} = -\hbar/2 \ket{\downarrow}\\
+        S_+&\ket{\uparrow} = 0 & S_+&\ket{\downarrow} = \hbar\ket{\uparrow}\\
+        S_-&\ket{\uparrow} = -\hbar\ket{\downarrow} & S_-&\ket{\downarrow} = 0\\
+        S_x&\ket{\uparrow} =\hbar/2\ket{\downarrow} & S_y&\ket{\uparrow} =-i\hbar/2\ket{\downarrow}
     \end{align*}
+    
     Зная, как действуют операторы на состояния вверх и вниз, найдём их матрицы:
     \[
     \hat{S}_i \simeq \left(\begin{array}{cc}
@@ -211,17 +209,19 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
     &S_z = \frac{\hbar}{2}\sigma_z = \frac{\hbar}{2}\left(\begin{array}{cc} 1 & 0\\ 0 & -1 \end{array}\right).
     \end{align*}
 \end{itemize}
+
 Мы видим, что матрицы Паули -- унитарные и эрмитовые матрицы, которыми можно представить обезразмеренный оператор спина. Давайте решим несколько упражнений, чтобы подробнее разобраться с их свойствами.
-\excersize{Упражнение №26}{darklavender}
+\excersize{Упражнение №25}{darklavender}
 \begin{center}
     \textit{Докажите справедливость следующих соотношений для матриц Паули:}
     \[
-    \hat{\sigma}_k\hat{\sigma}_l = \delta_{kl} + ie_{klm}\hat{\sigma_m}
+    \hat{\sigma}_k\hat{\sigma}_l = \delta_{kl} + ie_{klm}\hat{\sigma}_m
     \]
     \[
     (\hat{\boldsymbol{\sigma}}\mathbf{a})(\hat{\boldsymbol{\sigma}}\mathbf{b}) = (\mathbf{ab}) + i(\boldsymbol{\sigma}[\mathbf{a} \cross \mathbf{b}])
     \]
 \end{center}
+
 Ещё раз выпишем явный вид матриц паули для спина $S=1/2$:
 \[
     \hat{\sigma}_x = \left(\begin{array}{cc}
@@ -247,16 +247,23 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
     \item $\{\hat{\sigma}_k, \hat{\sigma}_l\} = 2\delta_{kl}$, где $\{\hat{\sigma}_k, \hat{\sigma}_l\} = \hat{\sigma}_k\hat{\sigma}_l + \hat{\sigma}_l\hat{\sigma}_k$ -- антикоммутатор.
 \end{itemize}
 Пользуясь данными свойствами, можем записать:
-\[
-\hat{\sigma_k}\hat{\sigma_l} = \frac{1}{2}([\hat{\sigma}_k, \hat{\sigma}_l] + \{\hat{\sigma}_k + \hat{\sigma}_l\}) = \frac{1}{2}(2ie_{klm}\sigma_m + 2\delta_{kl}) = \delta_{kl} + ie_{klm}\hat{\sigma}_m,
-\]
-\[
-(\boldsymbol{\sigma}\mathbf{a})(\boldsymbol{\sigma}\mathbf{b}) = \hat{\sigma}_ka_k\hat{\sigma}_lb_l = \hat{\sigma}_k\hat{\sigma}_la_kb_l = (ie_{klm}\hat{\sigma_m} + \delta_{kl})a_kb_l = ie_{klm}\sigma_ma_kb_l + a_kb_k = i(\hat{\sigma}[\mathbf{a}\cross\mathbf{b}]) + (\mathbf{a}\mathbf{b}).
-\]
+
+\begin{align*}
+\hat{\sigma_k}\hat{\sigma_l} &= \frac{1}{2}([\hat{\sigma}_k, \hat{\sigma}_l] + \{\hat{\sigma}_k + \hat{\sigma}_l\}) = \\ 
+&= \frac{1}{2}(2ie_{klm}\hat{\sigma}_m + 2\delta_{kl}) =\\
+&= \delta_{kl} + ie_{klm}\hat{\sigma}_m,
+\end{align*}
+Покажем справедливость второго соотношения:
+\begin{align*}
+(\hat{\boldsymbol{\sigma}}\mathbf{a})(\hat{\boldsymbol{\sigma}}\mathbf{b}) &= \hat{\sigma}_ka_k\hat{\sigma}_lb_l = \hat{\sigma}_k\hat{\sigma}_la_kb_l=\\
+&= (ie_{klm}\hat{\sigma}_m + \delta_{kl})a_kb_l =\\
+&= ie_{klm}\hat{\sigma}_m a_k b_l + a_k b_k =\\
+&= i(\hat{\sigma}[\mathbf{a}\cross\mathbf{b}]) + (\mathbf{a}\mathbf{b})
+\end{align*}
 \csquare{darklavender}
 
 
-\excersize{Упражнение №27}{darklavender}
+\excersize{Упражнение №26}{darklavender}
 \begin{center}
     \textit{Найдите собственные значения и собственные векторы спинового оператора $\hat{\sigma}_n = (\hat{\Vec{\sigma}}, \Vec{n})$, где $\Vec{n}$ -- единичный вектор с составляющими:}
     \[
@@ -264,61 +271,47 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
     \]
     \textit{Обсудите случаи, когда вектор $\Vec{n}$ направлен вдоль осей $x$, $y$ и $z$.}
 \end{center}
+
 Запишем скалярное произведение вектора матриц паули на вектор $\Vec{n}$:
 \begin{align*}
-    \hat{\sigma}_n & = (\hat{\Vec{\sigma}}, \Vec{n}) = \hat{\sigma}_x n_x + \hat{\sigma}_y n_y + \hat{\sigma}_z n_z = \left(\begin{array}{cc}
-        \cos\theta & \sin\theta(\cos\phi - i\sin\phi) \\
-        \sin\theta(\cos\phi + i\sin\phi)  & -\cos\Phi
-    \end{array}
-    \right) = \\ 
-    & = 
-    \left(\begin{array}{cc}
-        \cos\theta & e^{-i\phi} \sin\theta\\
-        e^{i\phi} \sin\theta & -\cos\Phi
-    \end{array}
-    \right)
+    \hat{\sigma}_n & = (\hat{\Vec{\sigma}}, \Vec{n})  = \hat{\sigma}_x n_x + \hat{\sigma}_y n_y + \hat{\sigma}_z n_z= \\ 
+    & = \begin{pmatrix} \cos\theta & \sin\theta(\cos\phi - i\sin\phi) \\ \sin\theta(\cos\phi + i\sin\phi)  & -\cos\phi \end{pmatrix} = \\ 
+    & = \begin{pmatrix} \cos\theta & e^{-i\phi} \sin\theta \\ e^{i\phi} \sin\theta & -\cos\phi \end{pmatrix}
 \end{align*}
-Теперь, зная явный вид оператора $\hat{\Vec{\sigma}}_n$, можем решить характеристическое уравнение и найти собственные значения и векторы:
 
+Теперь, зная явный вид оператора $\hat{\Vec{\sigma}}_n$, можем решить характеристическое уравнение и найти собственные значения и векторы:
 \begin{align*}
-    &|\hat{\Vec{\sigma}}_{n} - \lambda E| = \left|\begin{array}{cc}
-        \cos\theta - \lambda & e^{-i\phi}\sin\theta \\
-         e^{i\phi} & -\cos\theta - \lambda
-    \end{array}
-    \right| = -\cos^2\theta + \lambda^2 -\sin^2\theta = \lambda^2 - 1 = 0 \; => 
-    \\ & => \lambda = \pm 1
+    |\hat{\Vec{\sigma}}_{n} - \lambda E| & = \begin{vmatrix} \cos\theta - \lambda & e^{-i\phi}\sin\theta \\ e^{i\phi} & -\cos\theta - \lambda \end{vmatrix} = \\ 
+    &= \lambda^2 - 1 = 0 \implies \lambda = \pm 1
 \end{align*}
 Соответствующие этим собственным значениям собственные функции (нормированные на единицу) имеют вид:
 \[
-\Psi_1 = \left(\begin{array}{c}
-     \cos \frac{\theta}{2} \\
-     e^{i\phi} \sin\frac{\theta}{2}
-\end{array}
-\right),\;
-\Psi_{-1} = \left(\begin{array}{c}
-    -sin\frac{\theta}{2} \\
-    e^{i\phi}\cos\frac{\theta}{2}
-\end{array}
-\right)
+\Psi_1 = \begin{pmatrix} \cos \frac{\theta}{2} \\ e^{i\phi} \sin\frac{\theta}{2}\end{pmatrix}, \quad
+\Psi_{-1} = \begin{pmatrix} -\sin\frac{\theta}{2} \\ e^{i\phi}\cos\frac{\theta}{2} \end{pmatrix}
 \]
+
 Вектор-функции, элементы которых определяют состояние спина у частиц, мы будем называть \textit{спинорами}. Линейная комбинация функций $\Psi_1$ и $\Psi_2$ как раз и образует спинор. Запомните это обозначение, в будущем оно нам ещё понадобится.
 Рассмотрим случаи, когда $\Vec{n}$ направлен вдоль осей $x$, $y$ и $z$:
 \begin{enumerate}
-    \item $\Vec{n} = (1, 0, 0) \; => \; \theta = \frac{\pi}{2}, \; \phi = 0.$ Подставляя данные значения в найденные собственные функции, получим $\Psi_1 = \left(\begin{array}{c} \frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2} \end{array} \right),\;
-    \Psi_{-1} = \left(\begin{array}{c} -\frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2}\end{array}\right)$
-    \item $\Vec{n} = (0, 1, 0) \; => \; \theta = \phi = \frac{\pi}{2}$, откуда $\Psi_1 = \left(\begin{array}{c} \frac{\sqrt{2}}{2} \\ \frac{i\sqrt{2}}{2} \end{array}\right),\;
-    \Psi_{-1} = \left(\begin{array}{c} -\frac{\sqrt{2}}{2} \\ \frac{i\sqrt{2}}{2} \end{array}\right)$
-    \item $\Vec{n} = (0, 0, 1) \; => \; \theta = 0, \; \phi$ любой, откуда $\Psi_1 = \left(\begin{array}{c} 1 \\ 0 \end{array} \right),\;
-    \Psi_{-1} = \left(\begin{array}{c} 0 \\ 1 \end{array}\right)$ 
+    \item $\Vec{n} = (1, 0, 0) \implies \theta = \frac{\pi}{2}, \; \phi = 0.$ Подставляя данные значения в найденные собственные функции, получим $\Psi_1 = \begin{pmatrix}\frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2}\end{pmatrix}, \; \Psi_{-1} = \begin{pmatrix} -\frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2}\end{pmatrix}$
+    \item $\Vec{n} = (0, 1, 0) \implies \theta = \phi = \frac{\pi}{2}$, откуда $\Psi_1 = \begin{pmatrix} \frac{\sqrt{2}}{2} \\ \frac{i\sqrt{2}}{2} \end{pmatrix}, \; \Psi_{-1} = \begin{pmatrix} -\frac{\sqrt{2}}{2} \\ \frac{i\sqrt{2}}{2} \end{pmatrix}$
+    \item $\Vec{n} = (0, 0, 1) \implies \theta = 0, \; \phi$ любой, откуда $\Psi_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \;
+    \Psi_{-1} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ 
 \end{enumerate}
 Последний результат особенно важен, так как с помощью него мы будем обозначать волновые функции введённых выше состояний вверх $\ket{\uparrow}$ и вниз $\ket{\downarrow}$.
 \csquare{darklavender}
+
 Теперь, когда мы разобрались с матрицами Паули, можно порешать упражнения про спин.
-\excersize{Упражнение №28}{darklavender}
+\excersize{Упражнение №27}{darklavender}
 \begin{center}
     \textit{Пусть электрон находится в состоянии с проекцией спина на ось $z$, равной $1/2$. Найдите вероятность того, что проекция спина этого электрона на направление $n$ равна $1/2$ (или $-1/2$).}
 \end{center}
-Из прошлого упражнения мы знаем, как выглядит волновая функция для спина вверх: $\psi_{1/2} = \left(\begin{array}{c} 1 \\ 0 \end{array}\right)$. Так же мы знаем базисные вектора для электрона, спин которого равен 1/2: $\Psi_1 = \left(\begin{array}{c}  \cos \frac{\theta}{2} \\ e^{i\phi} \sin\frac{\theta}{2}\end{array}\right),\; \Psi_{-1} = \left(\begin{array}{c} -sin\frac{\theta}{2} \\ e^{i\phi}\cos\frac{\theta}{2} \end{array} \right)$. Разложим исходное состояние $\psi_{1/2}$ по этим базисным векторам:
+
+Из прошлого упражнения мы знаем, как выглядит волновая функция для спина вверх: $\psi_{1/2} =\begin{pmatrix} 1 \\ 0 \end{pmatrix}$. Так же мы знаем базисные вектора для электрона, спин которого равен 1/2: 
+\[
+\Psi_1 = \begin{pmatrix}  \cos \frac{\theta}{2} \\ e^{i\phi} \sin\frac{\theta}{2}\end{pmatrix},\; \Psi_{-1} = \begin{pmatrix} -\sin\frac{\theta}{2} \\ e^{i\phi}\cos\frac{\theta}{2} \end{pmatrix}
+\]
+Разложим исходное состояние $\psi_{1/2}$ по этим базисным векторам:
 \[
 \psi_{1/2} = (\Psi_1^{\dagger}\psi_{1/2})\Psi_1 + (\Psi_{-1}^{\dagger}\psi_{1/2})\Psi_{-1}
 \]
@@ -326,8 +319,9 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
 \begin{align*}
     \psi_{1/2} &= (\cos\frac{\theta}{2}, e^{-i\phi}\sin\frac{\theta}{2}) \left(\begin{array}{c} 1 \\ 0 \end{array}\right)\Psi_1 + (-\sin\frac{\theta}{2}, e^{i\phi}\cos\frac{\theta}{2}) \left(\begin{array}{c}
     1 \\ 0 \end{array}\right)\Psi_{-1} = \\
-\\ &= \cos\frac{\theta}{2}\Psi_1 - \sin\frac{\theta}{2}\Psi_{-1}
+    &= \cos\frac{\theta}{2}\Psi_1 - \sin\frac{\theta}{2}\Psi_{-1}
 \end{align*}
+
 Как мы помним, если у нас есть разложение нашего состояния, то его вероятность оказаться в каком-то из состояний есть модуль квадрата коэффициента, стоящего при этом состоянии. Тогда, запишем итоговые вероятности:
 \[
     P(S_z = 1/2) = \cos^2\frac{\theta}{2},\quad P(S_z = -1/2) = \sin^2\frac{\theta}{2},
