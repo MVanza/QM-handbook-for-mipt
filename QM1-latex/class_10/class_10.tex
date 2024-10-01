@@ -1,7 +1,7 @@
 \begin{center}
     \section{Семинар X}
 \end{center}
-\subsection{Решение задач в трёхмерном пространстве.}
+\subsection{Решение задач в трёхмерном пространстве}
 \excersize{Упражнение №30}{darklavender}
 \begin{center}
     \textit{Записать уравнение Шрёдингера для двух частиц с массами $m_1$ и $m_2$, взаимодействующих по закону $U(\Vec{r}_1 - \Vec{r}_2)$ в системе центра масс. Какой вид имеет волновая функция $\psi(\Vec{r}_1, \Vec{r}_2)$?}
@@ -24,6 +24,7 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
 \frac{\partial}{\partial r_1} = \frac{\partial}{\partial R}\frac{\partial r}{\partial r_1} + \frac{\partial}{\partial r}\frac{\partial r}{r_1} = \frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r}\\
 \frac{\partial}{\partial r_2} = \frac{\partial}{\partial R}\frac{m_2}{m_1 + m_2} - \frac{\partial}{\partial r}
 \end{gather*}
+Теперь, когда у нас есть эти выражения, можем найти связь между вторыми производными:
 \begin{align*}
 \frac{\partial^2}{\partial r_1^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_1^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{\partial R\,\partial r}{\partial r_1^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_1^2} = \\
 &= \frac{\partial^2}{\partial R^2} \frac{m_1^2}{(m_1 + m_2)^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{m_1}{m_1 + m_2} +  \frac{\partial^2}{\partial r^2}
@@ -32,13 +33,17 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
     \frac{\partial^2}{\partial r_2^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_2^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{\partial R\,\partial r}{\partial r_2^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_2^2} = \\
     & = \frac{\partial^2}{\partial R^2} \frac{m_2^2}{(m_1 + m_2)^2} - 2\frac{\partial^2} {\partial R\,\partial r} \frac{m_2}{m_1 + m_2} + \frac{\partial^2}{\partial r^2}
 \end{align*}
-Так как $\frac{\partial^2}{\partial r_i^2} = \Delta_{r_i}$, выпишем гамильтониан в новых переменных:
+Так как $\partial^2/\partial r_i^2 = \Delta_{r_i}$, выпишем гамильтониан в новых переменных:
 \begin{align*}
     \hat{H} = &-\frac{\hbar^2}{2m_1}\left(\frac{m_1^2}{(m_1 + m_2)^2}\Delta_{R} + 2\frac{m_1}{m_1 + m_2}\frac{\partial^2}{\partial R \partial r} + \Delta_{r}\right) - \\
     & -\frac{\hbar^2}{2m_2}\left(\frac{m_2^2}{(m_1 + m_2)^2} \Delta_{\Vec{R}} - 2\frac{m_2}{m_1 + m_2} \frac{\partial^2}{\partial R \partial r} + \Delta_{\Vec{r}}\right) + U(\Vec{r}) = \\
      = & -\frac{\hbar^2}{2}\left(\frac{m_1 + m_2}{(m_1 + m_2)^2}\Delta_{\Vec{R}} + \left(\frac{1}{m_1} + \frac{1}{m_2}\right)\Delta_{\Vec{r}}\right) + U(\Vec{r})
 \end{align*}
-Для удобства обозначения введём общую массу системы $M = m_1 + m_2$ и приведённую массу $\frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}$. Тогда, уравнение можно переписать следующим образом:
+Для удобства обозначения введём общую массу системы $M$ и приведённую массу $\mu$, определяемые следующим образом:
+\[
+M = m_1 + m_2, \quad \frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}
+\]
+Тогда, уравнение можно переписать следующим образом:
 \[
 \hat{H} = -\frac{\hbar^2}{2M}\Delta_{R} - \frac{\hbar}{2\mu}\Delta_{r} + U(\Vec{r})
 \]
@@ -52,7 +57,7 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
       E_{\text{цм}}\Phi(\Vec{R}) &=-\frac{\hbar^2}{2M}\Delta_{\Vec{R}}\Phi(\Vec{R}), \\
      E_{\text{отн}}\phi(\Vec{r}) &= \left[-\frac{\hbar^2}{2\mu}\Delta_{\Vec{r}} + U(\Vec{r})\right]\phi(\Vec{r})
 \end{align*}
-Из первого уравнения следует, что функция $\Phi(\Vec{R})$ описывает свободное движение центра масс: $\Phi(\Vec{R}) = Ce^{\frac{i}{h}\Vec{P}\Vec{R}}$, характеризуемое полным импульсом $P$ и энергией $E_{\text{цм}} = \frac{\Vec{P}^2}{2M}$.
+Из первого уравнения следует, что функция $\Phi(\Vec{R})$ описывает свободное движение центра масс: $\Phi(\Vec{R}) = Ce^{\frac{i}{h}\Vec{P}\Vec{R}}$, характеризуемое полным импульсом $P$ и энергией $E_{\text{цм}} = \Vec{P}^2/2M$.
 \csquare{darklavender}
 
 \excersize{Упражнение №31}{darklavender}
@@ -88,7 +93,7 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
      -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2}{mr}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2mr^2}\psi + \frac{m\omega^2 r^2}{2}\psi - E\psi & = 0 \; \Bigg| \cdot r^2 \implies \\
     \implies -\frac{\hbar^2 r^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2 r}{m}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2m}\psi + \frac{m\omega^2 r^4}{2}\psi - Er^2\psi & = 0
 \end{align*}
-Посмотрев на уравнение повнимательнее, можно заметить, что волновую функцию можно разделить на радиальную и угловую части:
+Внимательно посмотрев на уравнение можно заметить, что волновая функция разделяется на радиальную и угловую части:
 \[
 \psi(r, \theta, \phi) = R(r) \cdot Y(\theta, \phi)
 \]
@@ -129,7 +134,7 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
     \implies s(s+1) = l(l+1) \implies s = l \implies R(z) \sim z^l
 \end{align*}
 
-Понимая предельное поведение функции, представим её в виде ряда и посчитаем её первые производные:
+Понимая предельное поведение функции, представим её в виде ряда и посчитаем первую и вторую производные:
 \begin{gather*}
     R(z) = z^l e^{-\frac{z^2}{2}}\sum_{k=0}^\infty a_k z^k = \sum_{k=0}^\infty a_k z^{k+l} e^{-z^2/2} \\
     \frac{dR}{dz} = \sum_{k=0}^\infty a_k\left[(l+k)z^{l+k-1} - z^{l+k+1}\right]e^{-z^2/2} \\
@@ -167,7 +172,7 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
 \[
 a_{k+2} = a_k\frac{2(k-n_k)}{(2+k)(2l+k+3)}
 \]
-Наконец, для большего удобства, переобозначим $k\rightarrow2k, n_k\rightarrow2n_k$ и выпишем решение радиального уравнения вместе с выражением для энергии:
+Наконец, для большего удобства, переобозначим $k\rightarrow2k$, $n_k\rightarrow2n_k$ и выпишем решение радиального уравнения вместе с выражением для энергии:
 \begin{align*}
     a_{k+1} &= a_k\frac{k-n}{\left(1+k\right)\left(l+k+\frac{3}{2}\right)} \\
     R(z) &= \sum_{k=0}^\infty a_k z^{2k+l} e^{-z^2/2}, \text{ где } z = \frac{r}{\rho}, \rho = \sqrt{\frac{\hbar}{m\omega}} \\
@@ -202,7 +207,7 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
 \left(\frac{d}{dr^2} - \frac{l(l-1)}{r^2} + \kappa^2\right)U_{nl}(r) = 0;\\ 
 \kappa^2 = \frac{E\hbar^2}{2m},\; V(r) = 0.
 \end{gather*}
-Функция $U_{nl}(r)$ удовлетворяет данному уравнению при $ 0 < r < a$. При $r = 0$ и $r > a$ функция $U_{nl}(r)$ должна быть равна 0. Решим это уравнения для двух различных значений орбитального числа $l$: $l = 0$ и $l>0$.
+Функция $U_{nl}(r)$ удовлетворяет данному уравнению при $ 0 < r < a$. При $r = 0$ и $r > a$ функция $U_{nl}(r)$ должна быть равна 0. Решим это уравнение для двух различных значений орбитального числа $l$: $l = 0$ и $l>0$.
 
 1) Пусть $l = 0$. Тогда уравнение Шрёдингера принимает вид 
 \begin{gather*}
@@ -211,14 +216,14 @@ U_{n0}(0) = U_{n0}(a) = 0
 \end{gather*}
 Это уравнение аналогично одномерному уравнению для ямы с бесконечными стенками. Тогда, запишем энергию и волновую функцию:
 \[
-E_{n0} = \frac{\pi^2\hbar^2}{2ma^2}n^2;\quad U_{n0}(r) =
+E_{n0} = \frac{\pi^2\hbar^2}{2ma^2}n^2, \quad U_{n0}(r) =
 \begin{cases}
     \frac{1}{r\sqrt{2\pi a}}\sin\frac{\pi n}{a}r, \; 0 < r < a\\
     0, \; r > a
 \end{cases}
 \]
 
-2) Пусть $l > 0$. Приведём уравнение Шрёдингера к уравнению Бесселя с помощью замены $U_{nl}(r) = \sqrt{r}\phi_{nl}(r)$:
+2) Пусть $l > 0$. Приведём уравнение Шрёдингера к уравнению Бесселя с помощью замены $U_{nl}(r) = \sqrt{r}\varphi_{nl}(r)$:
 \begin{gather*}
 \frac{d}{dr^2}\left(\varphi(r)r^{1/2}\right) = \frac{d}{dr}\left( \varphi'r^{1/2} + \frac{1}{2}\varphi r^{-1/2} \right) = r^{1/2}\left(\varphi'' + \varphi'r^{-1} - \frac{1}{4}\varphi r^{-2}\right) \implies \\
 \implies r^{1/2}\varphi'' + r^{-1/2}\varphi' - \frac{1}{4}r^{-3/2}\varphi + \kappa^2r^{1/2}\varphi - l(l+1)r^{-3/2}\varphi = 0 \; \Bigg| \cdot r^{3/2} \implies \\
@@ -234,7 +239,7 @@ j_l(r) = \sqrt{\frac{\pi r}{2}}J_{l+1/2}(r), \quad n_l(r) = (-1)^{l+1}\sqrt{\fra
 \]
 Воспользуемся асимптотикой при малых значениях аргумента:
 \[
-j(r)\rightarrow\frac{2^l l!}{(2l+1)!}r^l \text{ при } r\rightarrow0; \;\; n(r)\rightarrow -\frac{(2l)!}{2^l l!}\frac{1}{r^{l+1}} \text{ при } r\rightarrow 0; 
+j(r)\rightarrow\frac{2^l l!}{(2l+1)!}r^l \text{ при } r\rightarrow0, \;\; n(r)\rightarrow -\frac{(2l)!}{2^l l!}\frac{1}{r^{l+1}} \text{ при } r\rightarrow 0 
 \]
 
 Заметим, что сферическая функция Неймана $n(r)$ уходит в бесконечность при $r \rightarrow 0$. В нашем случае должно выполняться граничное условие $U_{nl}(0) = 0$, поэтому мы оставляем в решении только первый член:
@@ -272,22 +277,22 @@ E_{nl} = \frac{\pi^2\hbar^2}{2ma^2}\lambda_{nl}^2;\quad R_{nl}(r) =
 \begin{center}
     \textit{Электрон покоится в осциллирующем магнитном поле, направленном вдоль оси z:}
     \[
-    \mathbf{B} = B_0\cos(\omega t)\hat{z}.
+    \vec{B} = B_0\cos(\omega t)\hat{z}.
     \]
     \textit{Пусть в момент $t_0 = 0$ электрон со спином, направленным вдоль оси $x$, начинает движение. Определите положение спина (спинор) $\chi(t)$ в произвольный момент времени. Найдите вероятность получить $-\hbar/2$ при измерении спина по оси $x$ (то есть применяя оператор $\hat{S}_x$). Найдите минимальное поле $B_0$ необходимое для полного поворота спина в сторону против оси $x$.}
 \end{center}
 
 Для начала, немного теории. У частиц со спином есть так называемый собственный магнитный момент, который обозначается как $\boldsymbol{\mu}$. Эта величина зависит от спинового момента $\mathbf{S}$ следующим образом:
 \[
-\boldsymbol{\mu} = \gamma \mathbf{S}, \text{ где $\gamma$ - это гиромагнитное отношение.}
+\vec{\mu} = \gamma \vec{S}, \text{ где $\gamma$ - это гиромагнитное отношение.}
 \]
-Когда частица со спином помещается в магнитное поле, она испытывает крутящий момент $\boldsymbol{\mu} \times \mathbf{B}$, который поворачивает её спин по полю. Энергию этого крутящего момента можно вычислить как:
+Когда частица со спином помещается в магнитное поле, она испытывает крутящий момент $\vec{\mu} \times \vec{B}$, который поворачивает её спин по полю. Энергию этого крутящего момента можно вычислить как:
 \[
-H = -\boldsymbol{\mu}\cdot\mathbf{B} = -\gamma\mathbf{B}\cdot\mathbf{S}
+H = -\vec{\mu}\cdot\vec{B} = -\gamma\vec{B}\cdot\vec{S}
 \]
 Зная это, запишем гамильтониан для нашей задачи:
 \[
-H = -\gamma\mathbf{B}\cdot\mathbf{S} = -\gamma B_0\cos(\omega t) \hat{S}_z = -\frac{\gamma B_0\hbar}{2}\cos(\omega t)\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+H = -\gamma\vec{B}\cdot\vec{S} = -\gamma B_0\cos(\omega t) \hat{S}_z = -\frac{\gamma B_0\hbar}{2}\cos(\omega t)\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
 \]
 Если забыли, откуда появилась такая матрица и что такое спин - вам в 8 семинар. 
 
@@ -320,7 +325,7 @@ i\hbar\frac{d\chi(t)}{dt} = H\chi(t) = -\frac{\gamma B_0\hbar}{2}\cos(\omega t)\
 
 Найдём вероятность того, что спин частицы будет повернут антипараллельно оси x. Для этого воспользуемся правилом Борна:
 \begin{align*}
-P(\chi^{(x)}_-) &= \left|\bra{\chi^{(x)}_-}\ket{\chi(t)}\right|^2 = \left|(\frac{1}{\sqrt{2}})^2\begin{pmatrix}1 & -1\end{pmatrix}\begin{pmatrix} e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)} \\ e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)} \end{pmatrix}\right|^2 = \\ &= \left|\frac{1}{2}(e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)} - e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)})\right|^2 = \left|i\sin(\frac{\gamma B_0}{2\omega}\sin(\omega t))\right|^2 = \\
+P(\chi^{(x)}_-) &= \left|\bra{\chi^{(x)}_-}\ket{\chi(t)}\right|^2 = \left|\left(\frac{1}{\sqrt{2}}\right)^2\begin{pmatrix}1 & -1\end{pmatrix}\begin{pmatrix} e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)} \\ e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)} \end{pmatrix}\right|^2 = \\ &= \left|\frac{1}{2}\left(e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)} - e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)}\right)\right|^2 = \left|i\sin(\frac{\gamma B_0}{2\omega}\sin(\omega t))\right|^2 = \\
  & = \sin^2\left(\frac{\gamma B_0}{2\omega}\sin(\omega t)\right)
 \end{align*}
 

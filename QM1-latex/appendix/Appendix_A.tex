@@ -3,21 +3,20 @@
     \section{Приложение А}\label{appendix:A}
     \textbf{\Large{Нахождение собственных функций операторов $\hat{L}^2$ и $\hat{L}_z$}.}
 \end{center}
+
 Найдём волновые функции состояния $\ket{lm}$. Для начала напишем вид операторов повышения и понижения в координатном базисе
-\[
-\hat{L}_+ \simeq \hbar e^{i\phi}\left(\frac{\partial}{\partial \theta} + i \ctg\theta\,\frac{\partial}{\partial \phi} \right)
-\]
-\[
+\begin{gather*}
+\hat{L}_+ \simeq \hbar e^{i\phi}\left(\frac{\partial}{\partial \theta} + i \ctg\theta\,\frac{\partial}{\partial \phi} \right)\\
 \hat{L}_- \simeq \hbar e^{-i\phi}\left(-\frac{\partial}{\partial \theta} + i \ctg\theta\,\frac{\partial}{\partial \phi} \right)
-\]
+\end{gather*}
 
 В каком виде нам искать решения для нашего уравнения? Здесь нам помогут уравнения математической физики и определенные там \textit{сферические функции}. Выпишем их и докажем с помощью математической индукции, что они действительно являются собственными функциями в рассматриваемой системе:
 \[
 Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m}\theta}\,\frac{d^{l-m}}{d(\cos\theta)^{l-m}}\sin^{2l}\theta e^{im\phi},
 \]
-где $\mathcal{N}_l = (-1)^l \sqrt{\frac{2l+1}{4\pi}}\frac{1}{2^l l!}$ - коэффициент нормирования.
+где $\mathcal{N}_l = (-1)^l \sqrt{\frac{2l+1}{4\pi}}\frac{1}{2^l l!}$ - коэффициент нормировки.
 
-Доказательство построим в 4 шага. Для начала покажем, что при действии оператора повышения на состояние $\ket{ll}$ (то есть $m = l$) мы получим 0. На втором шаге убедимся в том, что правильно определили нормирующий множитель. На третьем шаге применим к сферической функции при $l=m$ оператор $\hat{L}^2$ и убедимся, что функции являются собственными с собственным значением $\hbar^2(l+1)l$. И на последнем шаге сделаем шаг математической индукции: предположим, что состояние $\ket{lm}$ задаётся сферической функцией и покажем, что состояние $\ket{l, m-1}$ так же задаётся сферической функцией.
+Доказательство построим в 4 шага. Для начала покажем, что при действии оператора повышения на состояние $\ket{ll}$ (то есть $m = l$) мы получим 0. На втором шаге убедимся в том, что правильно определили нормирующий множитель. На третьем шаге применим к сферической функции при $l=m$ оператор $\hat{L}^2$ и убедимся, что функции являются собственными с собственным значением $\hbar^2(l+1)l$. В конце сделаем шаг математической индукции: предположим, что состояние $\ket{lm}$ задаётся сферической функцией и покажем, что состояние $\ket{l, m-1}$ так же задаётся сферической функцией.
 
 \begin{enumerate}
     \item При $m = l$ сферические функции имеют вид 
@@ -27,12 +26,12 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
     Подействуем на неё повышающим оператором:
     \begin{align*}
         \hat{L}_+\ket{ll} & \simeq \hbar e^{i\phi}{N}_l\sqrt{(2l)!}\left(\frac{\partial}{\partial \theta} + i \ctg\theta\,\frac{\partial}{\partial \phi} \right)\sin^{l}\theta\,e^{i\phi l} = \\
-        & = \hbar e^{i\phi}{N}_l\sqrt{(2l)!}\left( l\cos\theta\sin^{l-1}\theta - l\ctg\theta\sin^l\theta\, e^{i\phi l} \right) \\
+        & = \hbar e^{i\phi}{N}_l\sqrt{(2l)!}\left( l\cos\theta\sin^{l-1}\theta - l\ctg\theta\sin^l\theta\, e^{i\phi l} \right) =\\
         & = 0
     \end{align*}
     \item Для проверки нормировки приравняем скалярное произведение состояния на самого себя к единице:
     \begin{align*}
-        \braket{ll} & = \int\limits_0^{2\pi}\int\limits_0^{\pi}|Y^l_l(\theta, \phi)|^2 \sin\theta \, d\theta d\phi = \mathcal{N}^2_l(2l)!\int\limits_0^{2\pi}\int\limits_0^{\pi}\sin^{2l}\theta \sin\theta\,d\theta d\phi \\
+        \braket{ll} & = \int\limits_0^{2\pi}\int\limits_0^{\pi}|Y^l_l(\theta, \phi)|^2 \sin\theta \, d\theta d\phi = \mathcal{N}^2_l(2l)!\int\limits_0^{2\pi}\int\limits_0^{\pi}\sin^{2l}\theta \sin\theta\,d\theta d\phi = \\
         & = (\text{сделаем замену} x = \cos\theta,\, dx = -\sin\theta\,d\theta, \text{проинтегрируем по }\phi) =\\
         & = 2\pi\mathcal{N}^2_l(2l)!\int\limits_{-1}^1 (1-x^2)^l dx.
     \end{align*}
@@ -52,9 +51,9 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
     Подставив это выражение, получим
     \begin{align*}
          & 2\pi\mathcal{N}^2_l(2l)!\int\limits_{-1}^1 (1-x^2)^l dx = 2\pi\mathcal{N}^2_l(2l)!\frac{2^{2l+1}(l!)^2}{(2l+1)!}. = \\
-         & = 4\pi\mathcal{N}^2_l\frac{2^{2l}(l!)^2}{(2l+1)} = 1\; => \;\mathcal{N} = \sqrt{\frac{{2l+1}}{4\pi}}\frac{1}{2^ll!}
+         & = 4\pi\mathcal{N}^2_l\frac{2^{2l}(l!)^2}{(2l+1)} = 1 \implies \mathcal{N} = \sqrt{\frac{{2l+1}}{4\pi}}\frac{1}{2^ll!}
     \end{align*}
-    Обычно перед коэффициентом нормирования добавляют $(-1)^{l}$.
+    Обычно перед коэффициентом нормировки добавляют $(-1)^{l}$.
     \item Посчитаем $\hat{L}^2\ket{ll}$. Напомню, что оператор $\hat{L}^2$ в координатном базисе имеет вид 
     \[
     \hat{L}^2 \simeq -\hbar^2\left[\frac{1}{\sin\phi}\frac{\partial}{\partial \theta}\left( \sin\theta\frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right]

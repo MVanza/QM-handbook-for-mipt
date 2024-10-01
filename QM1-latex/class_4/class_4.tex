@@ -9,7 +9,7 @@
     U(x) =
     \begin{cases}
     +\infty,& x<0,\\
-    -U_0,& 0<x<a,\\
+    -U_0,& 0 \leq x \leq a,\\
     0,& x>a
     \end{cases}
     \]
@@ -36,7 +36,7 @@
     Be^{-\kappa x},& x\geq a
 \end{cases}
 \]
-Я думаю, уже видно, что мы можем переписать это через нечетные волновые функции из задачи 1.1. Тогда получим:
+Я думаю, уже видно, что мы можем переписать это через нечетные волновые функции из упражения 12. Тогда получим:
 \[
 \psi(x) =
 \begin{cases}
@@ -44,7 +44,7 @@
     \sqrt{2}\psi_-(x), & x>0
 \end{cases}
 \]
-Коэффициент $\sqrt{2}$ появился из следующих соображений: волновая функция, относительно первой задачи, уменьшилась вдвое, значит нужно её перенормировать. Если хотите в этом убедиться, подставьте вместо корня из двух коэффициент $C$ и решите уравнение $\int\limits_0^{+\infty}|\psi(x)|^2 = 1$.
+Коэффициент $\sqrt{2}$ появился из следующих соображений: волновая функция, относительно первой задачи, уменьшилась вдвое, значит, нужно её перенормировать. Если хотите в этом убедиться, подставьте вместо корня из двух коэффициент $C$ и решите уравнение $\int\limits_0^{+\infty}|\psi(x)|^2 = 1$.
 \csquare{darklavender}
 
 \excersize{Упражнение №14}{darklavender}
@@ -53,7 +53,7 @@
     \[
     U(x) = -\frac{\hbar^2\kappa_0}{m}\delta(x),
     \]
-    \textit{где $\kappa_0$ - параметр ямы. Покажите, что в этой яме имеется только одно связанное состояние и найдите энергию и волновую функцию частицы связанного состояния в координатном представлении. Вычислите $\langle x\rangle,\,\langle p\rangle,\,\langle (\Delta x)^2\rangle$ и $\langle (\Delta p)^2\rangle$ в этом состоянии}
+    \textit{где $\kappa_0$ - параметр ямы. Покажите, что в этой яме имеется только одно связанное состояние и найдите энергию и волновую функцию частицы связанного состояния в координатном представлении. Вычислите $\langle x \rangle, \; \langle p \rangle, \; \langle (\Delta x)^2\rangle$ и $\langle (\Delta p)^2\rangle$ в этом состоянии}
 \end{center}
 
 Не переживайте, дельта функция только выглядит страшно. На деле у нас получается примерно такой рисунок:
@@ -76,12 +76,12 @@
 \]
 
 Волновая функция в нуле должна быть непрерывна: 
-\begin{equation}
+\begin{equation*}
 \psi(+0) = \psi(-0)    
-\end{equation}
+\end{equation*}
 Производная же будет разрывна (из-за дельта-функции). Доопределим разрыв, проинтегрировав уравнение Шрёдингера с пределами от $-\epsilon$ до $\epsilon$, где $\epsilon \rightarrow 0$. Получим:
 \begin{gather*}
-\int\limits_{-\epsilon}^{\epsilon}\psi''(x)dx = \int\limits_{-\epsilon}^{\epsilon}\psi(x)\kappa^2 dx - \int\limits_{-\epsilon}^{\epsilon}2\kappa_0\delta(x)\psi(x) dx \implies\\
+\int\limits_{-\epsilon}^{\epsilon} \psi''(x)dx = \int\limits_{-\epsilon}^{\epsilon} \kappa^2 \psi(x) dx - \int\limits_{-\epsilon}^{\epsilon} 2 \kappa_0 \delta(x) \psi(x) dx \implies\\
 \implies \psi'(+0) - \psi'(-0) = -2\kappa_0\psi(0)    
 \end{gather*}
 Второй интеграл равен нулю, так как по теореме о среднем этот интеграл равен $2\mu\epsilon$, но $\epsilon \rightarrow 0$.
@@ -105,7 +105,7 @@ E_0 = - \frac{\hbar^2 \kappa_0^2}{2m}
 \]
 Выходит, что в дельта яме только один уровень энергии. Найдём коэффициент A из условия нормировки:
 \begin{gather*}
-\int\limits_{-\infty}^{+\infty} |\psi(x)|^2 dx = A^2\int\limits_{-\infty}^{+\infty} e^{-2\kappa |x|} = A^2\left[\int\limits_{-\infty}^0 e^{2\kappa x} + \int\limits_0^{+\infty} e^{-2\kappa x}\right] =\\
+\int\limits_{-\infty}^{+\infty} |\psi(x)|^2 dx = A^2 \int\limits_{-\infty}^{+\infty} e^{-2\kappa |x|} dx = A^2 \left[\int\limits_{-\infty}^0 e^{2\kappa x} dx + \int\limits_0^{+\infty} e^{-2\kappa x} dx \right] =\\
 = A^2\left[ \frac{1}{2\kappa}(1 - 0) - \frac{1}{2\kappa}(0-1)\right] = \frac{A^2}{\kappa} = 1 \implies  \\ \implies  A = \sqrt{\kappa}
 \end{gather*}
 
@@ -114,13 +114,12 @@ E_0 = - \frac{\hbar^2 \kappa_0^2}{2m}
 \[
 \psi(x) = \sqrt{\kappa_0}e^{-\kappa_0 |x|}
 \]
-Найдём среднее значение координаты и импульса. Дисперсию читателю представляется найти самостоятельно в виде упражнения.
-\[
-\langle x \rangle = \int\psi^*x\psi dx = 0, \text{т.к. $\psi$ - чётная}
-\]
-\[
-\langle p \rangle = \int\psi^*(-i\hbar\frac{\partial}{\partial x}\psi) dx = -i\hbar\kappa_0^2\int e^{-\kappa_0|x|}(-e^{-\kappa_0|x|}sign(x)) dx = 0
-\]
+
+Найдём среднее значение координаты и импульса. Дисперсию читателю предлагается найти самостоятельно в виде упражнения.
+\begin{gather*}
+    \langle x \rangle = \int\psi^*x\psi dx = 0, \text{ т.к. $\psi$ - чётная} \\
+    \langle p \rangle = \int\psi^*(-i\hbar\frac{\partial}{\partial x}\psi) dx = -i\hbar\kappa_0^2\int e^{-\kappa_0|x|}(-e^{-\kappa_0|x|} sign (x)) dx = 0
+\end{gather*}
 \csquare{darklavender}
 \excersize{Упражнение №15}{darklavender}
 \begin{center}
@@ -141,18 +140,18 @@ E_0 = - \frac{\hbar^2 \kappa_0^2}{2m}
 \label{fig 4.3}
 \end{figure}
 
-Давайте для начала рассмотрим области вне дельта ям. Ясно (если нет, проделайте те же самые выкладки, что мы делали в задаче 1.1), что решением здесь будут так же четные и нечетные функции следующего вида:
+Давайте для начала рассмотрим области вне дельта ям. Ясно (если нет, проделайте те же самые выкладки, что мы делали в упражнении 12), что решением здесь будут так же четные и нечетные функции следующего вида:
 \[
 \psi_+ =
 \begin{cases}
-    Ae^{\kappa x}, & x < -a,\\
-    B\,ch\,\kappa x, & -a < x < a,\\
+    A e^{\kappa x}, & x < -a,\\
+    B \ch \kappa x, & -a < x < a,\\
     Ae^{-\kappa x},& x > a
 \end{cases}\quad
 \psi_- =
 \begin{cases}
     -De^{\kappa x},& x < -a,\\
-    C\, sh\, \kappa x, & -a < x < a,\\
+    C \sh \kappa x, & -a < x < a,\\
     De^{-\kappa x},& x > a
 \end{cases}
 \]
@@ -165,39 +164,40 @@ E_0 = - \frac{\hbar^2 \kappa_0^2}{2m}
 \]
 Проведем все необходимые преобразования для чётных функций (для нечётных аналогично):
 \[
-Ae^{-\kappa a} = B\,ch\,ka => B = \frac{1}{2}A(e^{2\kappa a} + 1)
+Ae^{-\kappa a} = B \ch \kappa a \implies B = \frac{Ae^{-\kappa a}}{\ch \kappa a}
 \]
 Из первого уравнения получим:
 \[
--A\kappa e^{-\kappa a} - B\kappa\,\sh\,\kappa a = -2\kappa_0 Be^{-\kappa a}
+-A\kappa e^{-\kappa a} - B\kappa \sh \kappa a = -2\kappa_0 Ae^{-\kappa a}
 \]
 Подставляя $B$ и проведя все сокращения, получим итоговое выражение:
-\begin{equation}
-    \frac{\kappa a}{\kappa_0 a} = 1 + e^{-2\kappa a}
-\end{equation}
+\[
+\frac{\kappa a}{\kappa_0 a} = 1 + e^{-2\kappa a}
+\]
 Для нечетного же случая:
-\begin{equation}
-    \frac{\kappa a}{\kappa_0 a} = 1 - e^{-2\kappa a}
-\end{equation}
+\[
+\frac{\kappa a}{\kappa_0 a} = 1 - e^{-2\kappa a}
+\]
 Давайте опять сделаем красивый (или не очень) график и обсудим его.
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.7]{class_4/images/delta.png}
+\includegraphics[scale=0.8]{class_4/images/delta.png}
 \caption{График для нечетных и четных функций}
 \label{fig 4.4}
 \end{figure}
 
 Два важных замечания по графику:
 \begin{enumerate}
-    \item Видно, что чётное решение, в отличие от нечётного, существует всегда. Нечётное решение же существует только при $\kappa_0a\geq 1/2$.
-    \item При $\kappa_0a\gg 1$ решения почти неразличимы. Однако, если $\kappa a \ll 1$, то у нас остаётся одна дельта яма с удвоенным $\kappa_0$.
+    \item Видно, что чётное решение, в отличие от нечётного, существует всегда. Нечётное решение же существует только при $\kappa_0a \geq 1/2$.
+    \item При $\kappa_0 a \gg 1$ решения почти неразличимы. Однако, если $\kappa a \ll 1$, то у нас остаётся одна дельта яма с удвоенным $\kappa_0$.
 \end{enumerate}
 Найдём коэффициенты для собственных функций (так же, как в упражнении 12).
 \[
-|A|^2 =  (a + \frac{sh\, 2\kappa a}{2\kappa} + \frac{ch ^2\,\kappa a}{\kappa})^{-1},\; B = Ae^{\kappa a}\,ch\,\kappa a
+    |B|^2 =  (a + \frac{\sh 2 \kappa a}{2 \kappa} + \frac{\ch^2 \kappa a}{\kappa})^{-1}, \; A = B e^{\kappa a} \ch \kappa a \\
 \]
+Аналогично для коэффициентов D и С:
 \[
-|D|^2 = (-a + \frac{sh\, 2\kappa a}{2\kappa} + \frac{sh ^2\,\kappa a}{\kappa})^{-1},\;C = De^{\kappa a}\,sh\,\kappa a
+    |D|^2 = (-a + \frac{\sh 2 \kappa a}{2 \kappa} + \frac{\sh^2 \kappa a}{\kappa})^{-1},\;C = De^{\kappa a}\sh \kappa a
 \]
 \csquare{darklavender}
 
@@ -205,22 +205,22 @@ Ae^{-\kappa a} = B\,ch\,ka => B = \frac{1}{2}A(e^{2\kappa a} + 1)
 \begin{center}
     \textit{Частица массы m движется в одномерном периодическом поле вида}
     \[
-    U(x) = -\frac{\hbar^2\kappa_0}{m}\sum\limits_{n=-\infty}^{n = +\infty}\delta(x-na),
+    U(x) = -\frac{\hbar^2 \kappa_0}{m}\sum\limits_{n = - \infty}^{n = +\infty} \delta(x - n a),
     \]
     \textit{где $\kappa_0$ и $a$ - параметры потенциала. Исследуйте, при каких отрицательных и положительных энергиях $E$ частицы такое движение возможно. Покажите, что имеются зоны ``разрешенных'' и ``запрещенных'' энергий.}
-    \textit{Исследуйте, что происходит с шириной зон в предельных случаях $\kappa_0a\gg1$ (сильная связь) и $\kappa_0a\ll1$(слабая связь).}
+    \textit{Исследуйте, что происходит с шириной зон в предельных случаях $\kappa_0 a \gg 1$ (сильная связь) и $\kappa_0 a \ll 1$(слабая связь).}
     
 \end{center}
 
-Мы решили задачу на одну яму, на две ямы, следующий логичный шаг - решить задачу на \sout{три} бесконечность дельта ям.
+Мы решили задачу на одну яму, на две ямы, следующий логичный шаг -- решить задачу на \sout{три} бесконечность дельта ям.
 
-Писать условие сшивки для бесконечного количества ям не самая приятная задача и предоставляется читателю в качестве упражнения на дом. Мы же пойдём другим путём, заметив важную особенность задачи. Посмотрев на рисунок \ref{fig 4.5} и на дельта потенциал, становится понятно, что задача a-периодична. А какой оператор у нас двигает частицу на a? Правильно, оператор трансляции $\hat{T}_a$. Проверим, коммутирует ли гамильтониан с оператором трансляции:
+Писать условие сшивки для бесконечного количества ям -- не самая приятная задача, поэтому она предоставляется читателю в качестве упражнения на дом. Мы же пойдём другим путём, заметив важную особенность задачи. Посмотрев на рисунок \ref{fig 4.5} и на дельта потенциал, становится понятно, что задача a-периодична. А какой оператор у нас двигает частицу на a? Правильно, оператор трансляции $\hat{T}_a$. Проверим, коммутирует ли гамильтониан с оператором трансляции:
 \[
-[\hat{H}, \hat{T}_a] = [U(x), \hat{T}_a] + [\hat{p}^2, \hat{T}_a] = [\sum\delta(x-na), \hat{T}_a] + [\hat{p}^2, e^{-\frac{i}{\hbar}a\hat{p}}] = 0.
+\left[\hat{H}, \hat{T}_a\right] = \left[U(x), \hat{T}_a\right] + \left[\hat{p}^2, \hat{T}_a\right] = \left[\sum\delta(x-na), \hat{T}_a\right] + \left[\hat{p}^2, e^{-\frac{i}{\hbar}a\hat{p}}\right] = 0.
 \]
-Значит, мы можем искать собственные функции гамильтониана в виде $e^{ikx}\phi(x)$, где $\phi(x + a) = \phi(x)$. Помимо этого, нам достаточно написать условия сшивки для зоны I и зоны II. Теперь, когда мы знаем, что волновые функции для задачи являются собственными для оператора трансляции, можем выписать действие оператора трансляции отдельно:
+Значит, мы можем искать собственные функции гамильтониана в виде $e^{ikx}\phi(x)$, где \\ $\phi(x + a) = \phi(x)$. Помимо этого, нам достаточно написать условия сшивки для зоны I и зоны II. Теперь, когда мы знаем, что волновые функции для задачи являются собственными для оператора трансляции, можем выписать действие оператора трансляции отдельно:
 \[
-\hat{T}_a\psi(x) = \psi(x+a) = e^{ia\kappa}\psi(x)
+\hat{T}_a\psi(x) = \psi(x+a) = e^{i k a}\psi(x)
 \]
 \begin{figure}[!ht]
 \centering
@@ -239,41 +239,40 @@ Ae^{-\kappa a} = B\,ch\,ka => B = \frac{1}{2}A(e^{2\kappa a} + 1)
 \]
 Получим из него уравнение для второй области:
 \[
-\hat{T}_a\psi_I(x) = \psi_I(x+a) = \psi_{II}(x)
+\hat{T}_a\psi_I(x) = \psi_I(x+a) = e^{ika}\psi_I(x)
 \]
 Мы знаем, что волновые функции являются собственными для оператора трансляции. Тогда:
 \[
-\psi_{II}(x) = e^{ika}\psi_I(x-a) = e^{ika}(Ae^{i\kappa (x-a)} + Be^{-i\kappa (x - a)})
+\psi_{II}(x) = e^{ika}\psi_I(x-a) = e^{ika}\left(Ae^{i\kappa (x-a)} + Be^{-i\kappa (x - a)}\right)
 \]
 Таким образом, мы смогли выразить оба наших решения через одни коэффициенты A и B.
 
 Теперь запишем условия сшивки. Напомню, что $\psi_I(0) = \psi_{II}(0)$ и $\psi'_{II}(0) - \psi'_I(0) = -2\kappa_0\psi(0)$. Тогда
 \[
 \begin{cases}
-A + B = e^{ika}\left[Ae^{-i\kappa a} + Be^{i\kappa a}\right]\\
-e^{ika}(Ae^{-i\kappa a}i\kappa - Be^{i\kappa a}i\kappa) - Ai\kappa + Bi\kappa = -2\kappa_0(A+B)
+A + B = e^{ika}\left(Ae^{-i\kappa a} + Be^{i\kappa a}\right)\\
+e^{ika}\left(A i \kappa e^{-i\kappa a} - B i \kappa e^{i\kappa a}\right) - Ai\kappa + Bi\kappa = -2\kappa_0(A+B)
 \end{cases}
 \]
 Чтобы у системы уравнений было нетривиальное решение, необходимо, чтобы определитель матрицы системы был равен нулю. Давайте выпишем матрицу системы:
 \begin{align*}
 &\begin{cases}
-A(1 - e^{i(k-\kappa)a}) + B(1 - e^{i(k+\kappa)a}) = 0\\
-A(e^{i(k-\kappa)a}i\kappa - i\kappa + 2\kappa_0) - B(e^{i(k+\kappa)a}i\kappa - i\kappa - 2\kappa_0) = 0
+A\left(1 - e^{i(k-\kappa)a}\right) + B\left(1 - e^{i(k+\kappa)a}\right) = 0\\
+A \left(e^{i(k-\kappa)a}i\kappa - i\kappa + 2\kappa_0\right) - B\left(e^{i(k+\kappa)a}i\kappa - i\kappa - 2\kappa_0\right) = 0
 \end{cases} \implies\\
 \implies &\begin{vmatrix}
 1 - e^{i(k-\kappa)a} & 1 - e^{i(k+\kappa)a} \\
-e^{i(k-\kappa)a}i\kappa - i\kappa + 2\kappa_0 & e^{i(k+\kappa)a}i\kappa - i\kappa - 2\kappa_0
+i \kappa e^{i(k-\kappa)a} - i\kappa + 2\kappa_0 & - i \kappa e^{i (k +\kappa) a} + i\kappa + 2\kappa_0
 \end{vmatrix}
 = 0
 \end{align*}
 Распишем детерминант и воспользуемся всей мощью тригонометрии:
-\begin{align*}
-(1 - e^{i(k-\kappa)a})&(e^{i(k+\kappa)a}i\kappa - i\kappa - 2\kappa_0) - (1 - e^{i(k+\kappa)a})(e^{i(k-\kappa)a}i\kappa - i\kappa + 2\kappa_0) = \\
- = &i\kappa - i\kappa e^{i(k-\kappa)a} - i\kappa e^{i(k+\kappa)a} + i\kappa e^{2ika} - \kappa_0 e^{i(k-\kappa)a} + \kappa_0 e^{i(k+\kappa)a} = \\
- = &e^{ika}\left( i\kappa e^{-ika} - i\kappa e^{-i\kappa a} - i\kappa e^{i\kappa a} + i\kappa e^{ika} - \kappa_0 e^{-i\kappa a} + \kappa_0 e^{i\kappa a}\right) = \\ 
- = &i\kappa\left( 2\cos ka - 2\cos\kappa a \right) + 2i\kappa_0\sin\kappa a =\\
- = &i\kappa\cos ka - i\kappa\cos\kappa a + i\kappa_0\sin\kappa a = 0
-\end{align*}
+\begin{gather*}
+\left(1 - e^{i(k-\kappa)a}\right) \left(-i \kappa e^{i (k + \kappa) a} + i \kappa + 2 \kappa_0\right) - \left(1 - e^{i (k + \kappa) a}\right) \left(i \kappa e^{i (k - \kappa) a} - i \kappa + 2 \kappa_0\right) = \\
+= 2 e^{i (k + \kappa) a} (\kappa_0 - i \kappa) + 2 i \kappa e^{2 i k a} + 2 i \kappa - 2 e^{i (k - \kappa) a} (i \kappa + \kappa_0) = \\
+= 2 e^{i k a} \left(e^{i \kappa a} \kappa_0 - i \kappa e^{i \kappa a} + i \kappa e^{i k a} + i \kappa e^{-i k a} - i \kappa e^{-i \kappa a} - \kappa_0 e^{-i \kappa a}\right) = \\
+= 4 i e^{i k a} \left(\kappa_0 \sin \kappa a - \kappa \cos \kappa a + \kappa \cos k a \right) = 0
+\end{gather*}
 В итоге получаем:
 \[
 \cos ka = \cos\kappa a - \frac{\kappa_0}{\kappa}\sin\kappa a
@@ -284,10 +283,10 @@ e^{i(k-\kappa)a}i\kappa - i\kappa + 2\kappa_0 & e^{i(k+\kappa)a}i\kappa - i\kapp
 \]
 Мы получили зависимость энергии ($\kappa$ или $\eta$) от квазиимпульса $k$, т.е. у нас получились дисперсионные соотношения. Давайте проанализируем случай положительных энергий. Для этого преобразуем получившееся уравнение:
 \begin{align*}
-    \cos \kappa a - \frac{\kappa_0}{\kappa}\sin\kappa a & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{\kappa}\left( \frac{\kappa}{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}\cos \kappa a -  \frac{\kappa_0}{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}\sin \kappa a\right) = \\
-    & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\left( \frac{1}{\sqrt{1 + (\frac{\kappa_0}{\kappa})^2}}\cos \kappa a -  \frac{1}{\sqrt{(\frac{\kappa}{\kappa_0})^2 + 1}}\sin \kappa a\right) = \\
-    & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\left( \cos\phi \cos\kappa a -  \sin\phi\sin \kappa a\right), \phi = \arctan \frac{\kappa_0}{\kappa} =\\
-    & =  \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\cos (\kappa a + \phi)
+    \cos \kappa a - \frac{\kappa_0}{\kappa} \sin \kappa a & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{\kappa}\left( \frac{\kappa \cos \kappa a}{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}} -  \frac{\kappa_0 \sin \kappa a}{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}\right) = \\
+    & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\left( \frac{\cos \kappa a}{\sqrt{1 + (\frac{\kappa_0}{\kappa})^2}} -  \frac{\sin \kappa a}{\sqrt{(\frac{\kappa}{\kappa_0})^2 + 1}}\right) = \\
+    & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\left( \cos\phi \cos\kappa a -  \sin\phi\sin \kappa a\right) =\\
+    & =  \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\cos (\kappa a + \phi), \; \phi = \arctan \frac{\kappa_0}{\kappa}
 \end{align*}
 
 В итоге получим уравнение:
@@ -301,7 +300,7 @@ e^{i(k-\kappa)a}i\kappa - i\kappa + 2\kappa_0 & e^{i(k+\kappa)a}i\kappa - i\kapp
 \caption{График для положительных энергий}
 \label{fig 4.6}
 \end{figure}
-Проанализируем это уравнения на графике \ref{fig 4.6}. Множитель перед косинусом указывает на вид огибающих, внутри которых будет распростроянться косинус $\cos (\kappa a + \phi)$. Так как значение k у нас действительные, косинус энергии не может выходить за пределы 1 и -1. Получается, что все зоны, когда график выходит за пределы, являются запрещёнными для энергии. И наоборот, значения внутри наших пределов будут разрешенными. Мы получили зонную структуру. Это значит, что у нас существуют область, в которых мы не сможем найти нашу систему. Анализ отрциательных энергии можно провести самостоятельно.
+Проанализируем это уравнения на графике \ref{fig 4.6}. Множитель перед косинусом указывает на вид огибающих, внутри которых будет распространяться косинус $\cos (\kappa a + \phi)$. Так как значение k действительные, косинус энергии не может выходить за пределы 1 и -1. Получается, что все зоны, когда график выходит за пределы, являются запрещёнными для энергии. И наоборот, значения внутри наших пределов будут разрешенными. Мы получили зонную структуру. Это значит, что существует область, в которых мы не сможем найти нашу систему. Анализ случая с отрицательной энергией можно провести самостоятельно.
 \csquare{darklavender}
 
 На следующем семинаре мы с вами решим последнюю задачу на ямы и обсудим ситуацию с барьерами.
