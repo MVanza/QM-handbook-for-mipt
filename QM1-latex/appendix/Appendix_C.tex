@@ -4,41 +4,42 @@
     \textbf{\Large{Раскрытие некоторых математических аспектов квазиклассики на примере задач}}
 \end{center}
 
-\excersize{Упражнение №C1}{darklavender}
+\excersize{Упражнение C1}{darklavender}
 \begin{center}
 \textit{Пусть частица массой m находится на n-ом уровне гармонического осциллятора. Найдите точку поворота $x_2$. Насколько далеко от точки поворота может улететь частица перед тем как ошибка из-за линеаризации потенциала достигнет 1\%?}.\\
 \textit{При $z\geq 5$ применение асимптотики для функции Эйри $Ai(z)$ даёт ошибку в 1\%. Для расстояния вылета за точку поворота d найти наименьший уровень n, при котором $\alpha d\geq 5$}.
 \end{center}
 
 Напомню, как выглядит энергия для квантового гармонического осциллятора: 
-\[E_n = \hbar\omega(n + 1/2).\] Точку поворота можно найти из условия p = 0:
+\[E_n = \hbar\omega(n + 1/2).\] 
+Точку поворота можно найти из условия $p = 0$:
 \begin{gather*} 
 p(x_2) = \sqrt{2mE_n - m^2\omega^2x_2^2} = 0 \implies 2mE_n = m^2\omega^2x_2^2 \implies \\
 \implies x_2 = \sqrt{\frac{(2n + 1)\hbar}{m\omega}}
 \end{gather*}
 
-Пусть d -- искомое расстояние, на которое может улететь частица при сохранении ошибки в 1\%. Тогда найдём d из следующей формулы:
+Пусть $d$ -- искомое расстояние, на которое может улететь частица при сохранении ошибки в $1\%$. Тогда найдём $d$ из следующей формулы:
 \[
 \frac{V(x_2 + d) - V_{lin}(x_2 + d)}{V(x_2)} = 0.01
 \]
-Напомню, что линеаризованный потенциал $V_{lin}(x)$ это
+Напомню, что линеаризованный потенциал $V_{lin}(x)$ это:
 \[
 V_{lin}(x) = V(x_2)  + V'(x_2)(x - x_2)
 \]
 Подставим в него значения $x_2$ и получим:
 \begin{align*}
 V_{lin}(x) = & V(x_2)  + V'(x_2)(x - x_2) = \frac{m\omega^2 x_2^2}{2} + (m\omega^2 x_2)(x-x_2)\implies \\
-&\implies V_{lin}(x_2 + d) = \frac{m\omega^2 x_2^2}{2} + m\omega^2 x_2d.
+&\implies V_{lin}(x_2 + d) = \frac{m\omega^2 x_2^2}{2} + m\omega^2 x_2d
 \end{align*}
 Подставив это в формулу, получим:
 \begin{gather*}
-    \frac{V(x_2 + d) - V_{lin}(x_2 + d)}{V(x_2)} = \frac{\frac{m\omega^2 (x_2 + d)^2}{2} - \frac{m\omega^2 x_2^2}{2} - m\omega^2 x_2d.}{\frac{m\omega^2 x^2}{2}} = \left(\frac{d}{x_2}\right)^2 =  0.01
+    \frac{V(x_2 + d) - V_{lin}(x_2 + d)}{V(x_2)} = \frac{\frac{m\omega^2 (x_2 + d)^2}{2} - \frac{m\omega^2 x_2^2}{2} - m\omega^2 x_2d}{\frac{m\omega^2 x^2}{2}} = \left(\frac{d}{x_2}\right)^2 =  0.01
 \end{gather*}
-Тогда, расстояние d равно
+Тогда, расстояние $d$ равно:
 \[
 d = 0.1x_2.
 \]
-Найдём уровень энергии, при котором выполняется $\alpha d \geq 5$. Для этого вспомним, что 
+Найдём уровень энергии, при котором выполняется $\alpha d \geq 5$. Для этого вспомним, что:
 \[
 \alpha = (2m^2\omega^2x_2/\hbar)^{1/3}.
 \]
@@ -47,10 +48,10 @@ d = 0.1x_2.
     0.1x_2\left[\frac{2m^2\omega^2x_2}{\hbar^2}\right]^{1/3} \geq 5 \implies \frac{2m^2\omega^2 x_2^4}{\hbar^2} \geq 50^3 \implies \\
    \implies \frac{2m^2\omega^2}{\hbar^2} \frac{(2n + 1)^2\hbar^2}{m^2\omega^2} \geq 50^3 \implies (2n+1)^2 \geq 50^2 \cdot 25 \implies n \geq 124.5
 \end{gather*}
-Получается, что при значениях $n\geq 125$ линейная аппроксимация и асимптотика функции Эйри не будут превышать ошибку в 1\%. В квазиклассических системах n обычно сильно больше.
+Получается, что при значениях $n\geq 125$ линейная аппроксимация и асимптотика функции Эйри не будут превышать ошибку в $1\%$. В квазиклассических системах $n$ обычно сильно больше.
 \csquare{darklavender}
 
-\excersize{Упражнение №C2}{darklavender}
+\excersize{Упражнение C2}{darklavender}
 \begin{center}
 \textit{Выведите формулы связи для убывающего потенциала (рисунок \ref{fig C.1})}.
 \end{center}
@@ -65,8 +66,8 @@ d = 0.1x_2.
 \[
 \psi(x) \simeq 
 \begin{cases}
-     \frac{1}{\sqrt{|p|}}\left[ Ae^{-\frac{1}{\hbar}\int\limits_x^{0} |p| dx'} \right], & x < 0;\\
-    \frac{1}{\sqrt{p}}\left[ Be^{\frac{i}{\hbar}\int\limits_{0}^{x} p dx'} + Ce^{-\frac{i}{\hbar}\int\limits_{0}^{x} p dx'} \right], & 0 < x.
+     \frac{1}{\sqrt{|p|}}Ae^{-\frac{1}{\hbar}\int\limits_x^{0} |p| dx'}, & x < 0;\\
+    \frac{1}{\sqrt{p}}\left( Be^{\frac{i}{\hbar}\int\limits_{0}^{x} p dx'} + Ce^{-\frac{i}{\hbar}\int\limits_{0}^{x} p dx'} \right), & x > 0.
 \end{cases}
 \]
 Запишем линеаризованный потенциал (обращаю внимание на то, что в этот раз первая производная будет отрицательной, так как потенциал убывает) как $V(x) \approx E + V'(0)x$. Тогда уравнение Шрёдингера будет иметь следующий вид:
@@ -89,7 +90,7 @@ p \simeq \sqrt{2m|V'(0)|x} = \hbar\alpha^{3/2}\sqrt{x}
 \[
 \psi(x) \simeq \frac{A}{\hbar^{1/2}\alpha^{3/4}(-x)^{1/4}} e^{-\frac{2}{3}(-\alpha x)^{3/2}}
 \]
-Воспользуемся аппроксимацией для больших значений $-\alpha x \gg 0$:
+Воспользуемся аппроксимацией для больших значений $-\alpha x \gg 1$:
 \[
 \psi_T \approx \frac{a}{2\pi^{1/2}(-\alpha x)^{1/4}}e^{-\frac{2}{3}(-\alpha x)^{3/2}} + \frac{b}{\pi^{1/2}(-\alpha x)^{1/4}}e^{\frac{2}{3}(-\alpha x)^{3/2}}
 \]
@@ -102,7 +103,7 @@ a = 2A\sqrt{\frac{\pi}{\alpha\hbar}},\; b = 0
 \int\limits_{0}^{x} p dx' = \hbar\alpha^{3/2} \int\limits_{0}^{x}\sqrt{x'} dx' = \frac{2}{3}\hbar(\alpha x)^{3/2} \implies \\
 \implies \psi(x) \simeq \frac{1}{\hbar^{1/2}\alpha^{3/4}x^{1/4}}\left[ Be^{i\frac{2}{3}(\alpha x)^{3/2}} + Ce^{-i\frac{2}{3}(\alpha x)^{3/2}} \right]
 \end{gather*}
-В этот раз воспользуемся аппроксимацией для малых значений $\alpha x \ll 0$:
+Снова воспользуемся аппроксимацией для больших значений $-\alpha x \ll -1$:
 \[
 \psi_T \approx \frac{a}{\pi^{1/2}(\alpha x)^{1/4}}\sin\left[\frac{2}{3}(\alpha x)^{3/2} + \frac{\pi}{4}\right] = \frac{a}{\pi^{1/2}(\alpha x)^{1/4}}\frac{1}{2i}\left[ e^{i\frac{\pi}{4}}e^{i\frac{2}{3}(\alpha x)^{3/2}} - e^{-i\frac{\pi}{4}}e^{-i\frac{2}{3}(\alpha x)^{3/2}} \right].
 \]
@@ -110,25 +111,25 @@ a = 2A\sqrt{\frac{\pi}{\alpha\hbar}},\; b = 0
 \[
 B = \frac{a}{2i}\sqrt{\frac{\alpha\hbar}{\pi}}e^{i\frac{\pi}{4}},\quad C = -\frac{a}{2i}\sqrt{\frac{\alpha\hbar}{\pi}}e^{-i\frac{\pi}{4}}
 \]
-Подставим ранее полученную a, выраженную через коэффициент A:
+Подставим ранее полученную $a$, выраженную через коэффициент $A$:
 \[
 B = -ie^{i\frac{\pi}{4}}A,\quad C = ie^{-i\frac{\pi}{4}}A
 \]
-Подставляя эти значения в первоначальную функцию для x>0, получим:
+Подставляя эти значения в первоначальную функцию для $x>0$, получим:
 \[
-\psi(x) \simeq \frac{-iA}{\sqrt{p}}\left[ e^{\frac{i}{\hbar}\int\limits_{0}^{x} p dx' + i\frac{\pi}{4}} - e^{-\frac{i}{\hbar}\int\limits_{0}^{x} p dx' - i\frac{\pi}{4}} \right] = \frac{2A}{\sqrt{p}}\sin\left[ \frac{1}{\hbar} \int\limits_0^{x}p dx' + \frac{\pi}{4} \right]
+\psi(x) \simeq \frac{-iA}{\sqrt{p}}\left[ e^{\frac{i}{\hbar}\int\limits_{0}^{x} p dx' + i\frac{\pi}{4}} - e^{-\frac{i}{\hbar}\int\limits_{0}^{x} p dx' - i\frac{\pi}{4}} \right] = \frac{2A}{\sqrt{p}}\sin\left( \frac{1}{\hbar} \int\limits_0^{x}p dx' + \frac{\pi}{4} \right)
 \]
 Запишем итоговый вид волновой функции для левой точки поворота:
 \[
 \psi_L(x) \simeq 
 \begin{cases}
     \frac{A}{\sqrt{|p|}}e^{-\frac{1}{\hbar} \int\limits_{x}^{x_1} |p|\,dx'}, & x < x_1\\
-    \frac{2A}{\sqrt{p}}\sin\left[ \frac{1}{\hbar} \int\limits_{x_1}^{x} p\,dx' + \frac{\pi}{4} \right], & x > x_1\\
+    \frac{2A}{\sqrt{p}}\sin\left( \frac{1}{\hbar} \int\limits_{x_1}^{x} p\,dx' + \frac{\pi}{4} \right), & x > x_1\\
 \end{cases}
 \]
 \csquare{darklavender}
 \newpage
-\excersize{Упражнение №C3}{darklavender}
+\excersize{Упражнение C3}{darklavender}
 \begin{center}
 \textit{Рассмотрите задачу с потенциальным барьером (рисунок \ref{fig C.2}). Найдите волновую функцию. Запишите, какой в этом случае будет коэффициент прохождения $T$}.
 \end{center}
@@ -144,9 +145,9 @@ B = -ie^{i\frac{\pi}{4}}A,\quad C = ie^{-i\frac{\pi}{4}}A
 \[
 \psi(x) \simeq 
 \begin{cases}
-    \frac{1}{\sqrt{p}}\left[ Ae^{\frac{i}{\hbar}\int\limits_x^{x_1} p dx'} + Be^{-\frac{i}{\hbar}\int\limits_x^{x_1} p dx'} \right], & x<x_1;\\
-    \frac{1}{\sqrt{|p|}}\left[ Ce^{\frac{1}{\hbar}\int\limits_{x_1}^{x} |p| dx'} + De^{-\frac{1}{\hbar}\int\limits_{x_1}^{x} |p| dx'} \right], & x_1< x < x_2;\\
-    \frac{1}{\sqrt{p}}\left[ Fe^{\frac{i}{\hbar}\int\limits_{x_2}^{x} p dx'}\right], & x > x_2.
+    \frac{1}{\sqrt{p}}\left( Ae^{\frac{i}{\hbar}\int\limits_x^{x_1} p dx'} + Be^{-\frac{i}{\hbar}\int\limits_x^{x_1} p dx'} \right), & x<x_1;\\
+    \frac{1}{\sqrt{|p|}}\left( Ce^{\frac{1}{\hbar}\int\limits_{x_1}^{x} |p| dx'} + De^{-\frac{1}{\hbar}\int\limits_{x_1}^{x} |p| dx'} \right), & x_1< x < x_2;\\
+    \frac{1}{\sqrt{p}}Fe^{\frac{i}{\hbar}\int\limits_{x_2}^{x} p dx'}, & x > x_2.
 \end{cases}
 \]
 Внутри барьера запрещённая область, поэтому импульс стоит под модулем. Слева приходит обычная волна и улетает отражённая, поэтому экспоненты две. Справа же только волна, которая прошла сквозь барьер, поэтому слагаемое только одно. 
@@ -157,7 +158,7 @@ B = -ie^{i\frac{\pi}{4}}A,\quad C = ie^{-i\frac{\pi}{4}}A
 \]
 Аппроксимация остаётся такой же:
 \[
-    \psi_T \approx \frac{a}{2\pi^{1/2}(\alpha x)^{1/4}}e^{-\frac{2}{3}(\alpha x)^{3/2}} + \frac{b}{\pi^{1/2}(-\alpha x)^{1/4}}e^{\frac{2}{3}(-\alpha x)^{3/2}}
+    \psi_T(x) \approx \frac{a}{2\pi^{1/2}(\alpha x)^{1/4}}e^{-\frac{2}{3}(\alpha x)^{3/2}} + \frac{b}{\pi^{1/2}(\alpha x)^{1/4}}e^{\frac{2}{3}(\alpha x)^{3/2}}
 \]
 Сравнивая, получим:
 \[
@@ -166,14 +167,14 @@ a = 2D\sqrt{\frac{\pi}{\alpha\hbar}},\; b = C\sqrt{\frac{\pi}{\alpha\hbar}}
 Для левой области получим следующие волновые функции:
 \begin{align*}
     \psi(x) &\simeq \frac{1}{\hbar^{1/2}\alpha^{3/4}(-x)^{1/4}}\left[ Ae^{i\frac{2}{3}(\alpha x)^{3/2}} + Be^{-i\frac{2}{3}(\alpha x)^{3/2}} \right];\\
-    \psi_T(x) &\approx \frac{a}{\pi^{1/2}(\alpha x)^{1/4}}\sin\left[\frac{2}{3}(\alpha x)^{3/2} + \frac{\pi}{4}\right] + \frac{b}{\pi^{1/2}(\alpha x)^{1/4}}\cos\left[\frac{2}{3}(\alpha x)^{3/2} + \frac{\pi}{4}\right] = \\ 
-    & = \frac{a}{2\pi^{1/2}(-\alpha x)^{1/4}}\left[ (-ia + b)e^{i\frac{\pi}{4}}e^{i\frac{2}{3}(\alpha x)^{3/2}} + (ia+b)e^{-i\frac{\pi}{4}}e^{-i\frac{2}{3}(\alpha x)^{3/2}} \right].
+    \psi_T(x) &\approx \frac{a}{\pi^{1/2}(-\alpha x)^{1/4}}\sin\left(\frac{2}{3}(\alpha x)^{3/2} + \frac{\pi}{4}\right) + \frac{b}{\pi^{1/2}(\alpha x)^{1/4}}\cos\left(\frac{2}{3}(\alpha x)^{3/2} + \frac{\pi}{4}\right) = \\ 
+    & = \frac{1}{2\pi^{1/2}(-\alpha x)^{1/4}}\left[ (-ia + b)e^{i\frac{\pi}{4}}e^{i\frac{2}{3}(\alpha x)^{3/2}} + (ia+b)e^{-i\frac{\pi}{4}}e^{-i\frac{2}{3}(\alpha x)^{3/2}} \right].
 \end{align*}
 Вновь сравнивая, получим:
 \[
-A = \sqrt{\frac{\hbar\alpha}{\pi}}\left( \frac{-ia + b}{2} \right)e^{i\frac{\pi}{4}},\quad B = \sqrt{\frac{\hbar\alpha}{\pi}}\left( \frac{ia + b}{2} \right)e^{-i\frac{\pi}{4}}
+A = \sqrt{\frac{\hbar\alpha}{\pi}} \frac{b - ia}{2} e^{i\frac{\pi}{4}},\quad B = \sqrt{\frac{\hbar\alpha}{\pi}} \frac{b + ia}{2} e^{-i\frac{\pi}{4}}
 \]
-Подставим ранее полученные значения коэффициентов a и b:
+Подставим ранее полученные значения коэффициентов $a$ и $b$:
 \[
     A = \left( \frac{C}{2} - iD \right)e^{i\frac{\pi}{4}}, \quad B = \left( \frac{C}{2} + iD \right)e^{-i\frac{\pi}{4}}
 \]
@@ -193,8 +194,8 @@ A = \sqrt{\frac{\hbar\alpha}{\pi}}\left( \frac{-ia + b}{2} \right)e^{i\frac{\pi}
 Далее делаем всё по аналогии:
 \[
 \begin{cases}
-    \psi(x) \simeq \frac{1}{\hbar^{1/2}\alpha^{3/4}(-x)^{1/4}}\left[ C'e^{\frac{2}{3}(\alpha x)^{3/2}} + D'e^{-\frac{2}{3}(\alpha x)^{3/2}} \right]\\
-    \psi_T \approx \frac{a}{2\pi^{1/2}(-\alpha x)^{1/4}}e^{-\frac{2}{3}(-\alpha x)^{3/2}} + \frac{b}{\pi^{1/2}(-\alpha x)^{1/4}}e^{\frac{2}{3}(-\alpha x)^{3/2}}
+    \psi(x) \simeq \frac{1}{\hbar^{1/2}\alpha^{3/4}(-x)^{1/4}}\left[ C'e^{\frac{2}{3}(-\alpha x)^{3/2}} + D'e^{-\frac{2}{3}(-\alpha x)^{3/2}} \right]\\
+    \psi_T(x) \approx \frac{a}{2\pi^{1/2}(-\alpha x)^{1/4}}e^{-\frac{2}{3}(-\alpha x)^{3/2}} + \frac{b}{\pi^{1/2}(-\alpha x)^{1/4}}e^{\frac{2}{3}(-\alpha x)^{3/2}}
 \end{cases}
  \implies
  \begin{cases}
@@ -206,7 +207,7 @@ A = \sqrt{\frac{\hbar\alpha}{\pi}}\left( \frac{-ia + b}{2} \right)e^{i\frac{\pi}
 \[
 \begin{cases}
     \psi(x) \simeq \frac{1}{\hbar^{1/2}\alpha^{3/4}x^{1/4}}Fe^{i\frac{2}{3}(\alpha x)^{3/2}}\\
-    \psi_T \approx \frac{a}{2\pi^{1/2}(\alpha x)^{1/4}}\left[ (-ia + b)e^{i\frac{\pi}{4}}e^{i\frac{2}{3}(\alpha x)^{3/2}} + (ia+b)e^{-i\frac{\pi}{4}}e^{-i\frac{2}{3}(\alpha x)^{3/2}} \right]
+    \psi_T \approx \frac{1}{2\pi^{1/2}(\alpha x)^{1/4}}\left[ (-ia + b)e^{i\frac{\pi}{4}}e^{i\frac{2}{3}(\alpha x)^{3/2}} + (ia+b)e^{-i\frac{\pi}{4}}e^{-i\frac{2}{3}(\alpha x)^{3/2}} \right]
 \end{cases}
  \implies (ia + b) = 0.
 \]
@@ -232,15 +233,15 @@ A = \left( \frac{C}{2} - iD \right)e^{i\frac{\pi}{4}} = i\left( \frac{e^{-\gamma
 \]
 Коэффициент прохождения есть отношение коэффициента прошедшей к коэффициенту падающей волны $T = \frac{|F|^2}{|A|^2}$. Найдём его в нашей задаче:
 \[
-T = \frac{1}{(e^{\gamma} - e^{-\gamma}/4)^2} = \frac{e^{-2\gamma}}{[1-(e^{-\frac{\gamma}{2}})^2]^2}
+T = \frac{1}{(e^{\gamma} - e^{-\gamma}/4)^2} = \frac{e^{-2\gamma}}{\left(1-e^{-2\gamma}/4\right)^2}
 \]
-При $\gamma \gg 1$ знаменатель близок к 1 и тогда можно записать коэффициент пропускания как
+При $\gamma \gg 1$ знаменатель близок к 1 и тогда можно записать коэффициент пропускания как:
 \[
 T = e^{-2\gamma}
 \]
 \csquare{darklavender}
 
-\excersize{Упражнение №C4}{darklavender}
+\excersize{Упражнение C4}{darklavender}
 \begin{center}
 \textit{Частица массой m с энергией E ``заперта'' в области $r<r_1$, где $U(r) = -U_0$ (рис. \ref{fig C.3}).  При $r > r_1$ потенциал имеет вид:}
 \[
@@ -256,17 +257,17 @@ U(r) = \frac{2Ze^2}{r}; \quad E \ll \frac{2Ze^2}{r_1}
 \label{fig C.3}
 \end{figure}
 
-Из предыдущей задачи мы знаем, что коэффициент прохождения можно выразить как $T = e^{-2\gamma}$, где $\gamma = \int_{x_1}^{x_2}p dx$. Определим правую точку поворота как $r_2 = 2Ze^2/E$. Посчитаем гамму для нашей задачи:
+Из предыдущей задачи мы знаем, что коэффициент прохождения можно выразить как $T = e^{-2\gamma}$, где $\gamma = \int_{x_1}^{x_2}|p| dx$. Определим правую точку поворота как $r_2 = 2Ze^2/E$. Посчитаем гамму для нашей задачи:
 \begin{align*}
-    \gamma & = \frac{1}{\hbar}\int\limits_{r_1}^{r_2}\sqrt{\frac{2Ze^2}{r} - E}dx = \frac{\sqrt{2mE}}{\hbar} \int\limits_{r_1}^{r_2} \sqrt{\frac{r_2}{r} - 1}dx = \\
-    &= (r = r_2\sin^2 u) = \frac{\sqrt{2mE}}{\hbar}\left[ r_2\left( \frac{\pi}{2} - \arcsin\sqrt{\frac{r_1}{r_2}} \right) - \sqrt{r_1 (r_2 - r_1)}\right]
+    \gamma & = \frac{1}{\hbar}\int\limits_{r_1}^{r_2}\sqrt{2m\left(\frac{2Ze^2}{r} - E\right)} \, dx = \frac{\sqrt{2 m E}}{\hbar} \int\limits_{r_1}^{r_2} \sqrt{\frac{r_2}{r} - 1} \, dx = \\
+    &= \left(r = r_2\sin^2 u\right) = \frac{\sqrt{2 m E}}{\hbar}\left[ r_2\left( \frac{\pi}{2} - \arcsin\sqrt{\frac{r_1}{r_2}} \right) - \sqrt{r_1 (r_2 - r_1)}\right]
 \end{align*}
 На практике оказывается, что $r_1 \ll r_2$. Тогда $\arcsin (x)\approx x$ и гамма равна
 \[
-\gamma \simeq \frac{\sqrt{2mE}}{\hbar}\left[ \frac{\pi}{2}r_2 - 2\sqrt{r_1 r_2} \right] = K_1\frac{Z}{\sqrt{E}} - K_2\sqrt{Zr_1},
+\gamma \simeq \frac{\sqrt{2 m E}}{\hbar}\left[ \frac{\pi}{2}r_2 - 2\sqrt{r_1 r_2} \right] = K_1\frac{Z}{\sqrt{E}} - K_2\sqrt{Zr_1},
 \]
-где $K_1 = \frac{e^2\pi\sqrt{2m}}{\hbar}$ и $K_2 = \frac{4e\sqrt{m}}{\hbar}$. Тогда коэффициент прохождения равен
+где $K_1 = \frac{e^2\pi\sqrt{2m}}{\hbar}$ и $K_2 = \frac{4e\sqrt{m}}{\hbar}$. Тогда коэффициент прохождения равен:
 \[
-T = e^{-2\gamma} = e^{2K_2\sqrt{Zr_1} - K_1\frac{2Z}{\sqrt{E}}}
+T = e^{-2\gamma} = e^{- K_1\frac{2Z}{\sqrt{E}}}e^{2K_2\sqrt{Zr_1}}
 \]
 \csquare{darklavender}
