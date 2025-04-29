@@ -2,7 +2,7 @@
     \section{Семинар II}
 \end{center}
 \subsection{Коммутатор. Соотношение неопределенностей}
-\hspace{1em} На прошлом семинаре мы обсуждали возможность измерения наблюдаемых, используя собственные значения и собственные функции. Это связано с тем, что наблюдаемое имеет нулевую неопределенность: 
+\hspace{1em} На прошлом семинаре мы обсуждали возможность измерения наблюдаемых, используя собственные значения и собственные функции. Это связано с тем, что наблюдаемое имеет нулевую неопределенность, если состояние является для него собственным: 
 \[
 \sqrt{\langle\Delta A^2 \rangle} = \sqrt{\bra{\psi}\hat{A}^2\ket{\psi} - \bra{\psi}\hat{A}\ket{\psi}^2} = 0
 \]
@@ -28,8 +28,8 @@
 
 Важная теорема: \textit{Пусть $\hat{A}$ и $\hat{B}$ -- два эрмитовых оператора. Тогда существует базис, в котором они одновременно диагонализируются (у них есть общая система собственных векторов состояний), тогда и только тогда, когда $[\hat{A}, \hat{B}] = 0$}. Идея доказательства следующая:
 \begin{enumerate}
-    \item Если одни одновременно приводимы к диагональному виду, то достаточно записать их в виде спектрального разложения по общим базисным векторам $\hat{A} = \sum_i A_i \ket{v_i}\bra{v_i}$, $\hat{B} = \sum_i B_i \ket{v_i}\bra{v_i}$ и рассмотреть их произведение.
-    \item Если же они коммутируют, то можно показать, что действие одного из операторов на собственный вектор второго само по себе является собственным состоянием: $\hat{A} \ket{a_i} = a_i \ket{a_i} \implies \hat{B} \hat{A} \ket{a_i} = a_i \hat{B} \ket{a_i} \implies \hat{A} ( \hat{B} \ket{a_i} ) = a_i ( \hat{B} \ket{a_i} )$. Далее через пропорциональность $\hat{B} \ket{a_i}$ и $\ket{a_i}$ показываем, что вектор $\ket{a_i}$ собственный и для $\hat{B}$.
+    \item Если они одновременно приводимы к диагональному виду, то достаточно записать их в виде спектрального разложения по общим базисным векторам $\hat{A} = \sum_i A_i \ket{v_i}\bra{v_i}$, $\hat{B} = \sum_i B_i \ket{v_i}\bra{v_i}$ и рассмотреть их произведение.
+    \item Если же они коммутируют, то можно показать, что действие одного из операторов на собственный вектор второго само по себе является собственным состоянием: $\hat{A} \ket{a_i} = a_i \ket{a_i} \implies \hat{B} \hat{A} \ket{a_i} = a_i \hat{B} \ket{a_i} \implies \hat{A} ( \hat{B} \ket{a_i} ) = a_i ( \hat{B} \ket{a_i} )$. Далее, если собственное значение не вырождено (для вырожденного случая докажите самостоятельно), то $\hat{B} \ket{a_i}$ и $\ket{a_i}$ пропорциональный друг другу. А это значит, что вектор $\ket{a_i}$ собственный и для $\hat{B}$.
 \end{enumerate}
 
 Из этого следует, что, если операторы коммутируют, то их можно одновременно точно измерить. Если же нет, то точность измерения будет определяться принципом неопределённости Гейзенберга:
@@ -63,7 +63,7 @@
     \bra{\varphi} \ket{\varphi} &= \bra{\psi} \left( \Delta \hat A + i \gamma \Delta \hat B \right) \left( \Delta \hat A - i \gamma \Delta \hat B \right) \ket{\psi} = \bra{\psi} \Delta \hat{A}^2 \ket{\psi} + \\
     &+ \bra{\psi} i \gamma \Delta \hat{B} \Delta \hat{A} \ket{\psi} - \bra{\psi} i \gamma \Delta \hat{A} \Delta \hat{B} \ket{\psi} + \bra{\psi} \gamma^2 \Delta \hat{B}^2 \ket{\psi} = \\
     &= \langle \Delta \hat A^2 \rangle - i \gamma \langle [\Delta \hat{A}, \; \Delta \hat{B}] \rangle + \gamma^2 \langle \Delta \hat B^2 \rangle = \\
-    &= \gamma^2 \langle \Delta \hat B^2 \rangle - \gamma \langle \hat{C} \rangle + \langle \Delta \hat A^2 \rangle \geq 0
+    &= \gamma^2 \langle \Delta \hat B^2 \rangle + \gamma \langle \hat{C} \rangle + \langle \Delta \hat A^2 \rangle \geq 0
 \end{align*}
 Получилось квадратное уравнение, ветви параболы смотрят вверх. Так как нам нужны решения большие или равные нулю, подходит только дискриминант меньший или равный нулю. То есть
 \[
@@ -82,7 +82,7 @@
  \hline
  Разложение состояния & \(\displaystyle \ket{\psi} = \sum_i \psi_i \ket{a_i}\) &  \(\displaystyle \ket{\psi} = \int\limits_{-\infty}^{+\infty} \psi(x) \ket{x}dx\) \newline \(\displaystyle \psi(x) = \bra{x} \ket{\psi}\) \\ 
  \hline
- Измерения & $P(a_i) = |\bra{a_i} \ket{\psi}|^2$ \newline (вероятность) & $P(x) = |\bra{x} \ket{\psi}|^2$\newline (плотность вероятности) \\ 
+ Измерения & $P(a_i) = |\bra{a_i} \ket{\psi}|^2$ \newline (вероятность) & $P(x) = |\psi(x)|^2$\newline (плотность вероятности) \\ 
  \hline
  Разложение оператора & $A_{ij} = \bra{a_i} \hat{A} \ket{a_j}$ \newline \(\displaystyle \hat{A} = \sum_{i,j} A_{ij} \ket{a_i} \bra{a_j}\) & $A(x, x') = \bra{x} \hat{A} \ket{x'}$ \newline \(\displaystyle \hat{A} = \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} A(x, x') \ket{x} \bra{x'} dx \; dx'\) \\ 
  \hline
@@ -111,8 +111,8 @@
 Давайте посмотрим на квадрат волновой функции де Бройля: $|\bra{x} \ket{p}|^2 = \frac{1}{2 \pi \hbar}$. Если мы возьмём интеграл от этой константы по всему пространству, то он будет бесконечен. Дело в том, что, как уже говорилось ранее, собственные состояния оператора координаты и импульса нефизичны, так как мы предполагаем, что знаем импульс точно. Реальные же состояния нормированные, и модуль квадрата будет соответствовать вероятности. Давайте разберёмся, откуда у нас появляется этот нормировочный множитель, вычислив $\bra{p}\ket{p'}$ через $\bra{x}\ket{x'}$ (далее я буду опускать пределы интеграла, кроме случаев, где они неочевидны):
 \begin{align*}
     \bra{p} \ket{p'} &= \frac{1}{2 \pi \hbar} \int \int e^{i \frac{p'x' - px}{\hbar}} \bra{x} \ket{x'} dx dx' = \\
-    &= \frac{1}{2 \pi \hbar} \int \int e^{i \frac{p'x' - px}{\hbar}} \delta(x' - x) dx dx' =\\ 
-    &= \frac{1}{2 \pi \hbar}\int e^{i \frac{(p' - p) x}{\hbar}}dx = \frac{1}{2 \pi \hbar} 2 \pi \hbar \delta\left(p - p'\right) = \delta(p - p').
+    &= \frac{1}{2 \pi \hbar} \int \int e^{i \frac{p'x' - px}{\hbar}} \delta(x - x') dx dx' =\\ 
+    &= \frac{1}{2 \pi \hbar}\int e^{i \frac{(p' - p) x}{\hbar}}dx = \frac{1}{2 \pi \hbar} 2 \pi \hbar \delta\left(p' - p\right) = \delta(p - p').
 \end{align*}
 В предпоследнем выражении мы воспользовались тем, что $\int_{-\infty}^{+\infty} e^{iapx} dx = \frac{2 \pi \delta(p)}{|a|}$ -- это следует из фурье разложения $f(x) = 1$ при $a=1$ и затем обобщается на произвольную $a\neq 0$.
 
@@ -144,7 +144,7 @@
 \begin{align*}
     \bra{x} \hat{p} \ket{\psi} &= \bra{x} \hat{p} \hat{1} \ket{\psi} = \int \bra{x} \hat{p} \ket{x'} \bra{x'} \ket{\psi} dx' = \\
     &= -i \hbar \int \left[\frac{d}{dx} \delta(x - x')\right] \psi(x') dx' = \\
-    &= -i \hbar \frac{d}{dx} \left[\int \delta(x - x') \psi(x') dx'\right] = -i \hbar \frac{d}{dx} \psi(x).
+    &= -i\hbar \int\left[ -\frac{d}{dx} \delta(x' - x)\ \right] \psi(x') dx' = -i \hbar \frac{d}{dx} \psi(x).
 \end{align*}
 Действие оператора импульса на волновую функцию в координатном базисе можно записать как $\hat{p} \psi(x) = -i \hbar \frac{d}{dx} \psi(x)$. Такими же рассуждениями можно получить, что $\hat{x} \psi(p) = i \hbar \frac{d}{dp} \psi(p)$. Это очень важные формулы, которые мы постоянно будем использовать в дальнейшем. Выполним несколько упражнений на закрепление материала.
 \excersize{Упражнение №8}{darklavender}
@@ -190,6 +190,11 @@
     = \hbar^2(U''(r)\frac{\mathbf{r}^2}{r^2} + U'(r) \frac{\nabla\mathbf{r}}{r} + U'(r)\mathbf{r}(-\frac{1}{r^2})\,\frac{\mathbf{r}}{r} + 2U'(r) \frac{\mathbf{r}}{r}\frac{d}{d\mathbf{r}}) = \\
     =\hbar^2(U''(r) + U'(r) \frac{2}{r} + 2U'(r) \frac{\mathbf{r}}{r}\frac{d}{d\mathbf{r}})
 \end{gather*}
+Давайте подробно разберём вторую строчку. Первый член получим, взяв производную от скалярной функции. Получаем её вторую производную и нормированый вектор. Второй член -- применяем оператор импульса (то есть градиент) к вектору. Третий член полуается из следующих соображений (напомню, что $r = \sqrt{x^2 + y^2 + z^2}$ и $\frac{\partial f(r)}{\partial x} = \frac{\partial f(r)}{\partial r} \frac{\partial r}{\partial x}$):
+\[
+\nabla f(r) = \begin{pmatrix}\frac{\partial f(r)}{\partial x} & \frac{\partial f(r)}{\partial y} & \frac{\partial f(r)}{\partial z}\end{pmatrix}^T =  \frac{f'(r)}{r}\begin{pmatrix}x & y & z\end{pmatrix}^T = f'(r) \frac{\mathbf{r}}{r}
+\]
+Подставляем $f(r) = 1/r$ и получаем третий член. Последнего слагаемое получилось путём сложения левого и правого слагаемого в первой строчке перед последним равно.
 \csquare{darklavender}
 
 \excersize{Упражнение №10}{darklavender}

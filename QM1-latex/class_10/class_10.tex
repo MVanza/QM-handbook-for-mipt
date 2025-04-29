@@ -21,10 +21,14 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
 \]
 Пользуясь правилами дифференцирования сложной функции, выразим лапласианы $\Delta_{r_1}$, $\Delta_{r_2}$ через производные по $\Vec{R}$ и $\Vec{r}$:
 \begin{gather*}
-\frac{\partial}{\partial r_1} = \frac{\partial}{\partial R}\frac{\partial r}{\partial r_1} + \frac{\partial}{\partial r}\frac{\partial r}{r_1} = \frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r}\\
+\frac{\partial}{\partial r_1} = \frac{\partial}{\partial R}\frac{\partial R}{\partial r_1} + \frac{\partial}{\partial r}\frac{\partial r}{r_1} = \frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r}\\
 \frac{\partial}{\partial r_2} = \frac{\partial}{\partial R}\frac{m_2}{m_1 + m_2} - \frac{\partial}{\partial r}
 \end{gather*}
-Теперь, когда у нас есть эти выражения, можем найти связь между вторыми производными:
+Теперь, когда у нас есть эти выражения, можем найти связь между вторыми производными. Для этого воспользуемся следующим фактом:
+\[
+\frac{\partial^2}{\partial r_1^2} = \frac{\partial}{\partial r_1}(\frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r}) = (\frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r})(\frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r})
+\]
+Запишем вторую производную в явном виде:
 \begin{align*}
 \frac{\partial^2}{\partial r_1^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_1^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{\partial R\,\partial r}{\partial r_1^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_1^2} = \\
 &= \frac{\partial^2}{\partial R^2} \frac{m_1^2}{(m_1 + m_2)^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{m_1}{m_1 + m_2} +  \frac{\partial^2}{\partial r^2}
@@ -172,7 +176,7 @@ M = m_1 + m_2, \quad \frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}
 \[
 a_{k+2} = a_k\frac{2(k-n_k)}{(2+k)(2l+k+3)}
 \]
-Наконец, для большего удобства, переобозначим $k\rightarrow2k$, $n_k\rightarrow2n_k$ и выпишем решение радиального уравнения вместе с выражением для энергии:
+Выразив все коэффициенты через нулевой и подставив их в сумму, находим нулевой элемент с помощью нормировки. Наконец, для большего удобства, переобозначим $k\rightarrow2k$, $n_k\rightarrow2n_k$ и выпишем решение радиального уравнения вместе с выражением для энергии:
 \begin{align*}
     a_{k+1} &= a_k\frac{k-n}{\left(1+k\right)\left(l+k+\frac{3}{2}\right)} \\
     R(z) &= \sum_{k=0}^\infty a_k z^{2k+l} e^{-z^2/2}, \text{ где } z = \frac{r}{\rho}, \rho = \sqrt{\frac{\hbar}{m\omega}} \\

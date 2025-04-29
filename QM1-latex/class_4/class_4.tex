@@ -197,7 +197,7 @@ Ae^{-\kappa a} = B \ch \kappa a \implies B = \frac{Ae^{-\kappa a}}{\ch \kappa a}
 \]
 Аналогично для коэффициентов D и С:
 \[
-    |D|^2 = (-a + \frac{\sh 2 \kappa a}{2 \kappa} + \frac{\sh^2 \kappa a}{\kappa})^{-1},\;C = De^{\kappa a}\sh \kappa a
+    |C|^2 = (-a + \frac{\sh 2 \kappa a}{2 \kappa} + \frac{\sh^2 \kappa a}{\kappa})^{-1},\;D = Ce^{\kappa a}\sh \kappa a
 \]
 \csquare{darklavender}
 
@@ -214,14 +214,11 @@ Ae^{-\kappa a} = B \ch \kappa a \implies B = \frac{Ae^{-\kappa a}}{\ch \kappa a}
 
 Мы решили задачу на одну яму, на две ямы, следующий логичный шаг -- решить задачу на \sout{три} бесконечность дельта ям.
 
-Писать условие сшивки для бесконечного количества ям -- не самая приятная задача, поэтому она предоставляется читателю в качестве упражнения на дом. Мы же пойдём другим путём, заметив важную особенность задачи. Посмотрев на рисунок \ref{fig 4.5} и на дельта потенциал, становится понятно, что задача a-периодична. А какой оператор у нас двигает частицу на a? Правильно, оператор трансляции $\hat{T}_a$. Проверим, коммутирует ли гамильтониан с оператором трансляции:
+Писать условие сшивки для бесконечного количества ям -- не самая приятная задача, поэтому она предоставляется читателю в качестве упражнения на дом. Мы же пойдём другим путём, заметив важную особенность задачи. Посмотрев на рисунок \ref{fig 4.5} и на дельта потенциал, становится понятно, что задача $a$-периодична. А какой оператор у нас двигает частицу на $a$? Правильно, оператор трансляции $\hat{T}_a$. Проверим, коммутирует ли гамильтониан с оператором трансляции:
 \[
 \left[\hat{H}, \hat{T}_a\right] = \left[U(x), \hat{T}_a\right] + \left[\hat{p}^2, \hat{T}_a\right] = \left[\sum\delta(x-na), \hat{T}_a\right] + \left[\hat{p}^2, e^{-\frac{i}{\hbar}a\hat{p}}\right] = 0.
 \]
-Значит, мы можем искать собственные функции гамильтониана в виде $e^{ikx}\phi(x)$, где \\ $\phi(x + a) = \phi(x)$. Помимо этого, нам достаточно написать условия сшивки для зоны I и зоны II. Теперь, когда мы знаем, что волновые функции для задачи являются собственными для оператора трансляции, можем выписать действие оператора трансляции отдельно:
-\[
-\hat{T}_a\psi(x) = \psi(x+a) = e^{i k a}\psi(x)
-\]
+Значит, мы можем искать собственные функции гамильтониана в виде $e^{ikx}\phi(x)$, где \\ $\phi(x + a) = \phi(x)$. Помимо этого, нам достаточно написать условия сшивки для зоны I и зоны II.
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.27]{class_4/images/inf delta hole.png}
@@ -229,69 +226,69 @@ Ae^{-\kappa a} = B \ch \kappa a \implies B = \frac{Ae^{-\kappa a}}{\ch \kappa a}
 \label{fig 4.5}
 \end{figure}
 
-Напишем уравнение Шрёдингера для зоны I и зоны II без учёта дельта потенциала и с положительной энергией (!):
+Напишем уравнение Шрёдингера для зоны I и зоны II без учёта дельта потенциала и с положительной (!!!) энергией :
 \[
-\psi''(x) + \kappa^2\psi(x) = 0, \; \kappa^2 = \frac{2m}{\hbar^2}E
+\psi''(x) + \eta^2\psi(x) = 0, \; \eta^2 = \frac{2m}{\hbar^2}E
 \]
 Решение в первой области мы знаем:
 \[
-\psi_I(x) = Ae^{i\kappa x} + Be^{-i\kappa x}
+\psi(x) = Ae^{i\eta x} + Be^{-i\eta x}, \quad x\in(-a, 0)
 \]
-Получим из него уравнение для второй области:
+Продлим его на вторую область, зная, что волновая функция является собственной для оператора трансляции:
 \[
-\hat{T}_a\psi_I(x) = \psi_I(x+a) = e^{ika}\psi_I(x)
+\psi(x) = \hat{T}_a\psi(x-a) = e^{ika}\psi(x-a) = e^{ika}\left(Ae^{i\eta (x-a)} + Be^{-i\eta (x - a)}\right), \quad x\in(0, a)
 \]
-Мы знаем, что волновые функции являются собственными для оператора трансляции. Тогда:
+Это следует из полученного нами ранее уравнения на собственные функции и собственные значения оператора трансляции:
 \[
-\psi_{II}(x) = e^{ika}\psi_I(x-a) = e^{ika}\left(Ae^{i\kappa (x-a)} + Be^{-i\kappa (x - a)}\right)
+\hat{T}_a\psi(x) = \psi(x+a) = e^{i k a}\psi(x)
 \]
-Таким образом, мы смогли выразить оба наших решения через одни коэффициенты A и B.
+Таким образом, мы смогли выразить оба наших решения через одни коэффициенты $A$ и $B$.
 
-Теперь запишем условия сшивки. Напомню, что $\psi_I(0) = \psi_{II}(0)$ и $\psi'_{II}(0) - \psi'_I(0) = -2\kappa_0\psi(0)$. Тогда
+Теперь запишем условия сшивки. Напомню, что $\psi(+0) = \psi(-0)$ и $\psi'(+0) - \psi'(-0) = -2\kappa_0\psi(0)$. Тогда
 \[
 \begin{cases}
-A + B = e^{ika}\left(Ae^{-i\kappa a} + Be^{i\kappa a}\right)\\
-e^{ika}\left(A i \kappa e^{-i\kappa a} - B i \kappa e^{i\kappa a}\right) - Ai\kappa + Bi\kappa = -2\kappa_0(A+B)
+ e^{ika}\left(Ae^{-i\eta a} + Be^{i\eta a}\right) = A + B\\
+e^{ika}\left(A i \eta e^{-i\eta a} - B i \eta e^{i\eta a}\right) - Ai\eta + Bi\eta = -2\kappa_0(A+B)
 \end{cases}
 \]
 Чтобы у системы уравнений было нетривиальное решение, необходимо, чтобы определитель матрицы системы был равен нулю. Давайте выпишем матрицу системы:
 \begin{align*}
 &\begin{cases}
-A\left(1 - e^{i(k-\kappa)a}\right) + B\left(1 - e^{i(k+\kappa)a}\right) = 0\\
-A \left(e^{i(k-\kappa)a}i\kappa - i\kappa + 2\kappa_0\right) - B\left(e^{i(k+\kappa)a}i\kappa - i\kappa - 2\kappa_0\right) = 0
+A\left(1 - e^{i(k-\eta)a}\right) + B\left(1 - e^{i(k+\eta)a}\right) = 0\\
+A \left(e^{i(k-\eta)a}i\eta - i\eta + 2\kappa_0\right) - B\left(e^{i(k+\eta)a}i\eta - i\eta - 2\kappa_0\right) = 0
 \end{cases} \implies\\
 \implies &\begin{vmatrix}
-1 - e^{i(k-\kappa)a} & 1 - e^{i(k+\kappa)a} \\
-i \kappa e^{i(k-\kappa)a} - i\kappa + 2\kappa_0 & - i \kappa e^{i (k +\kappa) a} + i\kappa + 2\kappa_0
+1 - e^{i(k-\eta)a} & 1 - e^{i(k+\eta)a} \\
+i \eta e^{i(k-\eta)a} - i\eta + 2\kappa_0 & - i \eta e^{i (k +\eta) a} + i\eta + 2\kappa_0
 \end{vmatrix}
 = 0
 \end{align*}
 Распишем детерминант и воспользуемся всей мощью тригонометрии:
 \begin{gather*}
-\left(1 - e^{i(k-\kappa)a}\right) \left(-i \kappa e^{i (k + \kappa) a} + i \kappa + 2 \kappa_0\right) - \left(1 - e^{i (k + \kappa) a}\right) \left(i \kappa e^{i (k - \kappa) a} - i \kappa + 2 \kappa_0\right) = \\
-= 2 e^{i (k + \kappa) a} (\kappa_0 - i \kappa) + 2 i \kappa e^{2 i k a} + 2 i \kappa - 2 e^{i (k - \kappa) a} (i \kappa + \kappa_0) = \\
-= 2 e^{i k a} \left(e^{i \kappa a} \kappa_0 - i \kappa e^{i \kappa a} + i \kappa e^{i k a} + i \kappa e^{-i k a} - i \kappa e^{-i \kappa a} - \kappa_0 e^{-i \kappa a}\right) = \\
-= 4 i e^{i k a} \left(\kappa_0 \sin \kappa a - \kappa \cos \kappa a + \kappa \cos k a \right) = 0
+\left(1 - e^{i(k-\eta)a}\right) \left(-i \eta e^{i (k + \eta) a} + i \eta + 2 \kappa_0\right) - \left(1 - e^{i (k + \eta) a}\right) \left(i \eta e^{i (k - \eta) a} - i \eta + 2 \kappa_0\right) = \\
+= 2 e^{i (k + \eta) a} (\kappa_0 - i \eta) + 2 i \eta e^{2 i k a} + 2 i \eta - 2 e^{i (k - \eta) a} (i \eta + \kappa_0) = \\
+= 2 e^{i k a} \left(e^{i \eta a} \kappa_0 - i \eta e^{i \eta a} + i \eta e^{i k a} + i \eta e^{-i k a} - i \eta e^{-i \eta a} - \kappa_0 e^{-i \eta a}\right) = \\
+= 4 i e^{i k a} \left(\kappa_0 \sin \eta a - \eta \cos \eta a + \eta \cos k a \right) = 0
 \end{gather*}
 В итоге получаем:
 \[
-\cos ka = \cos\kappa a - \frac{\kappa_0}{\kappa}\sin\kappa a
+\cos ka = \cos\eta a - \frac{\kappa_0}{\eta}\sin\eta a
 \]
 Проделав то же самое для отрицательной энергии, получим:
 \[
-\cos ka = \cosh(\eta a) - \frac{\kappa_0}{\eta}\sinh(\eta a), \; \eta^2 = \frac{2m}{\hbar^2}|E|
+\cos ka = \cosh(\eta a) - \frac{\kappa_0}{\eta}\sinh(\kappa a), \; \kappa^2 = \frac{2m}{\hbar^2}|E|
 \]
 Мы получили зависимость энергии ($\kappa$ или $\eta$) от квазиимпульса $k$, т.е. у нас получились дисперсионные соотношения. Давайте проанализируем случай положительных энергий. Для этого преобразуем получившееся уравнение:
 \begin{align*}
-    \cos \kappa a - \frac{\kappa_0}{\kappa} \sin \kappa a & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{\kappa}\left( \frac{\kappa \cos \kappa a}{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}} -  \frac{\kappa_0 \sin \kappa a}{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}\right) = \\
-    & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\left( \frac{\cos \kappa a}{\sqrt{1 + (\frac{\kappa_0}{\kappa})^2}} -  \frac{\sin \kappa a}{\sqrt{(\frac{\kappa}{\kappa_0})^2 + 1}}\right) = \\
-    & = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\left( \cos\phi \cos\kappa a -  \sin\phi\sin \kappa a\right) =\\
-    & =  \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\cos (\kappa a + \phi), \; \phi = \arctan \frac{\kappa_0}{\kappa}
+    \cos \eta a - \frac{\kappa_0}{\eta} \sin \eta a & = \frac{\sqrt{(\eta a)^2 + (\kappa_0 a)^2}}{\eta}\left( \frac{\eta \cos \eta a}{\sqrt{(\eta a)^2 + (\kappa_0 a)^2}} -  \frac{\kappa_0 \sin \eta a}{\sqrt{(\eta a)^2 + (\kappa_0 a)^2}}\right) = \\
+    & = \frac{\sqrt{(\eta a)^2 + (\kappa_0 a)^2}}{a\eta}\left( \frac{\cos \eta a}{\sqrt{1 + (\frac{\kappa_0}{\eta})^2}} -  \frac{\sin \eta a}{\sqrt{(\frac{\eta}{\kappa_0})^2 + 1}}\right) = \\
+    & = \frac{\sqrt{(\eta a)^2 + (\kappa_0 a)^2}}{a\eta}\left( \cos\phi \cos\eta a -  \sin\phi\sin \eta a\right) =\\
+    & =  \frac{\sqrt{(\eta a)^2 + (\kappa_0 a)^2}}{a\eta}\cos (\eta a + \phi), \; \phi = \arctan \frac{\kappa_0}{\eta}
 \end{align*}
 
 В итоге получим уравнение:
 \[
-\cos ka = \frac{\sqrt{(\kappa a)^2 + (\kappa_0 a)^2}}{a\kappa}\cos (\kappa a + \phi)
+\cos ka = \frac{\sqrt{(\eta a)^2 + (\kappa_0 a)^2}}{a\eta}\cos (\eta a + \phi)
 \]
 
 \begin{figure}[!ht]
@@ -300,7 +297,7 @@ i \kappa e^{i(k-\kappa)a} - i\kappa + 2\kappa_0 & - i \kappa e^{i (k +\kappa) a}
 \caption{График для положительных энергий}
 \label{fig 4.6}
 \end{figure}
-Проанализируем это уравнения на графике \ref{fig 4.6}. Множитель перед косинусом указывает на вид огибающих, внутри которых будет распространяться косинус $\cos (\kappa a + \phi)$. Так как значение k действительные, косинус энергии не может выходить за пределы 1 и -1. Получается, что все зоны, когда график выходит за пределы, являются запрещёнными для энергии. И наоборот, значения внутри наших пределов будут разрешенными. Мы получили зонную структуру. Это значит, что существует область, в которых мы не сможем найти нашу систему. Анализ случая с отрицательной энергией можно провести самостоятельно.
+Проанализируем это уравнения на графике \ref{fig 4.6}. Множитель перед косинусом указывает на вид огибающих, внутри которых будет распространяться косинус $\cos (\eta a + \phi)$. Так как значение k действительные, косинус энергии не может выходить за пределы 1 и -1. Получается, что все зоны, когда график выходит за пределы, являются запрещёнными для энергии. И наоборот, значения внутри наших пределов будут разрешенными. Мы получили зонную структуру. Это значит, что существует область, в которых мы не сможем найти нашу систему. Анализ случая с отрицательной энергией можно провести самостоятельно.
 \csquare{darklavender}
 
 На следующем семинаре мы с вами решим последнюю задачу на ямы и обсудим ситуацию с барьерами.
