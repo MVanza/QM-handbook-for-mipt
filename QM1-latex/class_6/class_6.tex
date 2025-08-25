@@ -1,6 +1,4 @@
-\begin{center}
-    \section{Семинар VI}
-\end{center}
+\section{Семинар \thesection}
 \subsection{Гармонический осциллятор в квантовой механике}
 \hspace{1em} Этот семинар будет полностью посвящен особенностям описания колебательного движения в квантовой механике. Изучение гармонического осциллятора является принципиально важным, так как любое колебательное движение описывается гамильтонианом, аналогичным гамильтониану гармонического осциллятора. Есть два подхода к описанию осциллятора в квантмехе: через непосредственное решение уравнения Шрёдингера и через операторы рождения и уничтожения. Я считаю второй подход более изящным и более квантовомеханическим, поэтому будем пользоваться именно им. Но сначала выполним несколько подготовительных действий. 
 
@@ -98,8 +96,8 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}
 Пусть $\hat{a}\ket{n} = \ket{\phi}$. Мы знаем, что $\ket{\phi} = A\ket{n-1}$. Посчитаем двумя способами скалярное произведение введенного состояния на себя:
 \[
 \begin{cases}
-    \bra{\psi}\ket{\psi} = \bra{n}\hat{a}^{\dagger}\hat{a}\ket{n} = n\\
-\bra{\psi}\ket{\psi} = |A|^2\bra{n-1}\ket{n-1} = |A|^2
+    \braket{\psi}{\psi} = \bra{n}\hat{a}^{\dagger}\hat{a}\ket{n} = n\\
+\braket{\psi}{\psi} = |A|^2\bra{n-1}\ket{n-1} = |A|^2
 \end{cases}
 \implies |A| = \sqrt{n}
 \]
@@ -120,7 +118,7 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}
 \ket{n} = \frac{(\hat{a}^{\dagger})^n}{\sqrt{n!}}\ket{0}
 \]
 
-Давайте посчитаем волновые функции вакуумных состояний в координатном представлении $\bra{X}\ket{0}$ и затем обобщим это на произвольное фоковское состояние $\ket{n}$:
+Давайте посчитаем волновые функции вакуумных состояний в координатном представлении $\braket{X}{0}$ и затем обобщим это на произвольное фоковское состояние $\ket{n}$:
 \[
 \hat{a}\ket{0} = (\hat{X} + i\hat{P})\ket{0} = 0
 \]
@@ -130,7 +128,7 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}
 \]
 Решением этого обыкновенного дифференциального уравнения будет функция $\psi_0(X) = Ae^{-X^2/2}$. Вычислим коэффициент A из условия нормировки:
 \[
-\braket{\psi_0} = \int |\psi_0(X)|^2 dX = |A|^2\int e^{-X^2}dX = |A|^2\sqrt{\pi}
+\braket{\psi_0}{\psi_0} = \int |\psi_0(X)|^2 dX = |A|^2\int e^{-X^2}dX = |A|^2\sqrt{\pi}
 \]
 В итоге получаем:
 \[
@@ -155,7 +153,7 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}
 
 Переходим к решению задач на осциллятор.
 
-\excersize{Упражнение №20}{darklavender}
+\excersize
 \begin{center}
     \textit{Воспользовавшись повышающим и понижающим операторами $\hat a^+$ и $\hat a$, найдите средние значения оператора $\hat x^2,\,
     \hat x^4$ и $\hat x^{2k+1}$ в $n$-м стационарном состоянии линейного гармонического осциллятора.}
@@ -169,7 +167,7 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}
 \begin{align*}
     \bra{n}\hat x^2 \ket{n} = &\frac{x^2_0}{2}\bra{n}(\hat a^{\dagger} + \hat a)^2\ket{n} =\\
     = &\frac{x^2_0}{2}(\bra{n}\hat a^{\dagger}\hat a^{\dagger}\ket{n} +\bra{n}\hat a\hat a\ket{n} + \bra{n}\hat a^{\dagger}\hat a\ket{n} + \bra{n}\hat a\hat a^{\dagger}\ket{n}) =\\
-    = &\frac{x^2_0}{2}\left(\sqrt{(n+1)(n+2)}\bra{n}\ket{n+2} + \sqrt{n(n-1)}\bra{n}\ket{n-2} + \right.\\ &+ \left. \sqrt{(n+1)(n+1)}\bra{n}\ket{n} + \sqrt{n^2}\bra{n}\ket{n}\right)
+    = &\frac{x^2_0}{2}\left(\sqrt{(n+1)(n+2)}\braket{n}{n+2} + \sqrt{n(n-1)}\braket{n}{n-2} + \right.\\ &+ \left. \sqrt{(n+1)(n+1)}\braket{n}{n} + \sqrt{n^2}\braket{n}{n}\right)
 \end{align*}
 Мы знаем, что векторы различных уровней ортогональны, а значит все скалярные произведения для различных n будут равны 0. Убрав все нулевые скалярные произведения, получим:
 \[
@@ -184,7 +182,7 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}
 \bra{n}\hat x^{2k+1}\ket{n} = 0
 \]
 \csquare{darklavender}
-\excersize{Упражнение №21}{darklavender}
+\excersize
 \begin{center}
     \textit{Частица массы $m$ движется в потенциале трехмерного изотропного осциллятора:}
     \[

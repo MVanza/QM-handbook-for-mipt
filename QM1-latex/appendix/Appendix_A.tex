@@ -1,6 +1,6 @@
 \setcounter{figure}{0}  
+\section{Приложение А}\label{appendix:A}
 \begin{center}
-    \section{Приложение А}\label{appendix:A}
     \textbf{\Large{Нахождение собственных функций операторов $\hat{L}^2$ и $\hat{L}_z$}}
 \end{center}
 
@@ -31,7 +31,7 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
     \end{align*}
     \item Для проверки нормировки приравняем скалярное произведение состояния на самого себя к единице:
     \begin{align*}
-        \braket{ll} & = \int\limits_0^{2\pi}\int\limits_0^{\pi}\left|Y^l_l(\theta, \phi)\right|^2 \sin\theta \, d\theta d\phi = \mathcal{N}^2_l(2l)!\int\limits_0^{2\pi}\int\limits_0^{\pi}\sin^{2l}\theta \sin\theta\,d\theta d\phi = \\
+        \braket{l}{l} & = \int\limits_0^{2\pi}\int\limits_0^{\pi}\left|Y^l_l(\theta, \phi)\right|^2 \sin\theta \, d\theta d\phi = \mathcal{N}^2_l(2l)!\int\limits_0^{2\pi}\int\limits_0^{\pi}\sin^{2l}\theta \sin\theta\,d\theta d\phi = \\
         & = (\text{сделаем замену } x = \cos\theta,\, dx = -\sin\theta\,d\theta, \text{ проинтегрируем по }\phi) =\\
         & = 2\pi\mathcal{N}^2_l(2l)!\int\limits_{-1}^1 \left(1-x^2\right)^l dx.
     \end{align*}

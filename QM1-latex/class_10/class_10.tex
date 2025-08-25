@@ -1,8 +1,6 @@
-\begin{center}
-    \section{Семинар X}
-\end{center}
+\section{Семинар \thesection}
 \subsection{Решение задач в трёхмерном пространстве}
-\excersize{Упражнение №30}{darklavender}
+\excersize
 \begin{center}
     \textit{Записать уравнение Шрёдингера для двух частиц с массами $m_1$ и $m_2$, взаимодействующих по закону $U(\Vec{r}_1 - \Vec{r}_2)$ в системе центра масс. Какой вид имеет волновая функция $\psi(\Vec{r}_1, \Vec{r}_2)$?}
 \end{center}
@@ -49,7 +47,7 @@ M = m_1 + m_2, \quad \frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}
 \]
 Тогда, уравнение можно переписать следующим образом:
 \[
-\hat{H} = -\frac{\hbar^2}{2M}\Delta_{R} - \frac{\hbar}{2\mu}\Delta_{r} + U(\Vec{r})
+\hat{H} = -\frac{\hbar^2}{2M}\Delta_{R} - \frac{\hbar^2}{2\mu}\Delta_{r} + U(\Vec{r})
 \]
 
 Ввиду того, что система является стационарной, а переменные $\Vec{R}$ и $\Vec{r}$ в гамильтониане можно разделить, волновая функция будет иметь вид
@@ -64,7 +62,7 @@ M = m_1 + m_2, \quad \frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}
 Из первого уравнения следует, что функция $\Phi(\Vec{R})$ описывает свободное движение центра масс: $\Phi(\Vec{R}) = Ce^{\frac{i}{h}\Vec{P}\Vec{R}}$, характеризующееся полным импульсом $P$ и энергией $E_{\text{цм}} = \Vec{P}^2/2M$.
 \csquare{darklavender}
 
-\excersize{Упражнение №31}{darklavender}
+\excersize
 \begin{center}
     \textit{Частица массы $m$ движется в потенциале трехмерного изотропного осциллятора:}
     \[
@@ -163,7 +161,7 @@ M = m_1 + m_2, \quad \frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}
 \end{gather*}
 Так как это уравнение должно быть верным для любого $z$, занулим все коэффициенты данного ряда. В частности, очевидно, что $a_1 = 0$. Для остальных членов запишем:
 \begin{align*}
-    a_{k+2}&(2+k)(2l+2k+3) = -a_k\left(\frac{2E}{\hbar\omega-2l-2k-3}\right) \implies \\
+    a_{k+2}&(2+k)(2l+2k+3) = -a_k\left(\frac{2E}{\hbar\omega}-2l-2k-3\right) \implies \\
     &\implies a_{k+2} = -a_k\frac{\frac{2E}{\hbar\omega}-2l-2k-3}{(2+k)(2l+k+3)}
 \end{align*}
 В такой формулировке становится понятно, что все нечетные коэффициенты $a_k$ тождественно равны нулю. Заметим, что при больших $k$ коэффициенты $a_{k+2} \approx -\frac{a_k}{k}$, что делает наш ряд расходящимся. Получается, мы должны ``обрубить'' ряд, обнуляя все слагаемые, начиная с некоторого $k = n_k = 0, 2, 4 \dots$:
@@ -193,7 +191,7 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
 \]
 \csquare{darklavender}
 
-\excersize{Упражнение №32}{darklavender}
+\excersize
 \begin{center}
     \textit{Частица массы $m$ движется в трехмерной потенциальной яме с ``плоским'' дном и бесконечно высокими стенками:}
     \[
@@ -277,7 +275,7 @@ E_{nl} = \frac{\pi^2\hbar^2}{2ma^2}\lambda_{nl}^2;\quad R_{nl}(r) =
 \csquare{darklavender}
 
 
-\excersize{Упражнение №33}{darklavender}
+\excersize
 \begin{center}
     \textit{Электрон покоится в осциллирующем магнитном поле, направленном вдоль оси z:}
     \[
@@ -329,7 +327,7 @@ i\hbar\frac{d\chi(t)}{dt} = H\chi(t) = -\frac{\gamma B_0\hbar}{2}\cos(\omega t)\
 
 Найдём вероятность того, что спин частицы будет повернут антипараллельно оси x. Для этого воспользуемся правилом Борна:
 \begin{align*}
-P(\chi^{(x)}_-) &= \left|\bra{\chi^{(x)}_-}\ket{\chi(t)}\right|^2 = \left|\left(\frac{1}{\sqrt{2}}\right)^2\begin{pmatrix}1 & -1\end{pmatrix}\begin{pmatrix} e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)} \\ e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)} \end{pmatrix}\right|^2 = \\ &= \left|\frac{1}{2}\left(e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)} - e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)}\right)\right|^2 = \left|i\sin(\frac{\gamma B_0}{2\omega}\sin(\omega t))\right|^2 = \\
+P(\chi^{(x)}_-) &= \left|\braket{\chi^{(x)}_-}{\chi(t)}\right|^2 = \left|\left(\frac{1}{\sqrt{2}}\right)^2\begin{pmatrix}1 & -1\end{pmatrix}\begin{pmatrix} e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)} \\ e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)} \end{pmatrix}\right|^2 = \\ &= \left|\frac{1}{2}\left(e^{i\frac{\gamma B_0}{2\omega}\sin(\omega t)} - e^{-i\frac{\gamma B_0}{2\omega}\sin(\omega t)}\right)\right|^2 = \left|i\sin(\frac{\gamma B_0}{2\omega}\sin(\omega t))\right|^2 = \\
  & = \sin^2\left(\frac{\gamma B_0}{2\omega}\sin(\omega t)\right)
 \end{align*}
 
