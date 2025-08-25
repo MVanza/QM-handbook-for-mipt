@@ -1,6 +1,4 @@
-\begin{center}
-    \section{Семинар IX}
-\end{center}
+\section{Семинар \thesection}
 \subsection{Атом водорода}
 \hspace{1em} Давайте применим полученные нами знания на практике. Попробуем решить радиальное уравнение для атома водорода. В атоме водорода электрон движется в электростатическом потенциале, создаваемом тяжелым ядром. Потенциал имеет следующий вид:
 \[
@@ -74,7 +72,7 @@ U_{nl} \sim \sum\limits_j\frac{(2\kappa r)^j}{j!}e^{-\kappa r} \rightarrow e^{2\
 
 Теперь мы обладаем достаточным количеством знаний, чтобы найти радиальные волновые функции для конкретных значений $n$ и $l$. Попробуем это сделать в виде упражнения.
 \newpage
-\excersize{Упражнение №28}{darklavender}
+\excersize
 \begin{center}
     \textit{Вычислите радиальные волновые функции $R_{nl}(r)$ атома водорода при $ a)\;n = 1,\, l =0$, $b)\;n = 2,\, l =0$ и $c)\;n = 2,\, l =1$}
 \end{center}
@@ -140,7 +138,7 @@ E_n = -\frac{1}{2M}\left(\frac{\hbar}{na}\right)^2 = -\frac{M}{2}\left(\frac{e^2
 \end{itemize}
 Получается, что при заданном главном квантовом числе $n$, вырождение определяется как $2n^2$. Действительно, количество значений $l$ равно $n$, степень вырождения $m$ в свою очередь $2l+1$. Тогда, посчитав сумму первых $n$ членов арифметической прогрессии, получим $\sum\limits_{l=0}^{n-1}(2l +1 ) = n^2$. Двойка появится, если мы учтём вырождение по спину: он может принимать два значения -- $\pm 1/2$.
 
-\excersize{Упражнение №29}{darklavender}
+\excersize
 \begin{center}
     \textit{Атом водорода находится в состоянии с главным квантовым числом $n = 2$. Вычислите все возможные проекции дипольного момента атома $\mathbf{d} = \bra{\psi}e\hat{r}_j\ket{\psi'}$}
 \end{center}
@@ -151,9 +149,9 @@ E_n = -\frac{1}{2M}\left(\frac{\hbar}{na}\right)^2 = -\frac{M}{2}\left(\frac{e^2
 \begin{gather*}
     \bra{2,\, 0,\, 0}z\ket{2,\, 0,\, 0} = \int\limits_{0}^{+\infty}\int\limits_{0}^{\pi}\int\limits_{0}^{2\pi}(R_{20})^2(Y^0_0)^2 r\cos\theta \, r^2\sin\theta \, dr\, d\theta\, d\phi =\\ = \frac{1}{8a^3\pi} \int\limits_{0}^{+\infty}\int\limits_{0}^{\pi}\int\limits_{0}^{2\pi} \left( 1 - \frac{r}{2a} \right)^2 e^{-r/a} r^3\cos\theta\sin\theta\, dr \, d\theta\, d\phi = \\  = \left(\int\limits_{0}^{\pi} \cos\theta \sin\theta d\theta = 0\right) = 0
 \end{gather*}
-То же самое будет и со всеми остальными проекциями состояния на самих себя. 
+То же самое будет и со всеми остальными проекциями состояния на самих себя. При проекции на состоянии с разными $l$ интеграл будет не нулевой. Ниже я рассматриваю только переход от $n=2$ к $n=1$, так как дипольный момент характеризуется поглощением или испусканием фотона, поэтому энергия системы обязана измениться.
 
-Теперь посмотрим на переходы между энергетическими уровнями. Давайте попробуем сделать это в общем виде:
+Посмотрим на переходы между энергетическими уровнями. Давайте попробуем сделать это в общем виде:
 \begin{align*}
     \bra{nlm}\begin{pmatrix} x \\ y \\ z \end{pmatrix}\ket{n'l'm'} &= \int\limits_{0}^{+\infty} r^2 R^*_{nl} R_{n'l'} dr \int\limits_{0}^{\pi}\sin\theta\,d\theta\int\limits_{0}^{2\pi}(Y^{m'}_{l'}) (Y^m_l)^* \begin{pmatrix} r\sin\theta\cos\phi \\ r\sin\theta\sin\phi \\ r\cos\theta \end{pmatrix} d\phi = \\ & = I_r(n,\,l,\,n',\,l')I_{\theta\phi}(l,\,m,\,l',\,m'),
 \end{align*}
@@ -180,11 +178,11 @@ I_{\theta\phi}(l,\,m,\,l',\,m') = \int\limits_{0}^{\pi}\sin\theta\,d\theta\int\l
 Найдём переходы, которые могут происходить:
 \begin{align*}
     I_{\theta\phi}(0,\,0,\,1,\,0) &= \int\limits_{0}^{\pi}\sin\theta\,d\theta\int\limits_{0}^{2\pi}(Y^0_1)(Y^0_0)^*  \begin{pmatrix} \sin\theta\cos\phi \\ \sin\theta\sin\phi \\ \cos\theta \end{pmatrix} d\phi = \\
-    & = \frac{\sqrt{3}}{4\pi}\int\limits_{0}^{\pi} \begin{pmatrix} \sin^3\theta\\ \sin^3 \theta \\ \sin^2\theta\cos\theta \end{pmatrix} d\theta \int\limits_{0}^{2\pi} \begin{pmatrix} \cos\phi \\ \sin\phi \\ 1 \end{pmatrix} d\phi = \\
+    & = \frac{\sqrt{3}}{4\pi}\int\limits_{0}^{\pi} \begin{pmatrix} \sin^2\theta \cos\theta\\ \sin^2\theta \cos\theta \\ \sin\theta\cos^2\theta \end{pmatrix} d\theta \int\limits_{0}^{2\pi} \begin{pmatrix} \cos\phi \\ \sin\phi \\ 1 \end{pmatrix} d\phi = \\
     & = \frac{\sqrt{3}}{4\pi}\begin{pmatrix} 0 \\  0 \\ 2/3 \end{pmatrix} \begin{pmatrix} 0 \\  0 \\ 2\pi \end{pmatrix} = \frac{\sqrt{3}}{3}\begin{pmatrix} 0 \\  0 \\ 1 \end{pmatrix} \\ 
     \\
     I_{\theta\phi}(0,\,0,\,1,\,1) &= \int\limits_{0}^{\pi}\sin\theta\,d\theta\int\limits_{0}^{2\pi}(Y^1_1)(Y^0_0)^*  \begin{pmatrix} \sin\theta\cos\phi \\ \sin\theta\sin\phi \\ \cos\theta \end{pmatrix} d\phi = \\
-    & = -\frac{\sqrt{3}}{4\pi\sqrt{2}}\int\limits_{0}^{\pi} \begin{pmatrix} \sin^2 \theta\cos\theta \\ \sin^2 \theta\cos\theta \\ \sin\theta\cos^2\theta \end{pmatrix} \, d\theta \int\limits_{0}^{2\pi} \begin{pmatrix} e^{i\phi}\cos\phi \\ e^{i\phi}\sin\phi \\ e^{i\phi} \end{pmatrix} \, d\phi = \\
+    & = -\frac{\sqrt{3}}{4\pi\sqrt{2}}\int\limits_{0}^{\pi} \begin{pmatrix} \sin^3 \theta \\ \sin^3 \theta \\ \sin^2\theta\cos\theta \end{pmatrix} \, d\theta \int\limits_{0}^{2\pi} \begin{pmatrix} e^{i\phi}\cos\phi \\ e^{i\phi}\sin\phi \\ e^{i\phi} \end{pmatrix} \, d\phi = \\
     & = -\frac{\sqrt{3}}{4\pi\sqrt{2}}\begin{pmatrix} 4/3 \\  4/3 \\ 0 \end{pmatrix} \begin{pmatrix} \pi \\ i\pi \\ 0 \end{pmatrix} = -\frac{1}{\sqrt{6}}\begin{pmatrix} 1 \\  i \\ 0 \end{pmatrix} \\
     \\
     I_{\theta\phi}(0,\,0,\,1,\,-1) &= \int\limits_{0}^{\pi}\sin\theta\,d\theta\int\limits_{0}^{2\pi}(Y^0_0)^* \, (Y^{-1}_1) \begin{pmatrix} \sin\theta\cos\phi \\ \sin\theta\sin\phi \\ \cos\theta \end{pmatrix} d\phi = \\& = \frac{\sqrt{3}}{4\sqrt{2}\pi} \int\limits_0^{\pi} \begin{pmatrix} \sin^3 \theta \\ \sin^3\theta \\ \sin^2\theta\cos\theta \end{pmatrix} d\theta \int\limits_{0}^{2\pi} \begin{pmatrix} e^{-i\phi}\cos\phi \\ e^{-i\phi}\sin\phi \\ e^{-i\phi} \end{pmatrix} \, d\phi = \\& = \frac{\sqrt{3}}{4\sqrt{2}\pi} \begin{pmatrix} 4/3 \\ 4/3 \\ 0 \end{pmatrix} \begin{pmatrix} \pi \\ -i\pi \\ 0 \end{pmatrix} = \frac{1}{\sqrt{6}} \begin{pmatrix} 1 \\ -i \\ 0 \end{pmatrix}
@@ -192,7 +190,7 @@ I_{\theta\phi}(l,\,m,\,l',\,m') = \int\limits_{0}^{\pi}\sin\theta\,d\theta\int\l
 В итоге, получим:
 \begin{align*}
  \bra{1,\, 0,\, 0}&x\ket{2,\, 1,\, \pm 1} = \mp \frac{2^7}{3^5}a\\
- \bra{1,\, 0,\, 0}&y\ket{2,\, 1,\, \pm 1} = \mp i\frac{2^7}{3^5}a\\
+ \bra{1,\, 0,\, 0}&y\ket{2,\, 1,\, \pm 1} = - i\frac{2^7}{3^5}a\\
  \bra{1,\, 0,\, 0}&z\ket{2,\, 1,\,  0} = \frac{2^7 \sqrt{2}}{3^5}a
 \end{align*}
 \csquare{darklavender}

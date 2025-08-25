@@ -3,6 +3,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage[symbol]{footmisc}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
@@ -22,7 +25,11 @@
         \draw[black] (tocancel.south west) -- (tocancel.north east);
     }%
 }%
-\setcounter{secnumdepth}{0}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
 \definecolor{linkcolor}{HTML}{3333ff} % цвет ссылок
 \definecolor{urlcolor}{HTML}{3333ff} % цвет гиперссылок
 \hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
@@ -33,16 +40,17 @@
 \definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
 \definecolor{rosewood}{rgb}{0.4, 0.0, 0.04}
 \definecolor{myolive}{RGB}{101, 136, 100}
-\usepackage{physics}
 \usepackage{tcolorbox}
 \usepackage[left=2cm,right=2cm,
 top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \graphicspath{}
 \DeclareGraphicsExtensions{.pdf, .png, .jpg}
-\newcommand{\excersize}[2]
+\newcounter{problem}
+\setcounter{problem}{1}
+\newcommand{\excersize}
 {
-\tcbset{colframe=#2,colback=white,center title}
-\tcbox[arc=0mm]{\textit{\large{#1}}}
+\tcbset{colframe=darklavender,colback=white,center title}
+\tcbox[arc=0mm]{\textit{Упражнение №1.\theproblem \stepcounter{problem}}}
 }
 \newcommand{\csquare}[1]
 {
@@ -50,6 +58,21 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 $\crule[#1]{0.4cm}{0.4cm}$
 \end{flushright}
 }
+
+\renewcommand\thesection{\Roman{section}}
+
+\titleformat{name=\section}[block] % command
+  {\Large\bfseries}    % format
+  {}                   % label (empty, we don’t want number on the left)
+  {7cm}                % sep
+  {}
+
+\titlecontents{section} % requires tocloft or titletoc package
+  [0pt]                 % left indent
+  {}                    % above-code
+  {} % numbered format
+  {}                    % numberless format
+  {\titlerule*[0.5pc]{.}\contentspage}
 
 \begin{document}
     \begin{titlepage}
@@ -75,6 +98,10 @@ $\crule[#1]{0.4cm}{0.4cm}$
     \tableofcontents
     \include{other/preface.tex} 
     \newpage
+    \pagestyle{fancy}
+    \fancyhead{} % clear existing header/footer entries
+    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Семинар \thesection}}
+    \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
     \include{class_1/class_1.tex}
     \newpage
     \include{class_2/class_2.tex}
@@ -99,12 +126,22 @@ $\crule[#1]{0.4cm}{0.4cm}$
     \newpage
     
     \appendix
+    \fancyhead{}
+    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение \ref{appendix:A}}}
+    \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
     \include{appendix/Appendix_A.tex}
     \newpage
+    \fancyhead{}
+    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение \ref{appendix:B}}}
+    \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
     \include{appendix/Appendix_B.tex}
     \newpage
+    \fancyhead{}
+    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение \ref{appendix:C}}}
+    \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
     \include{appendix/Appendix_C.tex}
     \newpage
+    \fancyhead{}
     \include{other/acknowledgements.tex}
     \newpage
     \printbibliography

@@ -1,6 +1,4 @@
-\begin{center}
-    \section{Семинар VII}
-\end{center}
+\section{Семинар \thesection}
 \subsection{Трёхмерное пространство}
 \hspace{1em} Всё хорошее когда-нибудь заканчивается и настаёт пора суровой реальной жизни. Так и для нас самое время переходить к трехмерному пространству. Давайте попробуем разобраться, как изменится подход к описанию систем такого типа.
 
@@ -35,7 +33,7 @@ J = \left|\frac{\partial(x, y, z)}{\partial(r, \theta, \phi)}\right| = r^2\sin\t
 \]
 Тогда, скалярное произведение запишется в виде:
 \[
-\bra{\psi}\ket{\varphi} = \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}\psi^*(r)\varphi(r)dxdydz= \int\limits_0^{2\pi}\int\limits_0^{\pi}\int\limits_0^{\infty}\psi^*(r)\varphi(r)r^2\sin\theta dr d\theta d\phi
+\braket{\psi}{\varphi} = \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}\psi^*(r)\varphi(r)dx\,dy\,dz= \int\limits_0^{2\pi}\int\limits_0^{\pi}\int\limits_0^{\infty}\psi^*(r)\varphi(r)r^2\sin\theta dr \,d\theta\,d\phi
 \]
 
 На практике принято объединять пространства, связанные с угловым движением $\mathbf{Y} = \mathbf{V}_{\theta} + \mathbf{V}_{\phi}$, и оставлять произведение \textit{радиальной} части и \textit{угловой} $\mathbf{V} = \mathbf{V}_r \otimes \mathbf{Y}$. Элементами этих пространств являются волновые функции радиуса $R(r)$ и волновые функции углов $Y(\theta, \phi)$. Для дальнейшего описания нам понадобится новый оператор -- оператор момента импульса.
@@ -51,7 +49,7 @@ J = \left|\frac{\partial(x, y, z)}{\partial(r, \theta, \phi)}\right| = r^2\sin\t
     \hat{L}_z &= \hat{x}\hat{p}_y - \hat{y}\hat{p}_x
 \end{align*}
 Давайте найдём все важные коммутаторы и оформим это в виде упражнения.
-\excersize{Упражнение №22}{darklavender}
+\excersize
 \begin{center}
     \textit{Найдите следующие коммутаторы: $[\hat{L}_j, \hat{r}_k]$, $[\hat{L}_j, \hat{p}_k]$, $[\hat{L}_j, \hat{L}_k]$, $[\hat{L}_j, \hat{r}^2]$, $[\hat{L}_j, \hat{p}^2]$, $[\hat{L}_j, \hat{L}^2]$.}
 \end{center}
@@ -135,7 +133,7 @@ i\hbar\hat{r}_j\hat{p}_k - i\hbar\hat{r}_k\hat{p}_j = i\hbar(\delta_{jn}\delta_{
 \left[\frac{(\hat{\Vec{r}}\hat{\Vec{p}})^2 - i\hbar\hat{\Vec{r}}\hat{\Vec{p}}}{2M} + \frac{\hat{L}^2}{2M} + \hat{r}^2 V(\Vec{r})\right]\psi(\Vec{r}) = \hat{r}^2 E\psi(\Vec{r})
 \]
 Можно заметить, что у нас разделились переменные: первое слагаемое влияет только на радиальную часть, второе -- на вращательную, третье тоже на радиальную, если потенциал вращательно инвариантен, т.е. $V(\Vec{r}) = V(r)$. Но это пока не показано строго, так как мы работаем в сферических координатах, а значит, должны перейти к ним.
-\excersize{Упражнение №23}{darklavender}
+\excersize
 \begin{center}
     \textit{Найдите представление операторов $\hat{L}^2$, $\hat{\Vec{r}}\hat{\Vec{p}}$ и $(\hat{\Vec{r}}\hat{\Vec{p}})^2$ в сферических координатах.}
 \end{center}

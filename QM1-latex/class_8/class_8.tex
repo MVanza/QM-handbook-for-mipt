@@ -1,6 +1,4 @@
-\begin{center}
-    \section{Семинар VIII}
-\end{center}
+\section{Семинар \thesection}
 \subsection{Собственные значения момента импульса}
 \hspace{1em} Предыдущий семинар мы закончили на радиальном уравнении:
 \[
@@ -94,11 +92,11 @@ x(x+\hbar) = y(y+\hbar)
 
 Давайте найдём матричные элементы всех новых операторов в общем виде, а затем решим упражнение для конкретного орбитального числа. Начнём с самого простого оператора -- $\hat{L}^2$. Напомню, что матричный элемент -- это конструкция вида $\bra{\psi}\hat{A}\ket{\psi'}$. В нашем случае $\bra{lm}\hat{L}^2\ket{l'm'}$. Итак:
 \[
-\bra{lm}\hat{L}^2\ket{l'm'} = \hbar^2l'(l'+1)\bra{lm}\ket{l'm'} = \hbar^2l'(l'+1)\delta_{ll'}\delta_{mm'}
+\bra{lm}\hat{L}^2\ket{l'm'} = \hbar^2l'(l'+1)\braket{lm}{l'm'} = \hbar^2l'(l'+1)\delta_{ll'}\delta_{mm'}
 \]
 Далее, для оператора $\hat{L}_z$:
 \[
-\bra{lm}\hat{L}_z\ket{l'm'} = \hbar m'\bra{lm}\ket{l'm'} = \hbar m'\delta_{ll'}\delta_{mm'}
+\bra{lm}\hat{L}_z\ket{l'm'} = \hbar m'\braket{lm}{l'm'} = \hbar m'\delta_{ll'}\delta_{mm'}
 \]
 Для повышающего и понижающего мы уже знаем действие на состояние $\ket{lm}$, так что найти матричный элемент не составит проблемы:
 \[
@@ -115,7 +113,7 @@ x(x+\hbar) = y(y+\hbar)
 \bra{lm}\hat{L}_{y}\ket{l'm'} &= \frac{\hbar}{2i}\left(\sqrt{l'(l'+1) - m'(m' + 1)}\delta_{ll'}\delta_{m,m' + 1} - \sqrt{l'(l'+1) - m'(m' - 1)}\delta_{ll'}\delta_{m,m' - 1}\right)
 \end{align*}
 Теперь, зная все матричные элементы, выполним следующее упражнение.
-\excersize{Упражнение №24}{darklavender}
+\excersize
 \begin{center}
     \textit{Постройте матрицы операторов момента импульса $\hat{L}_x$, $\hat{L}_y$, $\hat{L}_z$, а также $\hat{L}^2$, $\hat{L}_+$ и $\hat{L}_-$ для квантовой системы с орбитальным числом $l = 1$. Как выглядят собственные вектора операторов $\hat{L}^2$ и $\hat{L}_z$?}
 \end{center}
@@ -226,14 +224,14 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
 \end{itemize}
 
 Мы видим, что матрицы Паули -- унитарные и эрмитовые матрицы, которыми можно представить обезразмеренный оператор спина. Давайте решим несколько упражнений, чтобы подробнее разобраться с их свойствами.
-\excersize{Упражнение №25}{darklavender}
+\excersize
 \begin{center}
     \textit{Докажите справедливость следующих соотношений для матриц Паули:}
     \[
     \hat{\sigma}_k\hat{\sigma}_l = \delta_{kl} + i\varepsilon_{klm}\hat{\sigma}_m
     \]
     \[
-    (\hat{\boldsymbol{\sigma}}\mathbf{a})(\hat{\boldsymbol{\sigma}}\mathbf{b}) = (\mathbf{ab}) + i(\boldsymbol{\sigma}[\mathbf{a} \cross \mathbf{b}])
+    (\hat{\boldsymbol{\sigma}}\mathbf{a})(\hat{\boldsymbol{\sigma}}\mathbf{b}) = (\mathbf{ab}) + i(\boldsymbol{\sigma}[\mathbf{a} \times \mathbf{b}])
     \]
 \end{center}
 
@@ -273,12 +271,12 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
 (\hat{\boldsymbol{\sigma}}\mathbf{a})(\hat{\boldsymbol{\sigma}}\mathbf{b}) &= \hat{\sigma}_ka_k\hat{\sigma}_lb_l = \hat{\sigma}_k\hat{\sigma}_la_kb_l= \\
 &=(i\varepsilon_{klm}\hat{\sigma}_m + \delta_{kl})a_kb_l =\\
 &= i\varepsilon_{klm}\hat{\sigma}_m a_k b_l + a_k b_k =\\
-&= i(\hat{\sigma}[\mathbf{a}\cross\mathbf{b}]) + (\mathbf{a}\mathbf{b})
+&= i(\hat{\sigma}[\mathbf{a} \times \mathbf{b}]) + (\mathbf{a}\mathbf{b})
 \end{align*}
 \csquare{darklavender}
 
 
-\excersize{Упражнение №26}{darklavender}
+\excersize
 \begin{center}
     \textit{Найдите собственные значения и собственные векторы спинового оператора $\hat{\sigma}_n = (\hat{\Vec{\sigma}}, \Vec{n})$, где $\Vec{n}$ -- единичный вектор с составляющими:}
     \[
@@ -317,7 +315,7 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}
 \csquare{darklavender}
 
 Теперь, когда мы разобрались с матрицами Паули, можно порешать упражнения про спин.
-\excersize{Упражнение №27}{darklavender}
+\excersize
 \begin{center}
     \textit{Пусть электрон находится в состоянии с проекцией спина на ось $z$, равной $1/2$. Найдите вероятность того, что проекция спина этого электрона на направление $n$ равна $1/2$ (или $-1/2$).}
 \end{center}
