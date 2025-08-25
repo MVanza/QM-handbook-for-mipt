@@ -1,0 +1,80 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[sorting=none, style=numeric-comp]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{csquotes}
+\usepackage{array}
+\usepackage{ulem}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand{\hcancel}[1]{%
+    \tikz[baseline=(tocancel.base)]{
+        \node[inner sep=0pt,outer sep=0pt] (tocancel) {#1};
+        \draw[black] (tocancel.south west) -- (tocancel.north east);
+    }%
+}%
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+\definecolor{linkcolor}{HTML}{3333ff} % цвет ссылок
+\definecolor{urlcolor}{HTML}{3333ff} % цвет гиперссылок
+\hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
+\definecolor{rosewood}{rgb}{0.4, 0.0, 0.04}
+\definecolor{myolive}{RGB}{101, 136, 100}
+% \usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[left=2cm,right=2cm,
+top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\graphicspath{}
+\DeclareGraphicsExtensions{.pdf, .png, .jpg}
+\newcounter{problem}
+\setcounter{problem}{1}
+\newcommand{\excersize}
+{
+\tcbset{colframe=darklavender,colback=white,center title}
+\tcbox[arc=0mm]{\textit{Упражнение №2.\theproblem \stepcounter{problem}}}
+}
+\newcommand{\csquare}[1]
+{
+\begin{flushright}
+$\crule[#1]{0.4cm}{0.4cm}$
+\end{flushright}
+}
+
+\renewcommand\thesection{\Roman{section}}
+
+\titleformat{\section} % command
+  {\Large\bfseries}    % format
+  {}                   % label (empty, we don’t want number on the left)
+  {7cm}                % sep
+  {Семинар\;\thesection} % what actually gets printed
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{} % clear existing header/footer entries
+% We don't need to specify the O coordinate
+\fancyhead[R]{\fontsize{10}{12}\textit{Часть 2: Семинар \thesection}}
+\fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
+\include{class_1/class_1.tex}
+\newpage
+\include{class_2/class_2.tex}
+\newpage
+\end{document}
+
