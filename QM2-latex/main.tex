@@ -1,6 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[inline]{asymptote}
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
 \usepackage{titlesec}
@@ -24,7 +25,8 @@
         \draw[black] (tocancel.south west) -- (tocancel.north east);
     }%
 }%
-
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
@@ -38,7 +40,6 @@
 \definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
 \definecolor{rosewood}{rgb}{0.4, 0.0, 0.04}
 \definecolor{myolive}{RGB}{101, 136, 100}
-% \usepackage{physics}
 \usepackage{tcolorbox}
 \usepackage[left=2cm,right=2cm,
 top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
@@ -46,7 +47,7 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \DeclareGraphicsExtensions{.pdf, .png, .jpg}
 \newcounter{problem}
 \setcounter{problem}{1}
-\newcommand{\excersize}
+\newcommand{\exercise}
 {
 \tcbset{colframe=darklavender,colback=white,center title}
 \tcbox[arc=0mm]{\textit{Упражнение №2.\theproblem \stepcounter{problem}}}
@@ -60,21 +61,42 @@ $\crule[#1]{0.4cm}{0.4cm}$
 
 \renewcommand\thesection{\Roman{section}}
 
-\titleformat{\section} % command
-  {\Large\bfseries}    % format
-  {}                   % label (empty, we don’t want number on the left)
-  {7cm}                % sep
-  {Семинар\;\thesection} % what actually gets printed
+\titleformat{name=\section}[block]
+  {\Large\bfseries}    
+  {}                   
+  {7cm}               
+  {}
 
 \begin{document}
+    % \begin{titlepage}
+    %     \begin{center}
+    %         \vspace*{7.5cm}
+    %         \Huge
+    %         \textbf{Квантмех на факи 2}\\
+    %         \large
+    %         Меньше, чем Ландавшиц.\\
+    %         Больше, чем кванты за ночь
+    %         \begin{figure}[!ht]
+    %         \centering
+    %         \includegraphics[scale=0.35]{logo.png}
+    %         \label{logo}
+    %         \end{figure}
+    %         \vfill
+    %         \normalsize
+    %         Долгопрудный, 2025
+    %     \end{center}
+    % \end{titlepage}
 \pagestyle{fancy}
-\fancyhf{} % clear existing header/footer entries
-% We don't need to specify the O coordinate
+\fancyhead{}
 \fancyhead[R]{\fontsize{10}{12}\textit{Часть 2: Семинар \thesection}}
 \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
 \include{class_1/class_1.tex}
 \newpage
 \include{class_2/class_2.tex}
+\newpage
+\include{class_3/class_3.tex}
+\newpage
+\include{class_4/class_4.tex}
 \newpage
 \end{document}
 
