@@ -7,8 +7,6 @@
 \usepackage{titletoc}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
-\usepackage[symbol]{footmisc}
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage[sorting=none, style=numeric-comp]{biblatex}
@@ -47,10 +45,10 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \DeclareGraphicsExtensions{.pdf, .png, .jpg}
 \newcounter{problem}
 \setcounter{problem}{1}
-\newcommand{\excersize}
+\newcommand{\exercise}
 {
 \tcbset{colframe=darklavender,colback=white,center title}
-\tcbox[arc=0mm]{\textit{Упражнение №1.\theproblem \stepcounter{problem}}}
+\tcbox[arc=0mm]{\textit{Упражнение \textnumero\,1.\theproblem \stepcounter{problem}}}
 }
 \newcommand{\csquare}[1]
 {
@@ -127,17 +125,17 @@ $\crule[#1]{0.4cm}{0.4cm}$
     
     \appendix
     \fancyhead{}
-    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение \ref{appendix:A}}}
+    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение A}}
     \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
     \include{appendix/Appendix_A.tex}
     \newpage
     \fancyhead{}
-    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение \ref{appendix:B}}}
+    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение B}}
     \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
     \include{appendix/Appendix_B.tex}
     \newpage
     \fancyhead{}
-    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение \ref{appendix:C}}}
+    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение C}}
     \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
     \include{appendix/Appendix_C.tex}
     \newpage
