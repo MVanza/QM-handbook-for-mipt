@@ -1,64 +1,51 @@
 \documentclass[a4paper,12pt]{article}
+
+% ---------------- language ----------------
 \usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
-\usepackage{titlesec}
-\usepackage{titletoc}
-\usepackage{fancyhdr}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage[sorting=none, style=numeric-comp]{biblatex}
-\addbibresource{refs.bib}
-\usepackage{csquotes}
-\usepackage{array}
-\usepackage{ulem}
-\usepackage{subfig}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\newcommand{\hcancel}[1]{%
-    \tikz[baseline=(tocancel.base)]{
-        \node[inner sep=0pt,outer sep=0pt] (tocancel) {#1};
-        \draw[black] (tocancel.south west) -- (tocancel.north east);
-    }%
-}%
-\renewcommand{\thesubsection}{}
-\renewcommand{\thesubsubsection}{}
+\usepackage{indentfirst} % indent the first paragraph of a section too
+
+% ---------------- math ----------------
+\usepackage{amssymb}    % pulls in amsfonts
+\usepackage{mathtools}  % pulls in amsmath
+\usepackage{cancel}     % \cancel: strike-through inside formulas
+
+% ---------------- bra-ket notation ----------------
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
-\definecolor{linkcolor}{HTML}{3333ff} % цвет ссылок
-\definecolor{urlcolor}{HTML}{3333ff} % цвет гиперссылок
-\hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
-\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
-\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
-\definecolor{rosewood}{rgb}{0.4, 0.0, 0.04}
-\definecolor{myolive}{RGB}{101, 136, 100}
-\usepackage{tcolorbox}
+% ---------------- layout ----------------
 \usepackage[left=2cm,right=2cm,
 top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
-\graphicspath{}
-\DeclareGraphicsExtensions{.pdf, .png, .jpg}
-\newcounter{problem}
-\setcounter{problem}{1}
-\newcommand{\exercise}
-{
-\tcbset{colframe=darklavender,colback=white,center title}
-\tcbox[arc=0mm]{\textit{Упражнение \textnumero\,1.\theproblem \stepcounter{problem}}}
-}
-\newcommand{\csquare}[1]
-{
-\begin{flushright}
-$\crule[#1]{0.4cm}{0.4cm}$
-\end{flushright}
-}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\usepackage{array}              % m{} column type in tables
+\usepackage[normalem]{ulem}     % normalem: keep \emph italic, not underlined
+\usepackage{xcolor}
+\usepackage{tcolorbox}
 
+% ---------------- graphics ----------------
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+% ---------------- bibliography ----------------
+\usepackage{csquotes}
+\usepackage[sorting=none, style=numeric-comp]{biblatex}
+\addbibresource{refs.bib}
+
+% ---------------- hyperref must be loaded last ----------------
+\definecolor{linkcolor}{HTML}{3333ff}
+\definecolor{urlcolor}{HTML}{3333ff}s
+\usepackage{hyperref}
+\hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
+
+% ---------------- section numbering ----------------
 \renewcommand\thesection{\Roman{section}}
+\setcounter{secnumdepth}{1} % number sections only; subsections stay unnumbered
 
+% ---------------- heading style ----------------
 \titleformat{name=\section}[block] % command
   {\Large\bfseries}    % format
   {}                   % label (empty, we don’t want number on the left)
@@ -71,6 +58,33 @@ $\crule[#1]{0.4cm}{0.4cm}$
   {} % numbered format
   {}                    % numberless format
   {\titlerule*[0.5pc]{.}\contentspage}
+
+% ---------------- colours ----------------
+\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
+\definecolor{rosewood}{rgb}{0.4, 0.0, 0.04}
+\definecolor{myolive}{RGB}{101, 136, 100}
+
+% ---------------- exercises ----------------
+\newcounter{problem}
+\setcounter{problem}{1}
+\newcommand{\exercise}
+{
+\tcbset{colframe=darklavender,colback=white,center title}
+\tcbox[arc=0mm]{\textit{Упражнение \textnumero\,1.\theproblem \stepcounter{problem}}}
+}
+\newcommand{\csquare}[1]
+{
+\begin{flushright}
+$\textcolor{#1}{\rule{0.4cm}{0.4cm}}$
+\end{flushright}
+}
+
+% ---------------- running heads ----------------
+\newcommand{\parthead}[1]{%
+  \fancyhead{}%
+  \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}%
+  \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: #1}}%
+}
 
 \begin{document}
     \begin{titlepage}
@@ -85,7 +99,6 @@ $\crule[#1]{0.4cm}{0.4cm}$
             \begin{figure}[!ht]
             \centering
             \includegraphics[scale=0.3]{logo.png}
-            \label{logo}
             \end{figure}
             \vfill
             \normalsize
@@ -94,54 +107,32 @@ $\crule[#1]{0.4cm}{0.4cm}$
     \end{titlepage}
 
     \tableofcontents
-    \include{other/preface.tex} 
-    \newpage
+    \include{other/preface}
+
+    % \include already does \clearpage on both sides; no \newpage needed between
     \pagestyle{fancy}
-    \fancyhead{} % clear existing header/footer entries
-    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Семинар \thesection}}
-    \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
-    \include{class_1/class_1.tex}
-    \newpage
-    \include{class_2/class_2.tex}
-    \newpage
-    \include{class_3/class_3.tex}
-    \newpage
-    \include{class_4/class_4.tex}
-    \newpage
-    \include{class_5/class_5.tex}
-    \newpage
-    \include{class_6/class_6.tex}
-    \newpage
-    \include{class_7/class_7.tex}
-    \newpage
-    \include{class_8/class_8.tex}
-    \newpage
-    \include{class_9/class_9.tex}
-    \newpage
-    \include{class_10/class_10.tex}
-    \newpage
-    \include{class_11/class_11.tex}
-    \newpage
-    
+    \parthead{Семинар \thesection}
+    \include{class_1/class_1}
+    \include{class_2/class_2}
+    \include{class_3/class_3}
+    \include{class_4/class_4}
+    \include{class_5/class_5}
+    \include{class_6/class_6}
+    \include{class_7/class_7}
+    \include{class_8/class_8}
+    \include{class_9/class_9}
+    \include{class_10/class_10}
+    \include{class_11/class_11}
+
     \appendix
+    \parthead{Приложение \thesection} % \thesection expands to A, B, C in the appendix
+    \include{appendix/Appendix_A}
+    \include{appendix/Appendix_B}
+    \include{appendix/Appendix_C}
+
     \fancyhead{}
-    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение A}}
-    \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
-    \include{appendix/Appendix_A.tex}
-    \newpage
-    \fancyhead{}
-    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение B}}
-    \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
-    \include{appendix/Appendix_B.tex}
-    \newpage
-    \fancyhead{}
-    \fancyhead[R]{\fontsize{10}{12}\textit{Часть 1: Приложение C}}
-    \fancyhead[L]{\fontsize{10}{12}\textit{Квантмех на ФАКИ}}
-    \include{appendix/Appendix_C.tex}
-    \newpage
-    \fancyhead{}
-    \include{other/acknowledgements.tex}
-    \newpage
+    \include{other/acknowledgements}
+
     \printbibliography
     \addcontentsline{toc}{section}{Список литературы}
 \end{document}
