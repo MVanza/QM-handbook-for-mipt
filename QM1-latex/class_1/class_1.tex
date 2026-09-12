@@ -83,10 +83,9 @@ P(a_i) = |\braket{a_i}{\psi}|^2.
 \]
 \newpage
 Мы сформулировали два постулата квантовой механики и построили формальную нотацию для теоретического описания. Теперь попробуем применить наши знания для решения первых упражнений.
-\exercise
-\begin{center}
+\begin{exercise}
 \textit{Найдите операторы, эрмитово сопряженные и обратные по отношению к операторам:\\ а) инверсии $\hat I$ и б) трансляции $\hat T_a$}
-\end{center}
+\end{exercise}
 Для начала определим, что значат эти операторы. В целом, их действие понятно из названия: оператор инверсии меняет знак аргумента, а трансляция перемещает его. Я думаю, с обратными уже становится понятно, но давайте пойдём по порядку. Сначала найдём сопряженные и обратные для инверсии, потом для трансляции.
 
 \begin{enumerate}
@@ -113,11 +112,10 @@ P(a_i) = |\braket{a_i}{\psi}|^2.
 \]
 Получается, что оператор трансляции унитарный, но не эрмитовый.
 \end{enumerate}
-\csquare{darklavender}
-\exercise
-\begin{center}
+\qedsq
+\begin{exercise}
 \textit{Найдите собственные значения и собственные состояния оператора инверсии $\hat I$}
-\end{center}
+\end{exercise}
 Напомню, что собственные значения $\lambda$ и собственные функции $\varphi$ определяются как \\
 $\hat I \varphi = \lambda \varphi$. Домножим левую часть на $\hat I$ и получим
 \[
@@ -133,11 +131,10 @@ $\hat I \varphi = \lambda \varphi$. Домножим левую часть на 
     \lambda = -1 &: \hat I \varphi(r) = \varphi(-r) = -\varphi(r) \implies \varphi(r) - \text{нечётная}.
 \end{align*}
 То есть, в зависимости от собственного значения, собственные функции либо чётные, либо нечётные.
-\csquare{darklavender}
-\exercise
-\begin{center}
+\qedsq
+\begin{exercise}
 \textit{Найдите собственные значения и собственные состояния оператора трансляции $\hat T_a$}
-\end{center}
+\end{exercise}
 Для решения этой задачи сделаем несколько предположений. Рассмотрим действие двух операторов трансляции на волновую функцию:
 \[
 \hat{T}_{a}\hat{T}_{b}\psi(x) = \psi(x - (a + b)) = \hat{T}_{a + b}\psi(x).
@@ -160,26 +157,24 @@ $\hat I \varphi = \lambda \varphi$. Домножим левую часть на 
 \hat T_a \varphi_k(x) = e^{ik(x + a)} u_k(x + a) = e^{ika} e^{ikx} u_k(x) = \lambda(a) \varphi_k(x).
 \]
 Всё сошлось!
-\csquare{darklavender}
+\qedsq
 \newpage
-\exercise
-\begin{center}
+\begin{exercise}
 \textit{Найти явный вид оператора $e^{i\varphi\hat I}$}
-\end{center}
+\end{exercise}
 Такой оператор называется функцией оператора. Функции оператора оказываются полезными для описания динамики системы. Поговорим об этом подробнее, когда дойдём до уравнения Шрёдингера. Пока вспомним, что, когда мы видим матричную экспоненту, первое, что мы хотим сделать --- разложить в ряд Тейлора. Проверим, что получится:
 \begin{gather*}
     e^{i\varphi\hat I} = \sum\limits_{k=0}^{\infty} \frac{(i\varphi\hat I)^k}{k!} = \sum\limits_{s=0}^{\infty} \left(\frac{(i\varphi)^{2s}}{2s!}\right) \hat 1 + \sum\limits_{s=0}^{\infty} \frac{(i\varphi\hat I)^{2s+1}}{(2s+1)!} = \\
     =\hat 1 \sum\limits_{s=0}^{\infty} \frac{(-1)^s\varphi^{2s}}{2s!} + i\hat I \sum\limits_{s=0}^{\infty} \frac{(-1)^{s}\varphi^{2s+1}}{(2s+1)!} = \hat 1 cos\varphi + i\hat I sin \varphi.
 \end{gather*}
 Оператор $\hat{1}$ называется единичным оператором (общепринято обозначать его как $\hat{I}$, но в нашем случае эта буква занята). Его действие очевидно: $\hat{1}\ket{\psi} = \ket{\psi}$. В спектральном разложении он будет выглядеть как $\hat{1} = \sum_n \ket{n}\bra{n}$. Он оказывается очень полезным, когда нужно перейти от одного представления к другому. В следующих семинарах обязательно обсудим его.
-\csquare{darklavender}
-\exercise
-\begin{center}
+\qedsq
+\begin{exercise}
 \textit{Эрмитов оператор с дискретным спектром $\hat f(\lambda)$ зависит от параметра $\lambda$. Собственные значения $f_n(\lambda)$ и собственные векторы $\ket{n(\lambda)}$ этого оператора также зависят от $\lambda$. Докажите теорему:}
 \[
 \frac{\partial f_n(\lambda)}{\partial \lambda} = \bra{n(\lambda)} \frac{\partial \hat f(\lambda)}{\partial \lambda} \ket{n(\lambda)}.
 \]
-\end{center}
+\end{exercise}
 
 Из условия составим уравнение на собственные значения:
 \[
@@ -198,5 +193,5 @@ $\hat I \varphi = \lambda \varphi$. Домножим левую часть на 
 \bra{n}\hat f\frac{\partial}{\partial \lambda}\ket{n} = f_n\bra{n}\frac{\partial}{\partial \lambda}\ket{n}.
 \]
 Сокращая их, получим уравнение из условия.
-\csquare{darklavender}
+\qedsq
 На следующем семинаре поговорим о важном свойстве операторов --- коммутации.

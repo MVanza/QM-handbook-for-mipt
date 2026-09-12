@@ -25,6 +25,7 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage[normalem]{ulem}     % normalem: keep \emph italic, not underlined
 \usepackage{xcolor}
 \usepackage{tcolorbox}
+\usepackage{needspace} % keep an exercise badge from being orphaned at a page foot
 
 % ---------------- graphics ----------------
 \usepackage{graphicx}
@@ -37,7 +38,7 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 % ---------------- hyperref must be loaded last ----------------
 \definecolor{linkcolor}{HTML}{3333ff}
-\definecolor{urlcolor}{HTML}{3333ff}s
+\definecolor{urlcolor}{HTML}{3333ff}
 \usepackage{hyperref}
 \hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
 
@@ -66,16 +67,26 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 % ---------------- exercises ----------------
 \newcounter{problem}
-\setcounter{problem}{1}
-\newcommand{\exercise}
-{
-\tcbset{colframe=darklavender,colback=white,center title}
-\tcbox[arc=0mm]{\textit{Упражнение \textnumero\,1.\theproblem \stepcounter{problem}}}
+\renewcommand{\theproblem}{1.\arabic{problem}}
+% Statement goes in the body; the solution follows after \end{exercise}
+% and is closed by \qedsq.
+\makeatletter
+\newenvironment{exercise}{%
+\needspace{5\baselineskip}%
+\refstepcounter{problem}%
+\tcbset{colframe=darklavender,colback=white,center title}%
+\tcbox[arc=0mm]{\textit{Упражнение \textnumero\,\theproblem}}%
+\@beginparpenalty\@M
+\center
+}{%
+\endcenter
 }
-\newcommand{\csquare}[1]
+\makeatother
+% End-of-solution marker
+\newcommand{\qedsq}
 {
 \begin{flushright}
-$\textcolor{#1}{\rule{0.4cm}{0.4cm}}$
+$\textcolor{darklavender}{\rule{0.4cm}{0.4cm}}$
 \end{flushright}
 }
 

@@ -113,10 +113,9 @@ x(x+\hbar) = y(y+\hbar).
 \bra{lm}\hat{L}_{y}\ket{l'm'} &= \frac{\hbar}{2i}\left(\sqrt{l'(l'+1) - m'(m' + 1)}\delta_{ll'}\delta_{m,m' + 1} - \sqrt{l'(l'+1) - m'(m' - 1)}\delta_{ll'}\delta_{m,m' - 1}\right).
 \end{align*}
 Теперь, зная все матричные элементы, выполним следующее упражнение.
-\exercise
-\begin{center}
+\begin{exercise}
     \textit{Постройте матрицы операторов момента импульса $\hat{L}_x$, $\hat{L}_y$, $\hat{L}_z$, а также $\hat{L}^2$, $\hat{L}_+$ и $\hat{L}_-$ для квантовой системы с орбитальным числом $l = 1$. Как выглядят собственные вектора операторов $\hat{L}^2$ и $\hat{L}_z$?}
-\end{center}
+\end{exercise}
 
 Всю «сложную» часть мы уже проделали, осталось только подставить значение $l = 1$ в полученные выше формулы:
 \[
@@ -145,7 +144,7 @@ x(x+\hbar) = y(y+\hbar).
 \end{align*}
 
 Так как матрицы операторов $\hat{L}^2$ и $\hat{L}_z$ диагональны, найти их собственные вектора несложно --- это просто базисные вектора $\begin{pmatrix} 1 & 0 & 0 \end{pmatrix}^T$, $\begin{pmatrix} 0 & 1 & 0 \end{pmatrix}^T$ и $\begin{pmatrix} 0 & 0 & 1 \end{pmatrix}^T$. 
-\csquare{darklavender}
+\qedsq
 
 \subsection{Собственные состояния момента импульса}
 Процесс нахождение собственных функций, к сожалению, не получится свести к определению новых операторов и чисто квантово-механическому подходу. Поэтому рассуждения и поиск волновых функций я вынес в \nameref{appendix:A}. Здесь же я приведу только ответ.
@@ -224,8 +223,7 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}.
 \end{itemize}
 
 Мы видим, что матрицы Паули --- унитарные и эрмитовые матрицы, которыми можно представить обезразмеренный оператор спина. Давайте решим несколько упражнений, чтобы подробнее разобраться с их свойствами.
-\exercise
-\begin{center}
+\begin{exercise}
     \textit{Докажите справедливость следующих соотношений для матриц Паули:}
     \[
     \hat{\sigma}_k\hat{\sigma}_l = \delta_{kl} + i\varepsilon_{klm}\hat{\sigma}_m;
@@ -233,7 +231,7 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}.
     \[
     (\hat{\boldsymbol{\sigma}}\mathbf{a})(\hat{\boldsymbol{\sigma}}\mathbf{b}) = (\mathbf{ab}) + i(\boldsymbol{\sigma}[\mathbf{a} \times \mathbf{b}]).
     \]
-\end{center}
+\end{exercise}
 
 Ещё раз выпишем явный вид матриц Паули для спина $S=1/2$:
 \[
@@ -273,17 +271,16 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}.
 &= i\varepsilon_{klm}\hat{\sigma}_m a_k b_l + a_k b_k =\\
 &= i(\hat{\sigma}[\mathbf{a} \times \mathbf{b}]) + (\mathbf{a}\mathbf{b}).
 \end{align*}
-\csquare{darklavender}
+\qedsq
 
 
-\exercise
-\begin{center}
+\begin{exercise}
     \textit{Найдите собственные значения и собственные векторы спинового оператора $\hat{\sigma}_n = (\hat{\Vec{\sigma}}, \Vec{n})$, где $\Vec{n}$ --- единичный вектор с составляющими:}
     \[
     \Vec{n} = (\sin\theta\cos\phi, \sin\theta\sin\phi, \cos\theta)^T.
     \]
     \textit{Обсудите случаи, когда вектор $\Vec{n}$ направлен вдоль осей $x$, $y$ и $z$.}
-\end{center}
+\end{exercise}
 
 Запишем скалярное произведение вектора матриц Паули на вектор $\Vec{n}$:
 \begin{align*}
@@ -312,13 +309,12 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}.
     \Psi_{-1} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}.$ 
 \end{enumerate}
 Последний результат особенно важен, так как с помощью него мы будем обозначать волновые функции введённых выше состояний $\ket{\uparrow}$ и $\ket{\downarrow}$.
-\csquare{darklavender}
+\qedsq
 
 Теперь, когда мы разобрались с матрицами Паули, можно решить упражнения про спин.
-\exercise
-\begin{center}
+\begin{exercise}
     \textit{Пусть электрон находится в состоянии с проекцией спина на ось $z$, равной $1/2$. Найдите вероятность того, что проекция спина этого электрона на направление $n$ равна $1/2$ (или $-1/2$).}
-\end{center}
+\end{exercise}
 
 Из прошлого упражнения мы знаем, как выглядит волновая функция для спина вверх: $\psi_{1/2} =\begin{pmatrix} 1 & 0 \end{pmatrix}^T$. Также мы знаем базисные векторы для электрона, спин которого равен 1/2: 
 \[
@@ -337,4 +333,4 @@ Y^{-1}_1(\theta,\phi) = \sqrt{\frac{3}{8\pi}}\sin\theta e^{-i\phi}.
 \[
     P\left(S_z = 1/2\right) = \cos^2\frac{\theta}{2};\quad P\left(S_z = -1/2\right) = \sin^2\frac{\theta}{2}.
 \]
-\csquare{darklavender}
+\qedsq

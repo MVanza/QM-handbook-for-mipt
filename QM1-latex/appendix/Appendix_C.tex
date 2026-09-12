@@ -4,11 +4,10 @@
     \textbf{\Large{Раскрытие некоторых математических аспектов квазиклассики на примере задач}}
 \end{center}
 
-\exercise
-\begin{center}
+\begin{exercise}
 \textit{Пусть частица массой m находится на n-ом уровне гармонического осциллятора. Найдите точку поворота $x_2$. Насколько далеко от точки поворота может улететь частица перед тем, как ошибка из-за линеаризации потенциала достигнет 1\%?}.\\
 \textit{При $z\geq 5$ применение асимптотики для функции Эйри $Ai(z)$ даёт ошибку в 1\%. Для расстояния вылета за точку поворота d найти наименьший уровень n, при котором $\alpha d\geq 5$}.
-\end{center}
+\end{exercise}
 
 Напомню, как выглядит энергия для квантового гармонического осциллятора: 
 \[E_n = \hbar\omega(n + 1/2).\] 
@@ -49,12 +48,11 @@ d = 0.1x_2.
    \implies \frac{2m^2\omega^2}{\hbar^2} \frac{(2n + 1)^2\hbar^2}{m^2\omega^2} \geq 50^3 \implies (2n+1)^2 \geq 50^2 \cdot 25 \implies n \geq 124.5.
 \end{gather*}
 Получается, что при значениях $n\geq 125$ линейная аппроксимация и асимптотика функции Эйри не будут превышать ошибку в $1\%$. В квазиклассических системах значение $n$ сильно больше.
-\csquare{darklavender}
+\qedsq
 
-\exercise
-\begin{center}
+\begin{exercise}
 \textit{Выведите формулы связи для убывающего потенциала (рисунок \ref{fig C.1})}.
-\end{center}
+\end{exercise}
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=0.21]{appendix/images/left-turning-point.jpg}
@@ -127,12 +125,11 @@ B = -ie^{i\frac{\pi}{4}}A,\quad C = ie^{-i\frac{\pi}{4}}A.
     \frac{2A}{\sqrt{p}}\sin\left( \frac{1}{\hbar} \int\limits_{x_1}^{x} p\,dx' + \frac{\pi}{4} \right), & x > x_1.\\
 \end{cases}
 \]
-\csquare{darklavender}
+\qedsq
 \newpage
-\exercise
-\begin{center}
+\begin{exercise}
 \textit{Рассмотрите задачу с потенциальным барьером (рисунок \ref{fig C.2}). Найдите волновую функцию. Запишите, какой в этом случае будет коэффициент прохождения $T$}.
-\end{center}
+\end{exercise}
 
 \begin{figure}[h!]
 \centering
@@ -239,16 +236,15 @@ T = \frac{1}{(e^{\gamma} - e^{-\gamma}/4)^2} = \frac{e^{-2\gamma}}{\left(1-e^{-2
 \[
 T = e^{-2\gamma}.
 \]
-\csquare{darklavender}
+\qedsq
 
-\exercise
-\begin{center}
+\begin{exercise}
 \textit{Частица массой m с энергией E «заперта» в области $r<r_1$, где $U(r) = -U_0$ (рис. \ref{fig C.3}).  При $r > r_1$ потенциал имеет вид:}
 \[
 U(r) = \frac{2Ze^2}{r}; \quad E \ll \frac{2Ze^2}{r_1}.
 \]
 \textit{Воспользовавшись квазиклассическим приближением, найдите коэффициент прохождения сквозь барьер}
-\end{center}
+\end{exercise}
 
 \begin{figure}[h!]
 \centering
@@ -270,4 +266,4 @@ U(r) = \frac{2Ze^2}{r}; \quad E \ll \frac{2Ze^2}{r_1}.
 \[
 T = e^{-2\gamma} = e^{- K_1\frac{2Z}{\sqrt{E}}}e^{2K_2\sqrt{Zr_1}}.
 \]
-\csquare{darklavender}
+\qedsq
