@@ -1,0 +1,125 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Debian rather than the action's default Alpine: biber is a Perl binary
+      # and is less trouble on glibc, and the bibliography is not optional here.
+      # Both images ship a full TeX Live scheme, which is what provides
+      # cm-super — without it T2A Cyrillic falls back to bitmap fonts.
+      - name: Compile
+        uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: QM1-latex
+          root_file: main.tex
+          docker_image: ghcr.io/xu-cheng/texlive-debian:latest
+
+      - name: Rename and sanity-check
+        run: |
+          mv QM1-latex/main.pdf QM1.pdf
+          size=$(stat -c%s QM1.pdf)
+          echo "QM1.pdf: $size bytes"
+          # A complete build is ~2.8 MB. Anything tiny means the run produced a
+          # stub without failing, which -halt-on-error would not catch.
+          test "$size" -gt 1000000
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: QM1-pdf
+          path: QM1.pdf
+          if-no-files-found: error
+
+  # Always-current copy at https://mvanza.github.io/QM-handbook-for-mipt/
+  pages:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: QM1-pdf
+          path: site
+
+      - name: Landing page
+        run: |
+          cat > site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="ru">
+          <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Квантмех на ФАКИ</title>
+          <style>
+            :root { color-scheme: light dark; }
+            body { margin: 0; min-height: 100vh; display: grid; place-items: center;
+                   font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+                   padding: 2rem; }
+            main { max-width: 34rem; }
+            h1 { font-size: 1.6rem; margin: 0 0 .3rem; }
+            p.sub { margin: 0 0 1.8rem; opacity: .7; }
+            a.btn { display: inline-block; padding: .7rem 1.3rem; border-radius: .5rem;
+                    background: #6b4f97; color: #fff; text-decoration: none; font-weight: 600; }
+            a.btn:hover { background: #59407e; }
+            footer { margin-top: 2rem; font-size: .9rem; opacity: .7; }
+          </style>
+          </head>
+          <body>
+          <main>
+            <h1>Квантмех на ФАКИ</h1>
+            <p class="sub">Меньше, чем Ландавшиц. Больше, чем кванты за ночь.</p>
+            <p><a class="btn" href="QM1.pdf">Открыть пособие (PDF)</a></p>
+            <footer>
+              Собрано автоматически из последней версии в <code>main</code>.<br>
+              <a href="https://github.com/MVanza/QM-handbook-for-mipt">Исходники и список изданий на GitHub</a>
+            </footer>
+          </main>
+          </body>
+          </html>
+          HTML
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+  # Tagged editions: git tag v1.3 && git push origin v1.3
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: QM1-pdf
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" QM1.pdf \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Квантмех на ФАКИ $GITHUB_REF_NAME" \
+            --generate-notes
