@@ -154,6 +154,8 @@ $\textcolor{darklavender}{\rule{0.4cm}{0.4cm}}$
     \fancyhead{}
     \include{other/acknowledgements}
 
-    \printbibliography
+    % Must precede \printbibliography: \addcontentsline records \thepage where
+    % it stands, so after it the entry would point at the bibliography's LAST page.
     \addcontentsline{toc}{section}{Список литературы}
+    \printbibliography
 \end{document}
