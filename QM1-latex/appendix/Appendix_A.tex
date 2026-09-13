@@ -1,4 +1,3 @@
-\setcounter{figure}{0}  
 \section{Приложение А}\label{appendix:A}
 \begin{center}
     \textbf{\Large{Нахождение собственных функций операторов $\hat{L}^2$ и $\hat{L}_z$}}
@@ -68,7 +67,7 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
         & = \hbar^2l(l+1)Y^l_l(\theta, \phi).
     \end{align*}
     Получилось как раз то, что нам нужно было: $\hat{L}^2 \ket{ll} = \lambda \ket{ll}$. Мы подтвердили базу индукции.
-    \item Осталось сделать шаг индукции. Пусть $\ket{lm}$ представим в виде сферической функции. Докажем, что $\ket{l,\, m-1}$ тоже имеет такой вид. Для этого подействуем на состояние $\ket{lm}$ понижающим оператором. Напомню, что в Семинаре VIII мы показали, что состояние $\hat{L}_{\pm}\ket{lm}$ является собственным для операторов $\hat{L}^2$ и $\hat{L}_z$. Это позволяет нам спокойной использовать его для доказательства при переходе.
+    \item Осталось сделать шаг индукции. Пусть $\ket{lm}$ представим в виде сферической функции. Докажем, что $\ket{l,\, m-1}$ тоже имеет такой вид. Для этого подействуем на состояние $\ket{lm}$ понижающим оператором. Напомню, что в Семинаре \ref{sem:angular-momentum} мы показали, что состояние $\hat{L}_{\pm}\ket{lm}$ является собственным для операторов $\hat{L}^2$ и $\hat{L}_z$. Это позволяет нам спокойной использовать его для доказательства при переходе.
     \begin{align*}
         &\hat{L}_-\ket{lm} \simeq \hbar e^{-i\phi}\mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}}\left(-\frac{\partial}{\partial \theta} + i \ctg\theta\,\frac{\partial}{\partial \phi} \right)  \frac{1}{\sin^{m}\theta}\,\frac{d^{l-m}}{d(\cos\theta)^{l-m}}\sin^{2l}\theta e^{im\phi} = \\
         & = \left(\frac{\partial}{\partial \theta} =  -\sin\theta \frac{\partial}{\partial \cos\theta}\right) = \hbar e^{-i\phi} \mathcal{N}_l \sqrt{\frac{(l+m)!}{(l-m)!}} \biggl(m\ctg\theta\sin^{-m}\theta\frac{d^{l-m}}{d(\cos\theta)^{l-m}}\sin^{2l}\theta + \\

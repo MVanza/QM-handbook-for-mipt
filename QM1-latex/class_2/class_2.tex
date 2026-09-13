@@ -10,7 +10,7 @@
 [\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B}\hat{A}.
 \]
 Из выражения очевидно, что, если операторы коммутируют, то коммутатор равен нулю. Иначе он будет равен какому-то другому оператору. Решим небольшое упражнение на коммутаторы.
-\begin{exercise}
+\begin{exercise}\label{ex:commutator-product}
 \textit{Убедитесь в справедливости следующих соотношений:}
 \[
 [\hat A \hat B, \hat C] = \hat A [\hat B, \hat C] + [\hat A, \hat C]\hat B; \quad [\hat A, \hat B \hat C] = \hat B [\hat A, \hat C] + [\hat A, \hat B] \hat C.
@@ -144,7 +144,7 @@
     &= -i\hbar \int\left[ -\frac{d}{dx} \delta(x' - x)\ \right] \psi(x') dx' = -i \hbar \frac{d}{dx} \psi(x).
 \end{align*}
 Действие оператора импульса на волновую функцию в координатном базисе можно записать как $\hat{p} \psi(x) = -i \hbar \frac{d}{dx} \psi(x)$. Такими же рассуждениями можно получить, что $\hat{x} \psi(p) = i \hbar \frac{d}{dp} \psi(p)$. Это очень важные формулы, которые мы постоянно будем использовать в дальнейшем. Выполним несколько упражнений для закрепления материала.
-\begin{exercise}
+\begin{exercise}\label{ex:commutator-function}
 \textit{Докажите следующие коммутационные соотношения:}
 \begin{gather*}
     [\hat x_{\alpha}, F(\hat{\mathbf p})] = i \hbar \frac{\partial F(\hat{\mathbf p})}{\partial \hat p_{\alpha}}; \\
@@ -159,8 +159,8 @@
 Второе делается аналогично, только вместо действия оператора импульса на волновую функцию в координатном представлении, мы действуем оператором координаты на волновую функцию в импульсном представлении. 
 \qedsq
 
-\begin{exercise}
-\textit{Используя табличный коммутатор операторов импульса и координаты и результаты упражнений \textnumero\,1.6 и \textnumero\,1.8, раскройте следующие коммутаторы:}
+\begin{exercise}\label{ex:commutator-expand}
+\textit{Используя табличный коммутатор операторов импульса и координаты и результаты упражнений \textnumero\,\ref{ex:commutator-product} и \textnumero\,\ref{ex:commutator-function}, раскройте следующие коммутаторы:}
 \[
 [\hat x_{\alpha}, \hat{\mathbf{p}}^2], [U(\mathbf{r}), \hat{\mathbf{p}}], [U(r), \hat{\mathbf{p}}^2].
 \]
@@ -193,7 +193,7 @@
 \qedsq
 
 \begin{exercise}
-\textit{Используя свойства оператора трансляции и результаты упражнений \textnumero\,1.8 и \textnumero\,1.9, преобразуйте операторное выражение:}
+\textit{Используя свойства оператора трансляции и результаты упражнений \textnumero\,\ref{ex:commutator-function} и \textnumero\,\ref{ex:commutator-expand}, преобразуйте операторное выражение:}
 \[
 e^{\frac{i}{\hbar} a \hat{\mathbf{p}}} U(\mathbf{r}) e^{-\frac{i}{\hbar} a \hat{\mathbf{p}}}.
 \]

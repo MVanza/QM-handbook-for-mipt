@@ -46,6 +46,10 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \renewcommand\thesection{\Roman{section}}
 \setcounter{secnumdepth}{1} % number sections only; subsections stay unnumbered
 
+% Figures are numbered per seminar: 4.1, 4.2, ...
+\counterwithin{figure}{section}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+
 % ---------------- heading style ----------------
 \titleformat{name=\section}[block] % command
   {\Large\bfseries}    % format
@@ -136,6 +140,7 @@ $\textcolor{darklavender}{\rule{0.4cm}{0.4cm}}$
     \include{class_11/class_11}
 
     \appendix
+    \renewcommand{\thefigure}{\thesection.\arabic{figure}} % A.1, B.1, C.1, ...
     \parthead{Приложение \thesection} % \thesection expands to A, B, C in the appendix
     \include{appendix/Appendix_A}
     \include{appendix/Appendix_B}
