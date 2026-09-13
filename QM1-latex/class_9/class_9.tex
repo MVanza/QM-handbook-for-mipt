@@ -10,11 +10,11 @@ V(r) = \frac{e^2}{r}, \text{где $e$ --- заряд электрона}.
 \]
 Что значит первый индекс n --- выясним в этом семинаре. Угловая часть нам известна, осталось найти только радиальную часть. Значит, надо решить радиальное уравнение:
 \[
-\left[ -\frac{\hbar^2}{2Mr^2}\frac{\partial}{\partial r}(r^2 \frac{\partial}{\partial r}) + \frac{\hbar^2 l(l+1)}{2Mr^2} - \frac{e^2}{r}\right]R_{nl}(r) = ER_{nl}(r).
+\left[ -\frac{\hbar^2}{2Mr^2}\pd{}{r}(r^2 \pd{}{r}) + \frac{\hbar^2 l(l+1)}{2Mr^2} - \frac{e^2}{r}\right]R_{nl}(r) = ER_{nl}(r).
 \]
 Сделаем замену переменной $R_{nl}=U_{nl}(r)/r$ и перепишем уравнение через новую переменную:
 \begin{align*}
-\frac{1}{r^2}\frac{\partial}{\partial r}\left[ r^2 \frac{\partial}{\partial r} R_{nl} \right] &= \frac{1}{r^2}\frac{\partial}{\partial r}\left[ r^2 \frac{\partial}{\partial r} \frac{U_{nl}}{r} \right] = \frac{1}{r^2}\frac{\partial}{\partial r}\left[ r^2 \left(\frac{U'_{nl}}{r} - \frac{U_{nl}}{r^2}\right) \right] = \frac{U''_{nl}}{r} \implies \\
+\frac{1}{r^2}\pd{}{r}\left[ r^2 \pd{}{r} R_{nl} \right] &= \frac{1}{r^2}\pd{}{r}\left[ r^2 \pd{}{r} \frac{U_{nl}}{r} \right] = \frac{1}{r^2}\pd{}{r}\left[ r^2 \left(\frac{U'_{nl}}{r} - \frac{U_{nl}}{r^2}\right) \right] = \frac{U''_{nl}}{r} \implies \\
 \implies  &\left[ -\frac{\hbar^2}{2M}\frac{\partial^2}{\partial r^2} + \frac{\hbar^2 l(l+1)}{2Mr^2} - \frac{e^2}{r}\right]U_{nl}(r) = EU_{nl}(r).
 \end{align*}
 

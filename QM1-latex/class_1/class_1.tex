@@ -32,7 +32,7 @@
 
 В линейной алгебре для перехода от одного состояния к другому используются линейные операторы. Вы наверняка заметили, что квантовая механика с линейной алгеброй имеет очень прочную связь. Таким образом, переход от одного состояния к другому будет осуществляться через действие на это состояние неким линейным оператором. Формальная запись этого действия следующая: $\hat{A} \ket{\psi} = \ket{\psi'}$, где $\hat{A}$ --- линейный оператор. Для дальнейшей работы нам понадобятся несколько свойств операторов, а именно:
 \begin{itemize}
-    \item \textit{Эрмитово сопряженным} оператором $\hat{A^{\dagger}}$ называется оператор, для которого выполняется условие $(Ax, y) = (x, A^{\dagger}y)$. Оператор называется \textit{эрмитовым}, если $\hat{A^{\dagger}} = \hat{A}$;
+    \item \textit{Эрмитово сопряженным} оператором $\hat{A}^{\dagger}$ называется оператор, для которого выполняется условие $(Ax, y) = (x, A^{\dagger}y)$. Оператор называется \textit{эрмитовым}, если $\hat{A}^{\dagger} = \hat{A}$;
     \item Оператор называется \textit{унитарным}, если выполняется условие $\hat{A}^{\dagger} = \hat{A}^{-1}$;
     \item Операторы, как и матрицы, необязательно коммутируют: $\hat{A}\hat{B} \neq \hat{B}\hat{A}$. Свойство коммутации операторов играет большую роль в квантовой механике, но рассмотрим мы этот процесс немного позже.
 \end{itemize}
@@ -59,7 +59,7 @@ P(a_i) = |\braket{a_i}{\psi}|^2.
 
 Также нам понадобится среднее значение произвольной наблюдаемой. Напомню, что в общем случае среднее значение есть сумма произведения вероятностей на значение величины. Тогда среднее значение наблюдаемой будет
 \[
-\langle A \rangle = \sum_i a_i |\braket{a_i}{\psi}|^2 = \sum_i a_i |\braket{\psi}{a_i}\braket{a_i}{\psi}| = \bra{\psi}\hat{A}\ket{\psi}.
+\mean{A} = \sum_i a_i |\braket{a_i}{\psi}|^2 = \sum_i a_i |\braket{\psi}{a_i}\braket{a_i}{\psi}| = \bra{\psi}\hat{A}\ket{\psi}.
 \]
 \subsubsection*{Волновая функция}
 Все выводы в предыдущем параграфе были сделаны из предположения, что наша система дискретная. Давайте обобщим результат на непрерывный случай. Это важно, так как большинство физических величин непрерывные (например, координата или импульс). Для описания базисных состояний будем использовать дельта-функцию (функцию Дирака). Тогда скалярное произведение запишется как $\braket{x'}{x} = \delta(x - x')$. Напомню основные свойства дельта-функции:
@@ -164,15 +164,15 @@ $\hat I \varphi = \lambda \varphi$. Домножим левую часть на 
 \end{exercise}
 Такой оператор называется функцией оператора. Функции оператора оказываются полезными для описания динамики системы. Поговорим об этом подробнее, когда дойдём до уравнения Шрёдингера. Пока вспомним, что, когда мы видим матричную экспоненту, первое, что мы хотим сделать --- разложить в ряд Тейлора. Проверим, что получится:
 \begin{gather*}
-    e^{i\varphi\hat I} = \sum\limits_{k=0}^{\infty} \frac{(i\varphi\hat I)^k}{k!} = \sum\limits_{s=0}^{\infty} \left(\frac{(i\varphi)^{2s}}{2s!}\right) \hat 1 + \sum\limits_{s=0}^{\infty} \frac{(i\varphi\hat I)^{2s+1}}{(2s+1)!} = \\
-    =\hat 1 \sum\limits_{s=0}^{\infty} \frac{(-1)^s\varphi^{2s}}{2s!} + i\hat I \sum\limits_{s=0}^{\infty} \frac{(-1)^{s}\varphi^{2s+1}}{(2s+1)!} = \hat 1 cos\varphi + i\hat I sin \varphi.
+    e^{i\varphi\hat I} = \sum\limits_{k=0}^{\infty} \frac{(i\varphi\hat I)^k}{k!} = \sum\limits_{s=0}^{\infty} \left(\frac{(i\varphi)^{2s}}{(2s)!}\right) \hat 1 + \sum\limits_{s=0}^{\infty} \frac{(i\varphi\hat I)^{2s+1}}{(2s+1)!} = \\
+    =\hat 1 \sum\limits_{s=0}^{\infty} \frac{(-1)^s\varphi^{2s}}{(2s)!} + i\hat I \sum\limits_{s=0}^{\infty} \frac{(-1)^{s}\varphi^{2s+1}}{(2s+1)!} = \hat 1 \cos\varphi + i\hat I \sin\varphi.
 \end{gather*}
 Оператор $\hat{1}$ называется единичным оператором (общепринято обозначать его как $\hat{I}$, но в нашем случае эта буква занята). Его действие очевидно: $\hat{1}\ket{\psi} = \ket{\psi}$. В спектральном разложении он будет выглядеть как $\hat{1} = \sum_n \ket{n}\bra{n}$. Он оказывается очень полезным, когда нужно перейти от одного представления к другому. В следующих семинарах обязательно обсудим его.
 \qedsq
 \begin{exercise}
 \textit{Эрмитов оператор с дискретным спектром $\hat f(\lambda)$ зависит от параметра $\lambda$. Собственные значения $f_n(\lambda)$ и собственные векторы $\ket{n(\lambda)}$ этого оператора также зависят от $\lambda$. Докажите теорему:}
 \[
-\frac{\partial f_n(\lambda)}{\partial \lambda} = \bra{n(\lambda)} \frac{\partial \hat f(\lambda)}{\partial \lambda} \ket{n(\lambda)}.
+\pd{f_n(\lambda)}{\lambda} = \bra{n(\lambda)} \pd{\hat f(\lambda)}{\lambda} \ket{n(\lambda)}.
 \]
 \end{exercise}
 
@@ -182,15 +182,15 @@ $\hat I \varphi = \lambda \varphi$. Домножим левую часть на 
 \]
 Продифференцируем его правую и левую часть:
 \[
-\frac{\partial \hat f}{\partial \lambda}\ket{n} + \hat f\frac{\partial}{\partial \lambda}\ket{n} = \frac{\partial f_n}{\partial \lambda}\ket{n} + f_n\frac{\partial}{\partial \lambda}\ket{n}.
+\pd{\hat f}{\lambda}\ket{n} + \hat f\pd{}{\lambda}\ket{n} = \pd{f_n}{\lambda}\ket{n} + f_n\pd{}{\lambda}\ket{n}.
 \]
 Умножим на бра-вектор $\bra{n}$ и преобразуем:
 \[
-\bra{n}\frac{\partial \hat f}{\partial \lambda}\ket{n} + \bra{n}\hat f\frac{\partial}{\partial \lambda}\ket{n} = \frac{\partial f_n}{\partial \lambda}\braket{n}{n} + f_n\bra{n}\frac{\partial}{\partial \lambda}\ket{n}.
+\bra{n}\pd{\hat f}{\lambda}\ket{n} + \bra{n}\hat f\pd{}{\lambda}\ket{n} = \pd{f_n}{\lambda}\braket{n}{n} + f_n\bra{n}\pd{}{\lambda}\ket{n}.
 \]
 Посмотрим на второе слагаемое. Вспоминая, что по условию оператор $\hat f$ эрмитов, и действуя им на бра-вектор $\bra{n}$, получим четвёртое слагаемое
 \[
-\bra{n}\hat f\frac{\partial}{\partial \lambda}\ket{n} = f_n\bra{n}\frac{\partial}{\partial \lambda}\ket{n}.
+\bra{n}\hat f\pd{}{\lambda}\ket{n} = f_n\bra{n}\pd{}{\lambda}\ket{n}.
 \]
 Сокращая их, получим уравнение из условия.
 \qedsq

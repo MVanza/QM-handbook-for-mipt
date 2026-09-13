@@ -19,15 +19,15 @@ i\hbar \frac{d}{dt} \psi_p = \frac{p^2}{2m}\psi_p + \bra{p}U(x)\hat{1}_p\ket{\ps
 Необходимо вычислить матричный элемент $U(x)$ в импульсном представлении. Используем единичный оператор (только на этот раз координаты), вставляя его в наше скалярное произведение:
 \begin{gather*}
 \int\bra{p}U(x)\hat{1}_x\ket{p'}\psi_{p'}\;dp' = \int \bra{p}U(x)\left[\int\ket{x}\bra{x}dx\right]\ket{p'} \psi_{p'}\;dp'= \\
-= \int\int U(x)\braket{p}{x}\braket{x}{p'} \psi_{p'} dx\,dp' = \frac{1}{2\pi\hbar}\int\int U(x) e^{-\frac{i}{h}(p-p')x}\psi_{p'} dx\,dp'.
+= \int\int U(x)\braket{p}{x}\braket{x}{p'} \psi_{p'} dx\,dp' = \frac{1}{2\pi\hbar}\int\int U(x) e^{-\frac{i}{\hbar}(p-p')x}\psi_{p'} dx\,dp'.
 \end{gather*}
 Подставляя его в изначальное уравнение, получим уравнение Шрёдингера в импульсном представлении:
 \[
-i\hbar \frac{d}{dt} \psi_p =\frac{p^2}{2m}\psi_p + \frac{1}{2\pi\hbar}\int\int U(x) e^{-\frac{i}{h}(p-p')x}\psi_{p'} dx\,dp'.
+i\hbar \frac{d}{dt} \psi_p =\frac{p^2}{2m}\psi_p + \frac{1}{2\pi\hbar}\int\int U(x) e^{-\frac{i}{\hbar}(p-p')x}\psi_{p'} dx\,dp'.
 \]
 Подставляя потенциальную энергию из упражнения, получим
 \[
-\frac{p^2}{2m}\psi_p - \frac{\kappa_0\hbar}{2\pi m}\int\int \delta(x) e^{-\frac{i}{h}(p-p')x}\psi_{p'} dx\,dp'= \frac{p^2}{2m}\psi_p - \frac{\kappa_0\hbar}{2\pi m}\int\psi_{p'} dp' =  E\psi_p.
+\frac{p^2}{2m}\psi_p - \frac{\kappa_0\hbar}{2\pi m}\int\int \delta(x) e^{-\frac{i}{\hbar}(p-p')x}\psi_{p'} dx\,dp'= \frac{p^2}{2m}\psi_p - \frac{\kappa_0\hbar}{2\pi m}\int\psi_{p'} dp' =  E\psi_p.
 \]
 Предположим, что интеграл сходится, и введём для него обозначение $I = \int \psi_{p'}dp'$. Затем выражая энергию через $\kappa$, получим простое алгебраическое выражение на $\psi_p$:
 \[

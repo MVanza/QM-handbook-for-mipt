@@ -50,7 +50,7 @@
     \[
     U(x) = -\frac{\hbar^2\kappa_0}{m}\delta(x),
     \]
-    \textit{где $\kappa_0$ --- параметр ямы. Покажите, что в этой яме имеется только одно связанное состояние и найдите энергию и волновую функцию частицы связанного состояния в координатном представлении. Вычислите $\langle x \rangle, \; \langle p \rangle, \; \langle (\Delta x)^2\rangle$ и $\langle (\Delta p)^2\rangle$ в этом состоянии}
+    \textit{где $\kappa_0$ --- параметр ямы. Покажите, что в этой яме имеется только одно связанное состояние и найдите энергию и волновую функцию частицы связанного состояния в координатном представлении. Вычислите $\mean{x}, \; \mean{p}, \; \mean{(\Delta x)^2}$ и $\mean{(\Delta p)^2}$ в этом состоянии}
 \end{exercise}
 
 Не переживайте, дельта-функция только выглядит страшно. На деле у нас получается примерно такой рисунок:
@@ -114,8 +114,8 @@ E_0 = - \frac{\hbar^2 \kappa_0^2}{2m}.
 
 Найдём среднее значение координаты и импульса. Дисперсию читателю предлагается найти самостоятельно в виде упражнения.
 \begin{gather*}
-    \langle x \rangle = \int\psi^*x\psi dx = 0, \text{ т. к. $\psi$ --- чётная}. \\
-    \langle p \rangle = \int\psi^*(-i\hbar\frac{\partial}{\partial x}\psi) dx = -i\hbar\kappa_0^2\int e^{-\kappa_0|x|}(-e^{-\kappa_0|x|} sign (x)) dx = 0.
+    \mean{x} = \int\psi^*x\psi dx = 0, \text{ т. к. $\psi$ --- чётная}. \\
+    \mean{p} = \int\psi^*(-i\hbar\pd{}{x}\psi) dx = -i\hbar\kappa_0^2\int e^{-\kappa_0|x|}(-e^{-\kappa_0|x|} sign (x)) dx = 0.
 \end{gather*}
 \qedsq
 \begin{exercise}

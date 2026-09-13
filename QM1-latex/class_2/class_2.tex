@@ -3,7 +3,7 @@
 \subsection{Коммутатор. Соотношение неопределённостей}
 На прошлом семинаре мы обсуждали возможность измерения наблюдаемых, используя собственные значения и собственные функции. Это связано с тем, что наблюдаемое имеет нулевую неопределённость, если состояние для него является собственным: 
 \[
-\sqrt{\langle\Delta A^2 \rangle} = \sqrt{\bra{\psi}\hat{A}^2\ket{\psi} - \bra{\psi}\hat{A}\ket{\psi}^2} = 0.
+\sqrt{\mean{\Delta A^2}} = \sqrt{\bra{\psi}\hat{A}^2\ket{\psi} - \bra{\psi}\hat{A}\ket{\psi}^2} = 0.
 \]
 Вы наверняка помните из курса общей физики про принцип неопределённости Гейзенберга, согласно которому две физические величины могут находиться в таком соотношении, что измерить их одновременно точно невозможно. Так вот оказывается, что, зная операторы этих величин, можно определить, будут ли они совместны для системы или нет. И для этого нам понадобится новый оператор --- коммутатор. Он записывается в виде квадратной скобки, внутри которой находятся два оператора, и показывает степень коммутации между этими операторами
 \[
@@ -32,40 +32,40 @@
 
 Из этого следует, что, если операторы коммутируют, то их можно одновременно точно измерить. Если нет, то точность измерения будет определяться принципом неопределённости Гейзенберга:
 \[
-\langle \Delta \hat{A}^2 \rangle \langle \Delta \hat{B}^2 \rangle \geq \frac{1}{4} |\langle [\hat{A}, \; \hat{B}] \rangle|^2.
+\mean{\Delta \hat{A}^2} \mean{\Delta \hat{B}^2} \geq \frac{1}{4} |\mean{[\hat{A}, \; \hat{B}]}|^2.
 \]
 Доказательство общей теоремы я здесь приводить не буду, лишь оставлю два неравенства, которые проще вывести самостоятельно. Итоговое неравенство получается из них напрямую:
 \begin{gather*}
-    |\langle [\hat{A}, \; \hat{B}] \rangle|^2 \leq 4|\langle \hat{A}\hat{B}\rangle|^2, \\
-    \langle \hat{A}^2 \rangle \langle \hat{B}^2 \rangle \geq |\langle \hat{A}\hat{B}\rangle|^2.
+    |\mean{[\hat{A}, \; \hat{B}]}|^2 \leq 4|\mean{\hat{A}\hat{B}}|^2, \\
+    \mean{\hat{A}^2} \mean{\hat{B}^2} \geq |\mean{\hat{A}\hat{B}}|^2.
 \end{gather*}
 Выполним упражнение на неопределенность.
 \begin{exercise}
 \textit{Пусть $[\hat A, \hat B] = i\hat C$. A, B, C --- эрмитовые операторы. Покажите, что в этом случае они удовлетворяют соотношению неопределённости}
 \[
-\langle \Delta \hat A^2\rangle \langle \Delta \hat B^2\rangle \geq \frac{1}{4} \langle \hat C\rangle^2, \textit{ где } \Delta \hat A = \hat A - \langle \hat A \rangle.
+\mean{\Delta \hat A^2} \mean{\Delta \hat B^2} \geq \frac{1}{4} \mean{\hat C}^2, \textit{ где } \Delta \hat A = \hat A - \mean{\hat A}.
 \]
 \end{exercise}
 
 Для начала разберёмся с дисперсией. Посмотрим на коммутатор дисперсий операторов:
 \begin{align*}
-    [\Delta \hat A, \Delta \hat B] &= \left( \hat A - \langle \hat A \rangle \right) \left( \hat B - \langle \hat B \rangle \right) - \left( \hat B - \langle \hat B \rangle \right) \left( \hat A - \langle \hat A \rangle \right) =\\
-    &= \hat A \hat B - \hat A \langle \hat B \rangle - \langle \hat A \rangle \hat B + \langle \hat A \rangle \langle \hat B \rangle - \hat B \hat A + \hat B \langle \hat A \rangle + \\
-    &+ \langle \hat B \rangle \hat A - \langle \hat A \rangle \langle \hat B \rangle = \hat A \hat B - \hat B \hat A = [\hat A, \hat B] = i\hat C.
+    [\Delta \hat A, \Delta \hat B] &= \left( \hat A - \mean{\hat A} \right) \left( \hat B - \mean{\hat B} \right) - \left( \hat B - \mean{\hat B} \right) \left( \hat A - \mean{\hat A} \right) =\\
+    &= \hat A \hat B - \hat A \mean{\hat B} - \mean{\hat A} \hat B + \mean{\hat A} \mean{\hat B} - \hat B \hat A + \hat B \mean{\hat A} + \\
+    &+ \mean{\hat B} \hat A - \mean{\hat A} \mean{\hat B} = \hat A \hat B - \hat B \hat A = [\hat A, \hat B] = i\hat C.
 \end{align*}
 Мы сократили все члены со средними значениями, так как среднее значение --- это число и оно всегда коммутирует с операторами.
 
 Введём вектор состояния $\ket{\varphi}$, определённый следующим образом: $\ket{\varphi} = (\Delta\hat A - i\gamma\Delta\hat B)\ket{\psi}$, где $\gamma \in \mathbb{R}$. Так как скалярное произведение вектора на самого себя --- величина неотрицательная, то есть $\braket{\varphi}{\varphi} \geq 0$, подставим значение векторов и перейдём к квадратному уравнению относительно $\gamma$:
 \begin{align*}
-    \bra{\varphi} \ket{\varphi} &= \bra{\psi} \left( \Delta \hat A + i \gamma \Delta \hat B \right) \left( \Delta \hat A - i \gamma \Delta \hat B \right) \ket{\psi} = \bra{\psi} \Delta \hat{A}^2 \ket{\psi} + \\
+    \braket{\varphi}{\varphi} &= \bra{\psi} \left( \Delta \hat A + i \gamma \Delta \hat B \right) \left( \Delta \hat A - i \gamma \Delta \hat B \right) \ket{\psi} = \bra{\psi} \Delta \hat{A}^2 \ket{\psi} + \\
     &+ \bra{\psi} i \gamma \Delta \hat{B} \Delta \hat{A} \ket{\psi} - \bra{\psi} i \gamma \Delta \hat{A} \Delta \hat{B} \ket{\psi} + \bra{\psi} \gamma^2 \Delta \hat{B}^2 \ket{\psi} = \\
-    &= \langle \Delta \hat A^2 \rangle - i \gamma \langle [\Delta \hat{A}, \; \Delta \hat{B}] \rangle + \gamma^2 \langle \Delta \hat B^2 \rangle = \\
-    &= \gamma^2 \langle \Delta \hat B^2 \rangle + \gamma \langle \hat{C} \rangle + \langle \Delta \hat A^2 \rangle \geq 0.
+    &= \mean{\Delta \hat A^2} - i \gamma \mean{[\Delta \hat{A}, \; \Delta \hat{B}]} + \gamma^2 \mean{\Delta \hat B^2} = \\
+    &= \gamma^2 \mean{\Delta \hat B^2} + \gamma \mean{\hat{C}} + \mean{\Delta \hat A^2} \geq 0.
 \end{align*}
 Получилось квадратное уравнение, ветви параболы смотрят вверх. Так как нам нужны решения большие или равные нулю, подходит только дискриминант меньший или равный нулю:
 \[
-\langle \hat C \rangle^2 - 4 \langle \Delta \hat B^2 \rangle \langle \Delta \hat A^2 \rangle \leq 0 \implies
-\langle \Delta \hat A^2 \rangle \langle \Delta \hat B^2 \rangle \geq \frac{1}{4} \langle \hat C \rangle^2.
+\mean{\hat C}^2 - 4 \mean{\Delta \hat B^2} \mean{\Delta \hat A^2} \leq 0 \implies
+\mean{\Delta \hat A^2} \mean{\Delta \hat B^2} \geq \frac{1}{4} \mean{\hat C}^2.
 \]
 \qedsq
 \subsection{Оператор импульса и координаты}
@@ -79,7 +79,7 @@
  \hline
  Разложение состояния & \(\displaystyle \ket{\psi} = \sum_i \psi_i \ket{a_i}\) &  \(\displaystyle \ket{\psi} = \int\limits_{-\infty}^{+\infty} \psi(x) \ket{x}dx\) \newline \(\displaystyle \psi(x) = \braket{x}{\psi}\) \\ 
  \hline
- Измерения & $P(a_i) = |\bra{a_i} \ket{\psi}|^2$ \newline (вероятность) & $P(x) = |\psi(x)|^2$\newline (плотность вероятности) \\ 
+ Измерения & $P(a_i) = |\braket{a_i}{\psi}|^2$ \newline (вероятность) & $P(x) = |\psi(x)|^2$\newline (плотность вероятности) \\ 
  \hline
  Разложение оператора & $A_{ij} = \bra{a_i} \hat{A} \ket{a_j}$ \newline \(\displaystyle \hat{A} = \sum_{i,j} A_{ij} \ket{a_i} \bra{a_j}\) & $A(x, x') = \bra{x} \hat{A} \ket{x'}$ \newline \(\displaystyle \hat{A} = \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} A(x, x') \ket{x} \bra{x'} dx \; dx'\) \\ 
  \hline
@@ -134,8 +134,8 @@
 \]
 Представим $p e^{\frac{i p}{\hbar}(x - x')} = -i \hbar \frac{d}{dx} e^{\frac{i p}{\hbar}(x - x')}$. Тогда
 \begin{gather*}
-    \frac{1}{2 \pi \hbar} \int p e^{\frac{i p}{\hbar}(x - x')} dp = \frac{1}{2 \pi \hbar}(-i h) \frac{d}{dx} \int e^{\frac{i p}{\hbar}(x - x')} dp = \\
-    = \frac{1}{2 \pi \hbar}(-i h)\frac{d}{dx}(2 \pi \hbar)\delta(x - x') = -i \hbar \frac{d}{dx} \delta(x - x').
+    \frac{1}{2 \pi \hbar} \int p e^{\frac{i p}{\hbar}(x - x')} dp = \frac{1}{2 \pi \hbar}(-i \hbar) \frac{d}{dx} \int e^{\frac{i p}{\hbar}(x - x')} dp = \\
+    = \frac{1}{2 \pi \hbar}(-i \hbar)\frac{d}{dx}(2 \pi \hbar)\delta(x - x') = -i \hbar \frac{d}{dx} \delta(x - x').
 \end{gather*}
 Теперь выясним, как действует оператор на произвольное состояние в координатном представлении:
 \begin{align*}
@@ -147,14 +147,14 @@
 \begin{exercise}\label{ex:commutator-function}
 \textit{Докажите следующие коммутационные соотношения:}
 \begin{gather*}
-    [\hat x_{\alpha}, F(\hat{\mathbf p})] = i \hbar \frac{\partial F(\hat{\mathbf p})}{\partial \hat p_{\alpha}}; \\
-    [\hat p_{\alpha}, G(\hat{\mathbf r})] = -i \hbar \frac{\partial G(\hat{\mathbf r})}{\partial \hat x_{\alpha}}.
+    [\hat x_{\alpha}, F(\hat{\mathbf p})] = i \hbar \pd{F(\hat{\mathbf p})}{\hat p_{\alpha}}; \\
+    [\hat p_{\alpha}, G(\hat{\mathbf r})] = -i \hbar \pd{G(\hat{\mathbf r})}{\hat x_{\alpha}}.
 \end{gather*}
 \end{exercise}
 
-Начнём со второго. Мы знаем, как оператор импульса действует на волновую функцию в координатном базисе: $\hat p_{\alpha} \psi(\mathbf r) = -i \hbar \frac{\partial \psi(\mathbf r)}{\partial x_{\alpha}}$. Вспомним, что коммутатор сам по себе тоже является оператором, и применим его к волновой функции в координатном базисе:
+Начнём со второго. Мы знаем, как оператор импульса действует на волновую функцию в координатном базисе: $\hat p_{\alpha} \psi(\mathbf r) = -i \hbar \pd{\psi(\mathbf r)}{x_{\alpha}}$. Вспомним, что коммутатор сам по себе тоже является оператором, и применим его к волновой функции в координатном базисе:
 \begin{gather*}
-    [\hat p_{\alpha}, G(\hat{\mathbf{r}})] f(\mathbf{r}) = -(i\hbar \frac{\partial G(\hat{\mathbf{r}})}{\partial x_{\alpha}}f(\mathbf{r}) + i\hbar G(\hat{\mathbf{r}}) \frac{\partial f(\mathbf{r})}{\partial x_{\alpha}}) + i\hbar G(\hat{\mathbf{r}})\frac{\partial f(\mathbf{r})}{\partial x_{\alpha}} = -i\hbar \frac{\partial G(\hat{\mathbf{r}})}{\partial x_{\alpha}} f(\mathbf{r}).
+    [\hat p_{\alpha}, G(\hat{\mathbf{r}})] f(\mathbf{r}) = -(i\hbar \pd{G(\hat{\mathbf{r}})}{x_{\alpha}}f(\mathbf{r}) + i\hbar G(\hat{\mathbf{r}}) \pd{f(\mathbf{r})}{x_{\alpha}}) + i\hbar G(\hat{\mathbf{r}})\pd{f(\mathbf{r})}{x_{\alpha}} = -i\hbar \pd{G(\hat{\mathbf{r}})}{x_{\alpha}} f(\mathbf{r}).
 \end{gather*}
 Второе делается аналогично, только вместо действия оператора импульса на волновую функцию в координатном представлении, мы действуем оператором координаты на волновую функцию в импульсном представлении. 
 \qedsq
@@ -169,7 +169,7 @@
 Сначала покажем, чему равен коммутатор $[\hat{x}_{\alpha}, \hat{p}_{\beta}]$:
 \begin{gather*}
     [\hat{x}_{\alpha}, \hat{p}_{\beta}] \psi(x) = \hat{x}_{\alpha} \hat{p}_{\beta} \psi(x) - \hat{p}_{\beta} \hat{x}_{\alpha} \psi(x) = \\
-    = -x_{\alpha} i \hbar \frac{\partial}{\partial x_{\beta}} \psi(x) + i \hbar \frac{\partial x_{\alpha}}{\partial x_{\beta}} \psi(x) + i \hbar x_{\alpha} \frac{\partial}{\partial x_{\beta}} \psi(x) = i \hbar \delta_{\alpha \beta}\psi(x).
+    = -x_{\alpha} i \hbar \pd{}{x_{\beta}} \psi(x) + i \hbar \pd{x_{\alpha}}{x_{\beta}} \psi(x) + i \hbar x_{\alpha} \pd{}{x_{\beta}} \psi(x) = i \hbar \delta_{\alpha \beta}\psi(x).
 \end{gather*}
 Получается, $[\hat{x}_{\alpha}, \hat{p}_{\beta}] = i \hbar \delta_{\alpha \beta}$. Идём дальше, пользуясь результатом, полученном в упражнении № 1.6:
 \begin{align*}
@@ -185,9 +185,9 @@
     = \hbar^2(U''(r)\frac{\mathbf{r}^2}{r^2} + U'(r) \frac{\nabla\mathbf{r}}{r} + U'(r)\mathbf{r}(-\frac{1}{r^2})\,\frac{\mathbf{r}}{r} + 2U'(r) \frac{\mathbf{r}}{r}\frac{d}{d\mathbf{r}}) = \\
     =\hbar^2(U''(r) + U'(r) \frac{2}{r} + 2U'(r) \frac{\mathbf{r}}{r}\frac{d}{d\mathbf{r}}).
 \end{gather*}
-Разберём подробно вторую строчку. Первый член найдём, взяв производную от скалярной функции. Получаем её вторую производную и нормированный вектор. Для выявления второго члена выражения применяем оператор импульса (градиент) к вектору. Третий член получается из следующего решения (напомню, что $r = \sqrt{x^2 + y^2 + z^2}$ и $\frac{\partial f(r)}{\partial x} = \frac{\partial f(r)}{\partial r} \frac{\partial r}{\partial x}$):
+Разберём подробно вторую строчку. Первый член найдём, взяв производную от скалярной функции. Получаем её вторую производную и нормированный вектор. Для выявления второго члена выражения применяем оператор импульса (градиент) к вектору. Третий член получается из следующего решения (напомню, что $r = \sqrt{x^2 + y^2 + z^2}$ и $\pd{f(r)}{x} = \pd{f(r)}{r} \pd{r}{x}$):
 \[
-\nabla f(r) = \begin{pmatrix}\frac{\partial f(r)}{\partial x} & \frac{\partial f(r)}{\partial y} & \frac{\partial f(r)}{\partial z}\end{pmatrix}^T =  \frac{f'(r)}{r}\begin{pmatrix}x & y & z\end{pmatrix}^T = f'(r) \frac{\mathbf{r}}{r}.
+\nabla f(r) = \begin{pmatrix}\pd{f(r)}{x} & \pd{f(r)}{y} & \pd{f(r)}{z}\end{pmatrix}^T =  \frac{f'(r)}{r}\begin{pmatrix}x & y & z\end{pmatrix}^T = f'(r) \frac{\mathbf{r}}{r}.
 \]
 Подставляем $f(r) = 1/r$ и получаем третий член. Последнее слагаемое находим путём сложения левого и правого слагаемого в первой строчке перед последним равно.
 \qedsq
@@ -201,11 +201,11 @@ e^{\frac{i}{\hbar} a \hat{\mathbf{p}}} U(\mathbf{r}) e^{-\frac{i}{\hbar} a \hat{
 
 Поработаем немного с оператором трансляции. Мы уже знаем, что, действуя на функцию, оператор трансляции смещает её на значение a. Найдём связь между $\hat T_{a}$ и $\hat{p}$. Для этого разложим функцию, на которую подействовал оператор трансляции, в ряд Тейлора:
 \[
-\hat T_{a} f(x) = f(x + a) = \sum\limits_{k=0}^{\infty} \frac{a^k f^{(k)}(x)}{k!} = \sum\limits_{k=0}^{\infty} \frac{a^k (\frac{\partial}{\partial x})^k f(x)}{k!} = e^{a \frac{\partial}{\partial x}} f(x).
+\hat T_{a} f(x) = f(x + a) = \sum\limits_{k=0}^{\infty} \frac{a^k f^{(k)}(x)}{k!} = \sum\limits_{k=0}^{\infty} \frac{a^k (\pd{}{x})^k f(x)}{k!} = e^{a \pd{}{x}} f(x).
 \]
 Вспомним, что оператор импульса в координатном представлении действует как производная. Тогда можно записать
 \[
-\hat T_{a} = e^{a\nabla} = e^{\frac{i}{h}a\hat{\mathbf{p}}}.
+\hat T_{a} = e^{a\nabla} = e^{\frac{i}{\hbar}a\hat{\mathbf{p}}}.
 \]
 Возвращаясь к условию упражнения, видим, что это равносильно действию оператора трансляции с двух сторон (с разными знаками а):
 \[

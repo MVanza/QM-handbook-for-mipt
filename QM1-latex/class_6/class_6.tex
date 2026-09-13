@@ -45,7 +45,7 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}.
     \item $\braket{X}{P} = \frac{1}{\sqrt{2\pi}}e^{iPX}$;
     \item $\psi(X) = \left(\frac{\hbar}{M\omega}\right)^{1/4}\psi(x)$, $\;\psi(P) = \left(\hbar M\omega \right)^{1/4}\psi(p)$;
     \item $\hat{P}\psi(X) = -i\frac{d}{dX}\psi(X)$,   $\;\hat{X}\psi(P) = i\frac{d}{dP}\psi(P)$;
-    \item $\langle\Delta X^2\rangle\langle\Delta P^2\rangle \geq \frac{1}{4}$.
+    \item $\mean{\Delta X^2}\mean{\Delta P^2} \geq \frac{1}{4}$.
 \end{itemize}
 Гамильтониан же запишем как
 \[
@@ -194,7 +194,7 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}.
 
 Давайте подставим потенциал в уравнение Шрёдингера:
 \[
--\frac{\hbar^2}{2m}\Delta\psi(\vec{r}) + \frac{m\omega^2\vec{r}^2}{2}\psi(\vec{r}) = E\psi(\vec{r}).
+-\frac{\hbar^2}{2m}\Delta\psi(\Vec{r}) + \frac{m\omega^2\Vec{r}^2}{2}\psi(\Vec{r}) = E\psi(\Vec{r}).
 \]
 Так как координаты декартовы, можем записать гамильтониан в виде
 \[
@@ -202,7 +202,7 @@ A = \sqrt{\frac{M\omega}{\hbar}}; \; B = \frac{1}{\sqrt{M\omega \hbar}}.
 \]
 Такой гамильтониан коммутирует с каждым из операторов координаты $\hat{x}, \hat{y}, \hat{z}$, а значит, решение можно искать в виде произведения их собственных функций. В то же время, это гамильтониан гармонического осциллятора, то есть его можно описать через оператор $\hat{a}^{\dagger}\hat{a}$. Тогда эти функции будут собственные ещё и для этого оператора. В итоге можем записать волновые функции в следующем виде:
 \begin{gather*}
-\psi_{n_1n_2n_3}(\vec{r}) = u_{n1}(X)u_{n2}(Y)u_{n3}(Z);\\
+\psi_{n_1n_2n_3}(\Vec{r}) = u_{n1}(X)u_{n2}(Y)u_{n3}(Z);\\
 u_{n_i}(X_i) = \frac{1}{\pi^{\frac{1}{4}}\sqrt{2^{n_i}n_i!}}e^{-X_i^2/2}H_{n_i}(X_i).
 \end{gather*}
 где $H_{n}(X_i)$ --- полиномы Эрмита. Энергия тогда будет иметь вид

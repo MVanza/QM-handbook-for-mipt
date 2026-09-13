@@ -10,6 +10,11 @@
 \usepackage{mathtools}  % pulls in amsmath
 \usepackage{cancel}     % \cancel: strike-through inside formulas
 
+% Shorthands. \pd covers first derivatives only: the 38 second-order ones
+% include mixed partials and do not fit a two-argument signature.
+\newcommand{\mean}[1]{\langle #1 \rangle}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+
 % ---------------- bra-ket notation ----------------
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
