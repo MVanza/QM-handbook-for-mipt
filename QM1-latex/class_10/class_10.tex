@@ -1,13 +1,12 @@
 \section{Семинар \thesection}
 \subsection{Решение задач в трёхмерном пространстве}
-\exercise
-\begin{center}
+\begin{exercise}
     \textit{Записать уравнение Шрёдингера для двух частиц с массами $m_1$ и $m_2$, взаимодействующих по закону $U(\Vec{r}_1 - \Vec{r}_2)$ в системе центра масс. Какой вид имеет волновая функция $\psi(\Vec{r}_1, \Vec{r}_2)$?}
-\end{center}
+\end{exercise}
 
 Запишем уравнение Шрёдингера для двух частиц:
 \[
-i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Vec{r}_1, \Vec{r}_2, t),
+i\hbar\pd{}{t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Vec{r}_1, \Vec{r}_2, t),
 \]
 где гамильтониан $\hat{H}$ в координатном представлении имеет следующий вид:
 \[
@@ -19,20 +18,20 @@ i\hbar\frac{\partial}{\partial t}\psi(\Vec{r}_1, \Vec{r}_2, t) = \hat{H}\psi(\Ve
 \]
 Пользуясь правилами дифференцирования сложной функции, выразим лапласианы $\Delta_{r_1}$, $\Delta_{r_2}$ через производные по $\Vec{R}$ и $\Vec{r}$:
 \begin{gather*}
-\frac{\partial}{\partial r_1} = \frac{\partial}{\partial R}\frac{\partial R}{\partial r_1} + \frac{\partial}{\partial r}\frac{\partial r}{r_1} = \frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r};\\
-\frac{\partial}{\partial r_2} = \frac{\partial}{\partial R}\frac{m_2}{m_1 + m_2} - \frac{\partial}{\partial r}.
+\pd{}{r_1} = \pd{}{R}\pd{R}{r_1} + \pd{}{r}\frac{\partial r}{r_1} = \pd{}{R}\frac{m_1}{m_1 + m_2} + \pd{}{r};\\
+\pd{}{r_2} = \pd{}{R}\frac{m_2}{m_1 + m_2} - \pd{}{r}.
 \end{gather*}
 Теперь, когда у нас есть эти выражения, можем найти связь между вторыми производными. Для этого воспользуемся следующим фактом:
 \[
-\frac{\partial^2}{\partial r_1^2} = \frac{\partial}{\partial r_1}(\frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r}) = (\frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r})(\frac{\partial}{\partial R}\frac{m_1}{m_1 + m_2} + \frac{\partial}{\partial r}).
+\frac{\partial^2}{\partial r_1^2} = \pd{}{r_1}(\pd{}{R}\frac{m_1}{m_1 + m_2} + \pd{}{r}) = (\pd{}{R}\frac{m_1}{m_1 + m_2} + \pd{}{r})(\pd{}{R}\frac{m_1}{m_1 + m_2} + \pd{}{r}).
 \]
 Запишем вторую производную в явном виде:
 \begin{align*}
-\frac{\partial^2}{\partial r_1^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_1^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{\partial R\,\partial r}{\partial r_1^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_1^2} = \\
+\frac{\partial^2}{\partial r_1^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_1^2} + 2\frac{\partial^2}{\partial R\,\partial r}\pd{R\,\partial r}{r_1^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_1^2} = \\
 &= \frac{\partial^2}{\partial R^2} \frac{m_1^2}{(m_1 + m_2)^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{m_1}{m_1 + m_2} +  \frac{\partial^2}{\partial r^2}.
 \end{align*}
 \begin{align*}
-    \frac{\partial^2}{\partial r_2^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_2^2} + 2\frac{\partial^2}{\partial R\,\partial r}\frac{\partial R\,\partial r}{\partial r_2^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_2^2} = \\
+    \frac{\partial^2}{\partial r_2^2} &= \frac{\partial^2}{\partial R^2} \frac{\partial^2 R}{\partial r_2^2} + 2\frac{\partial^2}{\partial R\,\partial r}\pd{R\,\partial r}{r_2^2} + \frac{\partial^2}{\partial r^2} \frac{\partial^2 r}{\partial r_2^2} = \\
     & = \frac{\partial^2}{\partial R^2} \frac{m_2^2}{(m_1 + m_2)^2} - 2\frac{\partial^2} {\partial R\,\partial r} \frac{m_2}{m_1 + m_2} + \frac{\partial^2}{\partial r^2}.
 \end{align*}
 Так как $\partial^2/\partial r_i^2 = \Delta_{r_i}$, выпишем гамильтониан в новых переменных:
@@ -59,41 +58,40 @@ M = m_1 + m_2, \quad \frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}
       E_{\text{цм}}\Phi(\Vec{R}) &=-\frac{\hbar^2}{2M}\Delta_{\Vec{R}}\Phi(\Vec{R}), \\
      E_{\text{отн}}\phi(\Vec{r}) &= \left[-\frac{\hbar^2}{2\mu}\Delta_{\Vec{r}} + U(\Vec{r})\right]\phi(\Vec{r}).
 \end{align*}
-Из первого уравнения следует, что функция $\Phi(\Vec{R})$ описывает свободное движение центра масс: $\Phi(\Vec{R}) = Ce^{\frac{i}{h}\Vec{P}\Vec{R}}$, характеризующееся полным импульсом $P$ и энергией $E_{\text{цм}} = \Vec{P}^2/2M$.
-\csquare{darklavender}
+Из первого уравнения следует, что функция $\Phi(\Vec{R})$ описывает свободное движение центра масс: $\Phi(\Vec{R}) = Ce^{\frac{i}{\hbar}\Vec{P}\Vec{R}}$, характеризующееся полным импульсом $P$ и энергией $E_{\text{цм}} = \Vec{P}^2/2M$.
+\qedsq
 
-\exercise
-\begin{center}
+\begin{exercise}
     \textit{Частица массы $m$ движется в потенциале трёхмерного изотропного осциллятора:}
     \[
     V(r) = \frac{m\omega^2r^2}{2}
     \]
     \textit{Найдите энергии уровней, кратности их вырождения, а также волновые функции стационарных состояний, разделяя переменные в декартовых и сферических координатах.}
-\end{center}
+\end{exercise}
 
 Запишем уравнение Шрёдингера для трёхмерного изотропного осциллятора:
 \[
 \left[-\frac{\hbar^2}{2m}\Delta + \frac{m\omega^2 r^2}{2}\right]\psi(\Vec{r}) = E\psi(\Vec{r}).
 \]
 
-В декартовой системе данная задача была решена в Семинаре VI, поэтому сейчас посмотрим, что происходит при использовании сферических координат. Сначала выпишем явный вид лапласиана:
+В декартовой системе данная задача была решена в Семинаре \ref{sem:oscillator}, поэтому сейчас посмотрим, что происходит при использовании сферических координат. Сначала выпишем явный вид лапласиана:
 \[
-\Delta = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) + \frac{1}{r^2 \sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2}{\partial\phi^2}.
+\Delta = \frac{1}{r^2}\pd{}{r}\left(r^2\pd{}{r}\right) + \frac{1}{r^2 \sin\theta}\pd{}{\theta}\left(\sin\theta\pd{}{\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2}{\partial\phi^2}.
 \]
 
-В Семинаре VIII в упражнении \textnumero\,1.24 было показано, что оператор квадрата момента импульса $\hat{L}^2$ выглядит так:
+В Семинаре \ref{sem:angular-momentum} в упражнении \textnumero\,\ref{ex:angular-momentum-matrices} было показано, что оператор квадрата момента импульса $\hat{L}^2$ выглядит так:
 \[
-\hat{L}^2 = -\hbar^2\left[\frac{1}{\sin\theta}\frac{\partial}{\partial \theta}\left( \sin\theta\frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right].
+\hat{L}^2 = -\hbar^2\left[\frac{1}{\sin\theta}\pd{}{\theta}\left( \sin\theta\pd{}{\theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right].
 \]
 Написанное в квадратных скобках похоже на два последних слагаемых лапласиана, поэтому можем его преобразовать:
 \[
-\Delta = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) - \frac{\hat{L}^2}{\hbar^2 r^2} = \frac{1}{r^2}\left(2r\frac{\partial}{\partial r} + r^2 \frac{\partial^2}{\partial r^2}\right) - \frac{\hat{L}^2}{\hbar^2 r^2} = \frac{\partial^2}{\partial r^2} + \frac{2}{r}\frac{\partial}{\partial r} - \frac{\hat{L}^2}{\hbar^2 r^2}.
+\Delta = \frac{1}{r^2}\pd{}{r}\left(r^2\pd{}{r}\right) - \frac{\hat{L}^2}{\hbar^2 r^2} = \frac{1}{r^2}\left(2r\pd{}{r} + r^2 \frac{\partial^2}{\partial r^2}\right) - \frac{\hat{L}^2}{\hbar^2 r^2} = \frac{\partial^2}{\partial r^2} + \frac{2}{r}\pd{}{r} - \frac{\hat{L}^2}{\hbar^2 r^2}.
 \]
 
 Поработаем теперь над уравнением Шрёдингера:
 \begin{align*}
-     -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2}{mr}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2mr^2}\psi + \frac{m\omega^2 r^2}{2}\psi - E\psi & = 0 \; \Bigg| \cdot r^2 \implies \\
-    \implies -\frac{\hbar^2 r^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2 r}{m}\frac{\partial\psi}{\partial r} + \frac{\hat{L}^2}{2m}\psi + \frac{m\omega^2 r^4}{2}\psi - Er^2\psi & = 0.
+     -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2}{mr}\pd{\psi}{r} + \frac{\hat{L}^2}{2mr^2}\psi + \frac{m\omega^2 r^2}{2}\psi - E\psi & = 0 \; \Bigg| \cdot r^2 \implies \\
+    \implies -\frac{\hbar^2 r^2}{2m}\frac{\partial^2\psi}{\partial r^2} - \frac{\hbar^2 r}{m}\pd{\psi}{r} + \frac{\hat{L}^2}{2m}\psi + \frac{m\omega^2 r^4}{2}\psi - Er^2\psi & = 0.
 \end{align*}
 Внимательно посмотрев на уравнение, можно заметить, что волновая функция разделяется на радиальную и угловую части:
 \[
@@ -191,10 +189,9 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
 \[
 \sum_l (2l+1) = \frac{(n+1)(n+2)}{2}.
 \]
-\csquare{darklavender}
+\qedsq
 
-\exercise
-\begin{center}
+\begin{exercise}
     \textit{Частица массы $m$ движется в трёхмерной потенциальной яме с «плоским» дном и бесконечно высокими стенками:}
     \[
     V(r)=
@@ -204,7 +201,7 @@ Y^m_l(\theta, \phi) = \mathcal{N}_l\sqrt{\frac{(l+m)!}{(l-m)!}} \frac{1}{\sin^{m
     \end{cases}
     \]
     \textit{Найдите уровни энергии и волновые функции s-состояний. Чему равна $\psi_{ns}(0)$?}
-\end{center}
+\end{exercise}
 
 Запишем уравнение Шрёдингера для данного потенциала. Оно, как мы знаем из предыдущих Семинаров, будет разделяться на угловую и радиальную часть. Таким образом, волновую функцию можно записать в виде $\Psi_{nlm}(r, \theta, \phi) = R_{nl}(r)Y^{m}_l(\theta, \phi) = \frac{1}{r}U_{nl}(r)Y^{m}_l(\theta, \phi)$, где $U_{nl}(r) = rR_{nl}(r)$. Подставляя её в радиальное уравнение, получим:
 \begin{gather*}
@@ -274,29 +271,28 @@ E_{nl} = \frac{\pi^2\hbar^2}{2ma^2}\lambda_{nl}^2;\quad R_{nl}(r) =
 \label{fig 10.1}
 \end{figure}
 
-\csquare{darklavender}
+\qedsq
 
 
-\exercise
-\begin{center}
+\begin{exercise}
     \textit{Электрон покоится в осциллирующем магнитном поле, направленном вдоль оси z:}
     \[
-    \vec{B} = B_0\cos(\omega t)\hat{z}.
+    \Vec{B} = B_0\cos(\omega t)\hat{z}.
     \]
     \textit{Пусть в момент $t_0 = 0$ электрон со спином, направленным вдоль оси $x$, начинает движение. Определите положение спина (спинор) $\chi(t)$ в произвольный момент времени. Найдите вероятность получить $-\hbar/2$ при измерении спина по оси $x$ (то есть применяя оператор $\hat{S}_x$). Найдите минимальное поле $B_0$ , необходимое для полного поворота спина в сторону против оси $x$.}
-\end{center}
+\end{exercise}
 
-Для начала разберём теорию. У частиц со спином есть так называемый собственный магнитный момент, который обозначается как $\boldsymbol{\mu}$. Эта величина зависит от спинового момента $\mathbf{S}$ следующим образом:
+Для начала разберём теорию. У частиц со спином есть так называемый собственный магнитный момент, который обозначается как $\Vec{\mu}$. Эта величина зависит от спинового момента $\Vec{S}$ следующим образом:
 \[
-\vec{\mu} = \gamma \vec{S}, \text{ где $\gamma$ --- это гиромагнитное отношение.}
+\Vec{\mu} = \gamma \Vec{S}, \text{ где $\gamma$ --- это гиромагнитное отношение.}
 \]
-Когда частица со спином помещается в магнитное поле, она испытывает крутящий момент $\vec{\mu} \times \vec{B}$, который поворачивает её спин по полю. Энергию этого крутящего момента можно вычислить так:
+Когда частица со спином помещается в магнитное поле, она испытывает крутящий момент $\Vec{\mu} \times \Vec{B}$, который поворачивает её спин по полю. Энергию этого крутящего момента можно вычислить так:
 \[
-H = -\vec{\mu}\cdot\vec{B} = -\gamma\vec{B}\cdot\vec{S}.
+H = -\Vec{\mu}\cdot\Vec{B} = -\gamma\Vec{B}\cdot\Vec{S}.
 \]
 Зная это, запишем гамильтониан для нашей задачи:
 \[
-H = -\gamma\vec{B}\cdot\vec{S} = -\gamma B_0\cos(\omega t) \hat{S}_z = -\frac{\gamma B_0\hbar}{2}\cos(\omega t)\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
+H = -\gamma\Vec{B}\cdot\Vec{S} = -\gamma B_0\cos(\omega t) \hat{S}_z = -\frac{\gamma B_0\hbar}{2}\cos(\omega t)\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
 \]
 Если забыли, откуда появилась такая матрица и что такое спин, --- вам в Семинар VIII. 
 
@@ -338,4 +334,4 @@ P(\chi^{(x)}_-) &= \left|\braket{\chi^{(x)}_-}{\chi(t)}\right|^2 = \left|\left(\
 \sin^2\left(\frac{\gamma B_0}{2\omega}\sin(\omega t)\right) = 1 \implies \frac{\gamma B_0}{2\omega} = \frac{\pi}{2} \implies B_0 = \frac{\pi\omega}{\gamma}.
 \]
 
-\csquare{darklavender}
+\qedsq
