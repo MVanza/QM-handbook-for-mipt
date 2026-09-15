@@ -16,3 +16,5 @@ QM2.pdf
 *.run.xml
 *.synctex.gz
 *.toc
+
+.DS_Store

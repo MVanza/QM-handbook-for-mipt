@@ -138,7 +138,7 @@ V(t) = \begin{cases}0,&t<0 \\ V, &t\geq0\end{cases}
 Выбрав $t_0 = 0$, посчитаем первый порядок поправок к возмущению:
 \begin{align*}
     c^{(0)}_n &= \delta_{ni}\\
-    c^{(1)}_n &= \frac{-i}{\hbar}\int\limits_{0}^{t}e^{i\omega_{ni} t'}dt' = \frac{V_{ni}}{E_n-E_i}(1-e^{i\omega_{ni}t})
+    c^{(1)}_n &= \frac{-i}{\hbar}\int\limits_{0}^{t}e^{i\omega_{ni} t'}V_{ni}dt' = \frac{V_{ni}}{E_n-E_i}(1-e^{i\omega_{ni}t})
 \end{align*}
 Посмотрим на квадрат модуля первой поправки:
 \[
@@ -240,7 +240,7 @@ i\hbar\frac{\partial}{\partial t}\chi(t) = \left(\hat{H}_0+\hat{V}(t)\right)\chi
 \]
 
 Решение данной задачи в нулевом приближении $\left(\hat{H}_0\chi^{(0)}=E^{(0)}\chi^{(0)}\right)$ нам известно: 
-\[E_{1,2}^{(0)}=\mp\mu_0\mathcal{H}_0, \quad \chi_{1,2}^{(0)} = \chi_{\pm1/2}.
+\[E_{1,2}^{(0)}=\mp\mu_0\mathcal{H}_0/2, \quad \chi_{1,2}^{(0)} = \chi_{\pm1/2}.
 \]
 
 Для вычисления волновой функции мы будем пользоваться уже хорошо знакомыми формулами:
