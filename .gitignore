@@ -1,0 +1,18 @@
+# Built PDF — published by CI to GitHub Pages and Releases, not stored in git
+QM1.pdf
+QM2.pdf
+
+# LaTeX build artefacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
