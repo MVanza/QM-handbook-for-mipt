@@ -5,9 +5,9 @@ If you find a mistake, feel free to create merge request with necessary correcti
 
 ## Read it
 
-- **[Latest build](https://mvanza.github.io/QM-handbook-for-mipt/QM1.pdf)** — rebuilt automatically from `main` on every push.
-- **[Released editions](https://github.com/MVanza/QM-handbook-for-mipt/releases)** — tagged versions; the most recent one is always at [`releases/latest/download/QM1.pdf`](https://github.com/MVanza/QM-handbook-for-mipt/releases/latest/download/QM1.pdf).
+- **Current edition** — [part 1](https://mvanza.github.io/QM-handbook-for-mipt/QM1.pdf) and [part 2](https://mvanza.github.io/QM-handbook-for-mipt/QM2.pdf), rebuilt whenever an edition is tagged.
+- **[Released editions](https://github.com/MVanza/QM-handbook-for-mipt/releases)** — the latest one is always at [`releases/latest/download/QM1.pdf`](https://github.com/MVanza/QM-handbook-for-mipt/releases/latest/download/QM1.pdf) and [`.../QM2.pdf`](https://github.com/MVanza/QM-handbook-for-mipt/releases/latest/download/QM2.pdf).
 
-The PDF is no longer committed to this repository — it is built by CI from the
-sources in `QM1-latex/`. Pull requests get a build too: open the `build` check
-and download the `QM1-pdf` artifact to preview the change.
+The PDFs are not committed to this repository — CI builds them from the sources
+in `QM1-latex/` and `QM2-latex/`. Pull requests get a build too: open the `build`
+check and download the artifacts to preview the change.

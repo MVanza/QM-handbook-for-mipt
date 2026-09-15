@@ -1,7 +1,7 @@
 \section{Семинар \thesection}
 \subsection{Нестационарная теория возмущений}
 
-\hspace{1em} До этого момента основная теория, которую мы рассматривали, была построена на изменении квантового состояния под действием постоянного гамильтониана. Для описания такой динамики мы решали уравнение Шрёдингера:
+До этого момента основная теория, которую мы рассматривали, была построена на изменении квантового состояния под действием постоянного гамильтониана. Для описания такой динамики мы решали уравнение Шрёдингера:
 \[
 i\hbar\frac{d\ket{\psi(t)}}{dt} = \hat{H}\ket{\psi(t)}.
 \]
@@ -39,16 +39,16 @@ V_I = e^{\frac{i}{\hbar} H_0 t} V_S e^{-\frac{i}{\hbar} H_0 t}
 
 Запишем уравнение Шрёдингера в представлении взаимодействия:
 \begin{align*}
-    i\hbar\frac{\partial}{\partial t}\ket{\psi(t)}_I &= i\hbar\frac{\partial}{\partial t}\left( e^{\frac{i}{\hbar} H_0 t} \ket{\psi(t)}_S \right) =\\
+    i\hbar\pd{}{t}\ket{\psi(t)}_I &= i\hbar\pd{}{t}\left( e^{\frac{i}{\hbar} H_0 t} \ket{\psi(t)}_S \right) =\\
     &= -H_0  e^{\frac{i}{\hbar} H_0 t}\ket{\psi(t)}_S +  e^{\frac{i}{\hbar} H_0 t}\left( H_0 + V_S \right)\ket{\psi(t)}_S =\\
     &=  e^{\frac{i}{\hbar} H_0 t} V_S  e^{-\frac{i}{\hbar} H_0 t}  e^{\frac{i}{\hbar} H_0 t}\ket{\psi(t)}_S=\\
     &= V_I\ket{\psi(t)}_I
 \end{align*}
 Так, изменение состояния зависит от потенциала $V_I(t)$. Получим динамику произвольного оператора $A_I$, выраженную через $H_0$:
 \begin{align*}
-    \frac{d A_I}{d t} &= \frac{\partial}{\partial t}\left( e^{\frac{i}{\hbar} H_0 t} A_S e^{-\frac{i}{\hbar} H_0 t} \right) =\\
-    &= \frac{i}{h} \left(H_0  e^{\frac{i}{\hbar} H_0 t}A_Se^{-\frac{i}{\hbar} H_0 t} + e^{\frac{i}{\hbar} H_0 t} A_S H_0 e^{-\frac{i}{\hbar} H_0 t}\right) +  e^{\frac{i}{\hbar} H_0 t}\frac{\partial A_S}{\partial t}e^{-\frac{i}{\hbar} H_0 t} =\\
-    &=  \frac{i}{\hbar}\left[ H_0, A_I \right]  + \left(\frac{\partial A_S}{\partial t}\right)_I
+    \frac{d A_I}{d t} &= \pd{}{t}\left( e^{\frac{i}{\hbar} H_0 t} A_S e^{-\frac{i}{\hbar} H_0 t} \right) =\\
+    &= \frac{i}{\hbar} \left(H_0  e^{\frac{i}{\hbar} H_0 t}A_Se^{-\frac{i}{\hbar} H_0 t} + e^{\frac{i}{\hbar} H_0 t} A_S H_0 e^{-\frac{i}{\hbar} H_0 t}\right) +  e^{\frac{i}{\hbar} H_0 t}\pd{A_S}{t}e^{-\frac{i}{\hbar} H_0 t} =\\
+    &=  \frac{i}{\hbar}\left[ H_0, A_I \right]  + \left(\pd{A_S}{t}\right)_I
 \end{align*}
 
 Используя этот формализм, найдём уравнения для коэффициентов волновой функции $c_n(t)$. Для этого запишем состояние через время $t$, выразив его через линейную комбинацию стационарных состояний $\ket{\psi_n}$:
@@ -63,7 +63,7 @@ V_I = e^{\frac{i}{\hbar} H_0 t} V_S e^{-\frac{i}{\hbar} H_0 t}
 \]
 Теперь поработаем с уравнением Шрёдингера в представлении взаимодействия. Домножим его слева на $\bra{\psi_n}$:
 \[
-    i\hbar\frac{\partial}{\partial t}\braket{\psi_n}{\psi(t)}_I = \bra{\psi_n}V_I\ket{\psi(t)}_I = \sum\limits_{m}\bra{\psi_n}V_I\ket{\psi_m}\braket{\psi_m}{\psi(t)}_I
+    i\hbar\pd{}{t}\braket{\psi_n}{\psi(t)}_I = \bra{\psi_n}V_I\ket{\psi(t)}_I = \sum\limits_{m}\bra{\psi_n}V_I\ket{\psi_m}\braket{\psi_m}{\psi(t)}_I
 \]
 Для удобства введём следующее обозначение:
 \[
@@ -175,10 +175,9 @@ w_{i\rightarrow n} = \frac{d}{dt}\left(\sum\limits_{n}|c^{(1)}_n|^2\right)
 w_{i\rightarrow n} = \frac{2\pi}{\hbar}\overline{|V_{ni}|^2} \rho(E_n)_{E_n\simeq E_i}
 \]
 Это очень полезная формула, позволяющая посчитать вероятности для перехода из начального состояния в конечные состояния в первом порядке теории возмущений. Напомню, что мы рассматривали постоянный потенциал, и золотое правило применимо именно к нему. Далее мы рассмотрим задачи, где покажем применение этого правила.
-\exercise
-\begin{center}
+\begin{exercise}
 \textit{Уровни энергии невозмущенной системы зависят от параметра $\lambda$ и при некотором значении $\lambda_0$ два уровня энергии пересекаются: $E_1^{(0)}(\lambda_0)=E_2^{(0)}(\lambda_0)$. В начальный момент времени система находится на первом уровне в состоянии $\psi_1^{(0)}$. Определите вероятность найти систему в состоянии $\psi_2^{(0)}$ в момент времени $t$, если на систему накладывается постоянное возмущение $\hat{V}$, причем $V_{11} = V_{22} = 0$, но $V_{12} = V^{\ast}_{21} \neq 0$.}
-\end{center}
+\end{exercise}
 
 Так как возмущение постоянное, и энергетические уровни пересекаются, воспользуемся сначала стационарной теорией возмущений для вырожденного случая. Решим секулярное уравнение $\det(\hat{V}-E_n^{(1)}) = 0$:
 \[
@@ -218,25 +217,24 @@ A_{1,2} = \frac{1}{\sqrt{2}}, \quad B_{1,2} = \pm \frac{1}{\sqrt{2}}\frac{V_{12}
 P(1\to2)&=\left|\frac{1}{\sqrt{2}}\left(e^{-iE_1 t/\hbar}B_1+e^{-iE_2t/\hbar}B_2\right)\right|^2 = \left|\frac{1}{2}\frac{V_{12}^{*}}{|V_{12}|}\left(e^{-i(E^{(0)}+|V_{12}|)t/\hbar}-e^{-i(E^{(0)}-|V_{12}|)t/\hbar}\right)\right|^2 =\\
 &= \left|\frac{1}{2}\frac{V_{12}^{*}}{|V_{12}|}e^{-iE^{(0)}t/\hbar}\left(e^{-i|V_{12}|t/\hbar}-e^{i|V_{12}|t/\hbar}\right)\right|^2 = \left|i\frac{V_{12}^{*}}{|V_{12}|}e^{-iE^{(0)}t/\hbar}\sin\frac{|V_{12}|t}{\hbar}\right|^2 = \sin^2\frac{|V_{12}|t}{\hbar}.
 \end{align*}
-\csquare{darklavender}
+\qedsq
 
-\exercise
-\begin{center}
-\textit{На мюон, покоящийся в однородном магнитном поле $\vec{\mathcal{H}} || z$, падает циркулярно поляризованное радиочастотное поле $\vec{h}(t)\bot\vec{\mathcal{H}}$. Найдите зависимость от времени спиновой функции $\ket{\chi(t)}$ и поляризации мюона $\vec{P}(t) = \bra{\chi(t)}\hat{\vec{\sigma}}\ket{\chi(t)}$, если в начальный момент $\ket{\chi(0)} = \ket{+}$.}
-\end{center}
-Как мы уже знаем, гамильтониан частицы в магнитном поле имеет вид $\hat{H}_0 = -\mu_0(\hat{\vec{\sigma}},\vec{\mathcal{H}}_0)$, где $\mu_0$ -- магнитная постоянная. Падающее поле мы будем считать возмущением: \\$\hat{V}(t)=-\mu_0(\hat{\vec{\sigma}}, \vec{h}(t))$. Тогда, нестационарное уравнение Шредингера в нашем случае выглядит так:
+\begin{exercise}
+\textit{На мюон, покоящийся в однородном магнитном поле $\Vec{\mathcal{H}} || z$, падает циркулярно поляризованное радиочастотное поле $\Vec{h}(t)\bot\Vec{\mathcal{H}}$. Найдите зависимость от времени спиновой функции $\ket{\chi(t)}$ и поляризации мюона $\Vec{P}(t) = \bra{\chi(t)}\hat{\Vec{\sigma}}\ket{\chi(t)}$, если в начальный момент $\ket{\chi(0)} = \ket{+}$.}
+\end{exercise}
+Как мы уже знаем, гамильтониан частицы в магнитном поле имеет вид $\hat{H}_0 = -\mu_0(\hat{\Vec{\sigma}},\Vec{\mathcal{H}}_0)$, где $\mu_0$ -- магнитная постоянная. Падающее поле мы будем считать возмущением: \\$\hat{V}(t)=-\mu_0(\hat{\Vec{\sigma}}, \Vec{h}(t))$. Тогда, нестационарное уравнение Шредингера в нашем случае выглядит так:
 \[
-i\hbar\frac{\partial}{\partial t}\chi(t) = \left(\hat{H}_0+\hat{V}(t)\right)\chi(t).
+i\hbar\pd{}{t}\chi(t) = \left(\hat{H}_0+\hat{V}(t)\right)\chi(t).
 \]
 
 Рассмотрим поподробнее оператор возмущения, учитывая, что падающее поле перпендикулярно оси $Oz$ и имеет круговую поляризацию:
 \[
-\hat{V}(t) = -\mu_0(\hat{\vec{\sigma}}, \vec{h}(t)) = -\mu_0 h\left(\hat{\sigma}_x\cos\omega t + \hat{\sigma}_y\sin\omega t\right).
+\hat{V}(t) = -\mu_0(\hat{\Vec{\sigma}}, \Vec{h}(t)) = -\mu_0 h\left(\hat{\sigma}_x\cos\omega t + \hat{\sigma}_y\sin\omega t\right).
 \]
 
-Аналогично можем поступить и с ``невозмущенным'' гамильтонианом, помня, что $\vec{\mathcal{H}}||z$:
+Аналогично можем поступить и с ``невозмущенным'' гамильтонианом, помня, что $\Vec{\mathcal{H}}||z$:
 \[
-\hat{H}_0 = - \mu_0(\hat{\vec{\sigma}},\vec{\mathcal{H}}_0) = -\mu_0\mathcal{H}_0\hat{\sigma}_z.
+\hat{H}_0 = - \mu_0(\hat{\Vec{\sigma}},\Vec{\mathcal{H}}_0) = -\mu_0\mathcal{H}_0\hat{\sigma}_z.
 \]
 
 Решение данной задачи в нулевом приближении $\left(\hat{H}_0\chi^{(0)}=E^{(0)}\chi^{(0)}\right)$ нам известно: 
@@ -283,4 +281,4 @@ c_n^{(1)} = \frac{i\mu_0 h}{\hbar}\int\limits_{0}^{t}e^{i(\omega_{ni}+\omega)t_1
     P_y(t) &= \bra{\chi(t)}\hat{\sigma}_y\ket{\chi(t)} = 0, \\
     P_z(t) &= \bra{\chi(t)}\hat{\sigma}_z\ket{\chi(t)} = e^{i\omega_0 t}-\frac{\omega_1}{\omega_{ni}+\omega}(e^{i(\omega_{ni}+\omega)t}-1)e^{-i\omega_0 t}.
 \end{align*}
-\csquare{darklavender}
+\qedsq

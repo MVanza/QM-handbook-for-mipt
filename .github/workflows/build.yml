@@ -1,15 +1,27 @@
 name: build
 
+# Builds run for pull requests only (every commit pushed into an open PR),
+# plus tags, which is when publishing happens. Pushes straight to main do not
+# trigger a build.
 on:
-  push:
-    branches: [main]
-    tags: ['v*']
   pull_request:
+  push:
+    tags: ['v*']
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - dir: QM1-latex
+            pdf: QM1.pdf
+            min_size: 1000000
+          - dir: QM2-latex
+            pdf: QM2.pdf
+            min_size: 200000
     steps:
       - uses: actions/checkout@v4
 
@@ -20,28 +32,28 @@ jobs:
       - name: Compile
         uses: xu-cheng/latex-action@v4
         with:
-          working_directory: QM1-latex
+          working_directory: ${{ matrix.dir }}
           root_file: main.tex
           docker_image: ghcr.io/xu-cheng/texlive-debian:latest
 
       - name: Rename and sanity-check
         run: |
-          mv QM1-latex/main.pdf QM1.pdf
-          size=$(stat -c%s QM1.pdf)
-          echo "QM1.pdf: $size bytes"
-          # A complete build is ~2.8 MB. Anything tiny means the run produced a
-          # stub without failing, which -halt-on-error would not catch.
-          test "$size" -gt 1000000
+          mv "${{ matrix.dir }}/main.pdf" "${{ matrix.pdf }}"
+          size=$(stat -c%s "${{ matrix.pdf }}")
+          echo "${{ matrix.pdf }}: $size bytes"
+          # -halt-on-error does not catch a run that produced a stub without
+          # failing, so check the result is of a plausible size.
+          test "$size" -gt "${{ matrix.min_size }}"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: QM1-pdf
-          path: QM1.pdf
+          name: ${{ matrix.pdf }}
+          path: ${{ matrix.pdf }}
           if-no-files-found: error
 
   # Always-current copy at https://mvanza.github.io/QM-handbook-for-mipt/
   pages:
-    if: github.ref == 'refs/heads/main'
+    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -56,7 +68,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: QM1-pdf
+          pattern: QM*.pdf
+          merge-multiple: true
           path: site
 
       - name: Landing page
@@ -77,7 +90,8 @@ jobs:
             h1 { font-size: 1.6rem; margin: 0 0 .3rem; }
             p.sub { margin: 0 0 1.8rem; opacity: .7; }
             a.btn { display: inline-block; padding: .7rem 1.3rem; border-radius: .5rem;
-                    background: #6b4f97; color: #fff; text-decoration: none; font-weight: 600; }
+                    background: #6b4f97; color: #fff; text-decoration: none; font-weight: 600;
+                    margin: 0 .6rem .6rem 0; }
             a.btn:hover { background: #59407e; }
             footer { margin-top: 2rem; font-size: .9rem; opacity: .7; }
           </style>
@@ -86,9 +100,12 @@ jobs:
           <main>
             <h1>Квантмех на ФАКИ</h1>
             <p class="sub">Меньше, чем Ландавшиц. Больше, чем кванты за ночь.</p>
-            <p><a class="btn" href="QM1.pdf">Открыть пособие (PDF)</a></p>
+            <p>
+              <a class="btn" href="QM1.pdf">Часть 1 (PDF)</a>
+              <a class="btn" href="QM2.pdf">Часть 2 (PDF)</a>
+            </p>
             <footer>
-              Собрано автоматически из последней версии в <code>main</code>.<br>
+              Собрано автоматически из последнего выпущенного издания.<br>
               <a href="https://github.com/MVanza/QM-handbook-for-mipt">Исходники и список изданий на GitHub</a>
             </footer>
           </main>
@@ -103,7 +120,7 @@ jobs:
       - id: deploy
         uses: actions/deploy-pages@v4
 
-  # Tagged editions: git tag v1.3 && git push origin v1.3
+  # Tagged editions: git tag v2.0 && git push origin v2.0
   release:
     if: startsWith(github.ref, 'refs/tags/v')
     needs: build
@@ -113,13 +130,14 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: QM1-pdf
+          pattern: QM*.pdf
+          merge-multiple: true
 
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" QM1.pdf \
+          gh release create "$GITHUB_REF_NAME" QM1.pdf QM2.pdf \
             --repo "$GITHUB_REPOSITORY" \
             --title "Квантмех на ФАКИ $GITHUB_REF_NAME" \
             --generate-notes
