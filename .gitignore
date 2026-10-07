@@ -18,3 +18,5 @@ QM2.pdf
 *.toc
 
 .DS_Store
+
+*.pdf
