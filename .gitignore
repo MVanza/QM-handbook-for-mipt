@@ -20,3 +20,7 @@ QM2.pdf
 .DS_Store
 
 *.pdf
+
+/scripts
+.latexindent.yaml
+/.vscode
