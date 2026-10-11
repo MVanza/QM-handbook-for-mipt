@@ -1,0 +1,44 @@
+# latexindent settings for the handbook's .tex sources. How to run it is under
+# "Formatting" in README.md.
+#
+# Prose is re-flowed to 80 columns; display math is only re-indented, never
+# wrapped — break long equations by hand at = or +.
+
+defaultIndent: "  "
+
+# Keep & columns as written; padding them turns long equations into 300-char lines.
+lookForAlignDelims:
+  tabular: 0
+  array: 0
+  matrix: 0
+  pmatrix: 0
+  bmatrix: 0
+  vmatrix: 0
+  cases: 0
+  rcases: 0
+  align: 0
+  align*: 0
+  split: 0
+  aligned: 0
+  multline: 0
+  multline*: 0
+  gather: 0
+  gather*: 0
+
+modifyLineBreaks:
+  textWrapOptions:
+    columns: 80
+    # "after" (wrap after indenting) gets negative line widths from Text::Wrap
+    # 2024.001, the version in current Perl. "before" means lines inside an
+    # indented environment can run a few characters past 80.
+    when: before
+    # Where a paragraph may start, in addition to latexindent's defaults
+    # (blank line, heading, \], \item).
+    blocksFollow:
+      other: '\\\]|\\item(?:\h|\[)|\\end\{[^}]*\}|\\begin\{(?:exercise|center|flushright|itemize|enumerate)\}(?:\\label\{[^}]*\})?|\\(?:sub)*section\*?\{[^}]*\}|\\newpage|\\qedsq'
+    # The defaults only allow A-Z and a-z, which skips every Russian paragraph.
+    blocksBeginWith:
+      A-Z: 1
+      a-z: 1
+      0-9: 1
+      other: '\p{L}|\$|\\(?:text|emph|mathbf|ref|eqref|cite)'

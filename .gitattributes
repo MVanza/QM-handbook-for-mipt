@@ -1,0 +1,7 @@
+# Store and check out text files with LF endings on every platform, so diffs
+# never show whole files changing between Windows and macOS/Linux. This also
+# undoes latexindent on Windows, which writes CRLF even into LF files.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
