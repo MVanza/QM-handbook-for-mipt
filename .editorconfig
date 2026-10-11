@@ -1,0 +1,23 @@
+# Editor settings for the handbook sources: https://editorconfig.org
+# JetBrains IDEs, Vim/Neovim and many other editors read this file on their own;
+# VS Code needs the "EditorConfig for VS Code" extension.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{tex,bib}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Two trailing spaces are a line break in Markdown.
+trim_trailing_whitespace = false

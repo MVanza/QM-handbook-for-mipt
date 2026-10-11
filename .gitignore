@@ -17,10 +17,7 @@ QM2.pdf
 *.synctex.gz
 *.toc
 
-.DS_Store
-
-*.pdf
-
-/scripts
-.latexindent.yaml
-/.vscode
+# latexindent backups and log (see "Formatting" in README.md)
+.latexindent-cruft/
+indent.log
+*.bak[0-9]*
