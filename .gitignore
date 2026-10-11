@@ -15,3 +15,8 @@ QM1.pdf
 *.run.xml
 *.synctex.gz
 *.toc
+
+# latexindent backups and log (see "Formatting" in README.md)
+.latexindent-cruft/
+indent.log
+*.bak[0-9]*
