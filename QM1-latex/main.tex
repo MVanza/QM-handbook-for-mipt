@@ -107,55 +107,55 @@ $\textcolor{darklavender}{\rule{0.4cm}{0.4cm}}$
 }
 
 \begin{document}
-    \begin{titlepage}
-        \begin{center}
-            \vspace*{7.5cm}
-            \Huge
-            \textbf{Квантмех на факи}\\
-            \large
-            Меньше, чем Ландавшиц.\\
-            Больше, чем кванты за ночь
-            \vspace*{1cm}
-            \begin{figure}[!ht]
-            \centering
-            \includegraphics[scale=0.3]{logo.png}
-            \end{figure}
-            \vfill
-            \normalsize
-            Долгопрудный, 2024
-        \end{center}
-    \end{titlepage}
+\begin{titlepage}
+  \begin{center}
+    \vspace*{7.5cm}
+    \Huge
+    \textbf{Квантмех на факи}\\
+    \large
+    Меньше, чем Ландавшиц.\\
+    Больше, чем кванты за ночь
+    \vspace*{1cm}
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=0.3]{logo.png}
+    \end{figure}
+    \vfill
+    \normalsize
+    Долгопрудный, 2024
+  \end{center}
+\end{titlepage}
 
-    \tableofcontents
-    \include{other/preface}
+\tableofcontents
+\include{other/preface}
 
-    % \include already does \clearpage on both sides; no \newpage needed between
-    \pagestyle{fancy}
-    \parthead{Семинар \thesection}
-    \include{class_1/class_1}
-    \include{class_2/class_2}
-    \include{class_3/class_3}
-    \include{class_4/class_4}
-    \include{class_5/class_5}
-    \include{class_6/class_6}
-    \include{class_7/class_7}
-    \include{class_8/class_8}
-    \include{class_9/class_9}
-    \include{class_10/class_10}
-    \include{class_11/class_11}
+% \include already does \clearpage on both sides; no \newpage needed between
+\pagestyle{fancy}
+\parthead{Семинар \thesection}
+\include{class_1/class_1}
+\include{class_2/class_2}
+\include{class_3/class_3}
+\include{class_4/class_4}
+\include{class_5/class_5}
+\include{class_6/class_6}
+\include{class_7/class_7}
+\include{class_8/class_8}
+\include{class_9/class_9}
+\include{class_10/class_10}
+\include{class_11/class_11}
 
-    \appendix
-    \renewcommand{\thefigure}{\thesection.\arabic{figure}} % A.1, B.1, C.1, ...
-    \parthead{Приложение \thesection} % \thesection expands to A, B, C in the appendix
-    \include{appendix/Appendix_A}
-    \include{appendix/Appendix_B}
-    \include{appendix/Appendix_C}
+\appendix
+\renewcommand{\thefigure}{\thesection.\arabic{figure}} % A.1, B.1, C.1, ...
+\parthead{Приложение \thesection} % \thesection expands to A, B, C in the appendix
+\include{appendix/Appendix_A}
+\include{appendix/Appendix_B}
+\include{appendix/Appendix_C}
 
-    \fancyhead{}
-    \include{other/acknowledgements}
+\fancyhead{}
+\include{other/acknowledgements}
 
-    % Must precede \printbibliography: \addcontentsline records \thepage where
-    % it stands, so after it the entry would point at the bibliography's LAST page.
-    \addcontentsline{toc}{section}{Список литературы}
-    \printbibliography
+% Must precede \printbibliography: \addcontentsline records \thepage where
+% it stands, so after it the entry would point at the bibliography's LAST page.
+\addcontentsline{toc}{section}{Список литературы}
+\printbibliography
 \end{document}

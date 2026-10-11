@@ -1,225 +1,321 @@
 \section{Семинар \thesection}
 \subsection{Трёхмерное пространство}
-Всё хорошее когда-нибудь заканчивается и настаёт пора суровой реальной жизни. Так и для нас наступило время переходить к трёхмерному пространству. Давайте попробуем разобраться, как изменится подход к описанию систем такого типа.
+Всё хорошее когда-нибудь заканчивается и настаёт пора суровой реальной жизни.
+Так и для нас наступило время переходить к трёхмерному пространству. Давайте
+попробуем разобраться, как изменится подход к описанию систем такого типа.
 
-Так как пространство трёхмерное, мы рассматриваем трёхмерные операторы, то есть вместо привычных нам $\hat{r}$ и $\hat{p}$ появляются $\hat{\Vec{r}} = (\hat{x}, \hat{y}, \hat{z})$ и $\hat{\Vec{p}} = (\hat{p}_x, \hat{p}_y, \hat{p}_z)$. Гамильтониан частицы в поле принимает вид
+Так как пространство трёхмерное, мы рассматриваем трёхмерные операторы, то есть
+вместо привычных нам $\hat{r}$ и $\hat{p}$ появляются $\hat{\Vec{r}} =
+  (\hat{x}, \hat{y}, \hat{z})$ и $\hat{\Vec{p}} = (\hat{p}_x, \hat{p}_y,
+  \hat{p}_z)$. Гамильтониан частицы в поле принимает вид
 \[
-\hat{H} = \frac{\hat{p}^2_x}{2M} + \frac{\hat{p}^2_y}{2M} + \frac{\hat{p}^2_z}{2M} + V(\Vec{r}).
+  \hat{H} = \frac{\hat{p}^2_x}{2M} + \frac{\hat{p}^2_y}{2M} + \frac{\hat{p}^2_z}{2M} + V(\Vec{r}).
 \]
 Тогда стационарное уравнение Шрёдингера принимает вид
 \[
-\left[\frac{\hat{p}^2}{2M} + V(\Vec{r})\right]\psi(\Vec{r}) = E\psi(\Vec{r}).
+  \left[\frac{\hat{p}^2}{2M} + V(\Vec{r})\right]\psi(\Vec{r}) = E\psi(\Vec{r}).
 \]
 И если расписать оператор импульса в координатном представлении:
 \[
-\left[-\frac{\hbar^2}{2M}\Delta + V(\Vec{r})\right]\psi(\Vec{r}) = E\psi(\Vec{r}).
+  \left[-\frac{\hbar^2}{2M}\Delta + V(\Vec{r})\right]\psi(\Vec{r}) = E\psi(\Vec{r}).
 \]
 
-Теперь мы работаем с трёхмерным дифференциальным уравнением в частных производных. Решение этого уравнения в общем виде весьма затруднительно. Поэтому разберём особо важный для физических задач частный случай, а именно \textit{центрально-симметричный потенциал}. В центрально-симметричном потенциале $V(\Vec{r}) = V(r)$, где $r = \sqrt{x^2 + y^2 + z^2}$. Как потом окажется, решать трёхмерное уравнение Шрёдингера при таких условиях гораздо удобнее. Но для начала нужно разобраться с математикой.
+Теперь мы работаем с трёхмерным дифференциальным уравнением в частных
+производных. Решение этого уравнения в общем виде весьма затруднительно.
+Поэтому разберём особо важный для физических задач частный случай, а именно
+\textit{центрально-симметричный потенциал}. В центрально-симметричном
+потенциале $V(\Vec{r}) = V(r)$, где $r = \sqrt{x^2 + y^2 + z^2}$. Как потом
+окажется, решать трёхмерное уравнение Шрёдингера при таких условиях гораздо
+удобнее. Но для начала нужно разобраться с математикой.
 
-Начнём с того, что перейдём к сферической системе координат. Делаем мы это, исходя из опыта работы с классическим случаем. Мы хотим разделить потенциал на три отдельные составляющие --- по одной на каждую переменную. Тогда Гильбертово пространство будет состоять из тензорного произведения трёх пространств $\mathbf{V} = \mathbf{V}_r \otimes \mathbf{V}_{\theta} \otimes \mathbf{V}_{\phi}$.
+Начнём с того, что перейдём к сферической системе координат. Делаем мы это,
+исходя из опыта работы с классическим случаем. Мы хотим разделить потенциал на
+три отдельные составляющие --- по одной на каждую переменную. Тогда Гильбертово
+пространство будет состоять из тензорного произведения трёх пространств
+$\mathbf{V} = \mathbf{V}_r \otimes \mathbf{V}_{\theta} \otimes
+  \mathbf{V}_{\phi}$.
 
 Осуществим переход к сферическим координатам:
 \[
-\begin{cases}
-x = r \sin \theta \cos \phi,\\
-y = r \sin \theta \sin \phi, \\
-z = r \cos \theta. \\
-\end{cases}
+  \begin{cases}
+    x = r \sin \theta \cos \phi,\\
+    y = r \sin \theta \sin \phi, \\
+    z = r \cos \theta. \\
+  \end{cases}
 \]
-Нам также понадобится скалярное произведение в сферических координатах. Для этого посчитаем якобиан перехода из декартовой системы в сферическую:
+Нам также понадобится скалярное произведение в сферических координатах. Для
+этого посчитаем якобиан перехода из декартовой системы в сферическую:
 \[
-J = \left|\pd{(x, y, z)}{(r, \theta, \phi)}\right| = r^2\sin\theta.
+  J = \left|\pd{(x, y, z)}{(r, \theta, \phi)}\right| = r^2\sin\theta.
 \]
 Тогда скалярное произведение запишется в виде
 \[
-\braket{\psi}{\varphi} = \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}\psi^*(r)\varphi(r)dx\,dy\,dz= \int\limits_0^{2\pi}\int\limits_0^{\pi}\int\limits_0^{\infty}\psi^*(r)\varphi(r)r^2\sin\theta dr \,d\theta\,d\phi.
+  \braket{\psi}{\varphi} = \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty}\psi^*(r)\varphi(r)dx\,dy\,dz= \int\limits_0^{2\pi}\int\limits_0^{\pi}\int\limits_0^{\infty}\psi^*(r)\varphi(r)r^2\sin\theta dr \,d\theta\,d\phi.
 \]
 
-На практике принято объединять пространства, связанные с угловым движением $\mathbf{Y} = \mathbf{V}_{\theta} + \mathbf{V}_{\phi}$, и оставлять произведение \textit{радиальной} части и \textit{угловой} $\mathbf{V} = \mathbf{V}_r \otimes \mathbf{Y}$. Элементами этих пространств являются волновые функции радиуса $R(r)$ и волновые функции углов $Y(\theta, \phi)$. Для дальнейшего описания нам понадобится новый оператор --- оператор момента импульса.
+На практике принято объединять пространства, связанные с угловым движением
+$\mathbf{Y} = \mathbf{V}_{\theta} + \mathbf{V}_{\phi}$, и оставлять
+произведение \textit{радиальной} части и \textit{угловой} $\mathbf{V} =
+  \mathbf{V}_r \otimes \mathbf{Y}$. Элементами этих пространств являются волновые
+функции радиуса $R(r)$ и волновые функции углов $Y(\theta, \phi)$. Для
+дальнейшего описания нам понадобится новый оператор --- оператор момента
+импульса.
 \subsection{Оператор момента импульса}
-В соответствии с классическим подходом, введём понятие оператора момента импульса как
+В соответствии с классическим подходом, введём понятие оператора момента
+импульса как
 \[
-\hat{\Vec{L}} = \hat{\Vec{r}} \times \hat{\Vec{p}}.
+  \hat{\Vec{L}} = \hat{\Vec{r}} \times \hat{\Vec{p}}.
 \]
 Или, если расписать покомпонентно, получим
 \begin{align*}
-    \hat{L}_x &= \hat{y}\hat{p}_z - \hat{z}\hat{p}_y;\\
-    \hat{L}_y &= \hat{z}\hat{p}_x - \hat{x}\hat{p}_z;\\
-    \hat{L}_z &= \hat{x}\hat{p}_y - \hat{y}\hat{p}_x.
+  \hat{L}_x &= \hat{y}\hat{p}_z - \hat{z}\hat{p}_y;\\
+  \hat{L}_y &= \hat{z}\hat{p}_x - \hat{x}\hat{p}_z;\\
+  \hat{L}_z &= \hat{x}\hat{p}_y - \hat{y}\hat{p}_x.
 \end{align*}
 Давайте найдём все важные коммутаторы и оформим это в виде упражнения.
 \begin{exercise}
-    \textit{Найдите следующие коммутаторы: $[\hat{L}_j, \hat{r}_k]$, $[\hat{L}_j, \hat{p}_k]$, $[\hat{L}_j, \hat{L}_k]$, $[\hat{L}_j, \hat{r}^2]$, $[\hat{L}_j, \hat{p}^2]$, $[\hat{L}_j, \hat{L}^2]$.}
+  \textit{Найдите следующие коммутаторы: $[\hat{L}_j, \hat{r}_k]$, $[\hat{L}_j,
+        \hat{p}_k]$, $[\hat{L}_j, \hat{L}_k]$, $[\hat{L}_j, \hat{r}^2]$, $[\hat{L}_j,
+        \hat{p}^2]$, $[\hat{L}_j, \hat{L}^2]$.}
 \end{exercise}
 
 Для удобства записи вспомним, что такое \textit{символ Леви-Чивиты}:
 \[
-\varepsilon_{ijk} = 
-\begin{cases}
+  \varepsilon_{ijk} =
+  \begin{cases}
     1,\; \text{если чётность перестановки индексов \{i, j, k\} чётная};\\
     -1,\;\text{если чётность перестановки индексов \{i, j, k\} нечётная}; \\
     0,\;\text{иначе}.
-\end{cases}
+  \end{cases}
 \]
-Тогда оператор импульса можно переписать в виде $\hat{L}_j = \varepsilon_{jmn} \hat{r}_m \hat{p}_n$. Используя это обозначение, найдём первый коммутатор:
+Тогда оператор импульса можно переписать в виде $\hat{L}_j = \varepsilon_{jmn}
+  \hat{r}_m \hat{p}_n$. Используя это обозначение, найдём первый коммутатор:
 \[
-    \left[\hat{L}_j, \hat{r}_k\right] = [\varepsilon_{jmn} \hat{r}_m \hat{p}_n, \hat{r}_k] = \varepsilon_{jmn} \hat{r}_m [\hat{p}_n, \hat{r}_k] = \varepsilon_{jmn}\hat{r}_m(-i\hbar)\delta_{nk}.
+  \left[\hat{L}_j, \hat{r}_k\right] = [\varepsilon_{jmn} \hat{r}_m \hat{p}_n, \hat{r}_k] = \varepsilon_{jmn} \hat{r}_m [\hat{p}_n, \hat{r}_k] = \varepsilon_{jmn}\hat{r}_m(-i\hbar)\delta_{nk}.
 \]
-Далее свернём $\varepsilon_{jmn}\delta_{nk} = \varepsilon_{jmk}$ и, так как символ Леви-Чивиты антисимметричный, заменим $\varepsilon_{jmk} = -\varepsilon_{jkm}$. В итоге получим
+Далее свернём $\varepsilon_{jmn}\delta_{nk} = \varepsilon_{jmk}$ и, так как
+символ Леви-Чивиты антисимметричный, заменим $\varepsilon_{jmk} =
+  -\varepsilon_{jkm}$. В итоге получим
 \[
-\left[\hat{L}_j, \hat{r}_k\right] = i\hbar\varepsilon_{jkm}\hat{r}_m.
+  \left[\hat{L}_j, \hat{r}_k\right] = i\hbar\varepsilon_{jkm}\hat{r}_m.
 \]
 Аналогично с импульсом:
 \[
-\left[\hat{L}_j, \hat{p}_k\right] = [\varepsilon_{jmn} \hat{r}_m \hat{p}_n, \hat{p}_k] = \varepsilon_{jmn} \hat{p}_n [\hat{r}_m, \hat{p}_k] = i\hbar\varepsilon_{jmn}\hat{p}_n\delta_{mk} = i\hbar\varepsilon_{jkn}\hat{p}_n.
+  \left[\hat{L}_j, \hat{p}_k\right] = [\varepsilon_{jmn} \hat{r}_m \hat{p}_n, \hat{p}_k] = \varepsilon_{jmn} \hat{p}_n [\hat{r}_m, \hat{p}_k] = i\hbar\varepsilon_{jmn}\hat{p}_n\delta_{mk} = i\hbar\varepsilon_{jkn}\hat{p}_n.
 \]
 
-Сейчас придётся помучиться с индексами, но нам не впервой, так что посчитаем третий коммутатор:
+Сейчас придётся помучиться с индексами, но нам не впервой, так что посчитаем
+третий коммутатор:
 \begin{align*}
-    \left[\hat{L}_j, \hat{L}_k\right] &= [\varepsilon_{jmn} \hat{r}_m \hat{p}_n, \varepsilon_{klq} \hat{r}_l\hat{p}_q] = \varepsilon_{jmn}\varepsilon_{klq}[\hat{r}_m \hat{p}_n, \hat{r}_l\hat{p}_q] =\\
-    &= \varepsilon_{jmn}\varepsilon_{klq}(-i\hbar\delta_{nl}\hat{r}_m\hat{p}_q + i\hbar\delta_{mq}\hat{r}_l\hat{p}_n) =\\
-    &= -i\hbar \varepsilon_{jml}\varepsilon_{klq}\hat{r}_m\hat{p}_q + i\hbar\varepsilon_{jmn}\varepsilon_{klm}\hat{r}_l\hat{p}_n =\\ 
-    &= -i\hbar\varepsilon_{ljm}\varepsilon_{lqk}\hat{r}_m\hat{p}_q + i\hbar\varepsilon_{mnj}\varepsilon_{mkl}\hat{r}_l\hat{p}_n.
+  \left[\hat{L}_j, \hat{L}_k\right] &= [\varepsilon_{jmn} \hat{r}_m \hat{p}_n, \varepsilon_{klq} \hat{r}_l\hat{p}_q] = \varepsilon_{jmn}\varepsilon_{klq}[\hat{r}_m \hat{p}_n, \hat{r}_l\hat{p}_q] =\\
+  &= \varepsilon_{jmn}\varepsilon_{klq}(-i\hbar\delta_{nl}\hat{r}_m\hat{p}_q + i\hbar\delta_{mq}\hat{r}_l\hat{p}_n) =\\
+  &= -i\hbar \varepsilon_{jml}\varepsilon_{klq}\hat{r}_m\hat{p}_q + i\hbar\varepsilon_{jmn}\varepsilon_{klm}\hat{r}_l\hat{p}_n =\\
+  &= -i\hbar\varepsilon_{ljm}\varepsilon_{lqk}\hat{r}_m\hat{p}_q + i\hbar\varepsilon_{mnj}\varepsilon_{mkl}\hat{r}_l\hat{p}_n.
 \end{align*}
-Разворачиваем произведение символов Леви-Чивиты по формуле $\varepsilon_{ljm}\varepsilon_{lqk} = \delta_{jq}\delta_{mk} - \delta_{jk}\delta_{mq}$ и продолжим преобразование:
+Разворачиваем произведение символов Леви-Чивиты по формуле
+$\varepsilon_{ljm}\varepsilon_{lqk} = \delta_{jq}\delta_{mk} -
+  \delta_{jk}\delta_{mq}$ и продолжим преобразование:
 \begin{align*}
-    \left[\hat{L}_j, \hat{L}_k\right] &= 
-    -i\hbar(\delta_{jq}\delta_{mk} - \delta_{jk}\delta_{mq})\hat{r}_m\hat{p}_q + i\hbar(\delta_{nk}\delta_{jl} - \delta_{nl}\delta_{jk})\hat{r}_l\hat{p}_n =\\
-    &= -i\hbar\hat{r}_k\hat{p}_j + i\hbar\delta_{jk}\hat{r}_m\hat{p}_m + i\hbar\hat{r}_j\hat{p}_k - i\hbar\delta_{jk}\hat{r}_l\hat{p}_l =\\
-    &= -i\hbar\hat{r}_k\hat{p}_j + i\hbar\hat{r}_j\hat{p}_k.
+  \left[\hat{L}_j, \hat{L}_k\right] &=
+  -i\hbar(\delta_{jq}\delta_{mk} - \delta_{jk}\delta_{mq})\hat{r}_m\hat{p}_q + i\hbar(\delta_{nk}\delta_{jl} - \delta_{nl}\delta_{jk})\hat{r}_l\hat{p}_n =\\
+  &= -i\hbar\hat{r}_k\hat{p}_j + i\hbar\delta_{jk}\hat{r}_m\hat{p}_m + i\hbar\hat{r}_j\hat{p}_k - i\hbar\delta_{jk}\hat{r}_l\hat{p}_l =\\
+  &= -i\hbar\hat{r}_k\hat{p}_j + i\hbar\hat{r}_j\hat{p}_k.
 \end{align*}
-Теперь давайте попробуем пойти обратным путём, то есть выразить полученную формулу через произведение символов Леви-Чивиты. Ведь мы хотим подобрать индексы так, чтобы в итоге можно было представить выражение как символ Леви-Чивиты, умноженный на оператор момента импульса.
+Теперь давайте попробуем пойти обратным путём, то есть выразить полученную
+формулу через произведение символов Леви-Чивиты. Ведь мы хотим подобрать
+индексы так, чтобы в итоге можно было представить выражение как символ
+Леви-Чивиты, умноженный на оператор момента импульса.
 \[
-i\hbar\hat{r}_j\hat{p}_k - i\hbar\hat{r}_k\hat{p}_j = i\hbar(\delta_{jn}\delta_{km} - \delta_{jm}\delta_{kn})\hat{r}_n\hat{p}_m = i\hbar\varepsilon_{ljk}\varepsilon_{lnm}\hat{r}_n\hat{p}_m = i\hbar\varepsilon_{ljk}\hat{L}_l.
+  i\hbar\hat{r}_j\hat{p}_k - i\hbar\hat{r}_k\hat{p}_j = i\hbar(\delta_{jn}\delta_{km} - \delta_{jm}\delta_{kn})\hat{r}_n\hat{p}_m = i\hbar\varepsilon_{ljk}\varepsilon_{lnm}\hat{r}_n\hat{p}_m = i\hbar\varepsilon_{ljk}\hat{L}_l.
 \]
-Приравнивая, получим (тут циклически были переставлены индексы в символе Леви-Чивита для красоты записи):
+Приравнивая, получим (тут циклически были переставлены индексы в символе
+Леви-Чивита для красоты записи):
 \[
-\left[\hat{L}_j, \hat{L}_k\right] = i\hbar\varepsilon_{jkl}\hat{L}_l.
+  \left[\hat{L}_j, \hat{L}_k\right] = i\hbar\varepsilon_{jkl}\hat{L}_l.
 \]
 
-Полпути пройдено, осталось посчитать коммутатор с квадратами операторов. Приступим:
+Полпути пройдено, осталось посчитать коммутатор с квадратами операторов.
+Приступим:
 \[
-\left[\hat{L}_j, \hat{r}^2\right] = \left[\hat{L}_j, \hat{r}_k\hat{r}_k\right] = 2i\hbar\varepsilon_{jkl}\hat{r}_k\hat{r}_l.
+  \left[\hat{L}_j, \hat{r}^2\right] = \left[\hat{L}_j, \hat{r}_k\hat{r}_k\right] = 2i\hbar\varepsilon_{jkl}\hat{r}_k\hat{r}_l.
 \]
-Индексы k и l --- немые, поэтому мы можем менять их, как хотим. Давайте поменяем их местами. С одной стороны, это нечётная перестановка, значит, $\varepsilon_{jkl} = -\varepsilon_{jlk}$. С другой стороны, операторы координаты коммутируют, следовательно, $2i\hbar\varepsilon_{jkl}\hat{r}_k\hat{r}_l = 2i\hbar\varepsilon_{jlk}\hat{r}_k\hat{r}_l$. Получается, что единственный вариант исполнения этих условий — выражение равно нулю.
+Индексы k и l --- немые, поэтому мы можем менять их, как хотим. Давайте
+поменяем их местами. С одной стороны, это нечётная перестановка, значит,
+$\varepsilon_{jkl} = -\varepsilon_{jlk}$. С другой стороны, операторы
+координаты коммутируют, следовательно,
+$2i\hbar\varepsilon_{jkl}\hat{r}_k\hat{r}_l =
+  2i\hbar\varepsilon_{jlk}\hat{r}_k\hat{r}_l$. Получается, что единственный
+вариант исполнения этих условий — выражение равно нулю.
 \[
-\left[\hat{L}_j, \hat{r}^2\right] = \left[\hat{L}_j, \hat{r}_k\hat{r}_k\right] = 0.
+  \left[\hat{L}_j, \hat{r}^2\right] = \left[\hat{L}_j, \hat{r}_k\hat{r}_k\right] = 0.
 \]
 С импульсом аналогично:
 \[
-\left[\hat{L}_j, \hat{p}^2\right] = 2i\hbar\varepsilon_{jkl}\hat{p}_k\hat{p}_l = 0.
+  \left[\hat{L}_j, \hat{p}^2\right] = 2i\hbar\varepsilon_{jkl}\hat{p}_k\hat{p}_l = 0.
 \]
 Вы удивитесь, но то же самое работает и для момента импульса:
 \[
-\left[\hat{L}_j, \hat{L}^2\right] = 2i\hbar\varepsilon_{jkl}\hat{L}_k\hat{L}_l = 0.
+  \left[\hat{L}_j, \hat{L}^2\right] = 2i\hbar\varepsilon_{jkl}\hat{L}_k\hat{L}_l = 0.
 \]
-Последнее выражение играет важную роль, потому что в системе могут быть одновременно определены и компонента момента импульса, и его квадрат.
+Последнее выражение играет важную роль, потому что в системе могут быть
+одновременно определены и компонента момента импульса, и его квадрат.
 \qedsq
 
-Может возникнуть вопрос: для чего мы искали коммутатор с квадратом импульса и координаты? Оказывается, благодаря этому коммутационному соотношению мы можем получить, что в случае центрально-симметричного потенциала гамильтониан коммутирует с каждой из компонент и квадратом момента импульса. Действительно, гамильтониан равен 
+Может возникнуть вопрос: для чего мы искали коммутатор с квадратом импульса и
+координаты? Оказывается, благодаря этому коммутационному соотношению мы можем
+получить, что в случае центрально-симметричного потенциала гамильтониан
+коммутирует с каждой из компонент и квадратом момента импульса. Действительно,
+гамильтониан равен
 \[
-\hat{H} = \frac{\hat{p}^2}{2M} + V(r).
+  \hat{H} = \frac{\hat{p}^2}{2M} + V(r).
 \]
-Коммутация с квадратами как раз показывает, что $\left[\hat{H}, \hat{L}_i\right] = 0$ и $\left[\hat{H}, \hat{L}^2\right] = 0$. 
+Коммутация с квадратами как раз показывает, что $\left[\hat{H},
+    \hat{L}_i\right] = 0$ и $\left[\hat{H}, \hat{L}^2\right] = 0$.
 
-Теперь выразим уравнение Шрёдингера через момент импульса. Для этого нам понадобится связь квадрата момента импульса с операторами импульса и координаты:
+Теперь выразим уравнение Шрёдингера через момент импульса. Для этого нам
+понадобится связь квадрата момента импульса с операторами импульса и
+координаты:
 \[
-\hat{L}^2 = \hat{r}^2\hat{p}^2 - (\hat{\Vec{r}}\hat{\Vec{p}})^2 + i\hbar\hat{\Vec{r}}\hat{\Vec{p}}.
+  \hat{L}^2 = \hat{r}^2\hat{p}^2 - (\hat{\Vec{r}}\hat{\Vec{p}})^2 + i\hbar\hat{\Vec{r}}\hat{\Vec{p}}.
 \]
-Вывести это уравнение можно, если расписать более подробно $\hat{L}^2$ как $\hat{L}_j\hat{L}_k = (\varepsilon_{jlm}\hat{r}_l\hat{p}_m)(\varepsilon_{knq}\hat{r}_n\hat{p}_q)$. Умножив стационарное уравнение Шрёдингера на $\hat{r}^2$ и заменив $\hat{r}^2\hat{p}^2$ на $\hat{L}^2 + (\hat{\Vec{r}}\hat{\Vec{p}})^2 - i\hbar\hat{\Vec{r}}\hat{\Vec{p}}$ , получим:
+Вывести это уравнение можно, если расписать более подробно $\hat{L}^2$ как
+$\hat{L}_j\hat{L}_k =
+  (\varepsilon_{jlm}\hat{r}_l\hat{p}_m)(\varepsilon_{knq}\hat{r}_n\hat{p}_q)$.
+Умножив стационарное уравнение Шрёдингера на $\hat{r}^2$ и заменив
+$\hat{r}^2\hat{p}^2$ на $\hat{L}^2 + (\hat{\Vec{r}}\hat{\Vec{p}})^2 -
+  i\hbar\hat{\Vec{r}}\hat{\Vec{p}}$ , получим:
 \[
-\left[\frac{(\hat{\Vec{r}}\hat{\Vec{p}})^2 - i\hbar\hat{\Vec{r}}\hat{\Vec{p}}}{2M} + \frac{\hat{L}^2}{2M} + \hat{r}^2 V(\Vec{r})\right]\psi(\Vec{r}) = \hat{r}^2 E\psi(\Vec{r}).
+  \left[\frac{(\hat{\Vec{r}}\hat{\Vec{p}})^2 - i\hbar\hat{\Vec{r}}\hat{\Vec{p}}}{2M} + \frac{\hat{L}^2}{2M} + \hat{r}^2 V(\Vec{r})\right]\psi(\Vec{r}) = \hat{r}^2 E\psi(\Vec{r}).
 \]
-Можно заметить, что у нас разделились переменные: первое слагаемое влияет только на радиальную часть, второе --- на вращательную. Третье тоже на радиальную, если потенциал вращательно инвариантен, то есть $V(\Vec{r}) = V(r)$. Но это пока не показано строго, так как мы работаем в сферических координатах. Теперь мы перейдём к ним.
+Можно заметить, что у нас разделились переменные: первое слагаемое влияет
+только на радиальную часть, второе --- на вращательную. Третье тоже на
+радиальную, если потенциал вращательно инвариантен, то есть $V(\Vec{r}) =
+  V(r)$. Но это пока не показано строго, так как мы работаем в сферических
+координатах. Теперь мы перейдём к ним.
 \begin{exercise}
-    \textit{Найдите представление операторов $\hat{L}^2$, $\hat{\Vec{r}}\hat{\Vec{p}}$ и $(\hat{\Vec{r}}\hat{\Vec{p}})^2$ в сферических координатах.}
+  \textit{Найдите представление операторов $\hat{L}^2$,
+    $\hat{\Vec{r}}\hat{\Vec{p}}$ и $(\hat{\Vec{r}}\hat{\Vec{p}})^2$ в сферических
+    координатах.}
 \end{exercise}
 
-Расписав компоненту $\hat{L}_j$ в координатном базисе, получим 
+Расписав компоненту $\hat{L}_j$ в координатном базисе, получим
 \[
-\hat{L}_j = -i\hbar\varepsilon_{jkl}r_k\pd{}{r_l}.
+  \hat{L}_j = -i\hbar\varepsilon_{jkl}r_k\pd{}{r_l}.
 \]
-Далее я подробно буду расписывать случай только для координаты z, для всех остальных вариантов расчёты можно провести по аналогии. 
+Далее я подробно буду расписывать случай только для координаты z, для всех
+остальных вариантов расчёты можно провести по аналогии.
 
 Запишем дифференциал в новых координатах:
 \[
-\pd{}{z} = \pd{}{r}\pd{r}{z} + \pd{}{\theta}\pd{\theta}{z} + \pd{}{\phi}\pd{\phi}{z}.
+  \pd{}{z} = \pd{}{r}\pd{r}{z} + \pd{}{\theta}\pd{\theta}{z} + \pd{}{\phi}\pd{\phi}{z}.
 \]
 Выразим переменные сферических координат через переменные декартовых:
 \begin{equation*}
-    \begin{cases}
-        x = r\sin\theta\cos\phi,\\
-        y = r\sin\theta\sin\phi,\\
-        z = r\cos\theta
-    \end{cases}
-    \implies
-    \begin{cases}
-        r = \sqrt{x^2 + y^2 + z^2},\\
-        \theta = \arccos\frac{z}{r},\\
-        \phi = \arctg\frac{y}{x}.
-    \end{cases}
+  \begin{cases}
+    x = r\sin\theta\cos\phi,\\
+    y = r\sin\theta\sin\phi,\\
+    z = r\cos\theta
+  \end{cases}
+  \implies
+  \begin{cases}
+    r = \sqrt{x^2 + y^2 + z^2},\\
+    \theta = \arccos\frac{z}{r},\\
+    \phi = \arctg\frac{y}{x}.
+  \end{cases}
 \end{equation*}
 Тогда дифференцируя и выражая результат в сферических координатах, найдём:
 \begin{gather*}
-\pd{r}{z} = \frac{z}{\sqrt{x^2 + y^2 + z^2}} = \cos\theta;\\
-\pd{\theta}{z} = \frac{-(x^2+y^2)}{\sqrt{\frac{x^2 + y^2}{x^2+y^2+z^2}}(x^2+y^2+z^2)^{3/2}}= -\frac{r^2\sin^2\theta}{\sqrt{\frac{r^2\sin^2\theta}{r^2}}r^3} = -\frac{\sin\theta}{r}; \\
-\pd{\phi}{z} = 0.
+  \pd{r}{z} = \frac{z}{\sqrt{x^2 + y^2 + z^2}} = \cos\theta;\\
+  \pd{\theta}{z} = \frac{-(x^2+y^2)}{\sqrt{\frac{x^2 + y^2}{x^2+y^2+z^2}}(x^2+y^2+z^2)^{3/2}}= -\frac{r^2\sin^2\theta}{\sqrt{\frac{r^2\sin^2\theta}{r^2}}r^3} = -\frac{\sin\theta}{r}; \\
+  \pd{\phi}{z} = 0.
 \end{gather*}
-Выпишу значение производных по оставшимся компонентам, чтобы читатели могли проверить себя:
+Выпишу значение производных по оставшимся компонентам, чтобы читатели могли
+проверить себя:
 \begin{gather*}
-\pd{r}{x} = \sin\theta\cos\phi; \; \pd{\theta}{x} = \frac{1}{r}\cos\theta\cos\phi; \; \pd{\phi}{x} = -\frac{1}{r}\frac{\sin\phi}{\sin\theta}.\\
-\pd{r}{y} = \sin\theta\sin\phi; \; \pd{\theta}{y} = \frac{1}{r}\cos\theta\sin\phi; \; \pd{\phi}{y} = \frac{1}{r}\frac{\cos\phi}{\sin\theta}.
+  \pd{r}{x} = \sin\theta\cos\phi; \; \pd{\theta}{x} = \frac{1}{r}\cos\theta\cos\phi; \; \pd{\phi}{x} = -\frac{1}{r}\frac{\sin\phi}{\sin\theta}.\\
+  \pd{r}{y} = \sin\theta\sin\phi; \; \pd{\theta}{y} = \frac{1}{r}\cos\theta\sin\phi; \; \pd{\phi}{y} = \frac{1}{r}\frac{\cos\phi}{\sin\theta}.
 \end{gather*}
 
-Теперь, зная все необходимые частные производные, подставим их в изначальное уравнение и получим
+Теперь, зная все необходимые частные производные, подставим их в изначальное
+уравнение и получим
 \begin{gather*}
-\pd{}{x} = \sin\theta\cos\phi\pd{}{r} + \frac{1}{r}\cos\theta\cos\phi\pd{}{\theta} -\frac{1}{r}\frac{\sin\phi}{\sin\theta}\pd{}{\phi};\\
-\pd{}{y} = \sin\theta\sin\phi\pd{}{r} + \frac{1}{r}\cos\theta\sin\phi\pd{}{\theta} +\frac{1}{r}\frac{\cos\phi}{\sin\theta}\pd{}{\phi};\\
-\pd{}{z} = \cos\theta\pd{}{r} -\frac{\sin\theta}{r}\pd{}{\theta}.
+  \pd{}{x} = \sin\theta\cos\phi\pd{}{r} + \frac{1}{r}\cos\theta\cos\phi\pd{}{\theta} -\frac{1}{r}\frac{\sin\phi}{\sin\theta}\pd{}{\phi};\\
+  \pd{}{y} = \sin\theta\sin\phi\pd{}{r} + \frac{1}{r}\cos\theta\sin\phi\pd{}{\theta} +\frac{1}{r}\frac{\cos\phi}{\sin\theta}\pd{}{\phi};\\
+  \pd{}{z} = \cos\theta\pd{}{r} -\frac{\sin\theta}{r}\pd{}{\theta}.
 \end{gather*}
 Подставим эти значения в компоненты момента импульса:
 \begin{align*}
-\hat{L}_z &= -i\hbar(x\pd{}{y} - y\pd{}{x}) =\\
-&= -i\hbar\left(r\sin\theta\cos\phi\left(\sin\theta\sin\phi\pd{}{r} + \frac{1}{r}\cos\theta\sin\phi\pd{}{\theta} +\frac{1}{r}\frac{\cos\phi}{\sin\theta}\pd{}{\phi}\right) - \dots \right).
+  \hat{L}_z &= -i\hbar(x\pd{}{y} - y\pd{}{x}) =\\
+  &= -i\hbar\left(r\sin\theta\cos\phi\left(\sin\theta\sin\phi\pd{}{r} + \frac{1}{r}\cos\theta\sin\phi\pd{}{\theta} +\frac{1}{r}\frac{\cos\phi}{\sin\theta}\pd{}{\phi}\right) - \dots \right).
 \end{align*}
-Можно заметить, что $r\sin^2\theta \cos\phi \sin\phi \pd{}{r} - r\sin^2\theta\cos\phi\sin\phi\pd{}{r} = 0$. Второй член аналогично сократится. Тогда можно записать, что
+Можно заметить, что $r\sin^2\theta \cos\phi \sin\phi \pd{}{r} -
+  r\sin^2\theta\cos\phi\sin\phi\pd{}{r} = 0$. Второй член аналогично сократится.
+Тогда можно записать, что
 \begin{align*}
-    \hat{L}_z &= -i\hbar\left(r\sin\theta\cos\phi\frac{1}{r}\frac{\cos\phi}{\sin\theta}\pd{}{\phi} + r\sin\theta\sin\phi\frac{1}{r}\frac{\sin\phi}{\sin\theta}\pd{}{\phi} \right) =\\ 
-    &= -i\hbar \left(\cos^2\phi+\sin^2\phi\right)\pd{}{\phi} = -i\hbar\pd{}{\phi}.
+  \hat{L}_z &= -i\hbar\left(r\sin\theta\cos\phi\frac{1}{r}\frac{\cos\phi}{\sin\theta}\pd{}{\phi} + r\sin\theta\sin\phi\frac{1}{r}\frac{\sin\phi}{\sin\theta}\pd{}{\phi} \right) =\\
+  &= -i\hbar \left(\cos^2\phi+\sin^2\phi\right)\pd{}{\phi} = -i\hbar\pd{}{\phi}.
 \end{align*}
 Аналогично для других компонент:
 \begin{gather*}
-\hat{L}_x = i\hbar\left(\sin\phi\pd{}{\theta} + \ctg\,\theta\cos\phi \pd{}{\phi}\right);\\
-\hat{L}_y = i\hbar\left(-\cos\phi\pd{}{\theta} + \ctg\,\theta\sin\phi \pd{}{\phi}\right).
+  \hat{L}_x = i\hbar\left(\sin\phi\pd{}{\theta} + \ctg\,\theta\cos\phi \pd{}{\phi}\right);\\
+  \hat{L}_y = i\hbar\left(-\cos\phi\pd{}{\theta} + \ctg\,\theta\sin\phi \pd{}{\phi}\right).
 \end{gather*}
 
-Далее найдём квадрат момента импульса, записав его как: $\hat{L}^2 = \hat{L}^2_x + \hat{L}^2_y + \hat{L}^2_z$:
+Далее найдём квадрат момента импульса, записав его как: $\hat{L}^2 =
+  \hat{L}^2_x + \hat{L}^2_y + \hat{L}^2_z$:
 \[
-\hat{L}^2 = -\hbar^2\left[\frac{1}{\sin\theta}\pd{}{\theta}\left( \sin\theta\pd{}{\theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right].
+  \hat{L}^2 = -\hbar^2\left[\frac{1}{\sin\theta}\pd{}{\theta}\left( \sin\theta\pd{}{\theta} \right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2}\right].
 \]
-Используя производные в сферических координатах, найдём операторы $\hat{\Vec{r}}\hat{\Vec{p}}$ и $(\hat{\Vec{r}}\hat{\Vec{p}})^2$:
+Используя производные в сферических координатах, найдём операторы
+$\hat{\Vec{r}}\hat{\Vec{p}}$ и $(\hat{\Vec{r}}\hat{\Vec{p}})^2$:
 \begin{gather*}
-\hat{\Vec{r}}\hat{\Vec{p}} = -i\hbar r\pd{}{r};\\
-(\hat{\Vec{r}}\hat{\Vec{p}})^2 = -\hbar^2\left( r^2\frac{\partial^2}{\partial r^2} + r\pd{}{r}\right).
+  \hat{\Vec{r}}\hat{\Vec{p}} = -i\hbar r\pd{}{r};\\
+  (\hat{\Vec{r}}\hat{\Vec{p}})^2 = -\hbar^2\left( r^2\frac{\partial^2}{\partial r^2} + r\pd{}{r}\right).
 \end{gather*}
 \qedsq
 
-Посмотрев на получившиеся операторы, сразу можно заметить, что наше предположение о разделении переменных оказалось верным. Действительно, операторы $\hat{\Vec{r}}\hat{\Vec{p}}$ и $(\hat{\Vec{r}}\hat{\Vec{p}})^2$ содержат в себе только радиальную часть, а $\hat{L}^2$ , наоборот, зависит только от углов. Также мы показали, что оператор $\hat{L}^2$ коммутирует с гамильтонианом. 
+Посмотрев на получившиеся операторы, сразу можно заметить, что наше
+предположение о разделении переменных оказалось верным. Действительно,
+операторы $\hat{\Vec{r}}\hat{\Vec{p}}$ и $(\hat{\Vec{r}}\hat{\Vec{p}})^2$
+содержат в себе только радиальную часть, а $\hat{L}^2$ , наоборот, зависит
+только от углов. Также мы показали, что оператор $\hat{L}^2$ коммутирует с
+гамильтонианом.
 
-Казалось бы, ну и отлично, давайте будем искать решения уравнения Шрёдингера в собственных состояниях квадрата момента импульса. Однако на деле не всё так просто. Проблема в том, что оператор $\hat{L}^2$, как мы выяснили ранее, локален в $\mathbf{Y}$. Это значит, что собственные состояния эквивалентного для него оператора во всём пространстве $\hat{1}\otimes\hat{L}^2$ имеют собственные состояния $\ket{R}\otimes\ket{\lambda}$, где $\ket{\lambda}$ --- собственное состояния оператора $\hat{L}^2$ в $\mathbf{Y}$, а $\ket{R}$ --- произвольное состояние в $\mathbf{V}_r$. Эта произвольность как раз и мешает нам находить решение в таком виде --- сильная вырожденность собственных значений оператора $\hat{1}\otimes\hat{L}^2$ не даёт нам уверенности в том, что случайно выбранное состояние вида $\ket{R}\otimes\ket{\lambda}$ будет собственным для гамильтониана. 
+Казалось бы, ну и отлично, давайте будем искать решения уравнения Шрёдингера в
+собственных состояниях квадрата момента импульса. Однако на деле не всё так
+просто. Проблема в том, что оператор $\hat{L}^2$, как мы выяснили ранее,
+локален в $\mathbf{Y}$. Это значит, что собственные состояния эквивалентного
+для него оператора во всём пространстве $\hat{1}\otimes\hat{L}^2$ имеют
+собственные состояния $\ket{R}\otimes\ket{\lambda}$, где $\ket{\lambda}$ ---
+собственное состояния оператора $\hat{L}^2$ в $\mathbf{Y}$, а $\ket{R}$ ---
+произвольное состояние в $\mathbf{V}_r$. Эта произвольность как раз и мешает
+нам находить решение в таком виде --- сильная вырожденность собственных
+значений оператора $\hat{1}\otimes\hat{L}^2$ не даёт нам уверенности в том, что
+случайно выбранное состояние вида $\ket{R}\otimes\ket{\lambda}$ будет
+собственным для гамильтониана.
 
-Получается, из всего многообразия таких состояний нам необходимо отобрать те, которые являются собственными для гамильтониана. Для этого подставим найденные в сферических координатах операторы в уравнение Шрёдингера, запишем волновую функцию как $\psi(r, \theta, \phi) = R(r)Y_{\lambda}(\theta, \phi)$ и заменим оператор $\hat{L}^2$ на его собственное значение: 
+Получается, из всего многообразия таких состояний нам необходимо отобрать те,
+которые являются собственными для гамильтониана. Для этого подставим найденные
+в сферических координатах операторы в уравнение Шрёдингера, запишем волновую
+функцию как $\psi(r, \theta, \phi) = R(r)Y_{\lambda}(\theta, \phi)$ и заменим
+оператор $\hat{L}^2$ на его собственное значение:
 \[
-\left[-\frac{\hbar^2}{2M}\left( r^2\frac{\partial^2}{\partial r^2} + 2r\pd{}{r} \right)  + \frac{\lambda}{2M} + r^2V(r)\right]R(r)Y_{\lambda}(\theta, \phi) = r^2ER(r)Y_{\lambda}(\theta, \phi).
+  \left[-\frac{\hbar^2}{2M}\left( r^2\frac{\partial^2}{\partial r^2} + 2r\pd{}{r} \right)  + \frac{\lambda}{2M} + r^2V(r)\right]R(r)Y_{\lambda}(\theta, \phi) = r^2ER(r)Y_{\lambda}(\theta, \phi).
 \]
-Тогда, воспользовавшись тем, что 
+Тогда, воспользовавшись тем, что
 \[
-r^2\frac{\partial^2}{\partial r^2} + 2r\pd{}{r} = \pd{}{r}\left( r^2 \pd{}{r}\right),
+  r^2\frac{\partial^2}{\partial r^2} + 2r\pd{}{r} = \pd{}{r}\left( r^2 \pd{}{r}\right),
 \]
-и сокращая $Y_{\lambda}(\theta, \phi)$, получим так называемое \textit{радиальное уравнение}:
+и сокращая $Y_{\lambda}(\theta, \phi)$, получим так называемое
+\textit{радиальное уравнение}:
 \[
-\left[-\frac{\hbar^2}{2Mr^2}\pd{}{r}\left( r^2 \pd{}{r}\right)  + \frac{\lambda}{2Mr^2} + V(r)\right]R(r) = ER(r).
+  \left[-\frac{\hbar^2}{2Mr^2}\pd{}{r}\left( r^2 \pd{}{r}\right)  + \frac{\lambda}{2Mr^2} + V(r)\right]R(r) = ER(r).
 \]
 
-Какой полезный вывод можно сделать? Оказывается, если радиальная часть волновой функции $\psi(r, \theta, \phi) = R(r)Y_{\lambda}(\theta, \phi)$ удовлетворяет радиальному уравнению, то эта волновая функция является собственной для гамильтониана с собственным значением E. Таким образом, мы разделили задачу на две: нахождение собственных значений $\hat{L}^2$ (приведение к диагональному виду) и решение диффура. Первую часть задачи достаточно решить один раз. Этим мы и займёмся в следующем семинаре.
+Какой полезный вывод можно сделать? Оказывается, если радиальная часть волновой
+функции $\psi(r, \theta, \phi) = R(r)Y_{\lambda}(\theta, \phi)$ удовлетворяет
+радиальному уравнению, то эта волновая функция является собственной для
+гамильтониана с собственным значением E. Таким образом, мы разделили задачу на
+две: нахождение собственных значений $\hat{L}^2$ (приведение к диагональному
+виду) и решение диффура. Первую часть задачи достаточно решить один раз. Этим
+мы и займёмся в следующем семинаре.
