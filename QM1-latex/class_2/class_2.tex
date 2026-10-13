@@ -23,14 +23,17 @@
 \begin{exercise}\label{ex:commutator-product}
   \textit{Убедитесь в справедливости следующих соотношений:}
   \[
-    [\hat A \hat B, \hat C] = \hat A [\hat B, \hat C] + [\hat A, \hat C]\hat B; \quad [\hat A, \hat B \hat C] = \hat B [\hat A, \hat C] + [\hat A, \hat B] \hat C.
+    [\hat A \hat B, \hat C] = \hat A [\hat B, \hat C] + [\hat A, \hat C]\hat B;
+    \quad [\hat A, \hat B \hat C] = \hat B [\hat A, \hat C] + [\hat A, \hat B] \hat C.
   \]
 \end{exercise}
 
 В этой задаче достаточно знать только определение коммутатора. Раскроем левую и
 правую часть:
 \[
-  \hat A \hat B \hat C - \hat C \hat A \hat B = \hat A \hat B \hat C \cancel{- \hat A \hat C \hat B + \hat A \hat C \hat B} - \hat C \hat A \hat B = \hat A \hat B \hat C - \hat C \hat A \hat B.
+  \hat A \hat B \hat C - \hat C \hat A \hat B = \hat A \hat B \hat C
+  \cancel{- \hat A \hat C \hat B + \hat A \hat C \hat B} - \hat C \hat A \hat B =
+  \hat A \hat B \hat C - \hat C \hat A \hat B.
 \]
 Второе по аналогии.
 \qedsq
@@ -55,10 +58,11 @@
 \end{enumerate}
 
 Из этого следует, что, если операторы коммутируют, то их можно одновременно
-точно измерить. Если нет, то точность измерения будет определяться принципом
-неопределённости Гейзенберга:
+точно измерить. Если нет, то область, в которой будут лежать возможные
+измерения, будет определяться принципом неопределённости Гейзенберга:
 \[
-  \mean{\Delta \hat{A}^2} \mean{\Delta \hat{B}^2} \geq \frac{1}{4} |\mean{[\hat{A}, \; \hat{B}]}|^2.
+  \mean{\Delta \hat{A}^2} \mean{\Delta \hat{B}^2} \geq
+  \frac{1}{4} |\mean{[\hat{A}, \; \hat{B}]}|^2.
 \]
 Доказательство общей теоремы я здесь приводить не буду, лишь оставлю два
 неравенства, которые проще вывести самостоятельно. Итоговое неравенство
@@ -67,21 +71,29 @@
   |\mean{[\hat{A}, \; \hat{B}]}|^2 \leq 4|\mean{\hat{A}\hat{B}}|^2, \\
   \mean{\hat{A}^2} \mean{\hat{B}^2} \geq |\mean{\hat{A}\hat{B}}|^2.
 \end{gather*}
+Применив эти неравенства к отклонениям $\Delta \hat A,\,\Delta \hat B$, получим
+исходное соотношение.
+
 Выполним упражнение на неопределенность.
 \begin{exercise}
   \textit{Пусть $[\hat A, \hat B] = i\hat C$. A, B, C --- эрмитовые операторы.
     Покажите, что в этом случае они удовлетворяют соотношению неопределённости}
   \[
-    \mean{\Delta \hat A^2} \mean{\Delta \hat B^2} \geq \frac{1}{4} \mean{\hat C}^2, \textit{ где } \Delta \hat A = \hat A - \mean{\hat A}.
+    \mean{\Delta \hat A^2} \mean{\Delta \hat B^2} \geq \frac{1}{4} \mean{\hat C}^2,
+    \textit{ где } \Delta \hat A = \hat A - \mean{\hat A}.
   \]
 \end{exercise}
 
-Для начала разберёмся с дисперсией. Посмотрим на коммутатор дисперсий
+Для начала разберёмся с дисперсией. Посмотрим на коммутатор отклонений
 операторов:
 \begin{align*}
-  [\Delta \hat A, \Delta \hat B] &= \left( \hat A - \mean{\hat A} \right) \left( \hat B - \mean{\hat B} \right) - \left( \hat B - \mean{\hat B} \right) \left( \hat A - \mean{\hat A} \right) =\\
-  &= \hat A \hat B - \hat A \mean{\hat B} - \mean{\hat A} \hat B + \mean{\hat A} \mean{\hat B} - \hat B \hat A + \hat B \mean{\hat A} + \\
-  &+ \mean{\hat B} \hat A - \mean{\hat A} \mean{\hat B} = \hat A \hat B - \hat B \hat A = [\hat A, \hat B] = i\hat C.
+  [\Delta \hat A, \Delta \hat B] &= \left( \hat A - \mean{\hat A} \right)
+  \left( \hat B - \mean{\hat B} \right) - \left( \hat B - \mean{\hat B} \right)
+  \left( \hat A - \mean{\hat A} \right) =\\
+  &= \hat A \hat B - \hat A \mean{\hat B} - \mean{\hat A} \hat B +
+  \mean{\hat A} \mean{\hat B} - \hat B \hat A + \hat B \mean{\hat A} + \\
+  &+ \mean{\hat B} \hat A - \mean{\hat A} \mean{\hat B} =
+  \hat A \hat B - \hat B \hat A = [\hat A, \hat B] = i\hat C.
 \end{align*}
 Мы сократили все члены со средними значениями, так как среднее значение --- это
 число и оно всегда коммутирует с операторами.
@@ -92,9 +104,14 @@ $\ket{\varphi} = (\Delta\hat A - i\gamma\Delta\hat B)\ket{\psi}$, где $\gamma
 величина неотрицательная, то есть $\braket{\varphi}{\varphi} \geq 0$, подставим
 значение векторов и перейдём к квадратному уравнению относительно $\gamma$:
 \begin{align*}
-  \braket{\varphi}{\varphi} &= \bra{\psi} \left( \Delta \hat A + i \gamma \Delta \hat B \right) \left( \Delta \hat A - i \gamma \Delta \hat B \right) \ket{\psi} = \bra{\psi} \Delta \hat{A}^2 \ket{\psi} + \\
-  &+ \bra{\psi} i \gamma \Delta \hat{B} \Delta \hat{A} \ket{\psi} - \bra{\psi} i \gamma \Delta \hat{A} \Delta \hat{B} \ket{\psi} + \bra{\psi} \gamma^2 \Delta \hat{B}^2 \ket{\psi} = \\
-  &= \mean{\Delta \hat A^2} - i \gamma \mean{[\Delta \hat{A}, \; \Delta \hat{B}]} + \gamma^2 \mean{\Delta \hat B^2} = \\
+  \braket{\varphi}{\varphi} &= \bra{\psi} \left( \Delta \hat A + i \gamma \Delta \hat B \right)
+  \left( \Delta \hat A - i \gamma \Delta \hat B \right) \ket{\psi} =
+  \bra{\psi} \Delta \hat{A}^2 \ket{\psi} + \\
+  &+ \bra{\psi} i \gamma \Delta \hat{B} \Delta \hat{A} \ket{\psi} -
+  \bra{\psi} i \gamma \Delta \hat{A} \Delta \hat{B} \ket{\psi} +
+  \bra{\psi} \gamma^2 \Delta \hat{B}^2 \ket{\psi} = \\
+  &= \mean{\Delta \hat A^2} - i \gamma \mean{[\Delta \hat{A}, \; \Delta \hat{B}]} +
+  \gamma^2 \mean{\Delta \hat B^2} = \\
   &= \gamma^2 \mean{\Delta \hat B^2} + \gamma \mean{\hat{C}} + \mean{\Delta \hat A^2} \geq 0.
 \end{align*}
 Получилось квадратное уравнение, ветви параболы смотрят вверх. Так как нам
@@ -116,13 +133,21 @@ $\ket{\varphi} = (\Delta\hat A - i\gamma\Delta\hat B)\ket{\psi}$, где $\gamma
     \hline
     Ортонормальность & $\braket{a_i}{a_j} = \delta_{ij}$ & $\braket{x}{x'} = \delta (x - x')$ \\
     \hline
-    Разложение состояния & \(\displaystyle \ket{\psi} = \sum_i \psi_i \ket{a_i}\) &  \(\displaystyle \ket{\psi} = \int\limits_{-\infty}^{+\infty} \psi(x) \ket{x}dx\) \newline \(\displaystyle \psi(x) = \braket{x}{\psi}\) \\
+    Разложение состояния & \(\displaystyle \ket{\psi} = \sum_i \psi_i \ket{a_i}\) &
+    \(\displaystyle \ket{\psi} = \int\limits_{-\infty}^{+\infty} \psi(x) \ket{x}dx\)
+    \newline \(\displaystyle \psi(x) = \braket{x}{\psi}\) \\
     \hline
-    Измерения & $P(a_i) = |\braket{a_i}{\psi}|^2$ \newline (вероятность) & $P(x) = |\psi(x)|^2$\newline (плотность вероятности) \\
+    Измерения & $P(a_i) = |\braket{a_i}{\psi}|^2$ \newline (вероятность) & $P(x) =
+      |\psi(x)|^2$\newline (плотность вероятности) \\
     \hline
-    Разложение оператора & $A_{ij} = \bra{a_i} \hat{A} \ket{a_j}$ \newline \(\displaystyle \hat{A} = \sum_{i,j} A_{ij} \ket{a_i} \bra{a_j}\) & $A(x, x') = \bra{x} \hat{A} \ket{x'}$ \newline \(\displaystyle \hat{A} = \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} A(x, x') \ket{x} \bra{x'} dx \; dx'\) \\
+    Разложение оператора & $A_{ij} = \bra{a_i} \hat{A} \ket{a_j}$
+    \newline \(\displaystyle \hat{A} = \sum_{i,j} A_{ij} \ket{a_i} \bra{a_j}\) & $A(x, x') =
+      \bra{x} \hat{A} \ket{x'}$ \newline \(\displaystyle \hat{A} =
+    \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} A(x, x')
+    \ket{x} \bra{x'} dx \; dx'\) \\
     \hline
-    Разложение $\hat{1}$ & \(\displaystyle \hat{1} = \sum_i \ket{a_i} \bra{a_i} \) & \(\displaystyle \hat{1} = \int\limits_{-\infty}^{+\infty} \ket{a_i} \bra{a_i} dx\) \\
+    Разложение $\hat{1}$ & \(\displaystyle \hat{1} = \sum_i \ket{a_i} \bra{a_i} \) &
+    \(\displaystyle \hat{1} = \int\limits_{-\infty}^{+\infty} \ket{x} \bra{x} dx\) \\
     \hline
   \end{tabular}
 \end{center}
@@ -130,7 +155,7 @@ $\ket{\varphi} = (\Delta\hat A - i\gamma\Delta\hat B)\ket{\psi}$, где $\gamma
 Теперь можно ввести два новых оператора: оператор координаты $\hat{x}$ и
 оператор импульса $\hat{p}$. Начнём с координаты. В отличие от геометрического
 пространства, где координата имеет размерность 1, Гильбертово пространство
-обладает бесконечной размерностью, то есть существует бесконечно много
+может обладать бесконечной размерностью, то есть существует бесконечно много
 координатных собственных состояний $\ket{x}$\footnote[1]{Обычно, если внутри
   кет-состояния пишется символ, совпадающий с оператором, например
   $\hat{x}\ket{x}$, то таким способом указывают на то, что эти состояния
@@ -143,7 +168,8 @@ $\ket{\varphi} = (\Delta\hat A - i\gamma\Delta\hat B)\ket{\psi}$, где $\gamma
 реальные состояния есть лишь линейная комбинация этих состояний. Давайте
 посмотрим, как действует оператор координаты на свои собственные состояния:
 \begin{align*}
-  \hat{x} \ket{x} &= \left( \int_{-\infty}^{+\infty} x' \ket{x'} \bra{x'}dx' \right) \ket{x} = \int_{-\infty}^{+\infty} x' \ket{x'} \braket{x'}{x} dx' = \\
+  \hat{x} \ket{x} &= \left( \int_{-\infty}^{+\infty} x' \ket{x'} \bra{x'}dx' \right)
+  \ket{x} = \int_{-\infty}^{+\infty} x' \ket{x'} \braket{x'}{x} dx' = \\
   &= \int_{-\infty}^{+\infty} x' \ket{x'} \delta(x'-x) dx' = x \ket{x}.
 \end{align*}
 Получается, что действие оператора координаты на свои собственные состояния
@@ -159,8 +185,10 @@ $\ket{\varphi} = (\Delta\hat A - i\gamma\Delta\hat B)\ket{\psi}$, где $\gamma
 Волна де Бройля --- проявление корпускулярно-волнового дуализма. Из этой
 формулы можно вывести следующую связь:
 \begin{gather*}
-  \ket{p} = \frac{1}{\sqrt{2 \pi \hbar}}\int\limits_{-\infty}^{+\infty} e^{i \frac{px}{\hbar}} \ket{x} dx; \\
-  \ket{x} = \frac{1}{\sqrt{2\pi\hbar}} \int\limits_{-\infty}^{+\infty} e^{-i \frac{px}{\hbar}} \ket{p} dp.
+  \ket{p} = \frac{1}{\sqrt{2 \pi \hbar}}\int\limits_{-\infty}^{+\infty}
+  e^{i \frac{px}{\hbar}} \ket{x} dx; \\
+  \ket{x} = \frac{1}{\sqrt{2\pi\hbar}} \int\limits_{-\infty}^{+\infty}
+  e^{-i \frac{px}{\hbar}} \ket{p} dp.
 \end{gather*}
 
 Давайте посмотрим на квадрат волновой функции де Бройля: $|\braket{x}{p}|^2 =
@@ -168,13 +196,15 @@ $\ket{\varphi} = (\Delta\hat A - i\gamma\Delta\hat B)\ket{\psi}$, где $\gamma
 пространству, то он будет бесконечен. Как уже говорилось ранее, собственные
 состояния оператора координаты и импульса нефизичны, так как мы предполагаем,
 что знаем импульс точно. Реальные же состояния нормированные, модуль квадрата
-будет соответствовать вероятности. Давайте разберёмся, откуда у нас появляется
-этот нормировочный множитель, вычислив $\braket{p}{p'}$ через $\braket{x}{x'}$
-(далее я буду опускать пределы интеграла, кроме случаев, где они неочевидны):
+будет соответствовать плотности вероятности. Давайте разберёмся, откуда у нас
+появляется этот нормировочный множитель, вычислив $\braket{p}{p'}$ через
+$\braket{x}{x'}$ (далее я буду опускать пределы интеграла, кроме случаев, где
+они неочевидны):
 \begin{align*}
   \braket{p}{p'} &= \frac{1}{2 \pi \hbar} \int \int e^{i \frac{p'x' - px}{\hbar}} \braket{x}{x'} dx dx' = \\
   &= \frac{1}{2 \pi \hbar} \int \int e^{i \frac{p'x' - px}{\hbar}} \delta(x - x') dx dx' =\\
-  &= \frac{1}{2 \pi \hbar}\int e^{i \frac{(p' - p) x}{\hbar}}dx = \frac{1}{2 \pi \hbar} 2 \pi \hbar \delta\left(p' - p\right) = \delta(p - p').
+  &= \frac{1}{2 \pi \hbar}\int e^{i \frac{(p' - p) x}{\hbar}}dx =
+  \frac{1}{2 \pi \hbar} 2 \pi \hbar \delta\left(p' - p\right) = \delta(p - p').
 \end{align*}
 В предпоследнем выражении мы воспользовались тем, что $\int_{-\infty}^{+\infty}
   e^{iapx} dx = \frac{2 \pi \delta(p)}{|a|}$. Это следует из Фурье разложения:
@@ -192,8 +222,10 @@ $f(x) = 1$, где $a=1$. Затем этот результат обобщае�
 Используя его, найдём явную формулу для преобразования координатного
 представления $\psi(x)$ в $\psi(p)$.
 \begin{align*}
-  \psi(x) &= \braket{x}{\psi} = \bra{x} \hat{1}_p \ket{\psi} = \bra{x} \left( \int \ket{p} \bra{p} dp \right) \ket{\psi} = \\
-  &= \int \braket{x}{p} \braket{p}{\psi} dp = \frac{1}{\sqrt{2 \pi \hbar}} \int e^{i \frac{p x}{\hbar}} \psi(p) dp.
+  \psi(x) &= \braket{x}{\psi} = \bra{x} \hat{1}_p \ket{\psi} = \bra{x}
+  \left( \int \ket{p} \bra{p} dp \right) \ket{\psi} = \\
+  &= \int \braket{x}{p} \braket{p}{\psi} dp =
+  \frac{1}{\sqrt{2 \pi \hbar}} \int e^{i \frac{p x}{\hbar}} \psi(p) dp.
 \end{align*}
 Обратно то же самое, но с минусом в экспоненте:
 \[
@@ -211,20 +243,24 @@ $\psi(p) = \psi(k)/\sqrt{\hbar}$, а переход будет иметь вид
 найдём матричный элемент оператора импульса, то есть $\bra{x} \hat{p}
   \ket{x'}$:
 \[
-  \bra{x} \hat{p} \ket{x'} = \int p \braket{x}{p} \braket{p}{x'} dp = \frac{1}{2 \pi \hbar} \int p e^{\frac{i p}{\hbar}(x - x')} dp.
+  \bra{x} \hat{p} \ket{x'} = \int p \braket{x}{p} \braket{p}{x'} dp =
+  \frac{1}{2 \pi \hbar} \int p e^{\frac{i p}{\hbar}(x - x')} dp.
 \]
 Представим $p e^{\frac{i p}{\hbar}(x - x')} = -i \hbar \frac{d}{dx} e^{\frac{i
         p}{\hbar}(x - x')}$. Тогда
 \begin{gather*}
-  \frac{1}{2 \pi \hbar} \int p e^{\frac{i p}{\hbar}(x - x')} dp = \frac{1}{2 \pi \hbar}(-i \hbar) \frac{d}{dx} \int e^{\frac{i p}{\hbar}(x - x')} dp = \\
-  = \frac{1}{2 \pi \hbar}(-i \hbar)\frac{d}{dx}(2 \pi \hbar)\delta(x - x') = -i \hbar \frac{d}{dx} \delta(x - x').
+  \frac{1}{2 \pi \hbar} \int p e^{\frac{i p}{\hbar}(x - x')} dp =
+  \frac{1}{2 \pi \hbar}(-i \hbar) \frac{d}{dx} \int e^{\frac{i p}{\hbar}(x - x')} dp = \\
+  = \frac{1}{2 \pi \hbar}(-i \hbar)\frac{d}{dx}(2 \pi \hbar)\delta(x - x') = -i \hbar
+  \frac{d}{dx} \delta(x - x').
 \end{gather*}
 Теперь выясним, как действует оператор на произвольное состояние в координатном
 представлении:
 \begin{align*}
-  \bra{x} \hat{p} \ket{\psi} &= \bra{x} \hat{p} \hat{1} \ket{\psi} = \int \bra{x} \hat{p} \ket{x'} \braket{x'} {\psi} dx' = \\
+  \bra{x} \hat{p} \ket{\psi} &= \bra{x} \hat{p} \hat{1} \ket{\psi} =
+  \int \bra{x} \hat{p} \ket{x'} \braket{x'} {\psi} dx' = \\
   &= -i \hbar \int \left[\frac{d}{dx} \delta(x - x')\right] \psi(x') dx' = \\
-  &= -i\hbar \int\left[ -\frac{d}{dx} \delta(x' - x)\ \right] \psi(x') dx' = -i \hbar \frac{d}{dx} \psi(x).
+  &= -i\hbar\frac{d}{dx}\int\delta(x-x')\psi(x')dx' = -i \hbar \frac{d}{dx} \psi(x).
 \end{align*}
 Действие оператора импульса на волновую функцию в координатном базисе можно
 записать как $\hat{p} \psi(x) = -i \hbar \frac{d}{dx} \psi(x)$. Такими же
@@ -244,7 +280,11 @@ $\psi(p) = \psi(k)/\sqrt{\hbar}$, а переход будет иметь вид
   \pd{\psi(\mathbf r)}{x_{\alpha}}$. Вспомним, что коммутатор сам по себе тоже
 является оператором, и применим его к волновой функции в координатном базисе:
 \begin{gather*}
-  [\hat p_{\alpha}, G(\hat{\mathbf{r}})] f(\mathbf{r}) = -(i\hbar \pd{G(\hat{\mathbf{r}})}{x_{\alpha}}f(\mathbf{r}) + i\hbar G(\hat{\mathbf{r}}) \pd{f(\mathbf{r})}{x_{\alpha}}) + i\hbar G(\hat{\mathbf{r}})\pd{f(\mathbf{r})}{x_{\alpha}} = -i\hbar \pd{G(\hat{\mathbf{r}})}{x_{\alpha}} f(\mathbf{r}).
+  [\hat p_{\alpha}, G(\hat{\mathbf{r}})] f(\mathbf{r}) =
+  -(i\hbar \pd{G(\hat{\mathbf{r}})}{x_{\alpha}}f(\mathbf{r}) +
+  i\hbar G(\hat{\mathbf{r}}) \pd{f(\mathbf{r})}{x_{\alpha}}) +
+  i\hbar G(\hat{\mathbf{r}})\pd{f(\mathbf{r})}{x_{\alpha}} =
+  -i\hbar \pd{G(\hat{\mathbf{r}})}{x_{\alpha}} f(\mathbf{r}).
 \end{gather*}
 Второе делается аналогично, только вместо действия оператора импульса на
 волновую функцию в координатном представлении, мы действуем оператором
@@ -262,18 +302,24 @@ $\psi(p) = \psi(k)/\sqrt{\hbar}$, а переход будет иметь вид
 
 Сначала покажем, чему равен коммутатор $[\hat{x}_{\alpha}, \hat{p}_{\beta}]$:
 \begin{gather*}
-  [\hat{x}_{\alpha}, \hat{p}_{\beta}] \psi(x) = \hat{x}_{\alpha} \hat{p}_{\beta} \psi(x) - \hat{p}_{\beta} \hat{x}_{\alpha} \psi(x) = \\
-  = -x_{\alpha} i \hbar \pd{}{x_{\beta}} \psi(x) + i \hbar \pd{x_{\alpha}}{x_{\beta}} \psi(x) + i \hbar x_{\alpha} \pd{}{x_{\beta}} \psi(x) = i \hbar \delta_{\alpha \beta}\psi(x).
+  [\hat{x}_{\alpha}, \hat{p}_{\beta}] \psi(x) = \hat{x}_{\alpha} \hat{p}_{\beta} \psi(x) -
+  \hat{p}_{\beta} \hat{x}_{\alpha} \psi(x) = \\
+  = -x_{\alpha} i \hbar \pd{}{x_{\beta}} \psi(x) +
+  i \hbar \pd{x_{\alpha}}{x_{\beta}} \psi(x) + i \hbar x_{\alpha} \pd{}{x_{\beta}} \psi(x) =
+  i \hbar \delta_{\alpha \beta}\psi(x).
 \end{gather*}
 Получается, $[\hat{x}_{\alpha}, \hat{p}_{\beta}] = i \hbar \delta_{\alpha
     \beta}$. Идём дальше, пользуясь результатом, полученном в упражнении № 1.6:
 \begin{align*}
-  [\hat x_{\alpha}, \hat{\mathbf{p}}^2] &= \hat{p}_{\beta} [\hat{x}_{\alpha}, \hat{p}_{\beta}] + [\hat{x}_{\alpha}, \hat{p}_{\beta}] \hat{p}_{\beta} = \\ &= 2 i \hbar \delta_{\alpha \beta} \hat{p}_{\beta} = 2 i \hbar \hat{p}_{\alpha}.
+  [\hat x_{\alpha}, \hat{\mathbf{p}}^2] &= \hat{p}_{\beta}
+  [\hat{x}_{\alpha}, \hat{p}_{\beta}] + [\hat{x}_{\alpha}, \hat{p}_{\beta}] \hat{p}_{\beta} =\\
+  &= 2 i \hbar \delta_{\alpha \beta} \hat{p}_{\beta} = 2 i \hbar \hat{p}_{\alpha}.
 \end{align*}
-Следующее ещё проще. Мы знаем выражение для $[\hat p, U(\hat r)]$, здесь нужно
-найти обратный коммутатор. А он равен «прямому» с другим знаком, то есть
+Следующее ещё проще. Мы знаем выражение для $[\hat{\mathbf{p}}, U(\hat r)]$,
+здесь нужно найти обратный коммутатор. А он равен «прямому» с другим знаком, то
+есть
 \[
-  [U(\mathbf{r}), \hat{p}_{\alpha}] = - [\hat{p}_\alpha, U(\mathbf{r})] = i \hbar \nabla U(\mathbf{r}).
+  [U(\mathbf{r}), \hat{\mathbf{p}}] = - [\hat{\mathbf{p}}, U(\mathbf{r})] = i \hbar \nabla U(\mathbf{r}).
 \]
 В последнем придётся немного посчитать:
 \begin{gather*}
@@ -308,17 +354,20 @@ $\psi(p) = \psi(k)/\sqrt{\hbar}$, а переход будет иметь вид
   T_{a}$ и $\hat{p}$. Для этого разложим функцию, на которую подействовал
 оператор трансляции, в ряд Тейлора:
 \[
-  \hat T_{a} f(x) = f(x + a) = \sum\limits_{k=0}^{\infty} \frac{a^k f^{(k)}(x)}{k!} = \sum\limits_{k=0}^{\infty} \frac{a^k (\pd{}{x})^k f(x)}{k!} = e^{a \pd{}{x}} f(x).
+  \hat T_{a} f(x) = f(x - a) = \sum\limits_{k=0}^{\infty} \frac{(-a)^k f^{(k)}(x)}{k!} =
+  \sum\limits_{k=0}^{\infty} \frac{(-a)^k (\pd{}{x})^k f(x)}{k!} = e^{-a \pd{}{x}} f(x).
 \]
 Вспомним, что оператор импульса в координатном представлении действует как
 производная. Тогда можно записать
 \[
-  \hat T_{a} = e^{a\nabla} = e^{\frac{i}{\hbar}a\hat{\mathbf{p}}}.
+  \hat T_{a} = e^{-a\nabla} = e^{-\frac{i}{\hbar}a\hat{\mathbf{p}}}.
 \]
 Возвращаясь к условию упражнения, видим, что это равносильно действию оператора
 трансляции с двух сторон (с разными знаками а):
 \[
-  e^{\frac{i}{\hbar} a \hat{\mathbf{p}}} U(\mathbf{r}) e^{-\frac{i}{\hbar} a \hat{\mathbf{p}}} f(\mathbf{r}) = \hat T_{a} U(\mathbf{r}) \hat T_{-a} f(\mathbf{r}) = \hat T_{a}U(\mathbf{r}) f(\mathbf{r - a}) = U(\mathbf{r + a}) f(\mathbf{r}).
+  e^{\frac{i}{\hbar} a \hat{\mathbf{p}}} U(\mathbf{r}) e^{-\frac{i}{\hbar} a \hat{\mathbf{p}}}
+  f(\mathbf{r}) = \hat T_{-a} U(\mathbf{r}) \hat T_{a} f(\mathbf{r}) = \hat T_{-a}U(\mathbf{r})
+  f(\mathbf{r - a}) = U(\mathbf{r + a}) f(\mathbf{r}).
 \]
 \qedsq
 \begin{exercise}
