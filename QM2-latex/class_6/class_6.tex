@@ -1,2 +1,105 @@
 \section{Семинар \thesection}
 \subsection{Задачи по теории рассеяния}
+
+\begin{exercise}
+  \textit{С помощью ``золотого правила'' Ферми получите формулу для
+    дифференциального сечения упругого рассеяния в борновском приближении}
+\end{exercise}
+
+По определению,
+\[
+  d\sigma = \frac{dw}{j},
+\]
+где $dw$ -- вероятность частицы рассеяться в телесном угле $d\Omega$, $j$ --
+плотность потока падающих частиц.
+
+Напомним, что такое золотое правило Ферми:
+\[
+  w_{i\rightarrow n} = \frac{2\pi}{\hbar}\overline{|V_{ni}|^2} \rho(E_n)_{E_n\simeq E_i}.
+\]
+Это правило позволяет найти скорость перехода из начального состояния $i$ в
+конечное состояние $n$. Нам же удобнее пользоваться его дифференциальной
+формой:
+\[
+  dw_{i\to n} = \frac{2\pi}{\hbar}|V_{ni}|^2 \delta(E_n-E_i)d\nu_n,
+\]
+где $E_i = \frac{p^2}{2m}$, $E_n = \frac{p'^2}{2m}$ -- начальная и конечная
+энергии частицы, $V_{ni} = \bra{n}\hat{V}\ket{i}$, $d\nu_n$ -- число конечных
+состояний в бесконечно малом интервале.
+
+Выпишем уравнение Шрёдингера для свободной частицы:
+\[
+  -\frac{\hbar^2}{2m}\Delta\psi_i = E\psi_i, \quad E = \frac{\hbar^2 k^2}{2m}.
+\]
+Решением является плоская волна:
+\[
+  \psi_i(\textbf{r}) = C_i e^{i \textbf{k}\cdot \textbf{r}}.
+\]
+Плотность потока равна
+\[
+  \textbf{j} = -\frac{i\hbar}{2m}(\psi_i^{*}\nabla\psi_i - \psi_i \nabla\psi_i^{*}) = \frac{\hbar\textbf{k}}{m}|C_i|^2
+\]
+Отнормируем плотность потока на единицу:
+\begin{gather*}
+  \frac{\hbar k}{m}|C_i|^2 = 1 \Longrightarrow C_i = \sqrt{\frac{m}{\hbar k}} = \sqrt{\frac{m}{p}}, \\
+  \psi_i(\textbf{r}) = \sqrt{\frac{m}{p}}e^{i\textbf{p}\cdot\textbf{r}/\hbar}
+\end{gather*}
+
+Запишем теперь волновую функцию конечного состояния:
+\[
+  \psi_n = C_n e^{i\textbf{p}'\cdot \textbf{r}/\hbar}.
+\]
+Конечные состояния образуют непрерывный спектр, поэтому для нормировки
+воспользуемся условием ортогональности:
+\[
+  \braket{\nu}{\nu'} = \delta(\nu-\nu').
+\]
+Подставляя волновую функцию, получим
+\[
+  \int \psi^{*}_{\textbf{p}''}\psi_{\textbf{p}'} d^3 r = |C_n|^2\int e^{i(\textbf{p}' - \textbf{p}'')\cdot r / \hbar}d^3 r = |C_n|^2 (2\pi\hbar)^3\delta(\textbf{p}' - \textbf{p}'')
+\]
+Отсюда,
+\[
+  C_n = \frac{1}{\sqrt{8\pi^3\hbar^3}}, \quad \psi_n(\textbf{r}) = \frac{1}{\sqrt{8\pi^3\hbar^3}}e^{i\textbf{p}'\cdot\textbf{r}/\hbar}
+\]
+
+Теперь мы можем вычислить матричный элемент
+\[
+  V_{\textbf{p}'\textbf{p}} = \int\psi_n^{*}V(\textbf{r})\psi_i d^3 r = \sqrt{\frac{m}{p}}\frac{1}{\sqrt{8\pi^3\hbar^3}}\int V(\textbf{r}) e^{-i\textbf{q}\textbf{r}}d^3 r,\quad \textbf{q} = \frac{\textbf{p}'-\textbf{p}}{\hbar},
+\]
+а также квадрат его модуля:
+\[
+  |V_{\textbf{p}'\textbf{p}}|^2 = \frac{m}{p}\cdot\frac{1}{8\pi^3\hbar^3}\left|\int V(\mathbf{r})e^{-i\mathbf{q}\cdot\mathbf{r}}\right|.
+\]
+
+Наконец, выразим разность энергий через импульсы:
+\[
+  E_n-E_i = \frac{p'^2-p^2}{2m},
+\]
+и подставим в правило Ферми, пользуясь тем, что $\delta(ax) = \delta(x)/|a|$:
+\[
+  dw_{ni} = \frac{2\pi}{\hbar}\cdot2m|V_{\mathbf{p'p}}|^2\delta(p'^2-p)^2d^3p' = \frac{4\pi m}{\hbar}|V_{\mathbf{p'p}}|^2\delta(p^2-p'^2)d^3p'
+\]
+
+Заметим, что нас интересует лишь направление вылета частицы после рассеяния,
+значит, можно перейти к сферическим координатам:
+\[
+  d^3p' = p'^2dp'd\Omega = \frac{1}{2}p'd(p'^2)d\Omega
+\]
+Теперь, мы можем найти $dw$, интегрируя по $d(p'^2)$:
+\[
+  dw = \frac{4\pi m}{\hbar}\int|V_{\mathbf{p'p}}|^2\delta(p^2-p'^2)d\Omega = \frac{4\pi m}{\hbar}|V_{\mathbf{p'p}}|^2\cdot\frac{1}{2}p d\Omega = \frac{2\pi m p}{\hbar}|V_{\mathbf{p'p}}|^2d\Omega, \quad |p'| = p.
+\]
+Интегрирование по $d(p'^2)$ избавляет нас от дельта-функции, оставляя $p'=p$,
+что и соответствует упругому рассеянию.
+
+Подставим найденный матричный элемент:
+\[
+  dw = \frac{m^2}{3\pi^2\hbar^4}\left|\int v(\mathbf{r})e^{-i\mathbf{q}\cdot \mathbf{r}}\right|^2d\Omega
+\]
+Осталось лишь вычислить дифференциальное сечение рассеяния, помня о том, что
+$j=1$ по нашей нормировке, а значит, $d\sigma = d\omega$:
+\[
+  \frac{d\sigma}{d\Omega} = \left(\frac{m}{2\pi\hbar^2}\right)^2\left|\int V(\mathbf{r})e^{-i\mathbf{q}\cdot\mathbf{r}}d^3 r\right|^2, \quad \mathbf{q} = \frac{\mathbf{p'}-\mathbf{p}}{\hbar}, \quad |\mathbf{p'}| = |\mathbf{p}|
+\]
+\qedsq
