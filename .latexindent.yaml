@@ -37,8 +37,9 @@ modifyLineBreaks:
     blocksFollow:
       other: '\\\]|\\item(?:\h|\[)|\\end\{[^}]*\}|\\begin\{(?:exercise|center|flushright|itemize|enumerate)\}(?:\\label\{[^}]*\})?|\\(?:sub)*section\*?\{[^}]*\}|\\newpage|\\qedsq'
     # The defaults only allow A-Z and a-z, which skips every Russian paragraph.
+    # ` lets a paragraph open with a ``quoted'' word.
     blocksBeginWith:
       A-Z: 1
       a-z: 1
       0-9: 1
-      other: '\p{L}|\$|\\(?:text|emph|mathbf|ref|eqref|cite)'
+      other: '\p{L}|`|\$|\\(?:text|emph|mathbf|ref|eqref|cite)'
